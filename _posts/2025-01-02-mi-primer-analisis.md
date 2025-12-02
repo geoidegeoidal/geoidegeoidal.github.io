@@ -13,7 +13,7 @@ El sistema resalta los bloques de código automáticamente:
 ```python
 import geopandas as gpd
 import matplotlib.pyplot as plt
-
+```
 # Cargar dataset de incendios
 gdf = gpd.read_file("incendios.shp")
 
