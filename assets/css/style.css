@@ -113,19 +113,22 @@ p { animation-delay: 0.3s; }
 
 /* 3. EFECTO GLITCH (Distorsión) EN HOVER */
 /* Al pasar el mouse por el Título Principal */
+
 h1:hover {
+    /* Agregamos opacity: 1 para que no desaparezca */
+    opacity: 1 !important; 
     animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
     color: var(--neon-pink);
     text-shadow: 2px 0 var(--neon-cyan), -2px 0 var(--neon-green);
 }
 
 @keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
+    0% { transform: translate(0); opacity: 1; }
+    20% { transform: translate(-2px, 2px); opacity: 1; }
+    40% { transform: translate(-2px, -2px); opacity: 1; }
+    60% { transform: translate(2px, 2px); opacity: 1; }
+    80% { transform: translate(2px, -2px); opacity: 1; }
+    100% { transform: translate(0); opacity: 1; }
 }
 
 /* 4. CURSOR PARPADEANTE */
