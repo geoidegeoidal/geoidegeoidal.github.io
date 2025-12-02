@@ -8,25 +8,40 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
+    <style>
+        /* Agregamos estilo para el gatillo secreto */
+        .secret-trigger {
+            cursor: help; /* El cursor cambia a interrogación */
+            transition: 0.3s;
+        }
+        .secret-trigger:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+    </style>
 </head>
 <body>
+
     <div class="tactical-grid">
         <div class="vehicle v1"></div>
         <div class="vehicle v2"></div>
         <div class="vehicle v3"></div>
         <div class="vehicle v4"></div>
     </div>
+
     <header>
         <div class="logo">
             <i class="fas fa-satellite-dish"></i> JORGE_ULLOA_ROA
         </div>
         <nav>
-        <nav>
             <a href="{{ '/' | relative_url }}">BIO</a>
             <a href="{{ '/maps.html' | relative_url }}">MAPAS</a>
-            <a href="{{ '/code.html' | relative_url }}">CÓDIGO</a> <a href="{{ '/blog.html' | relative_url }}">BLOG</a>
+            <a href="{{ '/code.html' | relative_url }}">CÓDIGO</a>
+            <a href="{{ '/blog.html' | relative_url }}">BLOG</a>
             <a href="#contacto">CONTACTO</a>
-        </nav>
         </nav>
     </header>
 
@@ -35,12 +50,155 @@
     </main>
 
     <footer>
-        <p>STATUS: OPERATIONAL | © 2025 JORGE ULLOA ROA</p>
+        <p>
+            <span class="secret-trigger" onclick="initGame()" title="System Override">STATUS: OPERATIONAL</span> 
+            | © 2025 JORGE ULLOA ROA
+        </p>
         <p>
             <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank">LINKEDIN</a> | 
             <a href="https://github.com/{{ site.github_username }}" target="_blank">GITHUB</a>
         </p>
     </footer>
 
+    <div id="game-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:99999; align-items:center; justify-content:center; flex-direction:column; font-family: 'Share Tech Mono', monospace;">
+        
+        <div style="margin-bottom: 20px; text-align: center;">
+            <h2 style="color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan); margin: 0;">>> DATA HUNTER_V1.0</h2>
+            <p style="color: #888;">USE ARROW KEYS (PC) or SWIPE (MOBILE) TO COLLECT DATA.</p>
+            <div style="color: var(--neon-pink); font-size: 1.5rem; margin-top: 10px;">DATA MINED: <span id="score-board">0</span> TB</div>
+        </div>
+
+        <canvas id="game-canvas" width="300" height="300" style="border: 2px solid var(--neon-green); box-shadow: 0 0 20px var(--neon-green); background: #050505;"></canvas>
+
+        <div style="margin-top: 20px; display: flex; gap: 20px;">
+            <button onclick="changeDir('LEFT')" class="btn-cyber" style="padding: 10px;">←</button>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+                <button onclick="changeDir('UP')" class="btn-cyber" style="padding: 10px;">↑</button>
+                <button onclick="changeDir('DOWN')" class="btn-cyber" style="padding: 10px;">↓</button>
+            </div>
+            <button onclick="changeDir('RIGHT')" class="btn-cyber" style="padding: 10px;">→</button>
+        </div>
+
+        <div id="game-over-msg" style="display:none; position: absolute; background: rgba(0,0,0,0.9); padding: 40px; border: 1px solid var(--neon-pink); text-align: center; top: 30%;">
+            <h1 style="color: var(--neon-pink); font-size: 3rem;">SYSTEM FAILURE</h1>
+            <button onclick="resetGame()" class="btn-cyber">REBOOT SYSTEM</button>
+            <br><br>
+            <button onclick="closeGame()" style="background:none; border:none; color:#666; cursor:pointer;">[ EXIT ]</button>
+        </div>
+        
+        <button onclick="closeGame()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:white; font-size:2rem; cursor:pointer;">&times;</button>
+    </div>
+
+    <script>
+        // --- LÓGICA DEL JUEGO SNAKE ---
+        const canvas = document.getElementById("game-canvas");
+        const ctx = canvas.getContext("2d");
+        const scoreEl = document.getElementById("score-board");
+        const gameOverMsg = document.getElementById("game-over-msg");
+        const overlay = document.getElementById("game-overlay");
+
+        let tile = 15; // Tamaño celda
+        let snake = [];
+        let food = {};
+        let d; 
+        let score = 0;
+        let game;
+
+        function initGame() {
+            overlay.style.display = "flex";
+            resetGame();
+        }
+
+        function resetGame() {
+            gameOverMsg.style.display = "none";
+            snake = [];
+            snake[0] = { x: 10 * tile, y: 10 * tile };
+            generateFood();
+            score = 0;
+            d = null; 
+            scoreEl.innerText = score;
+            clearInterval(game);
+            game = setInterval(draw, 100); 
+        }
+
+        function generateFood() {
+            food = {
+                x: Math.floor(Math.random() * (canvas.width/tile)) * tile,
+                y: Math.floor(Math.random() * (canvas.height/tile)) * tile
+            };
+        }
+
+        function closeGame() {
+            overlay.style.display = "none";
+            clearInterval(game);
+        }
+
+        // Control Teclado
+        document.addEventListener("keydown", function(event){
+            let key = event.keyCode;
+            if(key == 37 && d != "RIGHT") d = "LEFT";
+            else if(key == 38 && d != "DOWN") d = "UP";
+            else if(key == 39 && d != "LEFT") d = "RIGHT";
+            else if(key == 40 && d != "UP") d = "DOWN";
+            else if(key == 27) closeGame(); // ESC para salir
+        });
+
+        // Control Botones (Móvil)
+        function changeDir(dir) {
+            if(dir == "LEFT" && d != "RIGHT") d = "LEFT";
+            else if(dir == "UP" && d != "DOWN") d = "UP";
+            else if(dir == "RIGHT" && d != "LEFT") d = "RIGHT";
+            else if(dir == "DOWN" && d != "UP") d = "DOWN";
+        }
+
+        // Dibujar
+        function draw() {
+            ctx.fillStyle = "#050505";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            for(let i = 0; i < snake.length; i++) {
+                ctx.fillStyle = (i == 0) ? "#0aff00" : "#00f3ff";
+                ctx.fillRect(snake[i].x, snake[i].y, tile-2, tile-2);
+            }
+
+            ctx.fillStyle = "#ff00ff";
+            ctx.fillRect(food.x, food.y, tile-2, tile-2);
+
+            let snakeX = snake[0].x;
+            let snakeY = snake[0].y;
+
+            if(d == "LEFT") snakeX -= tile;
+            if(d == "UP") snakeY -= tile;
+            if(d == "RIGHT") snakeX += tile;
+            if(d == "DOWN") snakeY += tile;
+
+            if(snakeX == food.x && snakeY == food.y) {
+                score++;
+                scoreEl.innerText = score;
+                generateFood();
+            } else {
+                if(d) snake.pop();
+            }
+
+            let newHead = { x: snakeX, y: snakeY };
+
+            // Game Over
+            if(snakeX < 0 || snakeX >= canvas.width || snakeY < 0 || snakeY >= canvas.height || collision(newHead, snake)) {
+                if(d) {
+                    clearInterval(game);
+                    gameOverMsg.style.display = "block";
+                }
+            } else {
+                if(d) snake.unshift(newHead);
+            }
+        }
+
+        function collision(head, array) {
+            for(let i = 0; i < array.length; i++) {
+                if(head.x == array[i].x && head.y == array[i].y) return true;
+            }
+            return false;
+        }
+    </script>
 </body>
 </html>
