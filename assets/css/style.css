@@ -80,3 +80,101 @@ footer a { color: var(--neon-cyan); text-decoration: none; }
     nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
     nav a { margin: 0 10px; }
 }
+
+/* =========================================
+   ANIMACIONES CYBERPUNK (AGREGADO)
+   ========================================= */
+
+/* 1. EFECTO SCANLINE (La línea que baja) */
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 9999;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none; /* Vital para poder dar clic a través de ella */
+    opacity: 0.6;
+}
+
+/* La barra de escáner brillante */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 243, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    z-index: 9998;
+    animation: scan 6s linear infinite;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+@keyframes scan {
+    0% { top: -10%; }
+    100% { top: 110%; }
+}
+
+/* 2. ENTRADA DE DATOS (Fade In) */
+/* Hacemos que las tarjetas y secciones aparezcan suavemente */
+.card, section, h1, p, img {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0; /* Empiezan invisibles */
+}
+
+/* Retrasos para que no aparezca todo al mismo tiempo (Efecto cascada) */
+h1 { animation-delay: 0.1s; }
+p { animation-delay: 0.3s; }
+.card:nth-child(1) { animation-delay: 0.4s; }
+.card:nth-child(2) { animation-delay: 0.6s; }
+.card:nth-child(3) { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3. EFECTO GLITCH (Distorsión) EN HOVER */
+/* Al pasar el mouse por el Título Principal */
+h1:hover {
+    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+    color: var(--neon-pink);
+    text-shadow: 2px 0 var(--neon-cyan), -2px 0 var(--neon-green);
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* 4. CURSOR PARPADEANTE */
+/* Agrega un guion bajo parpadeante después de los títulos h2 */
+h2::after {
+    content: "_";
+    animation: blink 1s step-end infinite;
+    margin-left: 5px;
+    color: var(--neon-green);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
