@@ -1,0 +1,80 @@
+---
+layout: default
+title: Galería de Mapas
+---
+
+<section>
+    <div style="text-align: center; margin-bottom: 50px;">
+        <small style="color: var(--neon-pink); letter-spacing: 2px;">>> VISUALIZACIÓN DE DATOS</small>
+        <h1>CARTOGRAFÍA & ANÁLISIS</h1>
+        <p style="color: #888;">Click en las imágenes para acceder al visor de alta resolución y ficha técnica.</p>
+    </div>
+
+    <div class="grid-3">
+        
+        <div class="card map-card" onclick="openModal(this)">
+            <img src="https://via.placeholder.com/600x400/003300/00ff00?text=EJEMPLO+NDVI" 
+                 alt="Mapa Incendios" 
+                 class="gallery-img">
+            
+            <div style="padding-top: 15px;">
+                <h3>Recuperación Post-Incendio</h3>
+                <span class="role-badge">PYTHON</span>
+                <span class="role-badge">QGIS</span>
+            </div>
+
+            <div class="hidden-data" style="display:none;">
+                <p><strong>Descripción:</strong> Análisis multitemporal utilizando imágenes Sentinel-2 para evaluar el índice de recuperación vegetacional (NDVI) tras los incendios de 2023.</p>
+                <p><strong>Herramientas:</strong> Script en Python para pre-procesamiento y QGIS para diseño cartográfico final.</p>
+            </div>
+        </div>
+        <div class="card map-card" onclick="openModal(this)">
+            <img src="https://via.placeholder.com/600x400/000033/00f3ff?text=EJEMPLO+SERVEL" class="gallery-img">
+            <div style="padding-top: 15px;">
+                <h3>Logística Electoral (Servel)</h3>
+                <span class="role-badge">POSTGIS</span>
+                <span class="role-badge">SQL</span>
+            </div>
+            <div class="hidden-data" style="display:none;">
+                <p><strong>Descripción:</strong> Generación del primer padrón georreferenciado. Se calcularon isocronas y distancias lineales para optimizar la asignación de locales.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+        <img id="modalImg" src="">
+        <div id="caption"></div>
+    </div>
+</div>
+
+<style>
+    /* Estilos exclusivos para esta página */
+    .map-card { cursor: pointer; }
+    .gallery-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--neon-cyan); }
+    
+    /* El Visor Oscuro */
+    .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); }
+    .modal-content { margin: 5% auto; width: 90%; max-width: 1000px; display: flex; flex-direction: column; align-items: center; }
+    #modalImg { width: 100%; max-height: 70vh; object-fit: contain; border: 2px solid var(--neon-cyan); box-shadow: 0 0 30px var(--neon-cyan); }
+    #caption { margin-top: 20px; color: #ccc; font-family: 'Share Tech Mono', monospace; text-align: left; width: 100%; background: #111; padding: 20px; border: 1px solid #333; }
+    .close { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
+</style>
+
+<script>
+    function openModal(element) {
+        var modal = document.getElementById("imageModal");
+        var img = element.querySelector('.gallery-img');
+        var hiddenText = element.querySelector('.hidden-data').innerHTML;
+        var title = element.querySelector('h3').innerText;
+
+        document.getElementById("modalImg").src = img.src;
+        // Combinamos el título con la descripción oculta
+        document.getElementById("caption").innerHTML = "<h2 style='color:var(--neon-cyan)'>" + title + "</h2>" + hiddenText;
+        modal.style.display = "block";
+    }
+    function closeModal() { document.getElementById("imageModal").style.display = "none"; }
+</script>
