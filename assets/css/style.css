@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
 
-/* --- 1. RESET GLOBAL --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/* RESET GLOBAL: Esto evita que el menú se corte a la derecha */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
     --bg-color: #050505;
@@ -19,204 +15,68 @@ body {
     background-color: var(--bg-color);
     color: var(--text-main);
     font-family: 'Share Tech Mono', monospace;
-    /* Fondo estilo malla tecnológica */
     background-image: 
         linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
     background-size: 40px 40px;
-    overflow-x: hidden; /* Evita scroll lateral accidental */
+    overflow-x: hidden;
 }
 
-/* --- 2. HEADER RESPONSIVO --- */
+/* HEADER FIX */
 header {
     background: rgba(5, 5, 5, 0.95);
     border-bottom: 2px solid var(--neon-cyan);
-    padding: 15px 5%; /* Usamos porcentaje en vez de pixeles fijos */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 15px 5%; /* Padding porcentual para que no se salga */
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
     box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
-    backdrop-filter: blur(5px);
 }
 
-.logo { 
-    font-family: 'Orbitron', sans-serif; 
-    font-weight: bold; 
-    color: var(--neon-cyan); 
-    letter-spacing: 2px;
-    font-size: 1.1rem;
-    white-space: nowrap; /* Evita que el nombre se parta en dos */
-}
-
-nav {
-    display: flex;
-    gap: 20px;
-}
+.logo { font-family: 'Orbitron', sans-serif; font-weight: bold; color: var(--neon-cyan); letter-spacing: 2px; }
 
 nav a {
-    color: var(--text-main);
-    text-decoration: none;
-    font-size: 1rem;
-    transition: 0.3s;
-    text-transform: uppercase;
+    color: var(--text-main); text-decoration: none; margin-left: 20px; font-size: 1rem;
+    transition: 0.3s; text-transform: uppercase;
 }
+nav a:hover { color: var(--neon-pink); text-shadow: 0 0 8px var(--neon-pink); }
 
-nav a:hover {
-    color: var(--neon-pink);
-    text-shadow: 0 0 8px var(--neon-pink);
-}
-
-/* --- 3. ESTRUCTURA Y CONTENIDO --- */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 120px 20px 50px; /* Arriba dejamos espacio para el header fijo */
-}
-
-section {
-    margin-bottom: 80px;
-}
+/* CONTENIDO */
+.container { max-width: 1100px; margin: 0 auto; padding: 120px 20px 50px; }
 
 h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); color: white; margin-bottom: 20px; text-shadow: 2px 2px var(--neon-pink); }
+h2 { color: var(--neon-pink); border-bottom: 1px solid var(--neon-pink); display: inline-block; padding-bottom: 5px; margin-bottom: 30px; margin-top: 50px;}
 
-h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem); /* El tamaño se adapta a la pantalla automáticamente */
-    margin-bottom: 20px;
-    color: white;
-    text-shadow: 3px 3px 0 var(--neon-pink);
-    line-height: 1.1;
-}
-
-h2 {
-    color: var(--neon-pink);
-    border-bottom: 1px solid var(--neon-pink);
-    display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 30px;
-    font-size: 1.5rem;
-}
-
-p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-/* Etiquetas de roles */
 .role-badge {
-    border: 1px solid var(--neon-cyan);
-    color: var(--neon-cyan);
-    padding: 5px 10px;
-    font-size: 0.85rem;
-    display: inline-block;
-    margin: 5px 5px 5px 0;
-    white-space: nowrap;
+    border: 1px solid var(--neon-cyan); color: var(--neon-cyan); padding: 5px 10px;
+    margin: 5px 5px 5px 0; font-size: 0.85rem; display: inline-block;
 }
 
-/* --- 4. TARJETAS (GRID) --- */
-.grid-3 {
-    display: grid;
-    /* Esto crea columnas automáticas que nunca son más pequeñas de 300px */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
+/* GRID & CARDS */
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 
 .card {
-    background: rgba(20, 20, 20, 0.8);
-    border: 1px solid #333;
-    padding: 25px;
-    transition: 0.3s;
-    position: relative;
-    overflow: hidden;
+    background: rgba(20, 20, 20, 0.8); border: 1px solid #333; padding: 25px; transition: 0.3s;
 }
+.card:hover { border-color: var(--neon-green); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(10, 255, 0, 0.15); }
+.card h3 { color: var(--neon-green); margin-top: 0; }
 
-.card:hover {
-    border-color: var(--neon-green);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 255, 0, 0.15);
-}
-
-.card h3 {
-    color: var(--neon-green);
-    margin-top: 0;
-    font-size: 1.3rem;
-}
-
-/* --- 5. BOTONES --- */
+/* BOTONES */
 .btn-cyber {
-    display: inline-block;
-    padding: 15px 30px;
-    border: 2px solid var(--neon-cyan);
-    color: var(--neon-cyan);
-    text-decoration: none;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: 0.3s;
-    background: transparent;
-    cursor: pointer;
-    margin-top: 20px;
+    display: inline-block; padding: 15px 30px; margin-top: 20px;
+    border: 2px solid var(--neon-cyan); color: var(--neon-cyan);
+    text-decoration: none; font-family: 'Orbitron', sans-serif; font-weight: bold;
+    transition: 0.3s; background: transparent; cursor: pointer;
 }
+.btn-cyber:hover { background: var(--neon-cyan); color: black; box-shadow: 0 0 20px var(--neon-cyan); }
 
-.btn-cyber:hover {
-    background: var(--neon-cyan);
-    color: black;
-    box-shadow: 0 0 25px var(--neon-cyan);
-}
-
-/* --- 6. FOOTER --- */
-footer {
-    text-align: center;
-    margin-top: 50px;
-    padding: 40px 20px;
-    border-top: 1px solid #333;
-    font-size: 0.9rem;
-    color: #666;
-}
+footer { text-align: center; margin-top: 50px; padding: 40px; border-top: 1px solid #333; color: #666; font-size: 0.9rem; }
 footer a { color: var(--neon-cyan); text-decoration: none; }
 
-/* --- 7. MODO MÓVIL (Responsivo) --- */
-/* Cuando la pantalla sea menor a 768px (tablets y celulares) */
+/* MÓVIL */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Apila el logo y el menú verticalmente */
-        padding: 15px;
-        gap: 15px;
-    }
-    
-    .container {
-        padding-top: 140px; /* Más espacio arriba porque el header es más alto ahora */
-    }
-
-    nav {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    h1 {
-        font-size: 2rem; /* Título más pequeño en celular */
-    }
-
-    /* Ajuste para la sección de biografía */
-    section[style*="flex"] {
-        flex-direction: column-reverse; /* Pone la foto arriba del texto en celular */
-        text-align: center; /* Centra el texto */
-    }
-    
-    .role-badge {
-        display: inline-block;
-    }
-    
-    p[style*="border-left"] {
-        border-left: none !important;
-        border-top: 2px solid var(--neon-green);
-        padding-top: 15px;
-        padding-left: 0 !important;
-    }
+    header { flex-direction: column; gap: 15px; padding: 15px; }
+    .container { padding-top: 140px; }
+    nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
+    nav a { margin: 0 10px; }
 }
