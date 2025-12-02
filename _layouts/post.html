@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<article style="max-width: 800px; margin: 0 auto;">
+    
+    <div style="border-bottom: 1px solid var(--neon-cyan); padding-bottom: 20px; margin-bottom: 40px;">
+        <small style="color: var(--neon-pink); letter-spacing: 2px;">>> LOG ENTRY</small>
+        <h1 style="font-size: 2.5rem; margin-top: 10px; color: white; line-height: 1.2;">{{ page.title }}</h1>
+        <div style="color: #888; margin-top: 10px;">
+            <i class="far fa-calendar-alt"></i> {{ page.date | date: "%d-%m-%Y" }}
+        </div>
+    </div>
+
+    <div class="post-content">
+        {{ content }}
+    </div>
+
+    <div style="margin-top: 60px; padding-top: 30px; border-top: 1px dashed #333;">
+        <a href="{{ '/blog.html' | relative_url }}" class="btn-cyber">
+            << VOLVER A LA BITÁCORA
+        </a>
+    </div>
+
+</article>
+
+<style>
+    /* Texto */
+    .post-content p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; color: #ccc; }
+    
+    /* Encabezados internos */
+    .post-content h2 { color: var(--neon-cyan); margin-top: 50px; font-size: 1.8rem; border-bottom: none; }
+    .post-content h3 { color: var(--neon-green); margin-top: 40px; font-size: 1.4rem; }
+
+    /* Imágenes */
+    .post-content img { 
+        max-width: 100%; height: auto; display: block; margin: 30px auto; 
+        border: 2px solid #333; box-shadow: 0 0 15px rgba(0,0,0,0.5); 
+    }
+
+    /* Bloques de Código (Estilo Hacker) */
+    .post-content pre { 
+        background: #111; padding: 20px; border-left: 3px solid var(--neon-pink); 
+        overflow-x: auto; margin-bottom: 30px; font-family: 'Share Tech Mono', monospace;
+    }
+    .post-content code { background: #222; color: var(--neon-pink); padding: 2px 5px; font-size: 0.9em; }
+    .post-content pre code { background: transparent; color: #e0e0e0; padding: 0; font-size: 1em; }
+
+    /* Mapas (Iframes) */
+    .post-content iframe {
+        width: 100%; height: 450px; border: 1px solid var(--neon-cyan); margin: 30px 0;
+    }
+</style>

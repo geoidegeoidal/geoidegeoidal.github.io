@@ -1,0 +1,44 @@
+---
+layout: default
+title: Bitácora de Datos
+---
+
+<section>
+    <div style="text-align: center; margin-bottom: 60px;">
+        <small style="color: var(--neon-pink); letter-spacing: 2px;">>> SYSTEM LOGS</small>
+        <h1>BITÁCORA DE DATOS</h1>
+        <p style="color: #888;">Reflexiones sobre Geografía, Código y Territorio.</p>
+    </div>
+
+    <div style="max-width: 800px; margin: 0 auto;">
+        
+        {% for post in site.posts %}
+        <div class="card" style="margin-bottom: 30px; border-left: 4px solid var(--neon-green);">
+            
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: #888; font-size: 0.9rem;">
+                <span><i class="far fa-calendar-alt"></i> {{ post.date | date: "%d-%m-%Y" }}</span>
+                <span>
+                    {% for category in post.categories %}
+                        <span style="color: var(--neon-cyan); margin-left: 5px;">#{{ category }}</span>
+                    {% endfor %}
+                </span>
+            </div>
+
+            <h2 style="margin: 0 0 15px 0; border: none; font-size: 1.5rem;">
+                <a href="{{ post.url | relative_url }}" style="color: white; text-decoration: none;">
+                    {{ post.title }}
+                </a>
+            </h2>
+            
+            <p style="color: #bbb; margin-bottom: 20px;">
+                {{ post.excerpt | strip_html | truncatewords: 30 }}
+            </p>
+            
+            <a href="{{ post.url | relative_url }}" class="btn-cyber" style="padding: 10px 20px; font-size: 0.8rem; margin-top: 0;">
+                LEER ARCHIVO >>
+            </a>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
