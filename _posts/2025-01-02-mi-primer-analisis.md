@@ -5,7 +5,7 @@ date: 2025-01-02
 categories: [Python, GIS]
 ---
 
-Este es un ejemplo de cómo se ven los contenidos técnicos en mi nueva bitácora.
+Este es un ejemplo  práctico de cómo se ven los contenidos técnicos en mi nueva bitácora.
 
 ## 1. Insertando Código Python
 El sistema resalta los bloques de código automáticamente:
