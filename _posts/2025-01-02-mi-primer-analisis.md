@@ -15,8 +15,11 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 ```
 ## Cargar dataset de incendios
+```python 
 gdf = gpd.read_file("incendios.shp")
-
+```
 ## Visualización rápida
+```python
 gdf.plot(column='area_quemada', cmap='Reds')
 print(">> Proceso finalizado")
+```
