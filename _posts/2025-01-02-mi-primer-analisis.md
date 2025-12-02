@@ -14,9 +14,9 @@ El sistema resalta los bloques de código automáticamente:
 import geopandas as gpd
 import matplotlib.pyplot as plt
 ```
-# Cargar dataset de incendios
+## Cargar dataset de incendios
 gdf = gpd.read_file("incendios.shp")
 
-# Visualización rápida
+## Visualización rápida
 gdf.plot(column='area_quemada', cmap='Reds')
 print(">> Proceso finalizado")
