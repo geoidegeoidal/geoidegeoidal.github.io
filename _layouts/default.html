@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-satellite-dish"></i> JORGE_ULLOA_ROA
+        </div>
+        <nav>
+            <a href="{{ '/' | relative_url }}">BIO</a>
+            <a href="#proyectos">PROYECTOS</a>
+            <a href="#contacto">CONTACTO</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        {{ content }}
+    </main>
+
+    <footer>
+        <p>STATUS: OPERATIONAL | © 2025 JORGE ULLOA ROA</p>
+        <p>
+            <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank">LINKEDIN</a> | 
+            <a href="https://github.com/{{ site.github_username }}" target="_blank">GITHUB</a>
+        </p>
+    </footer>
+
+</body>
+</html>
