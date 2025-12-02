@@ -10,6 +10,6 @@ linkedin_username: jorge-ulloa-roa
 
 # Configuración técnica
 markdown: kramdown
-theme: minima
+theme: null
 plugins:
   - jekyll-feed
