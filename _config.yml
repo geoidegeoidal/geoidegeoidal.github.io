@@ -1,0 +1,15 @@
+title: "JORGE ULLOA ROA"
+description: "Data Analyst | Spatial Data Analyst | Geographer"
+email: jorge.ulloa.roa@gmail.com
+baseurl: ""
+url: "https://geoidegeoidal.github.io"
+github_username: geoidegeoidal
+
+# Redes Sociales
+linkedin_username: jorge-ulloa-roa
+
+# Configuración técnica
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
