@@ -309,3 +309,10 @@ a, button, .btn-cyber, .card {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+
+
+#contacto {
+    position: relative;
+    z-index: 2000; /* Prioridad alta */
+    pointer-events: auto !important; /* Forza que el mouse funcione aquí */
+}

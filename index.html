@@ -59,10 +59,39 @@ title: Inicio
     </div>
 </section>
 
-<section id="contacto" style="text-align: center; margin-top: 80px;">
-    <h2>>> CONTACTO</h2>
-    <p>¿Estás construyendo algo ambicioso y con propósito?</p>
-    <a href="mailto:{{ site.email }}" class="btn-cyber" style="font-size: 1.5rem;">
-        <i class="fas fa-envelope"></i> ENVIAR PAQUETE DE DATOS
-    </a>
+<section id="contacto" style="max-width: 600px; margin: 80px auto 0; position: relative; z-index: 2000;">
+    
+    <div style="text-align: center; margin-bottom: 30px;">
+        <h2>>> CONTACTO</h2>
+        <p>¿Estás construyendo algo ambicioso y con propósito?</p>
+    </div>
+
+    <form action="PEGAR_TU_URL_DE_FORMSPREE_AQUI" method="POST" style="background: rgba(10,10,10,0.9); padding: 30px; border: 1px solid var(--neon-cyan); position: relative; z-index: 5000;">
+        
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; color: var(--neon-cyan); margin-bottom: 5px;">>> NOMBRE</label>
+            <input type="text" name="name" required style="width: 100%; padding: 10px; background: #000; border: 1px solid #333; color: white; font-family: inherit;">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; color: var(--neon-cyan); margin-bottom: 5px;">>> EMAIL</label>
+            <input type="email" name="_replyto" required style="width: 100%; padding: 10px; background: #000; border: 1px solid #333; color: white; font-family: inherit;">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; color: var(--neon-cyan); margin-bottom: 5px;">>> MENSAJE</label>
+            <textarea name="message" rows="5" required style="width: 100%; padding: 10px; background: #000; border: 1px solid #333; color: white; font-family: inherit;"></textarea>
+        </div>
+
+        <button type="submit" class="btn-cyber" style="width: 100%; cursor: pointer; position: relative; z-index: 5001;">
+            ENVIAR MENSAJE
+        </button>
+
+    </form>
+
+    <div style="text-align: center; margin-top: 40px; font-size: 1.5rem; position: relative; z-index: 5001;">
+        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank" style="margin: 0 15px; color: var(--text-main);"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" style="margin: 0 15px; color: var(--text-main);"><i class="fab fa-github"></i></a>
+    </div>
+
 </section>
