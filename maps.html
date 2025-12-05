@@ -13,30 +13,69 @@ title: Galería de Mapas
     <div class="grid-3">
         
         <div class="card map-card" onclick="openModal(this)">
-            <img src="https://via.placeholder.com/600x400/003300/00ff00?text=EJEMPLO+NDVI" 
-                 alt="Mapa Incendios" 
-                 class="gallery-img">
+            <img src="/assets/images/conmapas.jpg" 
+                 alt="ConMapas Community" 
+                 class="gallery-img" 
+                 onerror="this.src='https://via.placeholder.com/600x400/000/0ff?text=CONMAPAS+IMG'">
             
             <div style="padding-top: 15px;">
-                <h3>Recuperación Post-Incendio</h3>
+                <h3>CONMAPAS</h3>
+                <span class="role-badge">COMUNIDAD</span>
+                <span class="role-badge">MAPTIVISM</span>
+            </div>
+
+            <div class="hidden-data" style="display:none;">
+                <p><strong>Descripción:</strong> Comunidad digital fundada en 2020 donde exploro formas creativas y críticas de representar el territorio. Un espacio para acercar el análisis espacial a nuevas audiencias mediante narrativas visuales y lenguaje accesible.</p>
+                <p><strong>Enlace:</strong> <a href="https://instagram.com/conmapas" target="_blank" style="color:var(--neon-cyan); text-decoration: underline;">instagram.com/conmapas</a></p>
+            </div>
+        </div>
+
+        <div class="card map-card" onclick="openModal(this)">
+            <img src="/assets/images/impacto_dictadura.png" 
+                 alt="Mapa Incendios" 
+                 class="gallery-img"
+                 onerror="this.src='https://via.placeholder.com/600x400/300/0f0?text=MAPA+INCENDIOS'">
+            
+            <div style="padding-top: 15px;">
+                <h3>Expresión Territorial de la Dictadura en la RM</h3>
                 <span class="role-badge">PYTHON</span>
                 <span class="role-badge">QGIS</span>
             </div>
 
             <div class="hidden-data" style="display:none;">
-                <p><strong>Descripción:</strong> Análisis multitemporal utilizando imágenes Sentinel-2 para evaluar el índice de recuperación vegetacional (NDVI) tras los incendios de 2023.</p>
-                <p><strong>Herramientas:</strong> Script en Python para pre-procesamiento y QGIS para diseño cartográfico final.</p>
+                <p><strong>Descripción:</strong> Mapeo de la expresión territorial de la Dictadura en la Región Metropolitana.</p>
+                <p><strong>Metodología:</strong> Se vectorizaron los desplazamientos de habitantes de santiago hacia sectores populares en las periferías de la ciudad de Santiago. Además se utilizaron como fuente los vectores crewados por el proyecto Cartografías de la Memoria.</p>
             </div>
         </div>
+
         <div class="card map-card" onclick="openModal(this)">
-            <img src="https://via.placeholder.com/600x400/000033/00f3ff?text=EJEMPLO+SERVEL" class="gallery-img">
+            <img src="/assets/images/mapa_servel.jpg" 
+                 class="gallery-img"
+                 onerror="this.src='https://via.placeholder.com/600x400/003/00f?text=MAPA+SERVEL'">
+            
             <div style="padding-top: 15px;">
                 <h3>Logística Electoral (Servel)</h3>
                 <span class="role-badge">POSTGIS</span>
                 <span class="role-badge">SQL</span>
             </div>
             <div class="hidden-data" style="display:none;">
-                <p><strong>Descripción:</strong> Generación del primer padrón georreferenciado. Se calcularon isocronas y distancias lineales para optimizar la asignación de locales.</p>
+                <p><strong>Descripción:</strong> Desarrollo del primer padrón georreferenciado del Servel[cite: 90].</p>
+                <p><strong>Impacto:</strong> Se logró reducir en un 50% la distancia lineal entre los electores y los locales de votación, optimizando la logística y promoviendo una participación equitativa[cite: 90, 120].</p>
+            </div>
+        </div>
+
+        <div class="card map-card" onclick="openModal(this)">
+            <img src="/assets/images/mapa_zonificacion.jpg" 
+                 class="gallery-img"
+                 onerror="this.src='https://via.placeholder.com/600x400/330/f0f?text=ZONIFICACION'">
+            
+            <div style="padding-top: 15px;">
+                <h3>Zonificación Ambiental</h3>
+                <span class="role-badge">PLANIFICACIÓN</span>
+                <span class="role-badge">MODELACIÓN</span>
+            </div>
+            <div class="hidden-data" style="display:none;">
+                <p><strong>Descripción:</strong> Proyectos de zonificación y modelación espacial poniendo en valor el capital natural de los territorios[cite: 127, 128]. Realizado durante mi etapa en NatCap Consultants[cite: 124].</p>
             </div>
         </div>
 
