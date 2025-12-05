@@ -32,9 +32,9 @@ title: Galería de Mapas
 
         <div class="card map-card" onclick="openModal(this)">
             <img src="/assets/images/impacto_dictadura.png" 
-                 alt="Mapa Incendios" 
+                 alt="Mapa Dictadura RM" 
                  class="gallery-img"
-                 onerror="this.src='https://via.placeholder.com/600x400/300/0f0?text=MAPA+INCENDIOS'">
+                 onerror="this.src='https://via.placeholder.com/600x400/300/0f0?text=MAPA+DICTADURA'">
             
             <div style="padding-top: 15px;">
                 <h3>Expresión Territorial de la Dictadura en la RM</h3>
@@ -44,38 +44,7 @@ title: Galería de Mapas
 
             <div class="hidden-data" style="display:none;">
                 <p><strong>Descripción:</strong> Mapeo de la expresión territorial de la Dictadura en la Región Metropolitana.</p>
-                <p><strong>Metodología:</strong> Se vectorizaron los desplazamientos de habitantes de santiago hacia sectores populares en las periferías de la ciudad de Santiago. Además se utilizaron como fuente los vectores crewados por el proyecto Cartografías de la Memoria.</p>
-            </div>
-        </div>
-
-        <div class="card map-card" onclick="openModal(this)">
-            <img src="/assets/images/mapa_servel.jpg" 
-                 class="gallery-img"
-                 onerror="this.src='https://via.placeholder.com/600x400/003/00f?text=MAPA+SERVEL'">
-            
-            <div style="padding-top: 15px;">
-                <h3>Logística Electoral (Servel)</h3>
-                <span class="role-badge">POSTGIS</span>
-                <span class="role-badge">SQL</span>
-            </div>
-            <div class="hidden-data" style="display:none;">
-                <p><strong>Descripción:</strong> Desarrollo del primer padrón georreferenciado del Servel[cite: 90].</p>
-                <p><strong>Impacto:</strong> Se logró reducir en un 50% la distancia lineal entre los electores y los locales de votación, optimizando la logística y promoviendo una participación equitativa[cite: 90, 120].</p>
-            </div>
-        </div>
-
-        <div class="card map-card" onclick="openModal(this)">
-            <img src="/assets/images/mapa_zonificacion.jpg" 
-                 class="gallery-img"
-                 onerror="this.src='https://via.placeholder.com/600x400/330/f0f?text=ZONIFICACION'">
-            
-            <div style="padding-top: 15px;">
-                <h3>Zonificación Ambiental</h3>
-                <span class="role-badge">PLANIFICACIÓN</span>
-                <span class="role-badge">MODELACIÓN</span>
-            </div>
-            <div class="hidden-data" style="display:none;">
-                <p><strong>Descripción:</strong> Proyectos de zonificación y modelación espacial poniendo en valor el capital natural de los territorios[cite: 127, 128]. Realizado durante mi etapa en NatCap Consultants[cite: 124].</p>
+                <p><strong>Metodología:</strong> Se vectorizaron los desplazamientos forzados de habitantes de Santiago hacia sectores populares en las periferias de la ciudad. Además, se utilizaron como fuente los vectores creados por el proyecto Cartografías de la Memoria.</p>
             </div>
         </div>
 
@@ -91,16 +60,132 @@ title: Galería de Mapas
 </div>
 
 <style>
-    /* Estilos exclusivos para esta página */
-    .map-card { cursor: pointer; }
-    .gallery-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--neon-cyan); }
+    /* =========================================
+       ESTILOS DE LA GALERÍA (CARDS)
+       ========================================= */
+    .map-card { cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; }
+    .map-card:hover { 
+        transform: translateY(-5px); 
+        box-shadow: 0 0 25px rgba(0, 243, 255, 0.4); /* Resplandor cian al pasar mouse */
+        border-color: var(--neon-cyan); 
+    }
+    .gallery-img { width: 100%; height: 250px; object-fit: cover; border-bottom: 1px solid var(--neon-cyan); }
     
-    /* El Visor Oscuro */
-    .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); }
-    .modal-content { margin: 5% auto; width: 90%; max-width: 1000px; display: flex; flex-direction: column; align-items: center; }
-    #modalImg { width: 100%; max-height: 70vh; object-fit: contain; border: 2px solid var(--neon-cyan); box-shadow: 0 0 30px var(--neon-cyan); }
-    #caption { margin-top: 20px; color: #ccc; font-family: 'Share Tech Mono', monospace; text-align: left; width: 100%; background: #111; padding: 20px; border: 1px solid #333; }
-    .close { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
+    /* =========================================
+       NUEVO DISEÑO DEL VISOR MODAL (POPUP)
+       ========================================= */
+    /* El fondo oscuro que cubre toda la pantalla */
+    .modal { 
+        display: none; 
+        position: fixed; 
+        z-index: 99999; /* Muy alto para tapar todo, incluso el header */
+        left: 0; top: 0; 
+        width: 100%; height: 100%; 
+        background-color: rgba(0,0,0,0.97); /* Casi negro total */
+        backdrop-filter: blur(5px); /* Efecto borroso futurista de fondo */
+    }
+
+    /* EL CONTENEDOR PRINCIPAL (LA CAJA QUE CONTIENE IMAGEN + TEXTO) */
+    .modal-content {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%); /* Centrado perfecto */
+        
+        width: 90%; max-width: 1400px; /* Ancho máximo para pantallas gigantes */
+        height: 85vh; /* Ocupa el 85% de la altura de la pantalla */
+        
+        display: flex; /* Activa el modo flexible */
+        flex-direction: row; /* Desktop: Imagen al lado del texto */
+        
+        background: #050505;
+        border: 2px solid var(--neon-cyan);
+        box-shadow: 0 0 50px rgba(0, 243, 255, 0.2);
+        overflow: hidden; /* Para que nada se salga de la caja redondeada */
+    }
+
+    /* LA IMAGEN DENTRO DEL MODAL (IZQUIERDA EN DESKTOP) */
+    #modalImg {
+        flex: 2; /* La imagen ocupa 2/3 del espacio */
+        width: 100%; 
+        height: 100%;
+        object-fit: contain; /* Se ajusta sin estirarse, mostrando toda la imagen */
+        background: #000; /* Fondo negro por si la imagen tiene otro ratio */
+        border-right: 2px solid var(--neon-cyan); /* LÍNEA DIVISORIA */
+        box-shadow: none; /* Reseteamos sombras viejas */
+    }
+
+    /* EL TEXTO/DESCRIPCIÓN (DERECHA EN DESKTOP) */
+    #caption {
+        flex: 1; /* El texto ocupa 1/3 del espacio */
+        height: 100%; /* Ocupa toda la altura disponible */
+        padding: 40px;
+        
+        /* LA CLAVE: Si el texto es muy largo, aparece barra de scroll SOLO AQUÍ */
+        overflow-y: auto; 
+        
+        color: #ccc;
+        font-family: 'Share Tech Mono', monospace;
+        text-align: left;
+        background: #111; /* Un poco más claro que el fondo negro */
+        border: none; /* Quitamos bordes viejos */
+        margin: 0; /* Quitamos mrgenes viejos */
+        box-sizing: border-box;
+    }
+
+    /* Estilos para los textos dentro del caption */
+    #caption h2 { margin-top: 0; font-size: 2rem; border-bottom: 1px solid var(--neon-pink); padding-bottom: 15px; margin-bottom: 30px;}
+    #caption p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
+    #caption strong { color: var(--neon-green); }
+    #caption a { color: var(--neon-cyan); text-decoration: none; border-bottom: 1px dotted var(--neon-cyan); transition: 0.3s; }
+    #caption a:hover { background: var(--neon-cyan); color: black; }
+
+    /* BOTÓN DE CERRAR (X) */
+    .close {
+        position: absolute;
+        top: 10px; right: 20px;
+        color: var(--neon-pink);
+        font-size: 50px; font-weight: bold;
+        cursor: pointer; z-index: 100; transition: 0.3s;
+        text-shadow: 0 0 10px var(--neon-pink);
+        line-height: 0.8;
+    }
+    .close:hover { color: white; transform: rotate(90deg); }
+
+    /* =========================================
+       VERSIÓN MÓVIL (RESPONSIVE)
+       ========================================= */
+    /* Cuando la pantalla mide menos de 900px de ancho */
+    @media (max-width: 900px) {
+        .modal-content {
+            flex-direction: column; /* Cambiamos a apilado vertical */
+            width: 95%;
+            height: 90vh; /* Un poco más alto en celular */
+        }
+
+        #modalImg {
+            flex: none; /* Ya no se estira automáticamente */
+            height: 50%; /* La imagen ocupa EXACTAMENTE la mitad de arriba */
+            width: 100%;
+            border-right: none;
+            border-bottom: 2px solid var(--neon-cyan); /* La línea divisoria pasa abajo */
+        }
+
+        #caption {
+            flex: 1; /* El texto ocupa el espacio restante (la mitad de abajo) */
+            height: 50%;
+            padding: 25px;
+            /* Sigue teniendo scroll si es necesario */
+        }
+        #caption h2 { font-size: 1.5rem; }
+        .close { top: 5px; right: 15px; font-size: 40px; }
+    }
+
+    /* =========================================
+       SCROLLBAR CYBERPUNK PARA EL TEXTO
+       ========================================= */
+    #caption::-webkit-scrollbar { width: 8px; background: #000; }
+    #caption::-webkit-scrollbar-thumb { background: var(--neon-cyan); border-radius: 0; }
+    #caption::-webkit-scrollbar-thumb:hover { background: var(--neon-pink); }
 </style>
 
 <script>
