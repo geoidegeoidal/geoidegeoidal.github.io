@@ -1,5 +1,20 @@
 # Handoff
 
+## 2026-09-06 — Atlas editorial y giro real
+
+**Objetivo:** responder al rechazo de la estética repetitiva, variar composición y color, mejorar interacción y hacer que el planeta gire solo. Continúa la autorización de commit, push y deploy.
+
+**Completado:** paleta papel/verde/lima/terracota, títulos serif, perfil como retrato editorial, cartografía completa con selector Relieve/Memoria, proyectos con jerarquías distintas, trayectoria numerada y herramientas en columnas abiertas. Eliminadas tarjetas redondeadas repetidas, brillo de puntero y tilt decorativo. Conservadas rutas, secciones, contenidos profesionales y formulario.
+
+**Decisiones:** giro continuo de unos 84 s/vuelta; reset por arco corto; teclado y arrastre horizontal táctil/ratón. Pausa persistente, movimiento reducido y suspensión fuera de vista siguen activos. Selector oculto sin JS; enlace de colección siempre disponible. La dirección visual actual sustituye Mapbox estricto.
+
+**Validación:** Jekyll real en raíz y /portfolio y comprobador de 6 páginas aprobados. Navegador: 24 combinaciones página/ancho, sin errores JS, recursos fallidos ni hallazgos axe A/AA. Pruebas de giro automático, pausa, arrastre, teclado, suspensión y selector aprobadas. Revisión independiente detectó hover de bajo contraste, reset con vueltas acumuladas y selector inerte sin JS: corregidos. No se envían formularios reales.
+
+**Bloqueos:** ninguno. **Próximos pasos:** publicar y verificar esta revisión; continúan pendientes las URLs de repositorios y evidencia editorial de proyectos del propietario.
+
+**Commits relevantes:** base 61c54db; consultar git log para esta revisión.
+
+
 ## 2026-09-05 — Experiencia cartográfica animada
 
 **Objetivo:** elevar el impacto visual con animaciones, conservando secciones y completar commit, push y deploy ya autorizados.

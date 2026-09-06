@@ -1,7 +1,6 @@
 (() => {
   const root = document.documentElement;
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
-  const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
   const toggle = document.querySelector(".motion-toggle");
   let paused = false;
   try {
@@ -68,16 +67,6 @@
       element.style.setProperty("--reveal-delay", `${(index % 2) * 90}ms`);
       observer.observe(element);
     });
-    const jobs = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((entry) =>
-          entry.target.classList.toggle("is-current", entry.isIntersecting),
-        ),
-      { rootMargin: "-20% 0px -45% 0px" },
-    );
-    document
-      .querySelectorAll(".timeline li")
-      .forEach((job) => jobs.observe(job));
   }
 
   let scrollFrame = 0;
@@ -101,53 +90,46 @@
   addEventListener("resize", updateScroll, { passive: true });
   updateScroll();
 
-  document
-    .querySelectorAll(
-      ".project-card,.skill-group,.code-card,.post-card,.terrain-scene",
-    )
-    .forEach((card) => {
-      card.addEventListener(
-        "pointermove",
-        (event) => {
-          if (!motionAllowed() || !finePointer.matches) return;
-          const rect = card.getBoundingClientRect();
-          const x = event.clientX - rect.left,
-            y = event.clientY - rect.top;
-          card.style.setProperty("--pointer-x", `${x}px`);
-          card.style.setProperty("--pointer-y", `${y}px`);
-          if (card.classList.contains("terrain-scene")) {
-            card.style.setProperty(
-              "--tilt-x",
-              `${(0.5 - y / rect.height) * 5}deg`,
-            );
-            card.style.setProperty(
-              "--tilt-y",
-              `${(x / rect.width - 0.5) * 7}deg`,
-            );
-          }
-        },
-        { passive: true },
-      );
-      card.addEventListener("pointerleave", () => {
-        card.style.setProperty("--tilt-x", "0deg");
-        card.style.setProperty("--tilt-y", "0deg");
+  const mapLink = document.querySelector(".terrain-scene");
+  if (mapLink) {
+    document.querySelector(".map-switch").hidden = false;
+    const original = mapLink.querySelector("img").src;
+    document.querySelectorAll("[data-map]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const relief = button.dataset.map === "relieve";
+        document
+          .querySelectorAll("[data-map]")
+          .forEach((item) =>
+            item.setAttribute("aria-pressed", String(item === button)),
+          );
+        mapLink.querySelector("img").src = relief
+          ? original
+          : original.replace("conmapas.webp", "impacto_dictadura.webp");
+        mapLink.querySelector("img").alt = relief
+          ? "Curvas de nivel del cerro San Cristóbal"
+          : "Cartografía del impacto de la dictadura en Santiago";
+        mapLink.querySelector("h3").textContent = relief
+          ? "Cerro San Cristóbal"
+          : "Memoria en Santiago";
+        mapLink.querySelector(".map-caption p").textContent = relief
+          ? "Curvas de nivel · ALOS PALSAR"
+          : "Territorio y memoria · ConMapas";
+        mapLink.querySelector(".map-label").textContent = relief
+          ? "CONMAPAS / ESTUDIO DEL RELIEVE"
+          : "CONMAPAS / TERRITORIO Y MEMORIA";
+        mapLink.href =
+          mapLink.href.split("#")[0] +
+          (relief ? "#san-cristobal" : "#memoria-territorial");
+        mapLink.setAttribute(
+          "aria-label",
+          relief
+            ? "Explorar la cartografía del cerro San Cristóbal"
+            : "Explorar la cartografía de memoria en Santiago",
+        );
       });
     });
-
-  // Pause indefinite CSS animation work whenever a scene leaves the viewport.
-  if ("IntersectionObserver" in window) {
-    const ambient = new IntersectionObserver((entries) =>
-      entries.forEach((entry) => {
-        entry.target.style.setProperty(
-          "--scene-play",
-          entry.isIntersecting ? "running" : "paused",
-        );
-      }),
-    );
-    document
-      .querySelectorAll(".atlas-scene,.terrain-scene,.page-heading,.scroll-cue")
-      .forEach((scene) => ambient.observe(scene));
   }
+
   root.classList.toggle("tab-hidden", document.hidden);
   document.addEventListener("visibilitychange", () => {
     root.classList.toggle("tab-hidden", document.hidden);
@@ -191,12 +173,10 @@
     const origin = -68 * rad;
     let longitude = origin,
       target = origin,
-      manual = false,
       visible = true;
     let frame = 0,
       last = 0,
       tick = 0,
-      drift = 0,
       size = 700,
       radius = 300;
     let dragging = false,
@@ -217,7 +197,7 @@
     function render() {
       ctx.clearRect(0, 0, size, size);
       const center = size / 2;
-      const angle = longitude + drift;
+      const angle = longitude;
       const ca = Math.cos(angle),
         sa = Math.sin(angle);
       const project = ([x, y, z]) => {
@@ -236,9 +216,9 @@
         center,
         radius * 1.15,
       );
-      gradient.addColorStop(0, "#26323e");
-      gradient.addColorStop(0.55, "#151e27");
-      gradient.addColorStop(1, "#0e1012");
+      gradient.addColorStop(0, "#426a60");
+      gradient.addColorStop(0.55, "#163c34");
+      gradient.addColorStop(1, "#0d211c");
       ctx.beginPath();
       ctx.arc(center, center, radius, 0, Math.PI * 2);
       ctx.fillStyle = gradient;
@@ -265,8 +245,8 @@
         ctx.lineWidth = width;
         ctx.stroke();
       }
-      drawPaths(grids, "rgba(139,150,170,.2)", 0.65);
-      drawPaths(rings, "rgba(187,194,206,.52)", 0.65);
+      drawPaths(grids, "rgba(198,221,191,.23)", 0.65);
+      drawPaths(rings, "rgba(223,235,201,.68)", 0.65);
       const bins = Array.from({ length: 5 }, () => []);
       for (const point of land) {
         const p = project(point);
@@ -278,24 +258,27 @@
           ctx.moveTo(x + 1.1, y);
           ctx.arc(x, y, (size / 700) * 0.95, 0, Math.PI * 2);
         }
-        ctx.fillStyle = `rgba(213,218,226,${0.16 + index * 0.12})`;
+        ctx.fillStyle = `rgba(221,237,190,${0.16 + index * 0.12})`;
         ctx.fill();
       });
-      drawPaths(chile, "rgba(0,122,252,.9)", 1.3);
+      drawPaths(chile, "rgba(255,146,88,1)", 1.3);
       const [px, py, pz] = project(vector([-70.65, -33.45]));
       if (pz > 0) {
         const pulse = 1 + (Math.sin(tick * 0.0015) + 1) * 0.5;
         ctx.beginPath();
         ctx.arc(px, py, 8 + pulse * 3, 0, Math.PI * 2);
-        ctx.strokeStyle = "rgba(0,122,252,.45)";
+        ctx.strokeStyle = "rgba(255,146,88,.65)";
         ctx.lineWidth = 1;
         ctx.stroke();
         ctx.beginPath();
         ctx.arc(px, py, 3.3, 0, Math.PI * 2);
-        ctx.fillStyle = "#007afc";
+        ctx.fillStyle = "#ff9258";
         ctx.fill();
       }
-      scene.dataset.longitude = (longitude / rad).toFixed(1);
+      scene.dataset.longitude = (
+        ((((longitude / rad + 180) % 360) + 360) % 360) -
+        180
+      ).toFixed(1);
     }
     function animate(now) {
       frame = 0;
@@ -304,7 +287,7 @@
         const elapsed = Math.min(now - last, 100);
         last = now;
         tick += elapsed;
-        drift = manual ? 0 : Math.sin(tick * 0.00015) * 0.13;
+        if (!dragging) target += elapsed * 0.000075; // One full rotation in about 84 seconds.
         longitude += (target - longitude) * 0.12;
         render();
       }
@@ -320,13 +303,10 @@
       }
     }
     function orient(delta, reset = false) {
-      if (!manual) {
-        target = longitude + drift;
-        longitude = target;
-      }
-      drift = 0;
-      manual = !reset;
-      target = reset ? origin : target + delta * rad;
+      target = reset
+        ? longitude +
+          Math.atan2(Math.sin(origin - longitude), Math.cos(origin - longitude))
+        : target + delta * rad;
       if (reset) tick = 0;
       location.textContent = reset
         ? "Chile · América del Sur"
@@ -347,10 +327,10 @@
       .querySelector("[data-reset]")
       .addEventListener("click", () => orient(0, true));
     canvas.addEventListener("pointerdown", (event) => {
-      if (event.pointerType !== "mouse" || event.button !== 0) return;
+      if (!event.isPrimary || event.button !== 0) return;
       dragging = true;
       previousX = event.clientX;
-        canvas.setPointerCapture(event.pointerId);
+      canvas.setPointerCapture(event.pointerId);
     });
     canvas.addEventListener("pointermove", (event) => {
       if (!dragging) return;

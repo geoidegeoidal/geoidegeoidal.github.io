@@ -44,9 +44,9 @@ Prueba manual: menú móvil y Escape, visor con Enter y Escape y retorno del foc
 
 ## Diseño y recursos
 
-Referencia proporcionada: Mapbox. Fondo `#0e1012`, superficies `#15171b`, texto `#a0aaba`, acciones `#007afc`, tarjetas de 24 px y botones de 100 px. DM Sans variable se sirve localmente como sustituto de Cera Pro, con su licencia OFL en `assets/fonts/OFL.txt`.
+Dirección actual: atlas editorial. Papel cálido, tinta verde, portada mineral, acentos lima y contacto terracota. Títulos en Georgia y texto en DM Sans local (licencia OFL en `assets/fonts/OFL.txt`). Esta revisión reemplaza la aplicación estricta de la referencia inicial Mapbox, por petición del propietario.
 
-Los CTA azules tienen texto blanco de 19 px y peso 700 para cumplir el contraste de texto grande sin cambiar el azul de la referencia. Las etiquetas usan tracking moderado para mantener la lectura en español. Las leyendas y colores de los mapas originales se conservan; no son colores de la interfaz.
+Las secciones alternan composición y color; las cartografías originales conservan sus colores. El selector de la portada alterna Relieve y Memoria y enlaza cada obra a su ficha. Sin JavaScript, conserva el mapa y el enlace a la colección.
 
 No hay dependencias JavaScript en producción ni peticiones de fuentes a terceros. El formulario conserva el endpoint Formspree existente y funciona con POST nativo si no hay JavaScript. La disponibilidad y recepción final del correo dependen de esa cuenta de Formspree.
 
@@ -66,8 +66,8 @@ Se puede cambiar el servidor con `TEST_SITE_URL` y elegir un navegador instalado
 
 ## Movimiento cartográfico
 
-La portada incluye un globo ortográfico Canvas con costas reales de Natural Earth, Chile destacado, arrastre y controles de teclado. `assets/data/README.md` documenta la fuente; `atlas.svg` mantiene la escena sin JavaScript o si falla la carga.
+La portada incluye un globo ortográfico Canvas con costas reales de Natural Earth, Chile destacado, rotación automática continua (~84 segundos por vuelta), arrastre horizontal con ratón o tacto y controles de teclado. `assets/data/README.md` documenta la fuente; `atlas.svg` mantiene la escena sin JavaScript o si falla la carga.
 
-`assets/css/motion.css` y `assets/js/motion.js` añaden entradas de títulos y secciones, lectura progresiva, relieve al mover el puntero y transiciones de navegación. El botón global permite pausar y conserva la preferencia entre páginas. Se respeta el movimiento reducido del sistema. El globo limita resolución y frecuencia y deja de dibujar fuera de pantalla o en segundo plano.
+`assets/css/motion.css` y `assets/js/motion.js` añaden entradas de títulos y secciones y lectura progresiva. El botón global permite pausar y conserva la preferencia entre páginas. Se respeta el movimiento reducido del sistema. El globo limita resolución y frecuencia y deja de dibujar fuera de pantalla o en segundo plano.
 
 La prueba de movimiento verifica animación, pausa, persistencia, teclado, arrastre, reinicio, suspensión fuera de pantalla, recuperación de pestañas y alternativas sin JS o datos.
