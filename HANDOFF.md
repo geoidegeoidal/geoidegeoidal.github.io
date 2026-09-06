@@ -10,9 +10,11 @@
 
 **Validación:** build Jekyll real y comprobación de 6 páginas; 24 combinaciones de página/ancho, axe A/AA sin hallazgos automáticos; prueba específica de animación, pausa, persistencia, teclado, arrastre, reinicio, suspensión y fallbacks aprobada. Revisión independiente completada y hallazgo corregido. Capturas en ../outputs.
 
-**Bloqueos:** ninguno. No se enviaron formularios reales. **Próximos pasos:** publicar esta revisión y verificar Pages; las mejoras editoriales de casos de estudio y repositorios siguen pendientes de contenido del propietario.
+**Publicación:** commit 0ea91403bf9d9bd4ae4af5c15fde7d13de781273 enviado a main; GitHub Pages completó build y deploy (run 34007845801). Verificadas seis páginas públicas, carga del atlas, pausa/reanudación y ausencia de errores JavaScript.
 
-**Commits relevantes:** base 6157318; consultar git log para el commit de esta ampliación.
+**Bloqueos:** ninguno. No se enviaron formularios reales. **Próximos pasos:** las mejoras editoriales de casos de estudio y repositorios siguen pendientes de contenido del propietario.
+
+**Commits relevantes:** base 6157318; 0ea9140 (experiencia animada publicada). Este cierre documental no modifica el sitio servido.
 
 
 ## 2026-09-05 — Publicación autorizada y verificada
