@@ -1,5 +1,20 @@
 # Handoff
 
+## 2026-09-05 — Publicación autorizada y verificada
+
+**Objetivo:** completar commit, push y deploy, solicitados explícitamente por el propietario al final del rediseño.
+
+**Completado:** commit de implementación 7d64e18871e93599b69e47b3c6c9100f82698a1e, push a origin/main y despliegue GitHub Pages exitoso (run 34006594706). El build remoto reportó built, sin errores. Se verificaron en producción Bio, Mapas, Código, Blog, artículo y 404: contenido nuevo, fondo correcto, imágenes disponibles y sin errores JavaScript. URL pública: https://geoidegeoidal.github.io/.
+
+**Decisiones y entorno:** se conservó Pages legacy desde main, carpeta raíz. El push autenticado requirió una excepción safe.directory para esta ruta, limitada al comando por la diferencia de propietario entre sandbox y usuario; no se modificó la configuración global. El presente cierre documental se registra en un commit posterior, sin cambios en el sitio servido.
+
+**Bloqueos:** ninguno. Formspree solo se probó con respuestas simuladas; no se enviaron mensajes reales.
+
+**Próximos pasos:** desarrollar casos de estudio con evidencia, publicar y enlazar los dos repositorios pendientes, validar vigencia del perfil y añadir CV proporcionado por el propietario. Propuestas y capturas en ../outputs/mejoras-portafolio.md.
+
+**Commits relevantes:** 767a422 (base), 7d64e18 (rediseño publicado); consultar git log para el commit de este cierre documental.
+
+
 ## 2026-09-05 — Rediseño Mapbox del portafolio
 
 **Objetivo:** rediseñar el sitio según la segunda referencia del usuario (Mapbox), conservar las secciones y proponer mejoras profesionales. La referencia Dala anterior fue reemplazada.
