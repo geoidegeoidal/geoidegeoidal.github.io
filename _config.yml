@@ -1,15 +1,22 @@
-title: "JORGE ULLOA ROA"
-description: "Data Analyst | Spatial Data Analyst | Geographer"
+title: "Jorge Ulloa Roa"
+description: "Geógrafo y analista de datos espaciales. Cartografía, automatización e información ambiental para comprender el territorio y tomar mejores decisiones."
 email: jorge.ulloa.roa@gmail.com
 baseurl: ""
 url: "https://geoidegeoidal.github.io"
 github_username: geoidegeoidal
-
-# Redes Sociales
 linkedin_username: jorge-ulloa-roa
-
-# Configuración técnica
+lang: es
 markdown: kramdown
+highlighter: rouge
 theme: null
 plugins:
   - jekyll-feed
+exclude:
+  - AGENTS.md
+  - HANDOFF.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - tests
+  - vendor
+  - work

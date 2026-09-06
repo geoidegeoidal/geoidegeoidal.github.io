@@ -1,2 +1,63 @@
-# geoidegeoidal.github.io
-Portafolio Web
+# Portafolio de Jorge Ulloa Roa
+
+Sitio estático en español con Jekyll, compatible con GitHub Pages. Bio (presentación, trayectoria, proyectos, herramientas y contacto), Mapas, Código y Blog conservan sus rutas.
+
+## Desarrollo local
+
+Requiere Ruby, Bundler y las herramientas de compilación de Ruby para tu sistema (RubyInstaller + DevKit en Windows).
+
+```sh
+bundle install
+bundle exec jekyll serve
+```
+
+Abrir http://localhost:4000. La publicación continúa a través de la configuración existente de GitHub Pages; no se incorpora otro servicio de hosting.
+
+## Verificación
+
+```sh
+bundle exec jekyll build
+python tests/check_site.py _site
+node --check assets/js/site.js
+```
+
+El verificador usa solo Python estándar y comprueba rutas locales, imágenes, anclas, metadatos, un H1 por página, textos alternativos y XML. Para comprobar instalación en un subdirectorio:
+
+```sh
+bundle exec jekyll build --baseurl /portfolio
+python tests/check_site.py _site --baseurl /portfolio
+```
+
+Prueba manual: menú móvil y Escape, visor con Enter y Escape y retorno del foco, fichas técnicas, contacto desde las cuatro páginas, validación del formulario, conexión fallida, vista sin JavaScript y movimiento reducido. No enviar mensajes reales durante las pruebas: simular las respuestas del endpoint de Formspree.
+
+## Edición
+
+- `index.html`: biografía, proyectos, experiencia, herramientas y formulario.
+- `maps.html`: galería y metodología. El enlace a PNG es el original; WebP es la vista optimizada.
+- `code.html`: trabajos de código. Añadir enlaces específicos cuando estén publicados; no usar URLs de relleno.
+- `_posts/`: artículos Markdown con título, fecha, categorías y `layout: post`.
+- `_config.yml`: nombre, descripción, correo, redes y URL pública.
+- `_layouts/`: navegación, pie, metadatos y presentación de artículos.
+- `assets/css/style.css`: tokens y estilos compartidos, incluida adaptación móvil.
+- `assets/js/site.js`: mejoras progresivas de menú, visor nativo y formulario.
+
+## Diseño y recursos
+
+Referencia proporcionada: Mapbox. Fondo `#0e1012`, superficies `#15171b`, texto `#a0aaba`, acciones `#007afc`, tarjetas de 24 px y botones de 100 px. DM Sans variable se sirve localmente como sustituto de Cera Pro, con su licencia OFL en `assets/fonts/OFL.txt`.
+
+Los CTA azules tienen texto blanco de 19 px y peso 700 para cumplir el contraste de texto grande sin cambiar el azul de la referencia. Las etiquetas usan tracking moderado para mantener la lectura en español. Las leyendas y colores de los mapas originales se conservan; no son colores de la interfaz.
+
+No hay dependencias JavaScript en producción ni peticiones de fuentes a terceros. El formulario conserva el endpoint Formspree existente y funciona con POST nativo si no hay JavaScript. La disponibilidad y recepción final del correo dependen de esa cuenta de Formspree.
+
+Se conservan las afirmaciones profesionales del portafolio original. Antes de publicar, revisar vigencia de fechas y cifras, enlazar los repositorios pendientes y añadir evidencia a los resultados de proyectos.
+
+Para ejecutar también la auditoría de navegador y accesibilidad (dependencias exclusivas de desarrollo), con Jekyll servido en el puerto 4000:
+
+```sh
+cd tests
+npm install
+npx playwright install chromium
+npm test
+```
+
+Se puede cambiar el servidor con `TEST_SITE_URL` y elegir un navegador instalado con `BROWSER_CHANNEL` (por ejemplo, `msedge`). Las solicitudes de Formspree se interceptan durante estas pruebas y no salen al servicio real.
