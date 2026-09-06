@@ -19,6 +19,7 @@ Abrir http://localhost:4000. La publicación continúa a través de la configura
 bundle exec jekyll build
 python tests/check_site.py _site
 node --check assets/js/site.js
+node --check assets/js/motion.js
 ```
 
 El verificador usa solo Python estándar y comprueba rutas locales, imágenes, anclas, metadatos, un H1 por página, textos alternativos y XML. Para comprobar instalación en un subdirectorio:
@@ -58,6 +59,15 @@ cd tests
 npm install
 npx playwright install chromium
 npm test
+npm run test:motion
 ```
 
 Se puede cambiar el servidor con `TEST_SITE_URL` y elegir un navegador instalado con `BROWSER_CHANNEL` (por ejemplo, `msedge`). Las solicitudes de Formspree se interceptan durante estas pruebas y no salen al servicio real.
+
+## Movimiento cartográfico
+
+La portada incluye un globo ortográfico Canvas con costas reales de Natural Earth, Chile destacado, arrastre y controles de teclado. `assets/data/README.md` documenta la fuente; `atlas.svg` mantiene la escena sin JavaScript o si falla la carga.
+
+`assets/css/motion.css` y `assets/js/motion.js` añaden entradas de títulos y secciones, lectura progresiva, relieve al mover el puntero y transiciones de navegación. El botón global permite pausar y conserva la preferencia entre páginas. Se respeta el movimiento reducido del sistema. El globo limita resolución y frecuencia y deja de dibujar fuera de pantalla o en segundo plano.
+
+La prueba de movimiento verifica animación, pausa, persistencia, teclado, arrastre, reinicio, suspensión fuera de pantalla, recuperación de pestañas y alternativas sin JS o datos.

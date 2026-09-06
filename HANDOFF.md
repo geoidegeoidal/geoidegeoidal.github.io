@@ -1,5 +1,20 @@
 # Handoff
 
+## 2026-09-05 — Experiencia cartográfica animada
+
+**Objetivo:** elevar el impacto visual con animaciones, conservando secciones y completar commit, push y deploy ya autorizados.
+
+**Completado:** nueva portada tipográfica con globo Canvas de geografía real, Chile destacado, arrastre, botones de orientación y SVG alternativo; cartografía original en una sección editorial propia; entradas por scroll, títulos animados, relieve con puntero, progreso de lectura, transiciones y microinteracciones en todas las páginas. Pausa persistente y respeto del movimiento reducido. Sin dependencias de producción nuevas.
+
+**Decisiones:** Natural Earth local y documentado; DPR 1.5 y 30/20 FPS; suspender dibujo fuera de pantalla y en segundo plano. Se corrigió la recuperación de animaciones al volver a la pestaña y se preservó la orientación al pausar. Esta petición reemplaza la anterior decisión de retirar todas las animaciones continuas.
+
+**Validación:** build Jekyll real y comprobación de 6 páginas; 24 combinaciones de página/ancho, axe A/AA sin hallazgos automáticos; prueba específica de animación, pausa, persistencia, teclado, arrastre, reinicio, suspensión y fallbacks aprobada. Revisión independiente completada y hallazgo corregido. Capturas en ../outputs.
+
+**Bloqueos:** ninguno. No se enviaron formularios reales. **Próximos pasos:** publicar esta revisión y verificar Pages; las mejoras editoriales de casos de estudio y repositorios siguen pendientes de contenido del propietario.
+
+**Commits relevantes:** base 6157318; consultar git log para el commit de esta ampliación.
+
+
 ## 2026-09-05 — Publicación autorizada y verificada
 
 **Objetivo:** completar commit, push y deploy, solicitados explícitamente por el propietario al final del rediseño.

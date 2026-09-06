@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "test": "node browser_check.cjs"
+    "test": "node browser_check.cjs",
+    "test:motion": "node motion_check.cjs"
   },
   "devDependencies": {
     "playwright": "1.62.1",
