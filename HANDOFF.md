@@ -10,9 +10,11 @@
 
 **Validación:** Jekyll real en raíz y /portfolio y comprobador de 6 páginas aprobados. Navegador: 24 combinaciones página/ancho, sin errores JS, recursos fallidos ni hallazgos axe A/AA. Pruebas de giro automático, pausa, arrastre, teclado, suspensión y selector aprobadas. Revisión independiente detectó hover de bajo contraste, reset con vueltas acumuladas y selector inerte sin JS: corregidos. No se envían formularios reales.
 
-**Bloqueos:** ninguno. **Próximos pasos:** publicar y verificar esta revisión; continúan pendientes las URLs de repositorios y evidencia editorial de proyectos del propietario.
+**Publicación:** 99ab7081b2a10cd04f7ee3e9dd56809a682f27c6 enviado a main. GitHub Pages run 34067120369 terminó con éxito. Seis páginas públicas, colores nuevos, rotación automática y pausa verificados sin errores JavaScript. Arrastre táctil comprobado con eventos táctiles de Chromium.
 
-**Commits relevantes:** base 61c54db; consultar git log para esta revisión.
+**Bloqueos:** ninguno. **Próximos pasos:** continúan pendientes las URLs de repositorios y evidencia editorial de proyectos del propietario.
+
+**Commits relevantes:** base 61c54db; 99ab708 (atlas editorial publicado). Este cierre documental no cambia el sitio servido.
 
 
 ## 2026-09-05 — Experiencia cartográfica animada
