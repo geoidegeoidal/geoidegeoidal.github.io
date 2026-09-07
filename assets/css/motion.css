@@ -1513,3 +1513,14 @@ html.tab-hidden *:after {
     gap: 28px;
   }
 }
+
+/* Reading sequence and distinction between independent and institutional work. */
+.expertise-rail{grid-template-columns:1fr 5fr}
+.expertise-rail>div{flex-wrap:wrap;gap:12px 24px}
+.professional-work{grid-template-columns:repeat(2,minmax(0,1fr))}
+.institutional-heading{margin-top:48px;margin-bottom:24px}
+.institutional-heading h3{font:400 36px/1.1 Georgia,serif;margin-bottom:12px}
+.institutional-heading p{font-size:15px;max-width:600px}
+.map-story-copy{max-width:390px}
+.conmapas-community{display:flex;width:fit-content}
+@media(max-width:720px){.expertise-rail{grid-template-columns:1fr}.professional-work{grid-template-columns:1fr}.institutional-heading h3{font-size:30px}}

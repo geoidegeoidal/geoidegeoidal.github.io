@@ -25,3 +25,6 @@
 - Curaduría vigente: _data/projects.json alimenta portada (featured) y Código. Cuatro destacados: LUZ·RM, Azimut, AutoAtlas Pro y HuellaRETC. Nueve proyectos de catálogo y tres experimentos. Mantener ConMapas, IEMA e IDE-MMA como evidencia profesional.
 - Distinguir demo comprobada de código disponible. AutoAtlas se declara experimental en metadata. No prometer privacidad totalmente local en Azimut: sus fallbacks consultan servicios externos. HuellaRETC usa datos históricos 2021–2024.
 - La captura LUZ·RM procede del README del proyecto y no representa el estado actual de sus datos. Conservar atribuciones y leyenda de captura.
+
+- Recorrido de lectura vigente: presentación, perfil, proyectos (propios e institucionales diferenciados), ConMapas/cartografía, trayectoria, herramientas, contacto. Índice y numeración deben reflejar ese orden. Conservar #conmapas y evitar duplicar su presentación en proyectos institucionales.
+- La paleta propuesta el 2026-09-07 está en ../outputs/paleta-conmapas.html; es una propuesta independiente y todavía no reemplaza la paleta publicada.

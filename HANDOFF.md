@@ -1,5 +1,22 @@
 # Handoff
 
+## 2026-09-07 — Recorrido de lectura y propuesta cromática
+
+**Objetivo:** mejorar lectura y orden lógico; proponer una paleta relacionada con ConMapas.
+
+**Completado:** proyectos antes de cartografía; ConMapas junto a sus obras, separado de IEMA/IDE-MMA; perfil con funciones concretas; introducciones conectadas entre secciones; índice semántico de seis enlaces y numeración coherente. Conservadas todas las anclas previas y añadido #conmapas. Corregida capitalización en metadata de Código.
+
+**Paleta propuesta, no aplicada:** carbón #121B20, papel #F3F0E7, turquesa #06766F, amarillo #D6DE59, violeta #783D9B y naranja #E88D42. Interpretación de las cartografías de relieve/memoria, no marca oficial. Muestra HTML/PNG y usos en ../outputs/paleta-conmapas.*. Contrastes previstos de texto entre 4.81:1 y 15.31:1.
+
+**Validación:** Jekyll y checker de seis páginas; navegador en 24 combinaciones página/ancho sin errores JS, recursos fallidos ni hallazgos axe A/AA. Revisión visual de la nueva sección ConMapas. No cambia la lógica del globo ni formulario.
+
+**Decisiones:** publicar la mejora de lectura con la autorización persistente de commit/push/deploy. Mantener la paleta actual hasta que el propietario decida sobre la propuesta.
+
+**Bloqueos:** ninguno. **Próximos pasos:** decisión del propietario sobre la paleta y casos de estudio ya propuestos.
+
+**Commits relevantes:** base 812f279; consultar git log para el cambio de recorrido.
+
+
 ## 2026-09-07 — Curaduría de los repositorios públicos
 
 **Objetivo:** seleccionar proyectos por impacto entre todos los ámbitos del GitHub del propietario y aplicar la selección al portafolio.
