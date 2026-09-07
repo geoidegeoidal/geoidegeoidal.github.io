@@ -35,7 +35,8 @@ Prueba manual: menú móvil y Escape, visor con Enter y Escape y retorno del foc
 
 - `index.html`: biografía, proyectos, experiencia, herramientas y formulario.
 - `maps.html`: galería y metodología. El enlace a PNG es el original; WebP es la vista optimizada.
-- `code.html`: trabajos de código. Añadir enlaces específicos cuando estén publicados; no usar URLs de relleno.
+- `_data/projects.json`: catálogo curado, enlaces verificados y selección de portada mediante `featured`.
+- `code.html`: catálogo de nueve proyectos y tres experimentos con su alcance y documentación.
 - `_posts/`: artículos Markdown con título, fecha, categorías y `layout: post`.
 - `_config.yml`: nombre, descripción, correo, redes y URL pública.
 - `_layouts/`: navegación, pie, metadatos y presentación de artículos.
@@ -71,3 +72,7 @@ La portada incluye un globo ortográfico Canvas con costas reales de Natural Ear
 `assets/css/motion.css` y `assets/js/motion.js` añaden entradas de títulos y secciones y lectura progresiva. El botón global permite pausar y conserva la preferencia entre páginas. Se respeta el movimiento reducido del sistema. El globo limita resolución y frecuencia y deja de dibujar fuera de pantalla o en segundo plano.
 
 La prueba de movimiento verifica animación, pausa, persistencia, teclado, arrastre, reinicio, suspensión fuera de pantalla, recuperación de pestañas y alternativas sin JS o datos.
+
+## Curaduría de proyectos
+
+Revisión del perfil público realizada el 6–7 de septiembre de 2026: 27 repositorios considerados. La portada prioriza LUZ·RM, Azimut, AutoAtlas Pro y HuellaRETC por su complementariedad. Código amplía la selección con herramientas, datos abiertos y experimentos; no presenta repositorios sin demo como aplicaciones publicadas. ConMapas, IEMA e IDE-MMA mantienen su espacio profesional. Las notas de cada proyecto delimitan lo que demuestra el código revisado; no equivalen a una auditoría de cada aplicación.

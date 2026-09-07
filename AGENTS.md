@@ -9,7 +9,7 @@
 - Usar relative_url y absolute_url en recursos y enlaces internos. El contacto desde cualquier página apunta a la raíz + #contacto.
 - Conservar las imágenes originales PNG y usar WebP optimizado para las vistas. La galería muestra imágenes completas; la portada puede recortar su vista previa.
 - Mantener la mejora progresiva: navegación y enlaces originales de mapas disponibles sin JS; formulario con POST nativo a su endpoint existente.
-- No inventar datos, métricas, roles, disponibilidad de repositorios o publicaciones. Mantener explícita la contribución personal (fundador, responsable, liderazgo). Los dos repositorios de Código todavía no tienen URL específica verificada.
+- No inventar datos, métricas, roles, disponibilidad de repositorios o publicaciones. Mantener explícita la contribución personal (fundador, responsable, liderazgo). Los antiguos placeholders de incendios y Spatial SQL se retiraron al curar proyectos verificables; no asociarlos a repositorios por semejanza de nombre.
 - No enviar mensajes de prueba reales. Interceptar Formspree al probar éxito y error. Nunca reemplazar el endpoint ni el correo sin información del propietario.
 - Verificar con Jekyll, tests/check_site.py y, para interacciones, tests/browser_check.cjs. Revisar escritorio y móvil, Escape y retorno del foco en el visor, movimiento reducido, teclado y enlaces desde páginas secundarias.
 - Los bloques pre de los artículos incluyen tabindex=0 para permitir desplazamiento horizontal con teclado.
@@ -21,3 +21,7 @@
 - Ejecutar tests/motion_check.cjs al modificar movimiento. No añadir dependencias 3D para esta escena ortográfica.
 
 - Selector Relieve/Memoria oculto sin JS, enlaces originales disponibles. Probar ambos mapas y sus anclas. Evitar simulaciones decorativas de interacción: el selector cambia cartografía real y el globo admite arrastre táctil horizontal conservando scroll vertical.
+
+- Curaduría vigente: _data/projects.json alimenta portada (featured) y Código. Cuatro destacados: LUZ·RM, Azimut, AutoAtlas Pro y HuellaRETC. Nueve proyectos de catálogo y tres experimentos. Mantener ConMapas, IEMA e IDE-MMA como evidencia profesional.
+- Distinguir demo comprobada de código disponible. AutoAtlas se declara experimental en metadata. No prometer privacidad totalmente local en Azimut: sus fallbacks consultan servicios externos. HuellaRETC usa datos históricos 2021–2024.
+- La captura LUZ·RM procede del README del proyecto y no representa el estado actual de sus datos. Conservar atribuciones y leyenda de captura.

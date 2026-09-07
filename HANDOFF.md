@@ -1,5 +1,20 @@
 # Handoff
 
+## 2026-09-07 — Curaduría de los repositorios públicos
+
+**Objetivo:** seleccionar proyectos por impacto entre todos los ámbitos del GitHub del propietario y aplicar la selección al portafolio.
+
+**Completado:** inventario de 27 repositorios, README disponibles, árboles y archivos clave de candidatos; apertura de siete rutas de demos. Cuatro destacados (LUZ·RM, Azimut, AutoAtlas Pro, HuellaRETC); nueve entradas de Código y tres experimentos. Catálogo central en _data/projects.json, captura real LUZ·RM optimizada (99.6 KB), enlaces y notas de alcance. ConMapas, IEMA e IDE-MMA conservados. Retirados dos placeholders sin repo confirmado. Evaluación completa y mejoras por repositorio en ../outputs/curaduria-github.md.
+
+**Decisiones:** no confundir README con validación de producto. AutoAtlas experimental; Azimut puede enviar consultas a servicios externos; HuellaRETC histórico. Marraquetómetro y HoloSynth enlazan al código porque las rutas Pages probadas devolvieron 404. No se modificó ningún repositorio ajeno al portafolio. No se ejecutaron plugins ni pipelines revisados.
+
+**Validación:** Jekyll raíz y checker de 6 páginas aprobados; navegador en 24 combinaciones página/ancho sin errores JS, recursos fallidos ni hallazgos axe A/AA. Revisión visual escritorio/móvil completada. Revisión independiente intentada pero el agente no pudo continuar por límite de uso; revisión final realizada localmente.
+
+**Bloqueos:** ninguno. **Próximos pasos:** completar publicación y verificación remota. Mejoras con mayor retorno: PDF/demo de AutoAtlas, publicación de Marraquetómetro y casos de estudio de LUZ·RM/Azimut.
+
+**Commits relevantes:** base dd06f22; consultar git log para esta curaduría.
+
+
 ## 2026-09-06 — Atlas editorial y giro real
 
 **Objetivo:** responder al rechazo de la estética repetitiva, variar composición y color, mejorar interacción y hacer que el planeta gire solo. Continúa la autorización de commit, push y deploy.
