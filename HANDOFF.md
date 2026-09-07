@@ -10,9 +10,11 @@
 
 **Validación:** Jekyll raíz y checker de 6 páginas aprobados; navegador en 24 combinaciones página/ancho sin errores JS, recursos fallidos ni hallazgos axe A/AA. Revisión visual escritorio/móvil completada. Revisión independiente intentada pero el agente no pudo continuar por límite de uso; revisión final realizada localmente.
 
-**Bloqueos:** ninguno. **Próximos pasos:** completar publicación y verificación remota. Mejoras con mayor retorno: PDF/demo de AutoAtlas, publicación de Marraquetómetro y casos de estudio de LUZ·RM/Azimut.
+**Publicación:** commit 5a11ec64c7152b383aec5dfb859e92289431aff4 enviado a main y desplegado con éxito en run 34084804695. Verificación pública: 4 destacados, 9 proyectos, 3 experimentos y anclas correctas, sin errores JavaScript.
 
-**Commits relevantes:** base dd06f22; consultar git log para esta curaduría.
+**Bloqueos:** ninguno. **Próximos pasos:** mejoras con mayor retorno: PDF/demo de AutoAtlas, publicación de Marraquetómetro y casos de estudio de LUZ·RM/Azimut.
+
+**Commits relevantes:** base dd06f22; 5a11ec6 (curaduría publicada). Este cierre documental no cambia el sitio servido.
 
 
 ## 2026-09-06 — Atlas editorial y giro real
