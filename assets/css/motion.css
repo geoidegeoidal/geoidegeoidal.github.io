@@ -1533,3 +1533,21 @@ html.tab-hidden *:after {
 #conmapas .map-switch button[aria-pressed="true"]{background:#d6de59;color:#121b20;border-color:#d6de59}
 #conmapas .map-switch button:hover{border-color:#e88d42}
 ::selection{background:#783d9b;color:#f3f0e7}
+
+/* Evidence and authored social cartography, within the editorial reading order. */
+.research-note { grid-column: 1 / -1; border-top: 1px solid #121b2033; padding-top: 2rem; max-width: 70rem; }
+.research-note h3 { font: 400 clamp(1.8rem, 3vw, 2.8rem) / 1.1 Georgia, serif; margin: .75rem 0 1rem; }
+.research-note > p:not(.eyebrow) { max-width: 65ch; }
+.social-map-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 3.5rem); align-items: start; }
+.social-map-grid article > a { display: block; overflow: hidden; background: #121b20; }
+.social-map-grid img { display: block; width: 100%; height: auto; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.social-map-grid a:hover img { transform: scale(1.018); }
+.social-map-grid .eyebrow { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
+.social-map-grid .social-proof { color: #783d9b; font-weight: 800; }
+.social-map-grid h3 { font: 400 clamp(1.8rem, 3vw, 2.6rem) / 1.1 Georgia, serif; margin: .8rem 0 1rem; }
+.social-map-grid p { max-width: 50ch; }
+.social-map-grid .map-source { font-size: .8rem; color: #526368; }
+.social-maps .gallery-note { margin: 2.5rem 0 0; }
+@media (max-width: 960px) { .social-map-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .social-map-grid { grid-template-columns: 1fr; gap: 3rem; } }
+@media (prefers-reduced-motion: reduce) { .social-map-grid img { transition: none; } }

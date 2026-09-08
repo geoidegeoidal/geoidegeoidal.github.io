@@ -28,3 +28,8 @@
 
 - Recorrido de lectura vigente: presentación, perfil, proyectos (propios e institucionales diferenciados), ConMapas/cartografía, trayectoria, herramientas, contacto. Índice y numeración deben reflejar ese orden. Conservar #conmapas y evitar duplicar su presentación en proyectos institucionales.
 - La propuesta de ../outputs/paleta-conmapas.html fue aprobada y aplicada el 2026-09-08. Es una interpretación de ConMapas, no una marca oficial extraída. Usar violeta en títulos sobre papel, amarillo para acciones y turquesa en contacto; adaptar enlaces y foco a cada superficie.
+
+- Revisión LinkedIn/Instagram (2026-09-08): MINCAP desde agosto 2026 y MMA figuran ambos vigentes en LinkedIn público indexado. No inferir una salida de MMA. Servel: diferenciar contribución individual y resultados del equipo; porcentajes son distancia lineal.
+- Investigación verificada: Peña y Ulloa, Revista de Teledetección 50, 37–48, DOI 10.4995/raet.2017.7931. Publicación 2017-12-26; 2017-12-11 es aceptación.
+- ConMapas es colectivo: verificar la firma en cada imagen. La selección vigente usa las tres publicaciones propias con más likes entre 353 URLs de ConMapas inventariadas el 2026-09-08: ferias (19,7 mil), micheladas (18,9 mil) e índice IPEC (13,7 mil), todas con firma visible de Jorge Ulloa. Siete colaboraciones/republicaciones externas quedaron fuera del ranking. El mapa de puntos críticos recuperado en outputs está firmado por Eduardo Carvajal y no es obra individual de Jorge. Servir copias locales optimizadas, nunca el CDN temporal. Cifra aproximada de 19,5 mil seguidores fechada septiembre 2026.
+- Citar entre comillas los valores de front matter YAML que contengan dos puntos seguidos por espacio.

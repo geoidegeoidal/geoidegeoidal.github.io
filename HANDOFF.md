@@ -1,5 +1,19 @@
 # Handoff
 
+## 2026-09-08 — Perfil profesional y cartografías de ConMapas
+
+**Objetivo:** revisar LinkedIn y recuperar mapas de Instagram para enriquecer el portafolio.
+
+**Completado:** bio con formación y enfoque público; consultoría MINCAP; precisión del logro colectivo de Servel; publicación científica enlazada en trayectoria y Blog; comunidad ConMapas actualizada a cifra aproximada y fechada. Inventario y ranking de las 353 publicaciones propias del perfil. Tres líderes con firma visible de Jorge recuperadas en alta resolución y presentadas con likes, contexto, créditos y enlaces. Informe en ../outputs/revision-linkedin-conmapas.md y ranking completo en ../outputs/conmapas-ranking-publico.csv.
+
+**Decisiones:** acceso a LinkedIn mediante contenido público indexado porque navegador exige registro. Instagram revisado con la sesión iniciada por el propietario. Selección limitada a las tres publicaciones propias con más likes y autoría confirmada; colaboraciones, republicaciones y el mapa de invierno firmado por Eduardo Carvajal quedaron fuera. Mantener MMA y MINCAP vigentes tal como figuran; no inventar cese ni apariciones en medios sin enlaces. Publicación autorizada por la instrucción persistente de commit/push/deploy.
+
+**Validación:** builds Jekyll raíz y /portfolio; checker de seis páginas en ambas variantes; 24 combinaciones página/ancho sin errores JS, recursos fallidos ni hallazgos axe A/AA; prueba completa de movimiento y fallbacks. Revisión visual de la selección a tres columnas en escritorio. Sin cambios de lógica del globo o formulario.
+
+**Bloqueos:** no se dispone de archivos editables ni láminas interiores para construir casos de estudio completos. **Próximos pasos:** añadir metodología y proceso cuando existan esos materiales; verificar enlaces de apariciones en medios y fechas de término de cargos si corresponde.
+
+**Commits relevantes:** base de95ea8; consultar el commit de esta entrada para la incorporación.
+
 ## 2026-09-08 — Paleta ConMapas aprobada
 
 **Objetivo:** aplicar la propuesta cromática aprobada por el propietario con «hazlo».
