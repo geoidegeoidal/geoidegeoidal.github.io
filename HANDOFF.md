@@ -12,7 +12,9 @@
 
 **Bloqueos:** ninguno. **Próximos pasos:** ninguno.
 
-**Publicación:** pendiente de este cierre. **Commits relevantes:** base 551d58f; consultar el commit de esta entrada.
+**Publicación:** commit b92f7ee229a192253cb613ca83f3ff8956d8258f enviado a main. GitHub Pages run 34270078026 terminó con éxito.
+
+**Commits relevantes:** base 551d58f; b92f7ee (separación publicada). Este cierre documental no modifica el sitio servido.
 
 ## 2026-09-08 — Ubicación voluntaria en el globo
 
