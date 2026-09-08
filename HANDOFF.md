@@ -12,7 +12,9 @@
 
 **Bloqueos:** ninguno. **Próximos pasos:** retirar cada etiqueta solo cuando el propietario considere terminado el proyecto correspondiente.
 
-**Publicación:** pendiente de este cierre. **Commits relevantes:** base 4cf97c1; consultar el commit de esta entrada.
+**Publicación:** commit cbd247636dd7673dd79473745edd9277f7063695 enviado a main. GitHub Pages run 34271321080 terminó con éxito; la comprobación completa aprobó también contra producción.
+
+**Commits relevantes:** base 4cf97c1; cbd2476 (estados WIP publicados). Este cierre documental no modifica el sitio servido.
 
 ## 2026-09-08 — Separación entre atlas y pie del hero
 
