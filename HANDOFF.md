@@ -1,5 +1,19 @@
 # Handoff
 
+## 2026-09-08 — Estado WIP para experimentos
+
+**Objetivo:** aclarar que los códigos agrupados fuera de los temas principales todavía no están terminados.
+
+**Completado:** Marraquetómetro, HoloSynth y MR_ROBOT muestran individualmente «Work in Progress». La introducción de la sección ahora los presenta como exploraciones en desarrollo y evita sugerir productos terminados.
+
+**Decisiones:** limitar el cambio a los tres experimentos de «Fuera del recorrido habitual»; conservar los estados verificados del catálogo principal. Usar turquesa oscuro para que la etiqueta pequeña cumpla contraste AA.
+
+**Validación:** builds Jekyll raíz y /portfolio; checker de seis páginas en ambas variantes; 24 combinaciones página/ancho sin errores JavaScript, recursos fallidos ni hallazgos axe A/AA. Regresión que exige exactamente tres etiquetas y revisión visual de la sección en escritorio y móvil.
+
+**Bloqueos:** ninguno. **Próximos pasos:** retirar cada etiqueta solo cuando el propietario considere terminado el proyecto correspondiente.
+
+**Publicación:** pendiente de este cierre. **Commits relevantes:** base 4cf97c1; consultar el commit de esta entrada.
+
 ## 2026-09-08 — Separación entre atlas y pie del hero
 
 **Objetivo:** corregir la superposición visible entre «Cartografía: Natural Earth» y la franja inferior de la portada después de añadir la ubicación.

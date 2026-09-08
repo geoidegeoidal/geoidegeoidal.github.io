@@ -1438,6 +1438,13 @@ html.tab-hidden *:after {
   font-size: 23px;
   margin-bottom: 16px;
 }
+.experiment-list .experiment-status {
+  color: #075d58;
+  font: 700 10px/1.4 Consolas, monospace;
+  letter-spacing: 0.09em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
 .experiment-list p {
   font-size: 14px;
 }

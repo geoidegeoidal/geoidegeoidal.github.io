@@ -62,6 +62,13 @@ const base = (process.env.TEST_SITE_URL || "http://127.0.0.1:4000").replace(
             "atlas caption clears hero footer at " + width,
           );
         }
+        if (route === "/code.html") {
+          assert.equal(
+            await page.getByText("Work in Progress", { exact: true }).count(),
+            3,
+            "all three experiments disclose their status",
+          );
+        }
         if (width === 390 || width === 1440) {
           const result = await new AxeBuilder({ page })
             .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
