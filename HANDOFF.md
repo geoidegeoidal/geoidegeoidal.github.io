@@ -1,5 +1,19 @@
 # Handoff
 
+## 2026-09-08 — Cursos como práctica profesional y archivo ConMapas unificado
+
+**Objetivo:** dar espacio a la oferta de cursos en la landing y corregir la relación entre ConMapas y las cartografías existentes.
+
+**Completado:** nueva sección Cursos entre proyectos y ConMapas, con el Bootcamp Desarrollo Web Territorial con IA, tres módulos, CTA y evidencia de cohortes. Hero, índice, numeración y contacto actualizados para incluir docencia. maps.html se presenta ahora como Archivo ConMapas; San Cristóbal, Memoria y la selección por alcance se describen como series de una misma práctica editorial.
+
+**Decisiones:** usar una superficie amarilla editorial para distinguir la docencia sin repetir tarjetas. Conservar fechas y precios dinámicos en la landing específica del curso. Mantener ConMapas como proyecto común, no como una categoría separada de esos mapas.
+
+**Validación:** builds Jekyll raíz y /portfolio; checker de seis páginas en ambas variantes; 24 combinaciones página/ancho sin errores JS, recursos fallidos ni hallazgos axe A/AA. Prueba completa de movimiento y fallbacks. Revisión visual de Cursos y Archivo ConMapas en escritorio y móvil.
+
+**Bloqueos:** ninguno. **Próximos pasos:** incorporar futuros cursos en esta misma práctica formativa y actualizar sus métricas solo con evidencia publicada.
+
+**Commits relevantes:** base 7f2e3e1; consultar el commit de esta entrada para la implementación.
+
 ## 2026-09-08 — Perfil profesional y cartografías de ConMapas
 
 **Objetivo:** revisar LinkedIn y recuperar mapas de Instagram para enriquecer el portafolio.
