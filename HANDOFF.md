@@ -1,5 +1,19 @@
 # Handoff
 
+## 2026-09-08 — Paleta ConMapas aprobada
+
+**Objetivo:** aplicar la propuesta cromática aprobada por el propietario con «hazlo».
+
+**Completado:** colores compartidos, portada, contacto, títulos, controles, globo Canvas, alternativa SVG, favicon y color del navegador actualizados. Conservados el recorrido de lectura y los colores originales de las cartografías.
+
+**Decisiones:** carbón/papel para lectura; turquesa en contacto, amarillo en acciones, violeta editorial y naranja puntual. Enlaces y foco adaptados a superficies oscuras. Se mantiene la autorización previa de commit, push y deploy.
+
+**Validación:** Jekyll y comprobador de seis páginas aprobados; 24 combinaciones de página/ancho sin errores JS, recursos fallidos ni hallazgos axe A/AA. Pruebas de movimiento, teclado, pausa, selector y fallbacks aprobadas. Revisión visual escritorio/móvil.
+
+**Bloqueos:** ninguno. **Próximos pasos:** conservar esta paleta en futuras páginas y desarrollar los casos de estudio propuestos.
+
+**Commits relevantes:** base e56cd5f; consultar el commit de esta entrada para la aplicación cromática.
+
 ## 2026-09-07 — Recorrido de lectura y propuesta cromática
 
 **Objetivo:** mejorar lectura y orden lógico; proponer una paleta relacionada con ConMapas.

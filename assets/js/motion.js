@@ -216,9 +216,9 @@
         center,
         radius * 1.15,
       );
-      gradient.addColorStop(0, "#426a60");
-      gradient.addColorStop(0.55, "#163c34");
-      gradient.addColorStop(1, "#0d211c");
+      gradient.addColorStop(0, "#285c61");
+      gradient.addColorStop(0.55, "#14373d");
+      gradient.addColorStop(1, "#121b20");
       ctx.beginPath();
       ctx.arc(center, center, radius, 0, Math.PI * 2);
       ctx.fillStyle = gradient;
@@ -245,8 +245,8 @@
         ctx.lineWidth = width;
         ctx.stroke();
       }
-      drawPaths(grids, "rgba(198,221,191,.23)", 0.65);
-      drawPaths(rings, "rgba(223,235,201,.68)", 0.65);
+      drawPaths(grids, "rgba(116,191,184,.28)", 0.65);
+      drawPaths(rings, "rgba(166,219,205,.72)", 0.65);
       const bins = Array.from({ length: 5 }, () => []);
       for (const point of land) {
         const p = project(point);
@@ -258,21 +258,21 @@
           ctx.moveTo(x + 1.1, y);
           ctx.arc(x, y, (size / 700) * 0.95, 0, Math.PI * 2);
         }
-        ctx.fillStyle = `rgba(221,237,190,${0.16 + index * 0.12})`;
+        ctx.fillStyle = `rgba(166,219,205,${0.16 + index * 0.12})`;
         ctx.fill();
       });
-      drawPaths(chile, "rgba(255,146,88,1)", 1.3);
+      drawPaths(chile, "rgba(214,222,89,1)", 1.3);
       const [px, py, pz] = project(vector([-70.65, -33.45]));
       if (pz > 0) {
         const pulse = 1 + (Math.sin(tick * 0.0015) + 1) * 0.5;
         ctx.beginPath();
         ctx.arc(px, py, 8 + pulse * 3, 0, Math.PI * 2);
-        ctx.strokeStyle = "rgba(255,146,88,.65)";
+        ctx.strokeStyle = "rgba(232,141,66,.8)";
         ctx.lineWidth = 1;
         ctx.stroke();
         ctx.beginPath();
         ctx.arc(px, py, 3.3, 0, Math.PI * 2);
-        ctx.fillStyle = "#ff9258";
+        ctx.fillStyle = "#e88d42";
         ctx.fill();
       }
       scene.dataset.longitude = (

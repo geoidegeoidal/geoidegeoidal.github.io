@@ -3,8 +3,8 @@
 - Leer este archivo y HANDOFF.md antes de modificar el sitio. Al cerrar una sesión con cambios, anteponer una entrada a HANDOFF.md con objetivo, trabajo realizado, decisiones, bloqueos, próximos pasos y commits.
 - Preferir las herramientas del grafo codebase-memory-mcp para descubrir código si el proyecto está indexado. Si no hay índice disponible, usar lecturas directas y rg.
 - Sitio Jekyll en español para GitHub Pages. Conservar las rutas de Bio (/), Mapas (/maps.html), Código (/code.html), Blog (/blog.html) y los artículos. Mantener las anclas experiencia, proyectos, tech y contacto.
-- Dirección vigente (2026-09-06): atlas editorial, autorizada por la crítica del usuario a la repetición de tarjetas y paleta oscura. Papel #f1eee5, tinta #172d24, verde #102d25, lima #d9ed9e y terracota #8e3d25; Georgia para títulos y DM Sans local para cuerpo. Sustituye la aplicación estricta de Mapbox y los radios de tarjetas/botones.
-- Comprobar contraste de texto y estados hover por superficie. Los CTA ahora usan fondos lima/ocre con tinta oscura; no recolorear las cartografías originales.
+- Dirección vigente (2026-09-08): atlas editorial, autorizada por la crítica del usuario a la repetición de tarjetas y paleta oscura. Paleta ConMapas aprobada: papel #F3F0E7, carbón #121B20, turquesa #06766F, amarillo #D6DE59, violeta #783D9B y naranja #E88D42; Georgia para títulos y DM Sans local para cuerpo. Sustituye la aplicación estricta de Mapbox y los radios de tarjetas/botones.
+- Comprobar contraste de texto y estados hover por superficie. Los CTA ahora usan fondos amarillos con tinta oscura; no recolorear las cartografías originales.
 - HTML/Liquid, CSS compartido y JavaScript nativo. Las dependencias npm de tests son solo de desarrollo, no agregar un framework ni una fase de build JavaScript sin necesidad.
 - Usar relative_url y absolute_url en recursos y enlaces internos. El contacto desde cualquier página apunta a la raíz + #contacto.
 - Conservar las imágenes originales PNG y usar WebP optimizado para las vistas. La galería muestra imágenes completas; la portada puede recortar su vista previa.
@@ -27,4 +27,4 @@
 - La captura LUZ·RM procede del README del proyecto y no representa el estado actual de sus datos. Conservar atribuciones y leyenda de captura.
 
 - Recorrido de lectura vigente: presentación, perfil, proyectos (propios e institucionales diferenciados), ConMapas/cartografía, trayectoria, herramientas, contacto. Índice y numeración deben reflejar ese orden. Conservar #conmapas y evitar duplicar su presentación en proyectos institucionales.
-- La paleta propuesta el 2026-09-07 está en ../outputs/paleta-conmapas.html; es una propuesta independiente y todavía no reemplaza la paleta publicada.
+- La propuesta de ../outputs/paleta-conmapas.html fue aprobada y aplicada el 2026-09-08. Es una interpretación de ConMapas, no una marca oficial extraída. Usar violeta en títulos sobre papel, amarillo para acciones y turquesa en contacto; adaptar enlaces y foco a cada superficie.

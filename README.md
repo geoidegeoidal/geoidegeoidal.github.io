@@ -45,7 +45,7 @@ Prueba manual: menú móvil y Escape, visor con Enter y Escape y retorno del foc
 
 ## Diseño y recursos
 
-Dirección actual: atlas editorial. Papel cálido, tinta verde, portada mineral, acentos lima y contacto terracota. Títulos en Georgia y texto en DM Sans local (licencia OFL en `assets/fonts/OFL.txt`). Esta revisión reemplaza la aplicación estricta de la referencia inicial Mapbox, por petición del propietario.
+Dirección actual: atlas editorial. Paleta ConMapas aprobada: papel #F3F0E7, carbón #121B20, turquesa #06766F, amarillo #D6DE59, violeta #783D9B y naranja #E88D42. Papel y carbón forman la base de lectura; turquesa identifica contacto, amarillo las acciones y violeta los acentos editoriales. Títulos en Georgia y texto en DM Sans local (licencia OFL en `assets/fonts/OFL.txt`). Esta revisión reemplaza la aplicación estricta de la referencia inicial Mapbox, por petición del propietario.
 
 Las secciones alternan composición y color; las cartografías originales conservan sus colores. El selector de la portada alterna Relieve y Memoria y enlaza cada obra a su ficha. Sin JavaScript, conserva el mapa y el enlace a la colección.
 
