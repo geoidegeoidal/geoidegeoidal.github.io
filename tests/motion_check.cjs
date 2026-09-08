@@ -12,6 +12,8 @@ const base = (process.env.TEST_SITE_URL || "http://127.0.0.1:4000").replace(
   try {
     const context = await browser.newContext({
       viewport: { width: 1440, height: 1000 },
+      permissions: ["geolocation"],
+      geolocation: { latitude: -33.45, longitude: -70.66 },
     });
     await context.addInitScript(() => {
       window.atlasPaints = 0;
@@ -46,22 +48,19 @@ const base = (process.env.TEST_SITE_URL || "http://127.0.0.1:4000").replace(
     count = await paints();
     await page.waitForTimeout(180);
     assert.equal(await paints(), count, "pause stops drawing");
-    const before = await page
-      .locator("[data-atlas]")
-      .getAttribute("data-longitude");
-    await page
-      .getByRole("button", { name: "Girar globo a la derecha" })
-      .focus();
-    await page.keyboard.press("Enter");
-    assert.notEqual(
-      await page.locator("[data-atlas]").getAttribute("data-longitude"),
-      before,
-      "keyboard changes orientation while paused",
+    await page.getByRole("button", { name: "Ubicarme en el globo" }).click();
+    await page.locator('[data-atlas][data-visitor-location="shown"]').waitFor();
+    assert.equal(
+      await page.locator("[data-atlas]").getAttribute("data-visitor-location"),
+      "shown",
     );
-    await page.getByRole("button", { name: "Centrar globo en Chile" }).click();
     assert.equal(
       await page.locator("[data-atlas]").getAttribute("data-longitude"),
-      "-68.0",
+      "-70.7",
+    );
+    assert.match(
+      await page.locator("[data-location-status]").textContent(),
+      /Ubicación marcada/,
     );
     await page.goto(base + "/blog.html");
     assert.equal(
@@ -186,6 +185,39 @@ const base = (process.env.TEST_SITE_URL || "http://127.0.0.1:4000").replace(
     );
     await reduced.close();
 
+    const denied = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+    });
+    await denied.addInitScript(() =>
+      Object.defineProperty(navigator, "geolocation", {
+        configurable: true,
+        value: {
+          getCurrentPosition: (_success, failure) =>
+            failure({ code: 1, PERMISSION_DENIED: 1 }),
+        },
+      }),
+    );
+    const declined = await denied.newPage();
+    await declined.goto(base);
+    await declined.waitForSelector(".atlas-scene.is-ready");
+    await declined
+      .getByRole("button", { name: "Ubicarme en el globo" })
+      .click();
+    await declined
+      .locator("[data-location-status]")
+      .getByText(/Permiso no concedido/)
+      .waitFor();
+    assert.equal(
+      await declined.locator("[data-atlas]").getAttribute("data-visitor-location"),
+      null,
+    );
+    assert(
+      await declined
+        .getByRole("button", { name: "Ubicarme en el globo" })
+        .isEnabled(),
+    );
+    await denied.close();
+
     const fallback = await browser.newContext({
       javaScriptEnabled: false,
       viewport: { width: 390, height: 844 },
@@ -203,10 +235,10 @@ const base = (process.env.TEST_SITE_URL || "http://127.0.0.1:4000").replace(
     );
     await failure.goto(base, { waitUntil: "networkidle" });
     assert(await failure.locator(".atlas-fallback").isVisible());
-    assert(await failure.locator(".atlas-controls").isHidden());
+    assert(await failure.locator("[data-locate]").isHidden());
     await failed.close();
     console.log(
-      "PASS: live rendering, pause/resume, persistence, keyboard, drag, reset, offscreen suspension, hidden-tab recovery, reduced motion, no-JS and failed-data fallbacks.",
+      "PASS: live rendering, pause/resume, persistence, local geolocation, drag, offscreen suspension, hidden-tab recovery, reduced motion, no-JS and failed-data fallbacks.",
     );
   } finally {
     await browser.close();

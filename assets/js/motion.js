@@ -142,7 +142,8 @@
       // The pre-rendered, geographic SVG remains visible when data/Canvas fail.
       scene.classList.remove("is-ready");
       scene.querySelector("canvas").hidden = true;
-      scene.querySelector(".atlas-controls").hidden = true;
+      scene.querySelector("[data-locate]").hidden = true;
+      scene.querySelector("[data-location-status]").hidden = true;
     });
 
   async function initAtlas(scene) {
@@ -181,10 +182,13 @@
       radius = 300;
     let dragging = false,
       previousX = 0;
-    const latitude = -18 * rad;
-    const cp = Math.cos(latitude),
-      sp = Math.sin(latitude);
-    const location = scene.querySelector(".atlas-location");
+    let latitude = -18 * rad,
+      targetLatitude = latitude;
+    let marker = vector([-70.65, -33.45]);
+    const locationLabel = scene.querySelector("[data-atlas-label]");
+    const locateButton = scene.querySelector("[data-locate]");
+    const locateLabel = scene.querySelector("[data-locate-label]");
+    const locationStatus = scene.querySelector("[data-location-status]");
     function resize() {
       size = scene.querySelector(".atlas-stage").clientWidth;
       radius = size * 0.405;
@@ -200,6 +204,8 @@
       const angle = longitude;
       const ca = Math.cos(angle),
         sa = Math.sin(angle);
+      const cp = Math.cos(latitude),
+        sp = Math.sin(latitude);
       const project = ([x, y, z]) => {
         const depth = x * sa + z * ca;
         return [
@@ -262,9 +268,11 @@
         ctx.fill();
       });
       drawPaths(chile, "rgba(214,222,89,1)", 1.3);
-      const [px, py, pz] = project(vector([-70.65, -33.45]));
+      const [px, py, pz] = project(marker);
       if (pz > 0) {
-        const pulse = 1 + (Math.sin(tick * 0.0015) + 1) * 0.5;
+        const pulse = motionAllowed()
+          ? 1 + (Math.sin(tick * 0.0015) + 1) * 0.5
+          : 1.5;
         ctx.beginPath();
         ctx.arc(px, py, 8 + pulse * 3, 0, Math.PI * 2);
         ctx.strokeStyle = "rgba(232,141,66,.8)";
@@ -289,6 +297,7 @@
         tick += elapsed;
         if (!dragging) target += elapsed * 0.000075; // One full rotation in about 84 seconds.
         longitude += (target - longitude) * 0.12;
+        latitude += (targetLatitude - latitude) * 0.12;
         render();
       }
       frame = requestAnimationFrame(animate);
@@ -302,30 +311,68 @@
         render();
       }
     }
-    function orient(delta, reset = false) {
-      target = reset
-        ? longitude +
-          Math.atan2(Math.sin(origin - longitude), Math.cos(origin - longitude))
-        : target + delta * rad;
-      if (reset) tick = 0;
-      location.textContent = reset
-        ? "Chile · América del Sur"
-        : "Exploración global";
+    function orient(delta) {
+      target += delta * rad;
       if (!motionAllowed()) {
         longitude = target;
         render();
       } else schedule();
     }
-    scene
-      .querySelectorAll("[data-turn]")
-      .forEach((button) =>
-        button.addEventListener("click", () =>
-          orient(Number(button.dataset.turn)),
-        ),
-      );
-    scene
-      .querySelector("[data-reset]")
-      .addEventListener("click", () => orient(0, true));
+    function finishLocate(message) {
+      locationStatus.textContent = message;
+      locateButton.disabled = false;
+      locateButton.removeAttribute("aria-busy");
+    }
+    locationStatus.hidden = false;
+    if ("geolocation" in navigator && isSecureContext) {
+      locateButton.hidden = false;
+      locateButton.addEventListener("click", () => {
+        locateButton.disabled = true;
+        locateButton.setAttribute("aria-busy", "true");
+        locationStatus.textContent = "Solicitando tu ubicación…";
+        navigator.geolocation.getCurrentPosition(
+          ({ coords }) => {
+            const desiredLongitude = coords.longitude * rad;
+            const desiredLatitude = Math.max(
+              -80 * rad,
+              Math.min(80 * rad, coords.latitude * rad),
+            );
+            marker = vector([coords.longitude, coords.latitude]);
+            target =
+              longitude +
+              Math.atan2(
+                Math.sin(desiredLongitude - longitude),
+                Math.cos(desiredLongitude - longitude),
+              );
+            targetLatitude = desiredLatitude;
+            tick = 0;
+            scene.dataset.visitorLocation = "shown";
+            locationLabel.textContent = "Estás aquí · planeta Tierra";
+            locateLabel.textContent = "Actualizar mi ubicación";
+            canvas.setAttribute(
+              "aria-label",
+              "Globo ortográfico explorable con tu ubicación marcada",
+            );
+            if (!motionAllowed()) {
+              longitude = target;
+              latitude = targetLatitude;
+              render();
+            } else schedule();
+            finishLocate("Ubicación marcada · no se guarda");
+          },
+          (error) => {
+            const message =
+              error.code === error.PERMISSION_DENIED
+                ? "Permiso no concedido · puedes seguir explorando"
+                : "No pudimos obtener tu ubicación · inténtalo otra vez";
+            finishLocate(message);
+          },
+          { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 },
+        );
+      });
+    } else {
+      locationStatus.textContent = "La ubicación no está disponible en este navegador";
+    }
     canvas.addEventListener("pointerdown", (event) => {
       if (!event.isPrimary || event.button !== 0) return;
       dragging = true;
@@ -355,7 +402,6 @@
       new ResizeObserver(resize).observe(scene.querySelector(".atlas-stage"));
     else addEventListener("resize", resize, { passive: true });
     canvas.hidden = false;
-    scene.querySelector(".atlas-controls").hidden = false;
     scene.classList.add("is-ready");
     resize();
     schedule();

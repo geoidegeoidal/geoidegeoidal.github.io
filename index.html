@@ -12,8 +12,11 @@ description: Jorge Ulloa Roa. Geógrafo, analista espacial y formador en desarro
   </div>
   <figure class="atlas-scene" data-atlas data-source="{{ '/assets/data/atlas.json' | relative_url }}">
     <div class="atlas-stage"><img class="atlas-fallback" src="{{ '/assets/images/atlas.svg' | relative_url }}" width="700" height="700" alt="Globo terrestre centrado en América del Sur"><canvas class="atlas-canvas" width="700" height="700" aria-label="Globo ortográfico explorable, con Chile destacado" role="img" hidden></canvas><div class="atlas-orbit" aria-hidden="true"></div></div>
-    <figcaption class="atlas-caption"><span class="atlas-location"><span class="status-dot" aria-hidden="true"></span> Un planeta, muchas perspectivas</span><span class="atlas-instruction">Gira automáticamente · Arrastra para explorar</span></figcaption>
-    <div class="atlas-controls" hidden><button type="button" data-turn="-20" aria-label="Girar globo a la izquierda">←</button><button type="button" data-reset aria-label="Centrar globo en Chile">Centrar en Chile</button><button type="button" data-turn="20" aria-label="Girar globo a la derecha">→</button></div>
+    <figcaption class="atlas-caption">
+      <span class="atlas-location"><span class="status-dot" aria-hidden="true"></span> <span data-atlas-label>Chile · América del Sur</span></span>
+      <span class="atlas-instruction">Gira automáticamente · Arrastra para explorar</span>
+      <span class="atlas-locate-row"><button class="atlas-locate" type="button" data-locate hidden aria-describedby="atlas-location-status"><span class="atlas-locate-dot" aria-hidden="true"></span> <span data-locate-label>Ubicarme en el globo</span></button><span class="atlas-location-status" id="atlas-location-status" data-location-status aria-live="polite" hidden>Solo con tu permiso · no se guarda</span></span>
+    </figcaption>
     <span class="atlas-credit">Cartografía: Natural Earth</span>
   </figure>
   <div class="hero-bottom"><span>ANÁLISIS / DESARROLLO / DOCENCIA / CARTOGRAFÍA</span><a href="#bio" class="scroll-cue">Conocer mi trabajo <span aria-hidden="true">↓</span></a><span>JORGE ULLOA / CONMAPAS</span></div>

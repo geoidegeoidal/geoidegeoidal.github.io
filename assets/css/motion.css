@@ -271,31 +271,52 @@ body:has(.atlas-hero) main > .section {
   color: #c9dad6;
   margin-top: 6px;
 }
-.atlas-controls {
+.atlas-locate-row {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
   justify-content: center;
-  margin: 16px 0 8px;
-  position: relative;
+  align-items: center;
+  column-gap: 14px;
+  margin-top: 5px;
 }
-.atlas-controls button {
+.atlas-locate {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: transparent;
-  color: #d6de59;
-  border: 1px solid #708c8c;
-  min-width: 44px;
+  color: #f3f0e7;
+  border: 0;
+  border-bottom: 1px solid #708c8c;
   min-height: 44px;
-  padding: 8px 12px;
+  margin: 0;
+  padding: 6px 2px 4px;
   font-size: 11px;
+  letter-spacing: 0.04em;
 }
-.atlas-controls button:hover {
-  background: #d6de59;
-  color: #121b20;
+.atlas-locate-dot {
+  width: 6px;
+  height: 6px;
+  border: 1px solid #e88d42;
+  border-radius: 50%;
+}
+.atlas-locate:hover {
+  color: #d6de59;
+  border-color: #d6de59;
+}
+.atlas-locate:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+.atlas-location-status {
+  color: #9eb4b1;
+  font-size: 9px;
 }
 .atlas-credit {
   display: block;
   text-align: center;
   font-size: 9px;
   color: #c9dad6;
+  margin-top: 2px;
 }
 .hero-bottom {
   position: absolute;
@@ -1013,9 +1034,6 @@ html.tab-hidden *:after {
   }
   .atlas-caption {
     margin-top: -15px;
-  }
-  .atlas-controls {
-    margin-top: 12px;
   }
   .hero-bottom {
     position: relative;

@@ -1,5 +1,19 @@
 # Handoff
 
+## 2026-09-08 — Ubicación voluntaria en el globo
+
+**Objetivo:** retirar el panel de orientación del atlas y permitir que cada visitante se ubique en el globo.
+
+**Completado:** eliminadas las flechas y la acción «Centrar en Chile». Se añadió una única acción editorial «Ubicarme en el globo» que solicita permiso al pulsarla, centra longitud y latitud y sustituye el marcador de Santiago por la posición obtenida. Estados de solicitud, éxito, rechazo, error, navegador incompatible y fallback cubiertos; el globo conserva giro automático, arrastre, pausa global y movimiento reducido.
+
+**Decisiones:** usar exclusivamente la Geolocation API del navegador. Las coordenadas viven solo en memoria: no se solicitan al cargar, no se infieren por IP, no se guardan, no se transmiten y no se muestran como números. Mantener la cartografía operativa cuando el visitante no concede permiso.
+
+**Validación:** builds Jekyll raíz y /portfolio; checker de seis páginas en ambas variantes; prueba de movimiento con ubicación simulada y permiso rechazado; 24 combinaciones página/ancho sin errores JavaScript, recursos fallidos ni hallazgos axe A/AA. Revisión visual del estado inicial y ubicado en escritorio, y de la portada móvil.
+
+**Bloqueos:** ninguno. **Próximos pasos:** ninguno; cualquier analítica territorial de visitantes requeriría una decisión de privacidad y una infraestructura separada.
+
+**Publicación:** pendiente de este cierre. **Commits relevantes:** base 939c92f; consultar el commit de esta entrada para la implementación.
+
 ## 2026-09-08 — Cursos como práctica profesional y archivo ConMapas unificado
 
 **Objetivo:** dar espacio a la oferta de cursos en la landing y corregir la relación entre ConMapas y las cartografías existentes.
