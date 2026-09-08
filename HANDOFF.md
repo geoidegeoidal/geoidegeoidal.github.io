@@ -1,5 +1,17 @@
 # Handoff
 
+## 2026-09-08 — Colisión de títulos en Trayectoria
+
+**Objetivo:** evitar que el título sticky de Trayectoria invada «Del satélite a la evidencia» durante el scroll.
+
+**Completado:** nota de investigación ubicada en la columna de la cronología en escritorio y en columna única en móvil. Prueba de regresión con scroll y medición de superposición.
+
+**Decisiones:** conservar el encabezado sticky y separar espacialmente ambos bloques. Esperar el fin de las entradas animadas antes de medir contraste en la prueba.
+
+**Validación:** Jekyll y checker de seis páginas aprobados; prueba de navegador en 24 combinaciones página/ancho sin errores JS, recursos fallidos ni hallazgos axe. La prueba geométrica de los títulos pasa en escritorio.
+
+**Bloqueos:** ninguno. **Próximos pasos:** publicación mediante GitHub Pages, autorizada en la sesión. **Commits:** base 3f65a9f; implementación en el commit que contiene esta entrada.
+
 ## 2026-09-08 — Estado WIP para experimentos
 
 **Objetivo:** aclarar que los códigos agrupados fuera de los temas principales todavía no están terminados.

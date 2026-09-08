@@ -1,5 +1,7 @@
 # Instrucciones del proyecto
 
+- La nota de investigación de Trayectoria ocupa la columna derecha en escritorio y la única columna en móvil; no extenderla bajo el encabezado sticky, porque se superponen al hacer scroll.
+
 - Leer este archivo y HANDOFF.md antes de modificar el sitio. Al cerrar una sesión con cambios, anteponer una entrada a HANDOFF.md con objetivo, trabajo realizado, decisiones, bloqueos, próximos pasos y commits.
 - Preferir las herramientas del grafo codebase-memory-mcp para descubrir código si el proyecto está indexado. Si no hay índice disponible, usar lecturas directas y rg.
 - Sitio Jekyll en español para GitHub Pages. Conservar las rutas de Bio (/), Mapas (/maps.html), Código (/code.html), Blog (/blog.html) y los artículos. Mantener las anclas experiencia, proyectos, tech y contacto.

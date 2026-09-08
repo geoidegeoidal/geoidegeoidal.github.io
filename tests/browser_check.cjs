@@ -61,6 +61,22 @@ const base = (process.env.TEST_SITE_URL || "http://127.0.0.1:4000").replace(
             atlasCredit.y + atlasCredit.height + 16 <= heroFooter.y,
             "atlas caption clears hero footer at " + width,
           );
+          await page.locator(".research-note").scrollIntoViewIfNeeded();
+          await page.waitForTimeout(800); // Let scroll-triggered reveals finish before measurement and axe.
+          const experienceTitle = await page
+            .locator(".experience-heading h2")
+            .boundingBox();
+          const researchNote = await page.locator(".research-note").boundingBox();
+          const titlesOverlap =
+            experienceTitle.x < researchNote.x + researchNote.width &&
+            experienceTitle.x + experienceTitle.width > researchNote.x &&
+            experienceTitle.y < researchNote.y + researchNote.height &&
+            experienceTitle.y + experienceTitle.height > researchNote.y;
+          assert.equal(
+            titlesOverlap,
+            false,
+            "experience title does not overlap research note at " + width,
+          );
         }
         if (route === "/code.html") {
           assert.equal(
