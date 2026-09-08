@@ -19,6 +19,7 @@
 - La ampliación de movimiento fue solicitada expresamente: conservar el globo Canvas de Natural Earth, las entradas por scroll y microinteracciones. Mantener pausa global persistente, prefers-reduced-motion, fallback SVG y arrastre directo.
 - motion.js limita DPR a 1.5 y FPS a 30/20; suspende Canvas fuera de pantalla y en pestañas ocultas. El globo rota continuamente (~84 s/vuelta) salvo pausa, arrastre, fuera de pantalla o pestaña oculta.
 - La ubicación del visitante se obtiene solo mediante Geolocation API tras pulsar «Ubicarme en el globo». Usarla únicamente en memoria para centrar y marcar el punto: no solicitarla al cargar, no consultar IP, no guardar ni transmitir coordenadas. Mantener rechazo, indisponibilidad y fallo como estados recuperables.
+- En escritorio, mantener al menos 16 px entre el crédito del atlas y `.hero-bottom`; `tests/browser_check.cjs` cubre esta separación. En móvil ambos elementos vuelven al flujo normal.
 - Ejecutar tests/motion_check.cjs al modificar movimiento. No añadir dependencias 3D para esta escena ortográfica.
 
 - Selector Relieve/Memoria oculto sin JS, enlaces originales disponibles. Probar ambos mapas y sus anclas. Evitar simulaciones decorativas de interacción: el selector cambia cartografía real y el globo admite arrastre táctil horizontal conservando scroll vertical.

@@ -54,6 +54,14 @@ const base = (process.env.TEST_SITE_URL || "http://127.0.0.1:4000").replace(
           0,
           route + " broken image",
         );
+        if (route === "/" && width >= 768) {
+          const atlasCredit = await page.locator(".atlas-credit").boundingBox();
+          const heroFooter = await page.locator(".hero-bottom").boundingBox();
+          assert(
+            atlasCredit.y + atlasCredit.height + 16 <= heroFooter.y,
+            "atlas caption clears hero footer at " + width,
+          );
+        }
         if (width === 390 || width === 1440) {
           const result = await new AxeBuilder({ page })
             .withTags(["wcag2a", "wcag2aa", "wcag21aa"])

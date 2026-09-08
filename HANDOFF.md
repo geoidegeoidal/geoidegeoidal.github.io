@@ -1,5 +1,19 @@
 # Handoff
 
+## 2026-09-08 — Separación entre atlas y pie del hero
+
+**Objetivo:** corregir la superposición visible entre «Cartografía: Natural Earth» y la franja inferior de la portada después de añadir la ubicación.
+
+**Completado:** el pie editorial del atlas sube dentro del espacio óptico del globo y deja libre la franja inferior, sin reducir la cartografía. Se retiró el desplazamiento descendente que se aplicaba desde 1600 px. Añadida una regresión geométrica que exige 16 px de separación mínima en escritorio.
+
+**Decisiones:** conservar tamaño y posición principal del globo; resolver el problema en la leyenda. El ajuste móvil existente se mantiene porque atlas y pie ya participan allí del flujo normal.
+
+**Validación:** Jekyll y checker de seis páginas; 24 combinaciones página/ancho sin errores JavaScript, recursos fallidos ni hallazgos axe A/AA. Estado ubicado medido en 768, 1024, 1100, 1101, 1366, 1440, 1600 y 1920 px: separación mínima 31 px. Revisión visual a 1366 px.
+
+**Bloqueos:** ninguno. **Próximos pasos:** ninguno.
+
+**Publicación:** pendiente de este cierre. **Commits relevantes:** base 551d58f; consultar el commit de esta entrada.
+
 ## 2026-09-08 — Ubicación voluntaria en el globo
 
 **Objetivo:** retirar el panel de orientación del atlas y permitir que cada visitante se ubique en el globo.
