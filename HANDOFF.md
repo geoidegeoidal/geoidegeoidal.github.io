@@ -12,7 +12,9 @@
 
 **Bloqueos:** ninguno. **Próximos pasos:** incorporar futuros cursos en esta misma práctica formativa y actualizar sus métricas solo con evidencia publicada.
 
-**Commits relevantes:** base 7f2e3e1; consultar el commit de esta entrada para la implementación.
+**Publicación:** commit 01ebeb1ea008f199352c8962dbf617fced7423c3 enviado a main. GitHub Pages run 34266443248 terminó con éxito; producción mostró Cursos, sus métricas y el Archivo ConMapas unificado.
+
+**Commits relevantes:** base 7f2e3e1; 01ebeb1 (cursos y archivo publicados). Este cierre documental no modifica el sitio servido.
 
 ## 2026-09-08 — Perfil profesional y cartografías de ConMapas
 
