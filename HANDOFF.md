@@ -12,7 +12,9 @@
 
 **Bloqueos:** ninguno. **Próximos pasos:** ninguno; cualquier analítica territorial de visitantes requeriría una decisión de privacidad y una infraestructura separada.
 
-**Publicación:** pendiente de este cierre. **Commits relevantes:** base 939c92f; consultar el commit de esta entrada para la implementación.
+**Publicación:** commit a961646afbeeb0711f5fc2de470337481fac6512 enviado a main. GitHub Pages run 34269029223 terminó con éxito; la prueba completa de movimiento y geolocalización aprobó también contra producción.
+
+**Commits relevantes:** base 939c92f; a961646 (ubicación en el globo publicada). Este cierre documental no modifica el sitio servido.
 
 ## 2026-09-08 — Cursos como práctica profesional y archivo ConMapas unificado
 
