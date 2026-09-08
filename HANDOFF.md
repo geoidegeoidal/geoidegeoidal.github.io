@@ -12,7 +12,9 @@
 
 **Bloqueos:** no se dispone de archivos editables ni láminas interiores para construir casos de estudio completos. **Próximos pasos:** añadir metodología y proceso cuando existan esos materiales; verificar enlaces de apariciones en medios y fechas de término de cargos si corresponde.
 
-**Commits relevantes:** base de95ea8; consultar el commit de esta entrada para la incorporación.
+**Publicación:** commit fc12cce0975b8c6972522fba7ee1018e65a0b273 enviado a main. GitHub Pages run 34264391297 terminó con éxito; la página pública mostró las tres piezas, métricas, imágenes y enlaces esperados.
+
+**Commits relevantes:** base de95ea8; fc12cce (perfil y curaduría publicados). Este cierre documental no modifica el sitio servido.
 
 ## 2026-09-08 — Paleta ConMapas aprobada
 
