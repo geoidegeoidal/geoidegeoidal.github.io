@@ -1,5 +1,13 @@
 # Handoff
 
+## 2026-09-08 — Propuestas de identidad, SEO y analítica
+
+**Objetivo:** presentar logos antes de implementar, mejorar descubrimiento en Google y evaluar analítica open source.
+**Completado:** tres propuestas SVG con vistas de cabecera y favicon, en ../outputs/propuestas-logo.html/png y logo-a/b/c.svg. SEO: título descriptivo de portada, autor, metadatos sociales, entidades JSON-LD conectadas para perfil/sitio/artículos y noindex en 404; soporte opcional para verificación Search Console.
+**Decisiones:** favicon y marca actual conservados hasta elección. No activar rastreadores sin elegir infraestructura; Umami recomendado, Matomo como alternativa. La ubicación del globo sigue separada de cualquier analítica.
+**Validación:** Jekyll, checker de seis páginas y validación JSON-LD, referencias de entidades, tipos de página y noindex aprobados. Propuestas renderizadas e inspeccionadas.
+**Pendientes:** elegir logo; verificar propiedad en Search Console y enviar sitemap; elegir alojamiento si se implementa Umami. No prometer indexación ni ranking. **Commit base:** 98c8e5e; SEO en el commit de esta entrada.
+
 ## 2026-09-08 — Recuperar composición original de ConMapas
 
 **Objetivo:** incorporar más mapas respetando el diseño anterior, tras el rechazo de la galería añadida.

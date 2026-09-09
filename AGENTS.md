@@ -1,5 +1,8 @@
 # Instrucciones del proyecto
 
+- SEO: `_includes/structured-data.html` define Person, WebSite, ProfilePage en portada y BlogPosting en artículos. Mantener datos respaldados por el contenido visible y validar con tests/seo_check.cjs. El token opcional google_site_verification debe provenir de Search Console del propietario.
+- Logo: propuestas en ../outputs/propuestas-logo.html y logo-a/b/c.svg, pendientes de elección. No sustituir cabecera ni favicon sin aprobación. Analítica open source evaluada (Umami recomendado), no instalada ni activada.
+
 - ConMapas en portada conserva la composición original de texto y visor único. Cinco opciones en el selector: relieve, memoria, ferias, micheladas e IPEC. No añadir una galería debajo: el propietario rechazó esa composición. Reservar espacio para rótulos sin tapar las láminas.
 
 - La nota de investigación de Trayectoria ocupa la columna derecha en escritorio y la única columna en móvil; no extenderla bajo el encabezado sticky, porque se superponen al hacer scroll.

@@ -1,0 +1,42 @@
+{% unless page.url == '/404.html' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": {{ '/#jorge-ulloa' | absolute_url | jsonify }},
+      "name": "Jorge Ulloa Roa",
+      "alternateName": "geoidegeoidal",
+      "url": {{ '/' | absolute_url | jsonify }},
+      "image": {{ '/assets/images/imagen_jorge.webp' | absolute_url | jsonify }},
+      "jobTitle": "Geógrafo y analista espacial",
+      "description": "Geógrafo, analista espacial, fundador de ConMapas y formador en desarrollo web territorial.",
+      "knowsAbout": ["Sistemas de información geográfica", "Cartografía", "Análisis espacial", "Python", "PostGIS", "Desarrollo web territorial"],
+      "alumniOf": {"@type": "CollegeOrUniversity", "name": "Universidad Alberto Hurtado"},
+      "sameAs": ["https://github.com/{{ site.github_username }}", "https://www.linkedin.com/in/{{ site.linkedin_username }}/"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ '/#website' | absolute_url | jsonify }},
+      "url": {{ '/' | absolute_url | jsonify }},
+      "name": "Jorge Ulloa Roa",
+      "inLanguage": "es-CL",
+      "publisher": {"@id": {{ '/#jorge-ulloa' | absolute_url | jsonify }}}
+    },
+    {
+      "@type": "{% if page.layout == 'post' %}BlogPosting{% elsif page.url == '/' %}ProfilePage{% else %}CollectionPage{% endif %}",
+      "@id": {{ page.url | absolute_url | append: '#webpage' | jsonify }},
+      "url": {{ page.url | absolute_url | jsonify }},
+      "name": {{ page.title | jsonify }},
+      "description": {{ page.description | default: site.description | jsonify }},
+      "inLanguage": "es-CL",
+      "isPartOf": {"@id": {{ '/#website' | absolute_url | jsonify }}},
+      "author": {"@id": {{ '/#jorge-ulloa' | absolute_url | jsonify }}}
+      {% if page.url == '/' %},"mainEntity": {"@id": {{ '/#jorge-ulloa' | absolute_url | jsonify }}}{% endif %}
+      {% if page.layout == 'post' %},"headline": {{ page.title | jsonify }},"datePublished": {{ page.date | date_to_xmlschema | jsonify }}{% endif %}
+    }
+  ]
+}
+</script>
+{% endunless %}
