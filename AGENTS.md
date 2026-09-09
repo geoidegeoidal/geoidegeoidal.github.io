@@ -1,5 +1,8 @@
 # Instrucciones del proyecto
 
+- Dirección tipográfica vigente (2026-09-09): DM Sans local para títulos y cuerpo, sin cursiva ni palabras coloreadas en titulares. Títulos directos y descriptivos, sin rótulos numerados que repitan la sección. Metadatos útiles legibles en caja normal. Mantener paleta ConMapas, logo, globo y composición del visor. Esta decisión sustituye las indicaciones anteriores de Georgia y violeta en títulos.
+- Referencias revisadas: UI UX Pro Max en ../work/skills/ui-ux-pro-max (consultas de sistema y jerarquía), Refero/Osmo para protagonismo tipográfico y superficies planas. Son referencias de criterio; no copiar sus etiquetas minúsculas, estructura SaaS ni tipografías propietarias.
+
 - SEO: `_includes/structured-data.html` define Person, WebSite, ProfilePage en portada y BlogPosting en artículos. Mantener datos respaldados por el contenido visible y validar con tests/seo_check.cjs. El token opcional google_site_verification debe provenir de Search Console del propietario.
 - Logo aprobado: propuesta 01 «JU · Meridiano» (../outputs/logo-a.svg), aplicada en cabecera y favicon. Conservar su geometría y punto superior; favicon amarillo sobre carbón para contraste en pestañas claras y oscuras. Analítica open source evaluada (Umami recomendado), no instalada ni activada.
 

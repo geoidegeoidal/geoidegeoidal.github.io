@@ -22,7 +22,7 @@ body {
 }
 h1,
 h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   letter-spacing: -0.055em;
 }
@@ -603,7 +603,7 @@ body:has(.atlas-hero) main > .section {
   padding-top: 10px;
 }
 .project-card:nth-child(n + 3) h3 {
-  font-family: Georgia, serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 52px;
 }
 .project-glyph {
@@ -623,7 +623,7 @@ body:has(.atlas-hero) main > .section {
   margin-bottom: 30px;
 }
 .project-stat strong {
-  font-family: Georgia, serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 50px;
   color: #f3f0e7;
@@ -818,7 +818,7 @@ body:has(.atlas-hero) main > .section {
   background: #e0e9e5;
 }
 .code-card h2 {
-  font-family: Georgia, serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 38px;
 }
@@ -1543,7 +1543,7 @@ html.tab-hidden *:after {
 .expertise-rail>div{flex-wrap:wrap;gap:12px 24px}
 .professional-work{grid-template-columns:repeat(2,minmax(0,1fr))}
 .institutional-heading{margin-top:48px;margin-bottom:24px}
-.institutional-heading h3{font:400 36px/1.1 Georgia,serif;margin-bottom:12px}
+.institutional-heading h3{font:400 36px/1.1 "DM Sans",sans-serif;margin-bottom:12px}
 .institutional-heading p{font-size:15px;max-width:600px}
 .map-story-copy{max-width:390px}
 .conmapas-community{display:flex;width:fit-content}
@@ -1551,7 +1551,7 @@ html.tab-hidden *:after {
 
 /* ConMapas accents: retain legible contrast on dark and colored surfaces. */
 .atlas-hero,.map-story,.contact{--blue:#d6de59;--blue-deep:#d6de59}
-.about h2 em,.section-heading h2 em{color:#783d9b}
+
 .skill-icon{color:#783d9b}
 .status-dot{background:#e88d42}
 #conmapas .map-switch button[aria-pressed="true"]{background:#d6de59;color:#121b20;border-color:#d6de59}
@@ -1560,7 +1560,7 @@ html.tab-hidden *:after {
 
 /* Evidence and authored social cartography, within the editorial reading order. */
 .research-note { grid-column: 2; border-top: 1px solid #121b2033; padding-top: 2rem; max-width: 70rem; }
-.research-note h3 { font: 400 clamp(1.8rem, 3vw, 2.8rem) / 1.1 Georgia, serif; margin: .75rem 0 1rem; }
+.research-note h3 { font: 400 clamp(1.8rem, 3vw, 2.8rem) / 1.1 "DM Sans", sans-serif; margin: .75rem 0 1rem; }
 .research-note > p:not(.eyebrow) { max-width: 65ch; }
 @media (max-width: 720px) { .research-note { grid-column: 1; } }
 .social-map-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 3.5rem); align-items: start; }
@@ -1569,7 +1569,7 @@ html.tab-hidden *:after {
 .social-map-grid a:hover img { transform: scale(1.018); }
 .social-map-grid .eyebrow { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
 .social-map-grid .social-proof { color: #783d9b; font-weight: 800; }
-.social-map-grid h3 { font: 400 clamp(1.8rem, 3vw, 2.6rem) / 1.1 Georgia, serif; margin: .8rem 0 1rem; }
+.social-map-grid h3 { font: 400 clamp(1.8rem, 3vw, 2.6rem) / 1.1 "DM Sans", sans-serif; margin: .8rem 0 1rem; }
 .social-map-grid p { max-width: 50ch; }
 .social-map-grid .map-source { font-size: .8rem; color: #526368; }
 .social-maps .gallery-note { margin: 2.5rem 0 0; }
@@ -1587,16 +1587,7 @@ html.tab-hidden *:after {
   background: #d6de59;
   color: #121b20;
 }
-.teaching:before {
-  content: "03";
-  position: absolute;
-  right: -0.04em;
-  top: -0.18em;
-  color: #c6ce4e;
-  font: 400 clamp(180px, 28vw, 430px)/1 Georgia, serif;
-  letter-spacing: -.08em;
-  pointer-events: none;
-}
+
 .teaching-heading,
 .course-feature,
 .course-metrics,
@@ -1613,10 +1604,10 @@ html.tab-hidden *:after {
   border-bottom: 1px solid #121b20;
 }
 .teaching-heading h2 {
-  font: 400 clamp(58px, 7vw, 106px)/.93 Georgia, serif;
+  font: 400 clamp(58px, 7vw, 106px)/.93 "DM Sans", sans-serif;
   letter-spacing: -.055em;
 }
-.teaching-heading h2 em { color: #783d9b; }
+
 .teaching-heading > p { max-width: 440px; font-size: 17px; }
 .teaching .eyebrow { color: #121b20; }
 .course-feature {
@@ -1628,7 +1619,7 @@ html.tab-hidden *:after {
 .course-intro h3 {
   max-width: 760px;
   margin: 18px 0 28px;
-  font: 400 clamp(42px, 5vw, 76px)/.98 Georgia, serif;
+  font: 400 clamp(42px, 5vw, 76px)/.98 "DM Sans", sans-serif;
   letter-spacing: -.045em;
 }
 .course-intro > p:not(.eyebrow) { max-width: 650px; font-size: 17px; }
@@ -1643,7 +1634,7 @@ html.tab-hidden *:after {
   border-bottom: 1px solid #121b20;
 }
 .course-syllabus li:last-child { border-bottom: 0; }
-.course-syllabus li > span { color: #783d9b; font: 400 34px/1 Georgia, serif; }
+.course-syllabus li > span { color: #783d9b; font: 400 34px/1 "DM Sans", sans-serif; }
 .course-syllabus h4 { margin-bottom: 8px; font: 700 17px/1.25 "DM Sans", sans-serif; }
 .course-syllabus p { max-width: 390px; font-size: 14px; }
 .course-metrics {
@@ -1655,7 +1646,7 @@ html.tab-hidden *:after {
 .course-metrics p { display: flex; flex-direction: column; gap: 8px; padding: 0 28px; border-right: 1px solid #121b20; }
 .course-metrics p:first-child { padding-left: 0; }
 .course-metrics p:last-child { border-right: 0; }
-.course-metrics strong { color: #783d9b; font: 400 clamp(40px, 5vw, 68px)/1 Georgia, serif; letter-spacing: -.04em; }
+.course-metrics strong { color: #783d9b; font: 400 clamp(40px, 5vw, 68px)/1 "DM Sans", sans-serif; letter-spacing: -.04em; }
 .course-metrics span { font: 700 10px/1.35 Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; }
 .teaching-footer { display: flex; justify-content: space-between; gap: 28px; align-items: center; padding-top: 34px; }
 .teaching-footer p { max-width: 620px; }
@@ -1682,4 +1673,23 @@ html.tab-hidden *:after {
   .course-metrics span { font-size: 9px; }
   .teaching-footer { display: block; }
   .teaching-footer .text-link { margin-top: 18px; }
+}
+
+/* Content-led hierarchy: titles name the work; metadata stays secondary. */
+h1, h2 { text-wrap: balance; }
+.hero-profession { margin-bottom: 30px; max-width: 390px; font-size: 15px; line-height: 1.6; color: #c9dad6; }
+.atlas-hero h1 { font-weight: 500; font-size: clamp(64px, 7.2vw, 110px); line-height: 1.02; letter-spacing: -.055em; }
+.section h2, .teaching-heading h2 { font-size: clamp(36px, 4.4vw, 64px); font-weight: 500; line-height: 1.08; letter-spacing: -.045em; }
+.page-heading h1 { font-weight: 500; line-height: 1.06; }
+.eyebrow { font-family: "DM Sans", sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.expertise-rail { display: block; }
+.expertise-rail > div { justify-content: space-between; }
+.expertise-rail a { font-family: "DM Sans", sans-serif; font-size: 15px; letter-spacing: 0; text-transform: none; padding-block: 10px; }
+.course-metrics strong, .course-syllabus li > span { color: #121b20; }
+.course-metrics span { font: 400 14px/1.4 "DM Sans", sans-serif; letter-spacing: 0; text-transform: none; }
+.section-heading { align-items: start; }
+@media (max-width: 720px) {
+  .atlas-hero h1 { font-size: clamp(54px, 12vw, 78px); }
+  .hero-profession { font-size: 14px; }
+  .expertise-rail > div { justify-content: flex-start; gap: 0 24px; }
 }

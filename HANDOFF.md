@@ -1,5 +1,13 @@
 # Handoff
 
+## 2026-09-09 — Jerarquía visual y tipografía
+
+**Objetivo:** resolver la repetición de cursivas, palabras coloreadas y etiquetas pequeñas señalada por el propietario, usando UI UX Pro Max y referencias de Refero.
+**Completado:** títulos directos, tipografía DM Sans, retirada de rótulos numerados redundantes y número gigante de Cursos; índice y selector de mapas sin numeración decorativa; metadatos en caja normal. Aplicado en portada, Mapas, Código y Blog. Conservadas cartografías, logo y comportamiento del globo.
+**Decisiones:** jerarquía mediante escala, peso y espacio. Color en superficies y acciones, sin énfasis cromático en titulares. Skill descargada en ../work/skills, fuera del sitio público. Refero Osmo consultado como referencia, no como plantilla.
+**Validación:** Jekyll, checker de seis páginas y browser_check en 24 combinaciones página/ancho aprobados; sin errores JS, recursos fallidos ni hallazgos axe. Inspección visual de portada y cursos a 1440 px y portada móvil a 390 px.
+**Bloqueos:** ninguno. **Próximos pasos:** publicación autorizada. **Commits:** base 73cbb36; cambios en el commit de esta entrada.
+
 ## 2026-09-08 — Logo JU aprobado
 
 **Objetivo:** aplicar la primera propuesta elegida por el propietario.
