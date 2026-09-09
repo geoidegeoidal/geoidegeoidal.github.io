@@ -1,5 +1,13 @@
 # Handoff
 
+## 2026-09-09 — Aplicar referencias de movimiento y cartografía
+
+**Objetivo:** incorporar las ideas seleccionadas de Refero con identidad propia.
+**Completado:** cinco miniaturas en selector ConMapas, transición de lámina de 480 ms tras decodificar imagen, carga recuperable y protección contra selecciones rápidas. Contexto desplegable en cuatro proyectos; detalle cartográfico detrás del retrato y marco del visor. Corrección de tipografía residual de proyectos.
+**Decisiones:** mantener visor único y globo existente; no añadir clips sin material verificado. Las animaciones respetan pausa global y movimiento reducido.
+**Validación:** Jekyll, checker, browser_check (24 combinaciones), motion_check y nueva prueba del selector aprobados. Verificados carga fallida, reintento, miniaturas y última selección. Inspección visual escritorio/móvil.
+**Bloqueos:** ninguno para estos cambios. **Pendiente opcional:** grabaciones verificadas de aplicaciones para futuros clips. **Commits:** base e4a3876; implementación en el commit de esta entrada. Publicación autorizada.
+
 ## 2026-09-09 — Jerarquía visual y tipografía
 
 **Objetivo:** resolver la repetición de cursivas, palabras coloreadas y etiquetas pequeñas señalada por el propietario, usando UI UX Pro Max y referencias de Refero.

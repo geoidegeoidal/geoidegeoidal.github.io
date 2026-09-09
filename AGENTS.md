@@ -1,5 +1,8 @@
 # Instrucciones del proyecto
 
+- ConMapas: selector con cinco miniaturas dentro de la columna de texto, visor único. Esperar decode antes de sustituir imagen, conservar selección ante error y descartar respuestas antiguas. Transición por recorte respeta pausa y movimiento reducido; validar con tests/map_selector_check.cjs y motion_check.cjs.
+- Decoración basada en assets propios: fragmento de conmapas.webp detrás del retrato y marco fino del visor. Proyectos incluyen contexto nativo details; no presentar capturas estáticas como demos animadas.
+
 - Dirección tipográfica vigente (2026-09-09): DM Sans local para títulos y cuerpo, sin cursiva ni palabras coloreadas en titulares. Títulos directos y descriptivos, sin rótulos numerados que repitan la sección. Metadatos útiles legibles en caja normal. Mantener paleta ConMapas, logo, globo y composición del visor. Esta decisión sustituye las indicaciones anteriores de Georgia y violeta en títulos.
 - Referencias revisadas: UI UX Pro Max en ../work/skills/ui-ux-pro-max (consultas de sistema y jerarquía), Refero/Osmo para protagonismo tipográfico y superficies planas. Son referencias de criterio; no copiar sus etiquetas minúsculas, estructura SaaS ni tipografías propietarias.
 

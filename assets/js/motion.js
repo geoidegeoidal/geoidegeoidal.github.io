@@ -101,9 +101,37 @@
       micheladas: ["conmapas-social/vida-cotidiana.jpg", "La ciudad a pie", "Caminatas y micheladas · ConMapas", "conmapas-micheladas"],
       ipec: ["conmapas-social/infidelidad-santiago-view.jpg", "Un índice para abrir conversación", "IPEC · Exploración territorial, no conductas individuales", "conmapas-ipec"],
     };
+    let selection = 0;
+    let transition;
+    const status = document.createElement("p");
+    status.className = "map-load-status";
+    status.setAttribute("role", "status");
+    document.querySelector(".map-switch").after(status);
+    document.addEventListener("portfolio:motion", () => {
+      if (!motionAllowed()) transition?.cancel();
+    });
     document.querySelectorAll("[data-map]").forEach((button) => {
-      button.addEventListener("click", () => {
+      const thumbnail = document.createElement("img");
+      thumbnail.src = new URL(maps[button.dataset.map][0], original).href;
+      thumbnail.alt = "";
+      thumbnail.loading = "lazy";
+      thumbnail.width = 120;
+      thumbnail.height = 100;
+      button.prepend(thumbnail);
+      button.addEventListener("click", async () => {
+        const request = ++selection;
         const [file, title, caption, anchor] = maps[button.dataset.map];
+        status.textContent = "Cargando cartografía…";
+        const image = new Image();
+        image.src = new URL(file, original).href;
+        try {
+          await image.decode();
+        } catch {
+          if (request === selection) status.textContent = "No se pudo cargar. Vuelve a seleccionar el mapa para reintentar.";
+          return;
+        }
+        if (request !== selection) return;
+        transition?.cancel();
         mapLink.classList.toggle("is-poster", file.startsWith("conmapas-social/"));
         document.querySelectorAll("[data-map]").forEach((item) =>
           item.setAttribute("aria-pressed", String(item === button)),
@@ -115,6 +143,11 @@
         mapLink.querySelector(".map-label").textContent = "CONMAPAS / " + button.textContent;
         mapLink.href = mapLink.href.split("#")[0] + "#" + anchor;
         mapLink.setAttribute("aria-label", "Explorar cartografía: " + title);
+        status.textContent = title;
+        if (motionAllowed()) transition = mapLink.querySelector("img").animate(
+          [{ clipPath: "inset(0 100% 0 0)", opacity: .4 }, { clipPath: "inset(0 0% 0 0)", opacity: 1 }],
+          { duration: 480, easing: "cubic-bezier(.22,1,.36,1)" },
+        );
       });
     });
   }

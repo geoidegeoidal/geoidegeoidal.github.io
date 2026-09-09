@@ -1693,3 +1693,26 @@ h1, h2 { text-wrap: balance; }
   .hero-profession { font-size: 14px; }
   .expertise-rail > div { justify-content: flex-start; gap: 0 24px; }
 }
+
+/* A compact contact sheet belongs to the map selector, not a second gallery. */
+#conmapas .map-switch { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; max-width:390px; }
+#conmapas .map-switch[hidden] { display:none; }
+#conmapas .map-switch button { min-width:0; padding:5px 5px 9px; text-align:left; font:500 14px/1.3 "DM Sans",sans-serif; border-color:#526368; transition:border-color .2s,background .2s; }
+.map-switch button img { display:block; width:100%; height:72px; object-fit:contain; background:#0b1114; margin-bottom:8px; }
+.map-load-status { min-height:2.8em; margin:12px 0 0; font-size:13px; color:#c9dad6; }
+.map-story .terrain-scene { outline:1px solid #71817f; outline-offset:9px; }
+.project-context { width:100%; margin-top:18px; border-top:1px solid #121b2033; }
+.project-context summary { padding:12px 0; cursor:pointer; color:var(--white); font-size:15px; }
+.project-context p { margin:8px 0 14px; }
+.project-context .project-note { font-size:13px; }
+.selected-project .eyebrow { font:500 14px/1.4 "DM Sans",sans-serif; min-height:0; margin-bottom:14px; }
+.selected-project h3 { font-family:"DM Sans",sans-serif; }
+.project-capture figcaption { font-size:12px; }
+.about-portrait { position:relative; }
+.about-portrait::before { content:""; position:absolute; inset:12% -24px -24px 15%; background:url("../images/conmapas.webp") center/cover; z-index:-1; }
+.about-portrait { isolation:isolate; padding:0 16px 16px 0; }
+.about-portrait img { position:relative; }
+@media (max-width:720px) {
+  #conmapas .map-switch { grid-template-columns:repeat(3,minmax(0,1fr)); max-width:none; }
+  .about-portrait::before { right:0; bottom:0; }
+}

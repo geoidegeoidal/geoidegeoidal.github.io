@@ -87,8 +87,9 @@ const base = (process.env.TEST_SITE_URL || "http://127.0.0.1:4000").replace(
       "pointer drag rotates",
     );
     await page
-      .getByRole("button", { name: "02 / Memoria", exact: true })
+      .getByRole("button", { name: "Memoria", exact: true })
       .click();
+    await page.waitForFunction(() => document.querySelector('.terrain-scene img').src.endsWith('impacto_dictadura.webp'));
     assert(
       (await page.locator(".terrain-scene img").getAttribute("src")).endsWith(
         "impacto_dictadura.webp",
@@ -100,8 +101,9 @@ const base = (process.env.TEST_SITE_URL || "http://127.0.0.1:4000").replace(
       ),
     );
     await page
-      .getByRole("button", { name: "01 / Relieve", exact: true })
+      .getByRole("button", { name: "Relieve", exact: true })
       .click();
+    await page.waitForFunction(() => document.querySelector('.terrain-scene img').src.endsWith('conmapas.webp'));
     assert(
       (await page.locator(".terrain-scene img").getAttribute("src")).endsWith(
         "conmapas.webp",

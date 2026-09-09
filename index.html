@@ -33,7 +33,7 @@ description: Jorge Ulloa Roa. Geógrafo, analista espacial y formador en desarro
     {% for project in featured_projects %}
     <article class="selected-project{% if forloop.first %} selected-project-lead{% endif %}">
       {% if project.image %}<figure class="project-capture"><a href="{{ project.demo }}" target="_blank" rel="noopener noreferrer" aria-label="Abrir {{ project.name }}"><img src="{{ project.image | relative_url }}" alt="{{ project.alt }}" width="1360" height="810" loading="lazy"></a><figcaption>Captura publicada en el repositorio del proyecto.</figcaption></figure>{% endif %}
-      <div class="selected-project-copy"><p class="eyebrow">{{ project.category }}</p><h3>{{ project.name }}</h3><p>{{ project.summary }}</p><p class="project-stack">{{ project.stack }}</p><div class="project-links">{% if project.demo %}<a class="text-link" href="{{ project.demo }}" target="_blank" rel="noopener noreferrer">Abrir aplicación ↗</a>{% endif %}<a class="text-link" href="{{ '/code.html' | relative_url }}#{{ project.id }}">Ver proyecto →</a></div></div>
+      <div class="selected-project-copy"><p class="eyebrow">{{ project.category }}</p><h3>{{ project.name }}</h3><p>{{ project.summary }}</p><details class="project-context"><summary>Qué permite hacer</summary><p>{{ project.detail }}</p><p class="project-note">{{ project.note }}</p></details><p class="project-stack">{{ project.stack }}</p><div class="project-links">{% if project.demo %}<a class="text-link" href="{{ project.demo }}" target="_blank" rel="noopener noreferrer">Abrir aplicación ↗</a>{% endif %}<a class="text-link" href="{{ '/code.html' | relative_url }}#{{ project.id }}">Ver proyecto →</a></div></div>
     </article>
     {% endfor %}
   </div>
