@@ -1,5 +1,17 @@
 # Handoff
 
+## 2026-09-08 — Más cartografías en la portada ConMapas
+
+**Objetivo:** mostrar la variedad del archivo desde la landing para invitar a explorar más mapas.
+
+**Completado:** tres avances con imágenes completas, preguntas y contexto: ferias, micheladas e IPEC. Enlaces individuales a nuevas anclas de maps.html y CTA al archivo completo. Tres columnas en escritorio y una en móvil.
+
+**Decisiones:** reutilizar obras con autoría verificada y conservar sus colores y créditos. Mantener el selector de relieve/memoria como pieza principal.
+
+**Validación:** build Jekyll, checker de seis páginas y navegador en 24 combinaciones de página/ancho; sin errores JS, recursos fallidos ni hallazgos axe. Corregido ajuste del CTA a 320 px.
+
+**Bloqueos:** ninguno. **Próximos pasos:** despliegue autorizado mediante Pages. **Commits:** base 603642b; cambio en el commit de esta entrada.
+
 ## 2026-09-08 — Colisión de títulos en Trayectoria
 
 **Objetivo:** evitar que el título sticky de Trayectoria invada «Del satélite a la evidencia» durante el scroll.

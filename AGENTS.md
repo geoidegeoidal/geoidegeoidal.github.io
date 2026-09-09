@@ -1,5 +1,7 @@
 # Instrucciones del proyecto
 
+- La portada ConMapas incluye tres avances visibles (ferias, micheladas e IPEC), además del selector relieve/memoria. Cada avance apunta al ancla de su pieza en maps.html; conservar imágenes completas y CTA al archivo.
+
 - La nota de investigación de Trayectoria ocupa la columna derecha en escritorio y la única columna en móvil; no extenderla bajo el encabezado sticky, porque se superponen al hacer scroll.
 
 - Leer este archivo y HANDOFF.md antes de modificar el sitio. Al cerrar una sesión con cambios, anteponer una entrada a HANDOFF.md con objetivo, trabajo realizado, decisiones, bloqueos, próximos pasos y commits.
