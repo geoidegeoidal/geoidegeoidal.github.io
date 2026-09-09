@@ -1,5 +1,13 @@
 # Handoff
 
+## 2026-09-08 — Recuperar composición original de ConMapas
+
+**Objetivo:** incorporar más mapas respetando el diseño anterior, tras el rechazo de la galería añadida.
+**Completado:** retirada la galería inferior; selector original ampliado a cinco mapas con imagen, contexto y destino individual. Láminas verticales con espacio para evitar que los rótulos tapen su contenido.
+**Decisiones:** mantener texto a la izquierda y un único visor a la derecha; no ampliar la sección con otra cuadrícula.
+**Validación:** Jekyll y checker aprobados; navegador y movimiento sin errores ni hallazgos axe. Carga y destinos comprobados para las cinco opciones; revisión visual del visor.
+**Bloqueos:** ninguno. **Próximos pasos:** publicar con autorización vigente. **Commits:** base fd25cad; implementación en este commit.
+
 ## 2026-09-08 — Más cartografías en la portada ConMapas
 
 **Objetivo:** mostrar la variedad del archivo desde la landing para invitar a explorar más mapas.

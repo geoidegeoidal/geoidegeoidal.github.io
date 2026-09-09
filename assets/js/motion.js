@@ -94,38 +94,27 @@
   if (mapLink) {
     document.querySelector(".map-switch").hidden = false;
     const original = mapLink.querySelector("img").src;
+    const maps = {
+      relieve: ["conmapas.webp", "Cerro San Cristóbal", "Curvas de nivel · ALOS PALSAR", "san-cristobal"],
+      memoria: ["impacto_dictadura.webp", "Memoria en Santiago", "Territorio y memoria · ConMapas", "memoria-territorial"],
+      ferias: ["conmapas-social/ferias-santiago.jpg", "¿La feria queda a quince minutos?", "Accesibilidad peatonal · ConMapas", "conmapas-ferias"],
+      micheladas: ["conmapas-social/vida-cotidiana.jpg", "La ciudad a pie", "Caminatas y micheladas · ConMapas", "conmapas-micheladas"],
+      ipec: ["conmapas-social/infidelidad-santiago-view.jpg", "Un índice para abrir conversación", "IPEC · Exploración territorial, no conductas individuales", "conmapas-ipec"],
+    };
     document.querySelectorAll("[data-map]").forEach((button) => {
       button.addEventListener("click", () => {
-        const relief = button.dataset.map === "relieve";
-        document
-          .querySelectorAll("[data-map]")
-          .forEach((item) =>
-            item.setAttribute("aria-pressed", String(item === button)),
-          );
-        mapLink.querySelector("img").src = relief
-          ? original
-          : original.replace("conmapas.webp", "impacto_dictadura.webp");
-        mapLink.querySelector("img").alt = relief
-          ? "Curvas de nivel del cerro San Cristóbal"
-          : "Cartografía del impacto de la dictadura en Santiago";
-        mapLink.querySelector("h3").textContent = relief
-          ? "Cerro San Cristóbal"
-          : "Memoria en Santiago";
-        mapLink.querySelector(".map-caption p").textContent = relief
-          ? "Curvas de nivel · ALOS PALSAR"
-          : "Territorio y memoria · ConMapas";
-        mapLink.querySelector(".map-label").textContent = relief
-          ? "CONMAPAS / ESTUDIO DEL RELIEVE"
-          : "CONMAPAS / TERRITORIO Y MEMORIA";
-        mapLink.href =
-          mapLink.href.split("#")[0] +
-          (relief ? "#san-cristobal" : "#memoria-territorial");
-        mapLink.setAttribute(
-          "aria-label",
-          relief
-            ? "Explorar la cartografía del cerro San Cristóbal"
-            : "Explorar la cartografía de memoria en Santiago",
+        const [file, title, caption, anchor] = maps[button.dataset.map];
+        mapLink.classList.toggle("is-poster", file.startsWith("conmapas-social/"));
+        document.querySelectorAll("[data-map]").forEach((item) =>
+          item.setAttribute("aria-pressed", String(item === button)),
         );
+        mapLink.querySelector("img").src = new URL(file, original).href;
+        mapLink.querySelector("img").alt = title + " · Cartografía de Jorge Ulloa para ConMapas";
+        mapLink.querySelector("h3").textContent = title;
+        mapLink.querySelector(".map-caption p").textContent = caption;
+        mapLink.querySelector(".map-label").textContent = "CONMAPAS / " + button.textContent;
+        mapLink.href = mapLink.href.split("#")[0] + "#" + anchor;
+        mapLink.setAttribute("aria-label", "Explorar cartografía: " + title);
       });
     });
   }

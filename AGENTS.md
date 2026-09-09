@@ -1,6 +1,6 @@
 # Instrucciones del proyecto
 
-- La portada ConMapas incluye tres avances visibles (ferias, micheladas e IPEC), además del selector relieve/memoria. Cada avance apunta al ancla de su pieza en maps.html; conservar imágenes completas y CTA al archivo.
+- ConMapas en portada conserva la composición original de texto y visor único. Cinco opciones en el selector: relieve, memoria, ferias, micheladas e IPEC. No añadir una galería debajo: el propietario rechazó esa composición. Reservar espacio para rótulos sin tapar las láminas.
 
 - La nota de investigación de Trayectoria ocupa la columna derecha en escritorio y la única columna en móvil; no extenderla bajo el encabezado sticky, porque se superponen al hacer scroll.
 
