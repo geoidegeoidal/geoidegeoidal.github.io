@@ -170,9 +170,7 @@ button {
   white-space: nowrap;
 }
 .brand svg {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.4;
+  flex-shrink: 0;
 }
 #site-nav {
   display: flex;

@@ -1,7 +1,7 @@
 # Instrucciones del proyecto
 
 - SEO: `_includes/structured-data.html` define Person, WebSite, ProfilePage en portada y BlogPosting en artículos. Mantener datos respaldados por el contenido visible y validar con tests/seo_check.cjs. El token opcional google_site_verification debe provenir de Search Console del propietario.
-- Logo: propuestas en ../outputs/propuestas-logo.html y logo-a/b/c.svg, pendientes de elección. No sustituir cabecera ni favicon sin aprobación. Analítica open source evaluada (Umami recomendado), no instalada ni activada.
+- Logo aprobado: propuesta 01 «JU · Meridiano» (../outputs/logo-a.svg), aplicada en cabecera y favicon. Conservar su geometría y punto superior; favicon amarillo sobre carbón para contraste en pestañas claras y oscuras. Analítica open source evaluada (Umami recomendado), no instalada ni activada.
 
 - ConMapas en portada conserva la composición original de texto y visor único. Cinco opciones en el selector: relieve, memoria, ferias, micheladas e IPEC. No añadir una galería debajo: el propietario rechazó esa composición. Reservar espacio para rótulos sin tapar las láminas.
 

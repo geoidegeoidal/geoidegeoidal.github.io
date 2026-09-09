@@ -1,5 +1,13 @@
 # Handoff
 
+## 2026-09-08 — Logo JU aprobado
+
+**Objetivo:** aplicar la primera propuesta elegida por el propietario.
+**Completado:** monograma JU · Meridiano en cabecera compartida y favicon SVG, con versión de URL para renovar caché. Eliminados estilos del globo anterior que alteraban el trazo del monograma.
+**Decisiones:** conservar geometría aprobada; cabecera turquesa y favicon amarillo sobre carbón. Sin dependencias nuevas.
+**Validación:** Jekyll y checker de seis páginas aprobados. Cabecera renderizada e inspeccionada en Edge a 1280 y 320 px; proporciones y navegación correctas.
+**Bloqueos:** ninguno. **Próximos pasos:** verificar y publicar con autorización vigente. **Commits:** base 5d3a209; implementación en el commit de esta entrada.
+
 ## 2026-09-08 — Propuestas de identidad, SEO y analítica
 
 **Objetivo:** presentar logos antes de implementar, mejorar descubrimiento en Google y evaluar analítica open source.
