@@ -1,5 +1,7 @@
 # Instrucciones del proyecto
 
+- Fondos por tema (2026-09-10): ConMapas y herramientas en salvia #d1e2d6, proyectos violeta claro #e4ddec, AutoAtlas violeta #d2c5df, perfil arena #f0d5bb, cursos amarillo, trayectoria papel y contacto turquesa. Metadatos de AutoAtlas en #35464b para contraste AA.
+
 - Edición monográfica (2026-09-10), autorizada para probar un cambio amplio y reversible: portada con detalle de San Cristóbal ampliable y globo secundario; orden ConMapas, herramientas, perfil, cursos, trayectoria, herramientas técnicas y contacto. Sustituye el orden anterior. Mantener miniaturas + visor único, láminas completas sin rótulos superpuestos.
 - La edición se activa mediante `edition: monograph` y carga monograph.css/js solo en portada. Punto de retorno: tag `respaldo-antes-monografia-20260910` (39d7d42). El zoom es una ampliación de imagen, no consulta geográfica ni nueva capa de datos; accesible con teclado.
 - En el visor ConMapas fijar width:100%, min-width:0 y aspect-ratio:auto: el antiguo aspect-ratio:1 combinando altura fija desbordaba las columnas de tablet.

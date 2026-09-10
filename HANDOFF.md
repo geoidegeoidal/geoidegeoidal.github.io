@@ -1,5 +1,14 @@
 # Handoff
 
+## 2026-09-10 — Fondos para distinguir contenidos
+
+**Objetivo:** reforzar pertenencia y cambios de tema mediante color.
+**Completado:** salvia en cartografía y herramientas; violeta en proyectos, con tono interno en AutoAtlas; arena en perfil. Conservados amarillo de cursos, papel de trayectoria y turquesa de contacto.
+**Decisiones:** conservar composición y contenido; oscurecer metadatos de AutoAtlas para contraste AA.
+**Validación:** Jekyll/checker y axe en las cuatro secciones recoloreadas a 390/1440 px; capturas en outputs/fondos-*.png.
+**Bloqueos:** ninguno. **Próximo paso:** publicación autorizada. **Commit base:** 56ba951; cambio en el commit de esta entrada.
+
+
 ## 2026-09-10 — Edición monográfica del portafolio
 
 **Objetivo:** ejecutar el giro visual autorizado tras investigar portafolios de autor; resultado reversible.
