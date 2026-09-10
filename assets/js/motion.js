@@ -145,8 +145,8 @@
         mapLink.setAttribute("aria-label", "Explorar cartografía: " + title);
         status.textContent = title;
         if (motionAllowed()) transition = mapLink.querySelector("img").animate(
-          [{ clipPath: "inset(0 100% 0 0)", opacity: .4 }, { clipPath: "inset(0 0% 0 0)", opacity: 1 }],
-          { duration: 480, easing: "cubic-bezier(.22,1,.36,1)" },
+          [{ clipPath: "inset(0 100% 0 0)", opacity: .4, transform: "scale(1.035)" }, { clipPath: "inset(0 0% 0 0)", opacity: 1, transform: "scale(1)" }],
+          { duration: 620, easing: "cubic-bezier(.22,1,.36,1)" },
         );
       });
     });

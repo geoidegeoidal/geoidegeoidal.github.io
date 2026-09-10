@@ -1,5 +1,14 @@
 # Handoff
 
+## 2026-09-10 — Fondos animados ConMapas
+
+**Objetivo:** dar más color y movimiento a portada y cursos.
+**Completado:** recorrido cromático sobre detalle de relieve; ondas SVG verde/naranja en franja superior de cursos, superficies de lectura despejadas; transición cartográfica con escala suave.
+**Decisiones:** CSS/SVG nativos, sin dependencias; IntersectionObserver pausa fuera de pantalla. Controles globales y movimiento reducido conservados.
+**Validación:** revisión visual escritorio; prueba de animación, pausa, offscreen y reduced-motion; navegador y movimiento, Jekyll/checker.
+**Bloqueos:** ninguno. **Próximo paso:** publicación autorizada. **Base:** 5037510; cambios en este commit.
+
+
 ## 2026-09-10 — Investigación integrada en Trayectoria
 
 **Objetivo:** corregir invasión de Herramientas y bloque de investigación aislado.
