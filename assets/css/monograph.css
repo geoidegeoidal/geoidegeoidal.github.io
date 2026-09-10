@@ -93,3 +93,18 @@ body:has(.atlas-hero) main>.section{padding:64px 20px}
 @media(max-width:900px){.course-feature{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:720px){.contact h2{font-size:clamp(36px,10.5vw,50px)}.contact{grid-template-columns:minmax(0,1fr)}.atlas-scene{grid-template-columns:120px minmax(0,1fr)}.atlas-stage{width:120px}}
 @media(max-width:480px){#conmapas .map-switch{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}#conmapas h2{font-size:clamp(52px,16vw,64px)}}
+
+/* One complete project per row; visual order matches reading order. */
+#proyectos .selected-work{display:block}
+#proyectos .selected-project{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:8%;padding:48px 0;margin:0;border:0;border-top:1px solid #121b2055;background:transparent}
+#proyectos .project-identity h3{font-size:clamp(32px,4vw,52px);margin:0 0 14px;overflow-wrap:anywhere}
+.project-identity>p{font-size:16px;margin:0 0 12px}
+.project-identity .project-status{font-size:13px;color:#35464b}
+#proyectos .selected-project-copy{min-width:0;display:block}
+#proyectos .project-summary{font-size:19px;line-height:1.55;margin:0 0 20px;max-width:60ch}
+#proyectos .project-links{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:24px}
+#proyectos .project-capture{margin:32px 0 0;overflow:visible}
+#proyectos .project-capture img{display:block;width:100%;height:auto;box-shadow:none;transform:none}
+#proyectos .project-capture figcaption{margin-top:12px;font-size:12px;color:#35464b}
+#proyectos .institutional-heading{border-top:2px solid #121b2055;padding-top:48px;margin-top:64px}
+@media(max-width:720px){#proyectos .selected-project{grid-template-columns:minmax(0,1fr);gap:24px;padding:36px 0}#proyectos .project-identity h3{font-size:38px}#proyectos .project-summary{font-size:17px}}

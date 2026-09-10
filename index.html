@@ -37,10 +37,10 @@ description: Jorge Ulloa Roa. Geógrafo, analista espacial y formador en desarro
   <div class="selected-work">
     {% assign featured_projects = site.data.projects | where: 'featured', true %}
     {% for project in featured_projects %}
-    <article class="selected-project project-{{ project.id }}{% if forloop.first %} selected-project-lead{% endif %}">
-      {% if project.image %}<figure class="project-capture"><a href="{{ project.demo }}" target="_blank" rel="noopener noreferrer" aria-label="Abrir {{ project.name }}"><img src="{{ project.image | relative_url }}" alt="{{ project.alt }}" width="1360" height="810" loading="lazy"></a><figcaption>Captura publicada en el repositorio del proyecto.</figcaption></figure>{% endif %}
-      {% if project.id == 'autoatlas-pro' %}<div class="process-sheet" aria-label="Flujo de AutoAtlas Pro"><p>De una capa a una serie de informes.</p><ol><li>Seleccionar territorios</li><li>Componer mapas y estadísticas</li><li>Exportar PDF / PNG</li></ol><span>Plugin QGIS · Experimental</span></div>{% endif %}
-      <div class="selected-project-copy"><p class="eyebrow">{{ project.category }}</p><h3>{{ project.name }}</h3><p>{{ project.summary }}</p><details class="project-context"><summary>Qué permite hacer</summary><p>{{ project.detail }}</p><p class="project-note">{{ project.note }}</p></details><p class="project-stack">{{ project.stack }}</p><div class="project-links">{% if project.demo %}<a class="text-link" href="{{ project.demo }}" target="_blank" rel="noopener noreferrer">Abrir aplicación ↗</a>{% endif %}<a class="text-link" href="{{ '/code.html' | relative_url }}#{{ project.id }}">Ver proyecto →</a></div></div>
+    <article class="selected-project project-{{ project.id }}">
+      <header class="project-identity"><h3>{{ project.name }}</h3><p>{{ project.category }}</p><p class="project-status">{{ project.status }}</p></header>
+      <div class="selected-project-copy"><p class="project-summary">{{ project.summary }}</p><details class="project-context"><summary>Cómo funciona y qué considerar</summary><p>{{ project.detail }}</p><p class="project-note">{{ project.note }}</p></details><p class="project-stack">{{ project.stack }}</p><div class="project-links">{% if project.demo %}<a class="text-link" href="{{ project.demo }}" target="_blank" rel="noopener noreferrer">Abrir {{ project.name }} ↗</a>{% endif %}<a class="text-link" href="{{ '/code.html' | relative_url }}#{{ project.id }}">Detalles del proyecto →</a></div>
+      {% if project.image %}<figure class="project-capture"><a href="{{ project.demo }}" target="_blank" rel="noopener noreferrer" aria-label="Abrir {{ project.name }}"><img src="{{ project.image | relative_url }}" alt="{{ project.alt }}" width="1360" height="810" loading="lazy"></a><figcaption>Captura publicada en el repositorio del proyecto.</figcaption></figure>{% endif %}</div>
     </article>
     {% endfor %}
   </div>

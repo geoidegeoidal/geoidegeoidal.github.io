@@ -1,5 +1,14 @@
 # Handoff
 
+## 2026-09-10 — Lectura secuencial de proyectos
+
+**Objetivo:** resolver confusión del mosaico de proyectos.
+**Completado:** cuatro filas independientes, identidad antes de contenido, captura dentro de LUZ, retiro de esquema separado de AutoAtlas, estados visibles y enlaces explícitos. Separación del trabajo institucional.
+**Decisiones:** mismo orden visual y DOM; fondo común, sin columnas cruzadas.
+**Validación:** Jekyll/checker; filas consecutivas, detalles desplegables y axe a 320/768/1440; inspección visual escritorio y móvil.
+**Bloqueos:** ninguno. **Próximo paso:** publicación autorizada. **Base:** 516639f; cambio en commit de esta entrada.
+
+
 ## 2026-09-10 — Inspección visual responsiva
 
 **Objetivo:** revisar lectura y navegación en varios tamaños y ejecutar correcciones.
