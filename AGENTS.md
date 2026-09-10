@@ -1,5 +1,7 @@
 # Instrucciones del proyecto
 
+- Investigación cierra la lista timeline como último li, no fila grid aparte. Trayectoria usa row-gap en px y column-gap porcentual: gap:8% causaba desborde vertical por dimensionamiento intrínseco. Encabezado sticky solo desde 1000px y altura700, en columna separada. Regresión tests/research_layout_check.cjs.
+
 - Proyectos de portada: un proyecto completo por fila en orden DOM; identidad a izquierda, explicación/enlaces a derecha, apilados en móvil. No volver al mosaico con AutoAtlas ocupando dos filas ni esquema antes del nombre. Fondo violeta uniforme; captura LUZ dentro de su bloque.
 
 - Revisión responsiva: probar contenido interno con tests/responsive_reading_check.cjs (320–1920), no solo scrollWidth del documento: overflow:clip ocultaba recortes de Cursos. CTA multilínea y columnas minmax(0,1fr). Miniaturas en tres columnas hasta 480 px.

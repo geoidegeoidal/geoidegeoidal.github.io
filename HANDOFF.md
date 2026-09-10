@@ -1,5 +1,14 @@
 # Handoff
 
+## 2026-09-10 — Investigación integrada en Trayectoria
+
+**Objetivo:** corregir invasión de Herramientas y bloque de investigación aislado.
+**Completado:** identificado gap vertical porcentual como causa; investigación pasa a último hito cronológico con fecha, universidad, texto y publicación. Fondo arena interno y encabezado sticky contextual en escritorio amplio, normal en móvil.
+**Validación:** inspección visual antes/después y móvil; contención y separación en seis anchos mediante research_layout_check; Jekyll/checker y browser_check aprobados.
+**Decisiones:** row-gap fijo, column-gap porcentual; no desplazar con márgenes negativos ni ocultar overflow.
+**Bloqueos:** ninguno. **Próximo paso:** publicación autorizada. **Base:** bad59e6; cambios en este commit.
+
+
 ## 2026-09-10 — Lectura secuencial de proyectos
 
 **Objetivo:** resolver confusión del mosaico de proyectos.

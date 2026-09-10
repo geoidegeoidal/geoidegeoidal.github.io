@@ -59,7 +59,7 @@ body:has(.atlas-hero) main>.section{padding-top:110px;padding-bottom:110px}
 .about-portrait{width:100%;max-width:330px;padding:0;transform:rotate(-3deg)}.about-portrait::before{display:none}.about-portrait img{border-radius:0;filter:none;width:100%;height:auto}
 #bio h2{margin-bottom:30px}#bio p:first-of-type{font-size:clamp(22px,2.4vw,30px);line-height:1.4;color:#121b20;letter-spacing:-.025em}#bio p{max-width:690px}
 #cursos{background:#d6de59}.teaching-heading{grid-template-columns:1.3fr .7fr}.teaching-heading h2{font-size:clamp(44px,6.6vw,94px)}.course-intro h3{font-size:clamp(32px,4vw,54px)}
-#experiencia{background:#f3f0e7;grid-template-columns:.8fr 1.2fr;gap:8%}.experience-heading{position:static}.timeline li{padding:24px 0 24px 28px}.timeline h3{font-size:25px}.job-meta{font:400 13px/1.5 'DM Sans',sans-serif;letter-spacing:0}
+#experiencia{background:#f3f0e7;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);column-gap:8%;row-gap:32px}.experience-heading{position:static}.timeline li{padding:24px 0 24px 28px}.timeline h3{font-size:25px}.job-meta{font:400 13px/1.5 'DM Sans',sans-serif;letter-spacing:0}
 #tech{background:#d1e2d6}.skills-grid{display:block}.skill-group{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px;align-items:baseline;padding:24px 0;border-top:1px solid #121b2033;background:none}.skill-icon{display:none}.skill-group h3{font-size:19px}.skill-group p{display:block;margin:0;font-size:15px}.skill-group p span{display:block;font-size:12px;margin-top:6px}.skill-group .text-link{font-size:14px}
 #contacto{background:#06766f}.contact h2{font-size:clamp(48px,7vw,100px)}
 html[data-motion=off] .about-portrait{transform:none}
@@ -108,3 +108,13 @@ body:has(.atlas-hero) main>.section{padding:64px 20px}
 #proyectos .project-capture figcaption{margin-top:12px;font-size:12px;color:#35464b}
 #proyectos .institutional-heading{border-top:2px solid #121b2055;padding-top:48px;margin-top:64px}
 @media(max-width:720px){#proyectos .selected-project{grid-template-columns:minmax(0,1fr);gap:24px;padding:36px 0}#proyectos .project-identity h3{font-size:38px}#proyectos .project-summary{font-size:17px}}
+
+/* Research closes the chronology; percentage row gaps overflow intrinsic grids. */
+#experiencia .timeline{min-width:0;margin-bottom:0;padding-bottom:0}
+#experiencia .research-note{grid-column:auto;max-width:none;margin:0;padding:32px 24px 32px 28px;background:#e7e1d5;border-top:1px solid #121b2040}
+#experiencia .research-note h3{font-size:clamp(24px,2.5vw,34px);line-height:1.15;margin:14px 0}
+#experiencia .research-note .text-link{margin-top:20px}
+#experiencia .research-note:before{display:none}
+#experiencia .timeline li:last-child{border-bottom:0}
+@media(max-width:720px){#experiencia .research-note{padding:24px 20px}.research-note .job-meta{font-size:12px}}
+@media(min-width:1000px) and (min-height:700px){#experiencia .experience-heading{position:sticky;top:120px;align-self:start}}
