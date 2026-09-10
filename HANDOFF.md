@@ -1,5 +1,10 @@
 # Handoff
 
+## 2026-09-10 — Retirar ondas de Cursos
+
+**Objetivo:** atender rechazo del efecto de Cursos. **Completado:** retirados SVG, animación, espacio decorativo y observación de esa sección; amarillo plano restaurado. **Decisión:** conservar efecto de portada y transición de mapas. **Validación:** build Jekyll y checker. **Bloqueos:** ninguno. **Base:** 15fe43e; publicación autorizada.
+
+
 ## 2026-09-10 — Fondos animados ConMapas
 
 **Objetivo:** dar más color y movimiento a portada y cursos.

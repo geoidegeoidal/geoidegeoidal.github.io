@@ -1,5 +1,7 @@
 # Instrucciones del proyecto
 
+- Cursos: el propietario rechazó las ondas decorativas animadas. Mantener fondo amarillo plano y espaciado original; no reintroducir círculos/ondas de influencia en esa sección. Movimiento cromático de portada conservado.
+
 - Fondos animados autorizados: color superpuesto al detalle de portada (original intacto) y ondas SVG decorativas en cabecera Cursos. Animación CSS solo cuando sección visible y data-motion=on; pausa global, pestaña oculta y reduced-motion respetados. Texto sobre superficie plana. Cambio de lámina ConMapas 620ms con recorte y escala suave.
 
 - Investigación cierra la lista timeline como último li, no fila grid aparte. Trayectoria usa row-gap en px y column-gap porcentual: gap:8% causaba desborde vertical por dimensionamiento intrínseco. Encabezado sticky solo desde 1000px y altura700, en columna separada. Regresión tests/research_layout_check.cjs.

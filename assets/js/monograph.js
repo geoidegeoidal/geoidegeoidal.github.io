@@ -2,7 +2,7 @@
   const observer = new IntersectionObserver(entries => {
     for (const entry of entries) entry.target.classList.toggle('motion-in-view', entry.isIntersecting);
   });
-  document.querySelectorAll('.atlas-hero, #cursos').forEach(section => observer.observe(section));
+  document.querySelectorAll('.atlas-hero').forEach(section => observer.observe(section));
   const control = document.querySelector('.cover-zoom');
   if (!control) return;
   control.hidden = false;

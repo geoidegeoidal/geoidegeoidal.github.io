@@ -123,16 +123,6 @@ body:has(.atlas-hero) main>.section{padding:64px 20px}
 .cover-map-window{isolation:isolate}
 .cover-map-window::after{content:"";position:absolute;inset:-80%;pointer-events:none;background:conic-gradient(from 35deg,transparent 10%,#06766f80 25%,transparent 40%,#e88d4280 60%,#d6de5955 75%,transparent 90%);mix-blend-mode:screen;opacity:.65;animation:relief-color 24s linear infinite;animation-play-state:paused}
 @keyframes relief-color{to{transform:rotate(360deg)}}
-#cursos{isolation:isolate;padding-top:170px}
-.course-territories{position:absolute;inset:0 0 auto;height:260px;overflow:hidden;pointer-events:none;z-index:-1;opacity:.48}
-.course-territories svg{width:100%;height:100%;min-width:700px;position:absolute;right:0;top:-65px}
-.territory-wave{transform-box:fill-box;transform-origin:center;animation:territory-breathe 16s ease-in-out infinite alternate;animation-play-state:paused}
-.territory-wave-a{color:#06766f}.territory-wave-b{color:#b04e19;animation-delay:-8s;animation-direction:alternate-reverse}
-@keyframes territory-breathe{from{transform:translateX(-40px) scale(.85) rotate(-8deg)}to{transform:translateX(50px) scale(1.16) rotate(7deg)}}
-#cursos .teaching-heading{background:#d6de59;position:relative}
-html[data-motion=on] .motion-in-view .territory-wave,html[data-motion=on] .motion-in-view .cover-map-window::after{animation-play-state:running}
-html.tab-hidden .territory-wave,html.tab-hidden .cover-map-window::after{animation-play-state:paused!important}
-@media(max-width:720px){body:has(.atlas-hero) main>#cursos{padding-top:112px}.course-territories{height:150px}.course-territories svg{top:-100px}}
-@media(prefers-reduced-motion:reduce){.territory-wave,.cover-map-window::after{animation:none!important}}
-@media(min-width:721px){body:has(.atlas-hero) main>#cursos{padding-top:170px}}
-html[data-motion=off] .territory-wave,html[data-motion=off] .cover-map-window::after{animation-play-state:paused!important}
+html[data-motion=on] .motion-in-view .cover-map-window::after{animation-play-state:running}
+html.tab-hidden .cover-map-window::after,html[data-motion=off] .cover-map-window::after{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.cover-map-window::after{animation:none!important}}
