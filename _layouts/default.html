@@ -27,6 +27,7 @@
   <link rel="alternate" type="application/atom+xml" title="Bitácora de Jorge Ulloa Roa" href="{{ '/feed.xml' | relative_url }}">
   <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/motion.js' | relative_url }}" defer></script>
+  {% if page.edition == 'monograph' %}<link rel="stylesheet" href="{{ '/assets/css/monograph.css' | relative_url }}"><script src="{{ '/assets/js/monograph.js' | relative_url }}" defer></script>{% endif %}
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"></div>

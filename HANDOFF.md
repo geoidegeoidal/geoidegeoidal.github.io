@@ -1,5 +1,14 @@
 # Handoff
 
+## 2026-09-10 — Edición monográfica del portafolio
+
+**Objetivo:** ejecutar el giro visual autorizado tras investigar portafolios de autor; resultado reversible.
+**Completado:** portada tipográfica con cartografía propia ampliable por control nativo, globo secundario conservado; ConMapas abre el recorrido; LUZ con captura protagonista, AutoAtlas con proceso explicativo, otros proyectos en columna editorial. Perfil después de obras, cursos y trayectoria conservados, herramientas en filas. Láminas completas con leyendas externas y cinco miniaturas.
+**Decisiones:** edición específica de portada mediante front matter y CSS/JS propios, sin framework ni dependencias. No inventar interacción analítica: el control amplía la cartografía original. Copia abreviada de ConMapas sin perder contexto y comunidad fechada.
+**Validación:** Jekyll y checker de seis páginas; browser_check completo sin errores, recursos fallidos ni hallazgos axe; motion_check y map_selector_check aprobados. Nueva monograph_check: zoom por teclado, restablecimiento y orden. Revisión visual escritorio/móvil; corregido overflow de tablet causado por aspect-ratio heredado.
+**Bloqueos:** ninguno. **Próximos pasos:** valorar esta dirección con el propietario; puede revertirse al tag `respaldo-antes-monografia-20260910` (39d7d42). **Commit:** implementación en el commit de esta entrada; push y deploy autorizados previamente y ratificados por la petición de probar y volver atrás si no gusta.
+
+
 ## 2026-09-09 — Aplicar referencias de movimiento y cartografía
 
 **Objetivo:** incorporar las ideas seleccionadas de Refero con identidad propia.

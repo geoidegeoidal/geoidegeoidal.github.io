@@ -1,5 +1,9 @@
 # Instrucciones del proyecto
 
+- Edición monográfica (2026-09-10), autorizada para probar un cambio amplio y reversible: portada con detalle de San Cristóbal ampliable y globo secundario; orden ConMapas, herramientas, perfil, cursos, trayectoria, herramientas técnicas y contacto. Sustituye el orden anterior. Mantener miniaturas + visor único, láminas completas sin rótulos superpuestos.
+- La edición se activa mediante `edition: monograph` y carga monograph.css/js solo en portada. Punto de retorno: tag `respaldo-antes-monografia-20260910` (39d7d42). El zoom es una ampliación de imagen, no consulta geográfica ni nueva capa de datos; accesible con teclado.
+- En el visor ConMapas fijar width:100%, min-width:0 y aspect-ratio:auto: el antiguo aspect-ratio:1 combinando altura fija desbordaba las columnas de tablet.
+
 - ConMapas: selector con cinco miniaturas dentro de la columna de texto, visor único. Esperar decode antes de sustituir imagen, conservar selección ante error y descartar respuestas antiguas. Transición por recorte respeta pausa y movimiento reducido; validar con tests/map_selector_check.cjs y motion_check.cjs.
 - Decoración basada en assets propios: fragmento de conmapas.webp detrás del retrato y marco fino del visor. Proyectos incluyen contexto nativo details; no presentar capturas estáticas como demos animadas.
 
