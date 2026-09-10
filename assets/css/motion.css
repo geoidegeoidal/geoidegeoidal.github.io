@@ -1564,7 +1564,7 @@ html.tab-hidden *:after {
 .research-note > p:not(.eyebrow) { max-width: 65ch; }
 @media (max-width: 720px) { .research-note { grid-column: 1; } }
 .social-map-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 3.5rem); align-items: start; }
-.social-map-grid article > a { display: block; overflow: hidden; background: #121b20; }
+.social-map-grid article > a:has(img) { display: block; overflow: hidden; background: #121b20; }
 .social-map-grid img { display: block; width: 100%; height: auto; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
 .social-map-grid a:hover img { transform: scale(1.018); }
 .social-map-grid .eyebrow { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
@@ -1716,3 +1716,14 @@ h1, h2 { text-wrap: balance; }
   #conmapas .map-switch { grid-template-columns:repeat(3,minmax(0,1fr)); max-width:none; }
   .about-portrait::before { right:0; bottom:0; }
 }
+
+/* The motion preference occupies its own line, never covers reading or controls. */
+.motion-toolbar{display:flex;justify-content:flex-end;padding-block:8px}
+.motion-toolbar:has([hidden]){display:none}
+.motion-toolbar .motion-toggle{position:static;margin:0;min-height:36px;font:400 12px/1.4 "DM Sans",sans-serif;padding:8px 12px;box-shadow:none}
+.page-heading h1{margin-bottom:24px}
+.button{white-space:normal;text-align:left;max-width:100%}
+.button>span{flex-shrink:0}
+.motion-toolbar .motion-toggle{z-index:auto}
+
+.course-syllabus{padding-inline-start:0}

@@ -1,5 +1,14 @@
 # Handoff
 
+## 2026-09-10 — Inspección visual responsiva
+
+**Objetivo:** revisar lectura y navegación en varios tamaños y ejecutar correcciones.
+**Completado:** inspección de capturas a 320, 768, 1024 y 1440 px, portada/secciones y Mapas/Código/Blog. Corregidos recortes del curso y contacto, miniaturas apretadas, encabezado Código sin separación, control flotante sobre contenido y enlaces sociales oscurecidos por selector CSS demasiado amplio. Quitado sangrado innecesario del temario.
+**Decisiones:** control de movimiento en flujo bajo cabecera; botones permiten multilínea; grids pueden contraerse.
+**Validación:** browser_check, motion_check, Jekyll/checker; nueva regresión de contención en seis anchos 320–1920, axe específico de galería social e inspección de capturas corregidas.
+**Bloqueos:** ninguno. **Próximo paso:** publicación autorizada. **Base:** 0665a67; cambios en el commit de esta entrada.
+
+
 ## 2026-09-10 — Fondos para distinguir contenidos
 
 **Objetivo:** reforzar pertenencia y cambios de tema mediante color.

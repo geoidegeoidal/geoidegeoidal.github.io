@@ -1,5 +1,8 @@
 # Instrucciones del proyecto
 
+- Revisión responsiva: probar contenido interno con tests/responsive_reading_check.cjs (320–1920), no solo scrollWidth del documento: overflow:clip ocultaba recortes de Cursos. CTA multilínea y columnas minmax(0,1fr). Miniaturas en tres columnas hasta 480 px.
+- Control de movimiento en flujo normal bajo cabecera, nunca flotando encima de textos; z-index:auto. El fondo oscuro de enlaces sociales se aplica solo a enlaces con imagen (:has(img)), no a enlaces textuales.
+
 - Fondos por tema (2026-09-10): ConMapas y herramientas en salvia #d1e2d6, proyectos violeta claro #e4ddec, AutoAtlas violeta #d2c5df, perfil arena #f0d5bb, cursos amarillo, trayectoria papel y contacto turquesa. Metadatos de AutoAtlas en #35464b para contraste AA.
 
 - Edición monográfica (2026-09-10), autorizada para probar un cambio amplio y reversible: portada con detalle de San Cristóbal ampliable y globo secundario; orden ConMapas, herramientas, perfil, cursos, trayectoria, herramientas técnicas y contacto. Sustituye el orden anterior. Mantener miniaturas + visor único, láminas completas sin rótulos superpuestos.

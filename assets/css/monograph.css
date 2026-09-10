@@ -85,3 +85,11 @@ body:has(.atlas-hero) main>.section{padding:64px 20px}
 @media(max-width:720px){#conmapas .terrain-scene{height:490px}.map-deck{margin-bottom:22px}.map-load-status:empty{min-height:0;margin:0}.motion-toggle{bottom:10px;right:10px}.cover-map figcaption{padding-bottom:24px}}
 #conmapas .terrain-scene{width:100%;min-width:0;aspect-ratio:auto}
 .project-autoatlas-pro .eyebrow,.project-autoatlas-pro .project-stack,.project-autoatlas-pro .process-sheet>span{color:#35464b}
+
+/* Grid children must shrink even when their CTA contains a long label. */
+.course-feature{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+.course-intro,.contact>div,.contact form{min-width:0}
+.course-intro .button{font-size:17px;line-height:1.4;gap:18px}
+@media(max-width:900px){.course-feature{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:720px){.contact h2{font-size:clamp(36px,10.5vw,50px)}.contact{grid-template-columns:minmax(0,1fr)}.atlas-scene{grid-template-columns:120px minmax(0,1fr)}.atlas-stage{width:120px}}
+@media(max-width:480px){#conmapas .map-switch{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}#conmapas h2{font-size:clamp(52px,16vw,64px)}}
