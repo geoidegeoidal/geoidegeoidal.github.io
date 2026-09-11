@@ -1,5 +1,7 @@
 # Instrucciones del proyecto
 
+- Footer compacto: padding24px escritorio/20px móvil; coordenada secreta dentro de footer-links, sin franja adicional debajo. Mantener área táctil44px y wrap de enlaces.
+
 - Minigolf sustituye Snake por petición del usuario (2026-09-11). Tres campos, rumbo/fuerza, rebotes y contador acumulado. Curvas de nivel son decoración, no pendientes físicas. Mantener acceso en coordenada, dialog y retorno de foco. No retomar Snake.
 
 - Easter egg: coordenada al pie solo en portada abre Snake en dialog nativo. Inicia por gesto, pausa al ocultar pestaña, detiene timer al cerrar y retorna foco. Teclado flechas/WASD y pad táctil; sin dependencia ni almacenamiento. Mantener descubierto por teclado y nombre accesible.

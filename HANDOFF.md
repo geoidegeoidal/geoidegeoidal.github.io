@@ -1,5 +1,9 @@
 # Handoff
 
+## 2026-09-11 — Compactar footer
+
+Reducidos espacios verticales64/90px a24/20px. Coordenada del minigolf integrada junto a enlaces, retirada franja extra. Verificado build/checker, captura móvil y apertura juego390/1440. Altura final180px móvil y92px escritorio. Basec0cfcf1; publicación autorizada.
+
 ## 2026-09-11 — Minigolf oculto
 
 Objetivo: sustituir Snake, rechazado por repetido. Completado: tres campos con obstáculos, rumbo y fuerza accesibles, rebotes, captura de hoyo, siguiente campo y reinicio. Pausa al ocultar pestaña y cierre seguro. Validación: Jekyll/checker, golpe hasta detenerse, reinicio, Escape y foco en390/1440; captura móvil inspeccionada. Sin bloqueos. Base33a1f6a; cambios en commit de esta entrada.
