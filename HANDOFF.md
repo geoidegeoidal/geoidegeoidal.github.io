@@ -1,5 +1,9 @@
 # Handoff
 
+## 2026-09-11 — Arcade geográfico de tres etapas
+
+Objetivo: reemplazar golf por arcade inspirado en Galaga. Completado: formaciones, ataques en picado, disparos dirigidos en órbita, tres vidas, puntuación, victoria/derrota y controles móvil/teclado. Footer compacto conservado. Validación: Jekyll/checker, lógica de tres etapas/victoria/daño/derrota/pausa, apertura y foco390/1440; captura móvil revisada. Sin bloqueos. Base9b2c082; implementación en commit de esta entrada.
+
 ## 2026-09-11 — Compactar footer
 
 Reducidos espacios verticales64/90px a24/20px. Coordenada del minigolf integrada junto a enlaces, retirada franja extra. Verificado build/checker, captura móvil y apertura juego390/1440. Altura final180px móvil y92px escritorio. Basec0cfcf1; publicación autorizada.
