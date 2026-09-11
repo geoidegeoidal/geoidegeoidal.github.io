@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Datos y automatización",
+    "description": "De registros a información utilizable.",
+    "tools": [
+      {
+        "name": "Python",
+        "level": "Avanzado",
+        "use": "Procesos ETL y automatización territorial.",
+        "link": "#experiencia"
+      },
+      {
+        "name": "PostgreSQL / PostGIS",
+        "level": "Avanzado",
+        "use": "Consultas espaciales, validación y asignación territorial.",
+        "link": "#experiencia"
+      },
+      {
+        "name": "R",
+        "level": "Intermedio",
+        "use": "Análisis de datos.",
+        "link": ""
+      },
+      {
+        "name": "GeoPandas / Matplotlib",
+        "level": "En proyectos",
+        "use": "Procesamiento censal y cartografía reproducible.",
+        "link": "/code.html#censo_2024"
+      },
+      {
+        "name": "DuckDB / Streamlit / Plotly",
+        "level": "En proyectos",
+        "use": "Exploración de registros de biodiversidad.",
+        "link": "/code.html#gbif-human-obs-dashboard"
+      }
+    ]
+  },
+  {
+    "name": "Análisis y cartografía",
+    "description": "Del territorio al mapa y sus resultados.",
+    "tools": [
+      {
+        "name": "QGIS / ArcGIS",
+        "level": "Avanzado",
+        "use": "Análisis espacial y producción cartográfica.",
+        "link": "#experiencia"
+      },
+      {
+        "name": "Power BI",
+        "level": "Avanzado",
+        "use": "Indicadores y visualización de información.",
+        "link": "#experiencia"
+      },
+      {
+        "name": "Foursquare Studio",
+        "level": "Aplicación profesional",
+        "use": "Visualizaciones cartográficas del IEMA 2024.",
+        "link": "https://iema.mma.gob.cl/"
+      },
+      {
+        "name": "PyQGIS / Qt",
+        "level": "En proyectos",
+        "use": "Generación de informes con AutoAtlas Pro.",
+        "link": "/code.html#autoatlas-pro"
+      }
+    ]
+  },
+  {
+    "name": "Desarrollo web territorial",
+    "description": "Herramientas que se pueden abrir y usar.",
+    "tools": [
+      {
+        "name": "HTML / CSS",
+        "level": "Avanzado",
+        "use": "Interfaces y narrativa territorial.",
+        "link": "/code.html#storytelling-11s"
+      },
+      {
+        "name": "JavaScript",
+        "level": "Intermedio",
+        "use": "Interacción y aplicaciones en el navegador.",
+        "link": "/code.html"
+      },
+      {
+        "name": "TypeScript / React",
+        "level": "En proyectos",
+        "use": "Aplicaciones LUZ·RM, Azimut y HuellaRETC.",
+        "link": "#proyectos"
+      },
+      {
+        "name": "MapLibre / Leaflet",
+        "level": "En proyectos y formación",
+        "use": "Visores y cartografía interactiva.",
+        "link": "#cursos"
+      },
+      {
+        "name": "Turf.js / GeoJSON",
+        "level": "En proyectos y formación",
+        "use": "Análisis espacial en el navegador.",
+        "link": "#cursos"
+      },
+      {
+        "name": "ECharts / Recharts",
+        "level": "En proyectos",
+        "use": "Indicadores conectados al mapa.",
+        "link": "#proyectos"
+      }
+    ]
+  },
+  {
+    "name": "Publicación y trabajo en equipo",
+    "description": "Del desarrollo a una entrega compartida.",
+    "tools": [
+      {
+        "name": "Git / GitHub",
+        "level": "Avanzado",
+        "use": "Versionado y documentación de proyectos.",
+        "link": "https://github.com/geoidegeoidal"
+      },
+      {
+        "name": "GitHub Pages",
+        "level": "En proyectos y formación",
+        "use": "Publicación de aplicaciones territoriales.",
+        "link": "#cursos"
+      },
+      {
+        "name": "Antigravity IDE / OpenCode",
+        "level": "En formación",
+        "use": "Desarrollo asistido por IA en el bootcamp.",
+        "link": "#cursos"
+      },
+      {
+        "name": "Desarrollo por especificaciones",
+        "level": "En formación",
+        "use": "Definir una solución antes de programarla.",
+        "link": "#cursos"
+      },
+      {
+        "name": "Gestión de proyectos",
+        "level": "Avanzado",
+        "use": "Coordinación técnica y equipos multidisciplinarios.",
+        "link": "#experiencia"
+      }
+    ]
+  }
+]

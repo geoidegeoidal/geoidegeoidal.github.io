@@ -1,5 +1,10 @@
 # Handoff
 
+## 2026-09-11 — Tecnologías visuales y storymap 11S
+
+**Objetivo:** ampliar tecnologías desde LinkedIn y sumar último storymap. **Completado:** 20 entradas en cuatro áreas con nivel textual, indicador visual y enlace a evidencia; HTML/CSS avanzado separado de JavaScript. Integrado storytelling-11s como especial de ConMapas y ficha Código. **Fuentes:** perfil público indexado LinkedIn, proyectos curados y README/repositorio reciente vía GitHub API; demo comprobada en navegador. **Validación:** Jekyll/checker, cuatro anchos 320–1440, axe de secciones nuevas, enlaces, inspección visual escritorio/móvil. **Bloqueo parcial:** lista completa de aptitudes requiere login; usuario confirma sesión en Edge pero CUA informa navegador no disponible. Se pidió pegar lista; no afirmar exhaustividad. **Siguiente:** completar aptitudes faltantes cuando estén accesibles. **Base:** 5d75d76; implementación en commit de esta entrada.
+
+
 ## 2026-09-11 — Volver al diseño anterior sin cursivas
 
 **Objetivo:** recuperar la versión preferida por el propietario, anterior a las reediciones. **Completado:** index restaurado desde 39d7d42, misma portada y orden de e4a3876 con cinco miniaturas. Desactivada monografía por ausencia de edition. Se conservan CSS/JS compartidos actuales, logo, SEO y contenido curado. **Decisión:** esta es la dirección activa; propuesta solo referencia archivada. **Validación:** build Jekyll desde directorio padre, checker, browser_check, motion_check; capturas escritorio/móvil inspeccionadas. **Bloqueos:** ninguno. **Siguiente:** publicar restauración autorizada y continuar sobre esta base. **Base:** 6197b11; cambios en commit de esta entrada.

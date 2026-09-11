@@ -1,5 +1,8 @@
 # Instrucciones del proyecto
 
+- Tecnologías 2026-09-11: _data/technologies.json separa niveles declarados de uso demostrado en proyectos/formación. Perfil público LinkedIn declara Python, PostgreSQL/PostGIS y HTML/CSS avanzados; no extender ese nivel a JavaScript ni inferir niveles desde repositorios. Mantener niveles anteriores para otras herramientas ya publicadas. Lista completa de aptitudes pendiente: LinkedIn pide sesión y Edge no disponible en CUA. No afirmar cobertura total.
+- Storytelling-11s es especial de ConMapas: integrar en esa sección y catálogo Código, no como colectivo distinto ni sustituir sus cinco mapas. Repo y demo verificados; 11 entradas, autor Jorge Ulloa; no convertir fecha de publicación del repo en fecha de autoría de mapas.
+
 - Dirección vigente 2026-09-11: el propietario prefiere la versión anterior a las reediciones, tras quitar cursivas y rótulos. Index restaurado desde 39d7d42 (tipografía e4a3876 + miniaturas). Portada «Geografía para leer el mundo», globo principal y orden perfil/proyectos/cursos/ConMapas/trayectoria/tecnologías/contacto. Esta decisión sustituye monografía y propuestas como dirección activa. Mantener fixes compartidos de controles, botones, selector y enlaces; no reactivar edition:monograph. Propuesta queda archivada como comparación, no promoverla sin petición.
 
 - Propuesta completa (2026-09-11) sustituye la propuesta de caso único rechazada: identidad personal, desarrollo, instituciones, formación, ConMapas, perfil, trayectoria e investigación, tecnologías y contacto. Reutiliza site.js/motion.js y datos curados; CSS independiente. Index permanece como versión anterior hasta evaluación. No reducir el portafolio a mapas.

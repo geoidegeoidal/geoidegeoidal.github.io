@@ -1,5 +1,18 @@
 [
   {
+    "id": "storytelling-11s",
+    "name": "11 de septiembre de 1973 — Relato hora a hora",
+    "category": "ConMapas · Memoria y narrativa territorial",
+    "featured": false,
+    "summary": "Un recorrido cartográfico por el golpe de Estado en Chile, contado hora a hora desde los mapas y relatos de ConMapas.",
+    "detail": "Once entradas combinan mapas y narración con desplazamiento, desde Valparaíso hasta Santiago y los días posteriores. El especial integra audio y una lectura territorial de la memoria.",
+    "stack": "HTML · CSS · JavaScript · IntersectionObserver · JSON",
+    "demo": "https://geoidegeoidal.github.io/storytelling-11s/",
+    "note": "Mapas y relatos de Jorge Ulloa para ConMapas. Proyecto de memoria y difusión histórica; los audios se reproducen mediante servicios externos.",
+    "status": "Storymap publicado",
+    "repo": "https://github.com/geoidegeoidal/storytelling-11s"
+  },
+  {
     "id": "luz-rm",
     "name": "LUZ·RM",
     "category": "Inteligencia territorial",
