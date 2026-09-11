@@ -1,5 +1,11 @@
 # Handoff
 
+## 2026-09-11 — Portafolio completo, propuesta editorial
+
+**Objetivo:** sustituir propuesta rechazada que reducía el perfil a un mapa. **Completado:** presentación personal con retrato, globo autónomo y aplicación; cuatro proyectos completos, trabajo institucional, curso, cinco mapas en visor único, perfil, trayectoria con investigación, tecnologías y contacto funcional. Referencia Monopo inspeccionada visualmente en Refero, aplicada a jerarquía, espacio y protagonismo de obra real. CSS independiente y reutilización JS existente; eliminado script del antiguo caso.
+**Decisiones:** conservar index para comparar; noindex y sitemap:false. Paleta por función, títulos sin cursivas y sin rótulos numerados. **Validación:** Jekyll/checker; seis anchos, contención, mapas, menú, pausa, reduced-motion, no-JS y axe; capturas móvil/escritorio inspeccionadas y solapamiento LUZ/Azimut corregido. **Bloqueos:** ninguno. **Siguiente:** revisión del propietario antes de promover a index. **Base:** e39f2e8; implementación en commit de esta entrada.
+
+
 ## 2026-09-10 — Propuesta paralela: geografía en el barrio
 
 **Objetivo:** construir una portada y un caso completos para evaluar una dirección más personal, autorizados tras crítica del diseño vigente.

@@ -1,5 +1,8 @@
 # Instrucciones del proyecto
 
+- Propuesta completa (2026-09-11) sustituye la propuesta de caso único rechazada: identidad personal, desarrollo, instituciones, formación, ConMapas, perfil, trayectoria e investigación, tecnologías y contacto. Reutiliza site.js/motion.js y datos curados; CSS independiente. Index permanece como versión anterior hasta evaluación. No reducir el portafolio a mapas.
+- En CSS de propuesta usar separación vertical fija y porcentajes solo en column-gap. Tests de contención de proyectos deben excluir descendientes de details cerrados; esperar fin de transiciones al auditar contraste y evento de media query al comprobar reduced-motion.
+
 - Propuesta paralela `propuesta.html` (2026-09-10): portada y caso completo de ConMapas, estilos/scripts independientes, no sustituye index. Noindex y sitemap:false; sitemap respeta exclusión. Dirección de color violeta/naranja/lima inspirada en la obra; logo aprobado conservado.
 - El visor de la propuesta amplía una imagen existente con vistas norte/centro/sur, no calcula isócronas ni consulta ubicaciones. No presentar como aplicación GIS. Mantener fuente ODEPA, crédito Jorge Ulloa y acceso a lámina íntegra. Validar tests/propuesta_check.cjs.
 
