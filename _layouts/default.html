@@ -60,5 +60,11 @@
     </div>
   </footer>
 
+{% if page.url == '/' %}
+  <div class="secret-footer container"><button id="secret-trigger" type="button" hidden aria-label="Explorar coordenada secreta">33°26′S · 70°39′O <span aria-hidden="true">⌖</span></button></div>
+  <dialog id="snake-dialog" aria-labelledby="snake-title"><div class="snake-top"><span>Fuera de ruta</span><button id="snake-close" type="button" aria-label="Cerrar juego">✕</button></div><h2 id="snake-title">Una serpiente en el SIG.</h2><p>Encontraste el desvío. Recoge puntos y alarga tu recorrido sin chocar.</p><div class="snake-score">Puntos <strong id="snake-score">0</strong><span>Snake · edición territorial</span></div><canvas id="snake-board" width="400" height="400" role="img" aria-label="Tablero de Snake. Serpiente amarilla y objetivo naranja."></canvas><p id="snake-status" role="status">Pulsa Jugar para comenzar.</p><div class="snake-actions"><button id="snake-start" type="button">Jugar</button><button id="snake-pause" type="button" disabled>Pausar</button></div><div class="snake-pad" role="group" aria-label="Dirección"><button type="button" data-direction="up" aria-label="Norte">↑</button><button type="button" data-direction="left" aria-label="Oeste">←</button><button type="button" data-direction="down" aria-label="Sur">↓</button><button type="button" data-direction="right" aria-label="Este">→</button></div><p class="snake-help">Flechas o WASD · Espacio pausa · Esc cierra</p></dialog>
+  <link rel="stylesheet" href="{{ '/assets/css/snake.css' | relative_url }}">
+  <script src="{{ '/assets/js/snake.js' | relative_url }}" defer></script>
+  {% endif %}
 </body>
 </html>

@@ -1,5 +1,7 @@
 # Instrucciones del proyecto
 
+- Easter egg: coordenada al pie solo en portada abre Snake en dialog nativo. Inicia por gesto, pausa al ocultar pestaña, detiene timer al cerrar y retorna foco. Teclado flechas/WASD y pad táctil; sin dependencia ni almacenamiento. Mantener descubierto por teclado y nombre accesible.
+
 - Tecnologías 2026-09-11: _data/technologies.json separa niveles declarados de uso demostrado en proyectos/formación. Perfil público LinkedIn declara Python, PostgreSQL/PostGIS y HTML/CSS avanzados; no extender ese nivel a JavaScript ni inferir niveles desde repositorios. Mantener niveles anteriores para otras herramientas ya publicadas. Lista completa de aptitudes pendiente: LinkedIn pide sesión y Edge no disponible en CUA. No afirmar cobertura total.
 - Storytelling-11s es especial de ConMapas: integrar en esa sección y catálogo Código, no como colectivo distinto ni sustituir sus cinco mapas. Repo y demo verificados; 11 entradas, autor Jorge Ulloa; no convertir fecha de publicación del repo en fecha de autoría de mapas.
 

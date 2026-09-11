@@ -1,5 +1,9 @@
 # Handoff
 
+## 2026-09-11 — Snake oculto
+
+Objetivo: sorpresa jugable al final. Completado: coordenada discreta abre Snake territorial Canvas, puntos, colisión, reinicio, pausa, teclas y controles táctiles. Validación: build/checker; abrir, jugar, pausa, colisión, Escape y foco en390/1440; captura móvil revisada. Sin bloqueos. Base30d69bc; cambios en commit de esta entrada.
+
 ## 2026-09-11 — Tecnologías visuales y storymap 11S
 
 **Objetivo:** ampliar tecnologías desde LinkedIn y sumar último storymap. **Completado:** 20 entradas en cuatro áreas con nivel textual, indicador visual y enlace a evidencia; HTML/CSS avanzado separado de JavaScript. Integrado storytelling-11s como especial de ConMapas y ficha Código. **Fuentes:** perfil público indexado LinkedIn, proyectos curados y README/repositorio reciente vía GitHub API; demo comprobada en navegador. **Validación:** Jekyll/checker, cuatro anchos 320–1440, axe de secciones nuevas, enlaces, inspección visual escritorio/móvil. **Bloqueo parcial:** lista completa de aptitudes requiere login; usuario confirma sesión en Edge pero CUA informa navegador no disponible. Se pidió pegar lista; no afirmar exhaustividad. **Siguiente:** completar aptitudes faltantes cuando estén accesibles. **Base:** 5d75d76; implementación en commit de esta entrada.
