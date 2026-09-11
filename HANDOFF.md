@@ -1,5 +1,10 @@
 # Handoff
 
+## 2026-09-11 — Minigolf oculto
+
+Objetivo: sustituir Snake, rechazado por repetido. Completado: tres campos con obstáculos, rumbo y fuerza accesibles, rebotes, captura de hoyo, siguiente campo y reinicio. Pausa al ocultar pestaña y cierre seguro. Validación: Jekyll/checker, golpe hasta detenerse, reinicio, Escape y foco en390/1440; captura móvil inspeccionada. Sin bloqueos. Base33a1f6a; cambios en commit de esta entrada.
+
+
 ## 2026-09-11 — Snake oculto
 
 Objetivo: sorpresa jugable al final. Completado: coordenada discreta abre Snake territorial Canvas, puntos, colisión, reinicio, pausa, teclas y controles táctiles. Validación: build/checker; abrir, jugar, pausa, colisión, Escape y foco en390/1440; captura móvil revisada. Sin bloqueos. Base30d69bc; cambios en commit de esta entrada.

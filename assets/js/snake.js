@@ -1,48 +1,42 @@
 (() => {
-  const trigger = document.querySelector('#secret-trigger');
-  const dialog = document.querySelector('#snake-dialog');
-  if (!dialog.showModal) return;
-  const canvas = document.querySelector('#snake-board'), ctx = canvas.getContext('2d');
-  if (!ctx) return;
-  const status = document.querySelector('#snake-status');
-  const score = document.querySelector('#snake-score');
-  const start = document.querySelector('#snake-start'), pause = document.querySelector('#snake-pause');
-  const vectors = {up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
-  let snake, food, direction, queued, timer, running = false, paused = false, points = 0;
-  function stop() { clearInterval(timer); timer = null; }
-  function spawn() {
-    const free=[];
-    for(let y=0;y<20;y++) for(let x=0;x<20;x++) if(!snake.some(p=>p[0]===x&&p[1]===y)) free.push([x,y]);
-    return free[Math.floor(Math.random()*free.length)];
+  const trigger=document.querySelector('#secret-trigger'), dialog=document.querySelector('#snake-dialog');
+  const canvas=document.querySelector('#snake-board'), ctx=canvas.getContext('2d');
+  if(!dialog.showModal||!ctx)return;
+  const angle=document.querySelector('#golf-angle'),power=document.querySelector('#golf-power');
+  const shot=document.querySelector('#snake-start'),status=document.querySelector('#snake-status');
+  const courses=[{ball:[65,330],hole:[330,70],walls:[[175,140,30,155]]},{ball:[65,65],hole:[330,330],walls:[[120,20,25,230],[255,150,25,230]]},{ball:[60,340],hole:[340,60],walls:[[100,230,190,25],[100,100,25,130],[215,100,120,25]]}];
+  let round=0,strokes=0,ball,velocity=[0,0],moving=false,won=false,frame,last=0;
+  const radius=7;
+  function labels(){document.querySelector('#golf-angle-value').textContent=angle.value+'°';document.querySelector('#golf-power-value').textContent=power.value+'%';}
+  function draw(){
+    ctx.fillStyle='#163e32';ctx.fillRect(0,0,400,400);
+    ctx.strokeStyle='#2b5544';ctx.lineWidth=1;
+    for(let r=35;r<500;r+=28){ctx.beginPath();ctx.ellipse(90,110,r,r*.7,.4,0,Math.PI*2);ctx.stroke();}
+    ctx.strokeStyle='#8aa28a';ctx.lineWidth=3;ctx.strokeRect(12,12,376,376);
+    for(const [x,y,w,h]of courses[round].walls){ctx.fillStyle='#708975';ctx.fillRect(x,y,w,h);}
+    const [hx,hy]=courses[round].hole;ctx.fillStyle='#071b15';ctx.beginPath();ctx.arc(hx,hy,11,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#f0e8c5';ctx.beginPath();ctx.moveTo(hx,hy);ctx.lineTo(hx,hy-30);ctx.stroke();ctx.fillStyle='#e88d42';ctx.beginPath();ctx.moveTo(hx,hy-30);ctx.lineTo(hx+19,hy-23);ctx.lineTo(hx,hy-17);ctx.fill();
+    if(!moving&&!won){const a=Number(angle.value)*Math.PI/180,l=25+Number(power.value)*.55;ctx.setLineDash([4,5]);ctx.strokeStyle='#d6de59';ctx.beginPath();ctx.moveTo(...ball);ctx.lineTo(ball[0]+Math.cos(a)*l,ball[1]+Math.sin(a)*l);ctx.stroke();ctx.setLineDash([]);}
+    ctx.fillStyle='#f3f0e7';ctx.beginPath();ctx.arc(...ball,radius,0,Math.PI*2);ctx.fill();
   }
-  function draw() {
-    ctx.fillStyle='#142922';ctx.fillRect(0,0,400,400);
-    ctx.strokeStyle='#254036';ctx.lineWidth=1;
-    for(let n=0;n<=400;n+=20){ctx.beginPath();ctx.moveTo(n,0);ctx.lineTo(n,400);ctx.moveTo(0,n);ctx.lineTo(400,n);ctx.stroke();}
-    snake.forEach(([x,y],i)=>{ctx.fillStyle=i===0?'#f1f2b4':'#d6de59';ctx.fillRect(x*20+2,y*20+2,16,16);});
-    if(food){ctx.fillStyle='#e88d42';ctx.beginPath();ctx.arc(food[0]*20+10,food[1]*20+10,6,0,Math.PI*2);ctx.fill();}
+  function controls(){shot.disabled=moving;angle.disabled=moving;power.disabled=moving;}
+  function load(){cancelAnimationFrame(frame);moving=false;won=false;ball=[...courses[round].ball];velocity=[0,0];angle.value=-45;power.value=50;labels();shot.textContent='Golpear';controls();document.querySelector('#golf-round').textContent=`Hoyo ${round+1} / 3`;document.querySelector('#snake-score').textContent=`${strokes} golpes`;status.textContent='Busca la bandera naranja.';draw();}
+  function step(){
+    for(let axis=0;axis<2;axis++){
+      ball[axis]+=velocity[axis];
+      if(ball[axis]<12+radius||ball[axis]>388-radius){ball[axis]=Math.max(12+radius,Math.min(388-radius,ball[axis]));velocity[axis]*=-.78;}
+      for(const [x,y,w,h]of courses[round].walls){if(ball[0]+radius>x&&ball[0]-radius<x+w&&ball[1]+radius>y&&ball[1]-radius<y+h){ball[axis]=velocity[axis]>0?(axis===0?x:y)-radius:(axis===0?x+w:y+h)+radius;velocity[axis]*=-.78;}}
+    }
+    velocity=velocity.map(v=>v*.982);
+    const h=courses[round].hole;
+    if(Math.hypot(ball[0]-h[0],ball[1]-h[1])<11&&Math.hypot(...velocity)<4){ball=[...h];moving=false;won=true;status.textContent=round===2?`¡Recorrido completo! ${strokes} golpes. ¿Puedes mejorarlo?`:'¡Dentro! Vamos al siguiente hoyo.';shot.textContent=round===2?'Volver a jugar':'Siguiente hoyo';controls();}
+    else if(Math.hypot(...velocity)<.08){moving=false;status.textContent='Ajusta el siguiente golpe.';controls();}
   }
-  function reset(){stop();snake=[[8,10],[7,10],[6,10]];direction=[1,0];queued=null;points=0;score.textContent=0;food=spawn();running=false;paused=false;pause.disabled=true;pause.textContent='Pausar';draw();}
-  function finish(message){stop();running=false;pause.disabled=true;status.textContent=message;start.textContent='Volver a jugar';}
-  function tick(){
-    if(queued){direction=queued;queued=null;}
-    const head=[snake[0][0]+direction[0],snake[0][1]+direction[1]];
-    const eating=head[0]===food[0]&&head[1]===food[1];
-    const body=eating?snake:snake.slice(0,-1);
-    if(head.some(v=>v<0||v>=20)||body.some(p=>p[0]===head[0]&&p[1]===head[1])){finish(`Fin del recorrido. ${points} puntos. ¿Otra vuelta?`);return;}
-    snake.unshift(head);
-    if(eating){points++;score.textContent=points;food=spawn();if(!food){draw();finish('¡Cartografiaste todo el tablero!');return;}}else snake.pop();
-    draw();
-  }
-  function turn(name){const v=vectors[name];if(!running||paused||queued||!v)return;if(v[0]===-direction[0]&&v[1]===-direction[1])return;queued=v;}
-  function setPause(value){if(!running)return;paused=value;stop();if(!paused)timer=setInterval(tick,150);pause.textContent=paused?'Continuar':'Pausar';status.textContent=paused?'En pausa. Tu ruta te espera.':'Recoge los puntos naranjas.';}
-  trigger.hidden=false;
-  trigger.addEventListener('click',()=>{reset();status.textContent='Pulsa Jugar para comenzar.';start.textContent='Jugar';dialog.showModal();start.focus();});
-  document.querySelector('#snake-close').addEventListener('click',()=>dialog.close());
-  dialog.addEventListener('close',()=>{stop();running=false;trigger.focus();});
-  start.addEventListener('click',()=>{reset();running=true;pause.disabled=false;start.textContent='Reiniciar';status.textContent='Recoge los puntos naranjas.';timer=setInterval(tick,150);});
-  pause.addEventListener('click',()=>setPause(!paused));
-  dialog.querySelectorAll('[data-direction]').forEach(b=>b.addEventListener('click',()=>turn(b.dataset.direction)));
-  dialog.addEventListener('keydown',e=>{const key=e.key.toLowerCase();const name={arrowup:'up',w:'up',arrowdown:'down',s:'down',arrowleft:'left',a:'left',arrowright:'right',d:'right'}[key];if(name){e.preventDefault();turn(name);}else if(e.code==='Space'&&running){e.preventDefault();setPause(!paused);}});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)setPause(true);});
+  function animate(now){if(!moving||!dialog.open)return;const elapsed=Math.min(now-last,50);last=now;for(let i=0;i<Math.max(1,Math.round(elapsed/(1000/60)));i++)if(moving)step();draw();if(moving)frame=requestAnimationFrame(animate);}
+  function hit(){if(moving)return;if(won){if(round===2){round=0;strokes=0;}else round++;load();return;}const a=Number(angle.value)*Math.PI/180,s=Number(power.value)*.085;velocity=[Math.cos(a)*s,Math.sin(a)*s];strokes++;document.querySelector('#snake-score').textContent=`${strokes} golpes`;moving=true;controls();status.textContent='Bola en movimiento…';last=performance.now();frame=requestAnimationFrame(animate);}
+  trigger.hidden=false;trigger.addEventListener('click',()=>{round=0;strokes=0;load();dialog.showModal();shot.focus();});shot.addEventListener('click',hit);
+  document.querySelector('#golf-reset').addEventListener('click',()=>{round=0;strokes=0;load();});
+  document.querySelector('#snake-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>{cancelAnimationFrame(frame);moving=false;trigger.focus();});
+  for(const input of [angle,power])input.addEventListener('input',()=>{labels();draw();});
+  dialog.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;if(e.code==='Space'){e.preventDefault();hit();}if(moving)return;const changes={ArrowLeft:[angle,-5],ArrowRight:[angle,5],ArrowUp:[power,5],ArrowDown:[power,-5]};if(changes[e.key]){e.preventDefault();const [input,delta]=changes[e.key];input.value=Number(input.value)+delta;labels();draw();}});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frame);}else if(moving&&dialog.open){last=performance.now();frame=requestAnimationFrame(animate);}});
 })();
