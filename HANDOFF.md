@@ -1,5 +1,10 @@
 # Handoff
 
+## 2026-09-11 — Volver al diseño anterior sin cursivas
+
+**Objetivo:** recuperar la versión preferida por el propietario, anterior a las reediciones. **Completado:** index restaurado desde 39d7d42, misma portada y orden de e4a3876 con cinco miniaturas. Desactivada monografía por ausencia de edition. Se conservan CSS/JS compartidos actuales, logo, SEO y contenido curado. **Decisión:** esta es la dirección activa; propuesta solo referencia archivada. **Validación:** build Jekyll desde directorio padre, checker, browser_check, motion_check; capturas escritorio/móvil inspeccionadas. **Bloqueos:** ninguno. **Siguiente:** publicar restauración autorizada y continuar sobre esta base. **Base:** 6197b11; cambios en commit de esta entrada.
+
+
 ## 2026-09-11 — Portafolio completo, propuesta editorial
 
 **Objetivo:** sustituir propuesta rechazada que reducía el perfil a un mapa. **Completado:** presentación personal con retrato, globo autónomo y aplicación; cuatro proyectos completos, trabajo institucional, curso, cinco mapas en visor único, perfil, trayectoria con investigación, tecnologías y contacto funcional. Referencia Monopo inspeccionada visualmente en Refero, aplicada a jerarquía, espacio y protagonismo de obra real. CSS independiente y reutilización JS existente; eliminado script del antiguo caso.

@@ -1,5 +1,7 @@
 # Instrucciones del proyecto
 
+- Dirección vigente 2026-09-11: el propietario prefiere la versión anterior a las reediciones, tras quitar cursivas y rótulos. Index restaurado desde 39d7d42 (tipografía e4a3876 + miniaturas). Portada «Geografía para leer el mundo», globo principal y orden perfil/proyectos/cursos/ConMapas/trayectoria/tecnologías/contacto. Esta decisión sustituye monografía y propuestas como dirección activa. Mantener fixes compartidos de controles, botones, selector y enlaces; no reactivar edition:monograph. Propuesta queda archivada como comparación, no promoverla sin petición.
+
 - Propuesta completa (2026-09-11) sustituye la propuesta de caso único rechazada: identidad personal, desarrollo, instituciones, formación, ConMapas, perfil, trayectoria e investigación, tecnologías y contacto. Reutiliza site.js/motion.js y datos curados; CSS independiente. Index permanece como versión anterior hasta evaluación. No reducir el portafolio a mapas.
 - En CSS de propuesta usar separación vertical fija y porcentajes solo en column-gap. Tests de contención de proyectos deben excluir descendientes de details cerrados; esperar fin de transiciones al auditar contraste y evento de media query al comprobar reduced-motion.
 

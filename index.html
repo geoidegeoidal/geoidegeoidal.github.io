@@ -1,20 +1,15 @@
 ---
 layout: default
 title: Geógrafo en Chile · SIG, cartografía y desarrollo web
-edition: monograph
 description: Jorge Ulloa Roa. Geógrafo, analista espacial y formador en desarrollo web territorial, automatización y cartografía.
 ---
 <section class="hero atlas-hero" aria-labelledby="hero-title">
   <div class="hero-intro">
-    <p class="hero-profession">Jorge Ulloa Roa / Geógrafo y analista espacial</p>
-    <h1 id="hero-title">El territorio,<br>de cerca.</h1>
-    <div class="hero-statement"><p class="hero-copy">Hago mapas, desarrollo herramientas y enseño a trabajar con datos espaciales. Esta es mi manera de mirar el mundo.</p><a class="text-link" href="#conmapas">Recorrer mi trabajo <span aria-hidden="true">↓</span></a></div>
+    <p class="hero-profession">Jorge Ulloa Roa · Geógrafo y analista espacial</p>
+    <h1 id="hero-title">Geografía<br>para leer<br>el mundo.</h1>
+    <p class="hero-copy">Soy Jorge Ulloa. Conecto datos, código, cartografía y formación para entender el territorio y construir nuevas maneras de explorarlo.</p>
+    <div class="actions"><a class="button button-primary" href="#proyectos">Explorar proyectos <span aria-hidden="true">↗</span></a><a class="hero-secondary" href="{{ '/maps.html' | relative_url }}">Ver cartografías <span aria-hidden="true">→</span></a></div>
   </div>
-  <div class="hero-exhibits">
-  <figure class="cover-map">
-    <div class="cover-map-window"><img src="{{ '/assets/images/conmapas.webp' | relative_url }}" alt="Detalle de las curvas de nivel del cerro San Cristóbal, por Jorge Ulloa" width="1600" height="1600" fetchpriority="high"></div>
-    <figcaption><a href="{{ '/maps.html' | relative_url }}#san-cristobal">San Cristóbal. Leer el relieve ↗</a><label class="cover-zoom" hidden>Acercar <input type="range" min="1" max="2.4" value="1" step="0.01" aria-label="Acercar el detalle del relieve"></label></figcaption>
-  </figure>
   <figure class="atlas-scene" data-atlas data-source="{{ '/assets/data/atlas.json' | relative_url }}">
     <div class="atlas-stage"><img class="atlas-fallback" src="{{ '/assets/images/atlas.svg' | relative_url }}" width="700" height="700" alt="Globo terrestre centrado en América del Sur"><canvas class="atlas-canvas" width="700" height="700" aria-label="Globo ortográfico explorable, con Chile destacado" role="img" hidden></canvas><div class="atlas-orbit" aria-hidden="true"></div></div>
     <figcaption class="atlas-caption">
@@ -24,23 +19,21 @@ description: Jorge Ulloa Roa. Geógrafo, analista espacial y formador en desarro
     </figcaption>
     <span class="atlas-credit">Cartografía: Natural Earth</span>
   </figure>
-  </div>
-  <div class="hero-bottom"><span>Cartografía de portada: Jorge Ulloa · ConMapas · ALOS PALSAR</span><a href="#conmapas" class="scroll-cue">Seguir explorando <span aria-hidden="true">↓</span></a></div>
+  <div class="hero-bottom"><span>ANÁLISIS / DESARROLLO / DOCENCIA / CARTOGRAFÍA</span><a href="#bio" class="scroll-cue">Conocer mi trabajo <span aria-hidden="true">↓</span></a><span>JORGE ULLOA / CONMAPAS</span></div>
 </section>
-<nav class="expertise-rail" aria-label="Secciones de esta página"><div><a href="#conmapas">ConMapas</a><a href="#proyectos">Herramientas</a><a href="#bio">Sobre mí</a><a href="#cursos">Cursos</a><a href="#experiencia">Trayectoria</a><a href="#tech">Herramientas</a><a href="#contacto">Contacto</a></div></nav>
-<section class="section map-story" id="conmapas" aria-labelledby="map-story-title">
-  <div class="map-story-heading"><h2 id="map-story-title">ConMapas</h2><p class="map-deck">La geografía también<br>está en lo cotidiano.</p><p class="map-story-copy">Fundé ConMapas para acercar la geografía a nuevas audiencias. Del relieve y la memoria de Santiago a las ferias del barrio: mapas que abren preguntas sobre los lugares que habitamos.</p><p class="map-story-copy">Más de 5 años compartiendo cartografía. Una comunidad de cerca de 19,5 mil personas en Instagram, a septiembre de 2026.</p><div class="map-switch" hidden role="group" aria-label="Elegir cartografía"><button type="button" aria-pressed="true" data-map="relieve">Relieve</button><button type="button" aria-pressed="false" data-map="memoria">Memoria</button><button type="button" aria-pressed="false" data-map="ferias">Ferias</button><button type="button" aria-pressed="false" data-map="micheladas">Micheladas</button><button type="button" aria-pressed="false" data-map="ipec">IPEC</button></div><a class="text-link" href="{{ '/maps.html' | relative_url }}">Ver mapas y metodología <span aria-hidden="true">↗</span></a><a class="text-link conmapas-community" href="https://instagram.com/conmapas" target="_blank" rel="noopener noreferrer">Conocer la comunidad ↗</a></div>
-  <a class="hero-map terrain-scene" href="{{ '/maps.html' | relative_url }}#san-cristobal" aria-label="Explorar la cartografía del cerro San Cristóbal"><img src="{{ '/assets/images/conmapas.webp' | relative_url }}" alt="Curvas de nivel del cerro San Cristóbal, cartografía de Jorge Ulloa para ConMapas" width="1600" height="1600" loading="lazy"><div class="map-top"><span class="map-label">CONMAPAS / ESTUDIO DEL RELIEVE</span><span class="map-north" aria-hidden="true">N ↑</span></div><div class="map-caption"><div><span class="eyebrow">Santiago, Chile</span><h3>Cerro San Cristóbal</h3><p>Curvas de nivel · ALOS PALSAR</p></div><span class="round-arrow" aria-hidden="true">↗</span></div></a>
+<nav class="expertise-rail" aria-label="Secciones de esta página"><div><a href="#bio">Perfil</a><a href="#proyectos">Proyectos</a><a href="#cursos">Cursos</a><a href="#conmapas">ConMapas</a><a href="#experiencia">Trayectoria</a><a href="#tech">Herramientas</a><a href="#contacto">Contacto</a></div></nav>
+<section class="section about" id="bio" aria-labelledby="bio-title">
+  <div class="about-portrait"><img src="{{ '/assets/images/imagen_jorge.webp' | relative_url }}" alt="Retrato de Jorge Ulloa Roa" width="480" height="480" loading="lazy"></div>
+  <div><h2 id="bio-title">Soy Jorge Ulloa.</h2><p>Soy geógrafo y licenciado en Geografía por la Universidad Alberto Hurtado. Llevo más de 8 años trabajando entre el análisis espacial, la tecnología y la gestión de información pública.</p><p>Organizo bases de datos, automatizo análisis con Python y PostGIS y traduzco resultados en mapas comprensibles. He aplicado ese trabajo a información ambiental, acceso a locales de votación y datos de educación artística y cultural.</p><p>En ConMapas exploro otra parte de la geografía: lo cotidiano, las desigualdades y las preguntas que un mapa puede abrir. Me interesa que los datos sirvan para entender el territorio y tomar decisiones con sentido público.</p><a class="text-link" href="#proyectos">Ver proyectos seleccionados <span aria-hidden="true">↓</span></a></div>
 </section>
 <section class="section" id="proyectos" aria-labelledby="projects-title">
-  <div class="section-heading"><div><h2 id="projects-title">Del dato a una herramienta.</h2></div><p>Aplicaciones y herramientas que he desarrollado<br>para consultar, procesar y comunicar datos territoriales.</p></div>
+  <div class="section-heading"><div><h2 id="projects-title">Proyectos seleccionados</h2></div><p>Aplicaciones y herramientas que he desarrollado<br>para consultar, procesar y comunicar datos territoriales.</p></div>
   <div class="selected-work">
     {% assign featured_projects = site.data.projects | where: 'featured', true %}
     {% for project in featured_projects %}
-    <article class="selected-project project-{{ project.id }}">
-      <header class="project-identity"><h3>{{ project.name }}</h3><p>{{ project.category }}</p><p class="project-status">{{ project.status }}</p></header>
-      <div class="selected-project-copy"><p class="project-summary">{{ project.summary }}</p><details class="project-context"><summary>Cómo funciona y qué considerar</summary><p>{{ project.detail }}</p><p class="project-note">{{ project.note }}</p></details><p class="project-stack">{{ project.stack }}</p><div class="project-links">{% if project.demo %}<a class="text-link" href="{{ project.demo }}" target="_blank" rel="noopener noreferrer">Abrir {{ project.name }} ↗</a>{% endif %}<a class="text-link" href="{{ '/code.html' | relative_url }}#{{ project.id }}">Detalles del proyecto →</a></div>
-      {% if project.image %}<figure class="project-capture"><a href="{{ project.demo }}" target="_blank" rel="noopener noreferrer" aria-label="Abrir {{ project.name }}"><img src="{{ project.image | relative_url }}" alt="{{ project.alt }}" width="1360" height="810" loading="lazy"></a><figcaption>Captura publicada en el repositorio del proyecto.</figcaption></figure>{% endif %}</div>
+    <article class="selected-project{% if forloop.first %} selected-project-lead{% endif %}">
+      {% if project.image %}<figure class="project-capture"><a href="{{ project.demo }}" target="_blank" rel="noopener noreferrer" aria-label="Abrir {{ project.name }}"><img src="{{ project.image | relative_url }}" alt="{{ project.alt }}" width="1360" height="810" loading="lazy"></a><figcaption>Captura publicada en el repositorio del proyecto.</figcaption></figure>{% endif %}
+      <div class="selected-project-copy"><p class="eyebrow">{{ project.category }}</p><h3>{{ project.name }}</h3><p>{{ project.summary }}</p><details class="project-context"><summary>Qué permite hacer</summary><p>{{ project.detail }}</p><p class="project-note">{{ project.note }}</p></details><p class="project-stack">{{ project.stack }}</p><div class="project-links">{% if project.demo %}<a class="text-link" href="{{ project.demo }}" target="_blank" rel="noopener noreferrer">Abrir aplicación ↗</a>{% endif %}<a class="text-link" href="{{ '/code.html' | relative_url }}#{{ project.id }}">Ver proyecto →</a></div></div>
     </article>
     {% endfor %}
   </div>
@@ -51,13 +44,9 @@ description: Jorge Ulloa Roa. Geógrafo, analista espacial y formador en desarro
     <article><p class="eyebrow">Infraestructura de datos</p><h3>IDE-MMA</h3><p>Lideré la modernización de la infraestructura de datos espaciales del Ministerio del Medio Ambiente hacia un ecosistema abierto e interoperable.</p><a class="text-link" href="https://ide.mma.gob.cl/" target="_blank" rel="noopener noreferrer">Visitar IDE-MMA ↗</a></article>
   </div>
 </section>
-<section class="section about" id="bio" aria-labelledby="bio-title">
-  <div class="about-portrait"><img src="{{ '/assets/images/imagen_jorge.webp' | relative_url }}" alt="Retrato de Jorge Ulloa Roa" width="480" height="480" loading="lazy"></div>
-  <div><h2 id="bio-title">Detrás de los mapas.</h2><p>Soy geógrafo y licenciado en Geografía por la Universidad Alberto Hurtado. Llevo más de 8 años trabajando entre el análisis espacial, la tecnología y la gestión de información pública.</p><p>Organizo bases de datos, automatizo análisis con Python y PostGIS y traduzco resultados en mapas comprensibles. He aplicado ese trabajo a información ambiental, acceso a locales de votación y datos de educación artística y cultural.</p><p>En ConMapas exploro otra parte de la geografía: lo cotidiano, las desigualdades y las preguntas que un mapa puede abrir. Me interesa que los datos sirvan para entender el territorio y tomar decisiones con sentido público.</p><a class="text-link" href="#proyectos">Ver proyectos seleccionados <span aria-hidden="true">↓</span></a></div>
-</section>
 <section class="section teaching" id="cursos" aria-labelledby="teaching-title">
   <div class="teaching-heading">
-    <div><h2 id="teaching-title">También se aprende haciendo.</h2></div>
+    <div><h2 id="teaching-title">Cursos y formación</h2></div>
     <p>Convierto experiencia aplicada en programas intensivos para que profesionales del territorio puedan crear y publicar sus propias herramientas.</p>
   </div>
   <article class="course-feature">
@@ -81,7 +70,10 @@ description: Jorge Ulloa Roa. Geógrafo, analista espacial y formador en desarro
   </div>
   <div class="teaching-footer"><p>También puedo adaptar estos contenidos para equipos, instituciones y comunidades profesionales.</p><a class="text-link" href="#contacto">Conversemos sobre una formación →</a></div>
 </section>
-
+<section class="section map-story" id="conmapas" aria-labelledby="map-story-title">
+  <div class="map-story-heading"><h2 id="map-story-title">ConMapas</h2><p class="map-story-copy">Fundé ConMapas para explorar formas de representar el territorio y acercar la geografía a nuevas audiencias. La comunidad reúne cerca de 19,5 mil seguidores en Instagram (septiembre de 2026) y lleva más de 5 años compartiendo cartografía.</p><p class="map-story-copy">Del relieve y la memoria de Santiago a una pregunta cotidiana: ¿a cuántos minutos caminando queda una feria? En la galería reúno cartografías originales y una selección de ConMapas.</p><div class="map-switch" hidden role="group" aria-label="Elegir cartografía"><button type="button" aria-pressed="true" data-map="relieve">Relieve</button><button type="button" aria-pressed="false" data-map="memoria">Memoria</button><button type="button" aria-pressed="false" data-map="ferias">Ferias</button><button type="button" aria-pressed="false" data-map="micheladas">Micheladas</button><button type="button" aria-pressed="false" data-map="ipec">IPEC</button></div><a class="text-link" href="{{ '/maps.html' | relative_url }}">Ver mapas y metodología <span aria-hidden="true">↗</span></a><a class="text-link conmapas-community" href="https://instagram.com/conmapas" target="_blank" rel="noopener noreferrer">Conocer la comunidad ↗</a></div>
+  <a class="hero-map terrain-scene" href="{{ '/maps.html' | relative_url }}#san-cristobal" aria-label="Explorar la cartografía del cerro San Cristóbal"><img src="{{ '/assets/images/conmapas.webp' | relative_url }}" alt="Curvas de nivel del cerro San Cristóbal, cartografía de Jorge Ulloa para ConMapas" width="1600" height="1600" loading="lazy"><div class="map-top"><span class="map-label">CONMAPAS / ESTUDIO DEL RELIEVE</span><span class="map-north" aria-hidden="true">N ↑</span></div><div class="map-caption"><div><span class="eyebrow">Santiago, Chile</span><h3>Cerro San Cristóbal</h3><p>Curvas de nivel · ALOS PALSAR</p></div><span class="round-arrow" aria-hidden="true">↗</span></div></a>
+</section>
 <section class="section experience" id="experiencia" aria-labelledby="experience-title">
   <div class="experience-heading"><h2 id="experience-title">Trayectoria profesional</h2><p>Los equipos y organizaciones donde he aplicado este trabajo, desde el análisis espacial hasta la gestión de información pública.</p><a class="text-link" href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank" rel="noopener noreferrer">Ver perfil en LinkedIn ↗</a></div>
   <ol class="timeline">
@@ -91,8 +83,8 @@ description: Jorge Ulloa Roa. Geógrafo, analista espacial y formador en desarro
     <li><div class="job-meta">JUL 2021 — JUN 2022</div><h3>NATCAP</h3><p class="job-role">Geógrafo · Ordenamiento territorial</p><p>Evaluación de capital natural y análisis espacial para zonificación ambiental y planificación territorial.</p></li>
     <li><div class="job-meta">ENE 2021 — JUN 2022</div><h3>CSW</h3><p class="job-role">Analista SIG · Evaluación ambiental</p><p>Gestión de bases de datos espaciales e informes técnicos para proyectos del Sistema de Evaluación de Impacto Ambiental.</p></li>
     <li><div class="job-meta">FEB 2018 — MAY 2020</div><h3>EYE3</h3><p class="job-role">Analista de Datos Espaciales</p><p>Soluciones geoespaciales para minería (BHP y Codelco), formación del equipo de análisis espacial y automatización de reportes territoriales 24/7.</p></li>
-    <li class="research-note"><div class="job-meta">2013 — 2017 · Formación e investigación</div><h3>Del satélite a la evidencia.</h3><p class="job-role">Geografía · Universidad Alberto Hurtado</p><p>Mi formación en Geografía dio lugar a una investigación con M. A. Peña sobre la recuperación de la vegetación tras el incendio de Torres del Paine.</p><p>El trabajo fue publicado en <cite>Revista de Teledetección</cite> en 2017.</p><a class="text-link" href="https://doi.org/10.4995/raet.2017.7931" target="_blank" rel="noopener noreferrer">Leer la investigación ↗</a></li>
   </ol>
+  <div class="research-note"><p class="eyebrow">Formación e investigación</p><h3>Del satélite a la evidencia.</h3><p>Geógrafo por la Universidad Alberto Hurtado (2013–2017). Coautor con M. A. Peña de una investigación sobre la recuperación de vegetación tras el incendio de Torres del Paine, publicada en <cite>Revista de Teledetección</cite> en 2017.</p><a class="text-link" href="https://doi.org/10.4995/raet.2017.7931" target="_blank" rel="noopener noreferrer">Leer la publicación científica ↗</a></div>
 </section>
 <section class="section" id="tech" aria-labelledby="tech-title">
   <div class="section-heading"><div><h2 id="tech-title">Herramientas de trabajo</h2></div><p>Las tecnologías que uso en esos proyectos,<br>organizadas según su función.</p></div>
