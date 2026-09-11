@@ -1,5 +1,14 @@
 # Handoff
 
+## 2026-09-10 — Propuesta paralela: geografía en el barrio
+
+**Objetivo:** construir una portada y un caso completos para evaluar una dirección más personal, autorizados tras crítica del diseño vigente.
+**Completado:** propuesta.html independiente con identidad violeta/naranja/lima, mapa de ferias protagonista; caso con leyenda, vistas guiadas norte/centro/sur, pregunta, decisiones y límites. Continuidad con otras dos cartografías, perfil, enlaces a código/formación/trayectoria y contacto. Enlace para comparar con sitio actual.
+**Decisiones:** index intacto; noindex y exclusión sitemap. Reutilizar obra real y no simular cálculo GIS. JS solo para ampliar/centrar la lámina, con controles nativos; sin movimiento continuo ni nuevas dependencias.
+**Validación:** tests/propuesta_check.cjs en 320,390,768,1024,1440,1920; teclado, reset, reduced-motion, no-JS y axe a390/1440; capturas de portada/caso/perfil inspeccionadas.
+**Bloqueos:** ninguno. **Próximo paso:** valorar la versión paralela con el propietario antes de llevarla a index. **Base:** ec1e45b; implementación en este commit.
+
+
 ## 2026-09-10 — Retirar ondas de Cursos
 
 **Objetivo:** atender rechazo del efecto de Cursos. **Completado:** retirados SVG, animación, espacio decorativo y observación de esa sección; amarillo plano restaurado. **Decisión:** conservar efecto de portada y transición de mapas. **Validación:** build Jekyll y checker. **Bloqueos:** ninguno. **Base:** 15fe43e; publicación autorizada.

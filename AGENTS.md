@@ -1,5 +1,8 @@
 # Instrucciones del proyecto
 
+- Propuesta paralela `propuesta.html` (2026-09-10): portada y caso completo de ConMapas, estilos/scripts independientes, no sustituye index. Noindex y sitemap:false; sitemap respeta exclusión. Dirección de color violeta/naranja/lima inspirada en la obra; logo aprobado conservado.
+- El visor de la propuesta amplía una imagen existente con vistas norte/centro/sur, no calcula isócronas ni consulta ubicaciones. No presentar como aplicación GIS. Mantener fuente ODEPA, crédito Jorge Ulloa y acceso a lámina íntegra. Validar tests/propuesta_check.cjs.
+
 - Cursos: el propietario rechazó las ondas decorativas animadas. Mantener fondo amarillo plano y espaciado original; no reintroducir círculos/ondas de influencia en esa sección. Movimiento cromático de portada conservado.
 
 - Fondos animados autorizados: color superpuesto al detalle de portada (original intacto) y ondas SVG decorativas en cabecera Cursos. Animación CSS solo cuando sección visible y data-motion=on; pausa global, pestaña oculta y reduced-motion respetados. Texto sobre superficie plana. Cambio de lámina ConMapas 620ms con recorte y escala suave.
