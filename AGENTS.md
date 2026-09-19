@@ -1,5 +1,8 @@
 # Instrucciones del proyecto
 
+- Auditoría Laws of UX 2026-09-19: producción pasa rutas, overflow, errores y axe en 320/390/768/1440. Pendientes principales: objetivos táctiles menores a 44 px en móvil y enlaces repetidos «Ver aplicación» sin nombre específico. Portada tiene canvas de globo y arcade; las pruebas del globo deben seleccionar `.atlas-canvas`.
+- Pruebas locales en Windows: Ruby 3.3 y Jekyll 3.10 funcionan. `jekyll serve --detach` no funciona porque Ruby Windows no implementa `fork`; para automatización construir `_site` y servirlo temporalmente con `python -m http.server`. `monograph_check.cjs` omite la edición monográfica mientras permanezca archivada.
+
 - Arcade de naves reemplaza minigolf por petición (2026-09-11). Tres etapas Andes/Pacífico/Órbita, 18 enemigos cada una, dives y disparos más difíciles, tres vidas e invulnerabilidad temporal. Assets vectoriales originales. Disparo automático, teclas A/D/flechas y pad táctil; pausa explícita al ocultar pestaña/perder foco. tests/arcade_logic.cjs cubre transición, victoria y derrota.
 
 - Footer compacto: padding24px escritorio/20px móvil; coordenada secreta dentro de footer-links, sin franja adicional debajo. Mantener área táctil44px y wrap de enlaces.

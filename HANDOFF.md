@@ -1,5 +1,13 @@
 # Handoff
 
+## 2026-09-19 — Instalación y suite completa
+
+**Objetivo:** instalar las herramientas faltantes y ejecutar todas las pruebas. **Hecho:** instalados Ruby 3.3.12, Bundler 4.0.21, gemas del proyecto, dependencias npm y Chromium de Playwright. Corregido selector ambiguo del canvas; investigación vuelve a cerrar la cronología; selector ConMapas usa dos columnas en tablet; reduced-motion de propuesta se prueba desde un contexto reducido; monografía archivada produce `SKIP` explícito. **Validación:** builds raíz y `--baseurl /portfolio`, checker, SEO, sintaxis JS, lógica arcade, navegador/axe, movimiento, selector, propuesta, investigación y lectura responsiva pasan. **Decidido:** no conservar el lock generado solo para Windows; servir `_site` con Python durante automatización porque Jekyll no puede desacoplarse en Ruby Windows. **Bloqueantes / pendientes:** ninguno; Jekyll advierte que `base64` y `bigdecimal` dejarán de ser gemas por defecto en Ruby 3.4, sin afectar Ruby 3.3. **Próxima sesión:** abordar los hallazgos táctiles y nombres repetidos de la auditoría UX. **Commits relevantes:** implementación en este commit.
+
+## 2026-09-19 — Auditoría Laws of UX
+
+**Objetivo:** auditar el portafolio público con las 30 Laws of UX, respetando la dirección vigente y Ponytail lite. **Hecho:** revisión visual de portada en 1440/390 px tras recorrido real; auditoría de portada, Mapas, Código y Blog en 320/390/1440; prueba existente de seis rutas en 320/390/768/1440. Sin errores JavaScript, respuestas fallidas, overflow ni infracciones axe. **Hallazgos:** objetivos táctiles menores a 44 px en móvil; enlaces repetidos «Ver aplicación» sin destino distinguible; inconsistencia menor Bio/Perfil; densidad alta de Herramientas en móvil. **Decidido:** no modificar interfaz durante la auditoría ni crear una especificación inexistente. **Bloqueantes / pendientes:** Ruby/Bundler no está disponible; `motion_check.cjs` falla porque `locator("canvas")` ahora coincide con globo y arcade. **Próxima sesión:** priorizar correcciones y cambiar el selector de prueba por `.atlas-canvas`. **Commits relevantes:** ninguno.
+
 ## 2026-09-11 — Arcade geográfico de tres etapas
 
 Objetivo: reemplazar golf por arcade inspirado en Galaga. Completado: formaciones, ataques en picado, disparos dirigidos en órbita, tres vidas, puntuación, victoria/derrota y controles móvil/teclado. Footer compacto conservado. Validación: Jekyll/checker, lógica de tres etapas/victoria/daño/derrota/pausa, apertura y foco390/1440; captura móvil revisada. Sin bloqueos. Base9b2c082; implementación en commit de esta entrada.

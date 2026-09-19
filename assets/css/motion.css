@@ -1700,6 +1700,7 @@ h1, h2 { text-wrap: balance; }
 #conmapas .map-switch[hidden] { display:none; }
 #conmapas .map-switch button { min-width:0; padding:5px 5px 9px; text-align:left; font:500 14px/1.3 "DM Sans",sans-serif; border-color:#526368; transition:border-color .2s,background .2s; }
 .map-switch button img { display:block; width:100%; height:72px; object-fit:contain; background:#0b1114; margin-bottom:8px; }
+@media (min-width:721px) and (max-width:1000px) { #conmapas .map-switch { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 .map-load-status { min-height:2.8em; margin:12px 0 0; font-size:13px; color:#c9dad6; }
 .map-story .terrain-scene { outline:1px solid #71817f; outline-offset:9px; }
 .project-context { width:100%; margin-top:18px; border-top:1px solid #121b2033; }

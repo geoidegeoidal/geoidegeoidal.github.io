@@ -168,10 +168,12 @@ const base = (process.env.TEST_SITE_URL || "http://127.0.0.1:4000").replace(
         .getByRole("button", { name: "Movimiento reducido", exact: true })
         .isDisabled(),
     );
-    const pixel = await still.locator("canvas").evaluate((c) => c.toDataURL());
+    const pixel = await still
+      .locator(".atlas-canvas")
+      .evaluate((c) => c.toDataURL());
     await still.waitForTimeout(180);
     assert.equal(
-      await still.locator("canvas").evaluate((c) => c.toDataURL()),
+      await still.locator(".atlas-canvas").evaluate((c) => c.toDataURL()),
       pixel,
       "reduced-motion globe remains static",
     );
@@ -227,7 +229,7 @@ const base = (process.env.TEST_SITE_URL || "http://127.0.0.1:4000").replace(
     const plain = await fallback.newPage();
     await plain.goto(base);
     assert(await plain.locator(".atlas-fallback").isVisible());
-    assert(await plain.locator("canvas").isHidden());
+    assert(await plain.locator(".atlas-canvas").isHidden());
     assert(await plain.locator(".map-switch").isHidden());
     await fallback.close();
     const failed = await browser.newContext();
