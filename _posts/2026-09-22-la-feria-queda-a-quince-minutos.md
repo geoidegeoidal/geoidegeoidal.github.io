@@ -11,7 +11,7 @@ categories: [ConMapas, GIS]
 
 No es una pregunta abstracta. Es la que se resuelve los martes o los viernes, con bolsas, con lluvia, con una hora entre clases y la compra. La distancia en metros no siempre la contesta: una cuadra con pendiente, un cruce largo o una autopista que corta el barrio cambian el viaje entero.
 
-Para este mapa de ConMapas cambié la regla: no medí metros, medí minutos caminando. Alrededor de cada feria libre del área metropolitana de Santiago dibujé tres tramos —5, 10 y 15 minutos— y dejé que el resto del fondo se apagara. Lo que queda es una lectura simple del acceso: quién tiene una feria a un cuarto de hora a pie.
+Para este mapa de ConMapas cambié la regla: no medí metros, medí minutos caminando. Alrededor de cada feria libre del área metropolitana de Santiago dibujé tres tramos -5, 10 y 15 minutos- y dejé que el resto del fondo se apagara. Lo que queda es una lectura simple del acceso: quién tiene una feria a un cuarto de hora a pie.
 
 ![Mapa de Santiago con isócronas peatonales de 5, 10 y 15 minutos alrededor de ferias libres]({{ '/assets/images/conmapas-social/ferias-santiago.webp' | relative_url }})
 
@@ -25,7 +25,7 @@ Es una ciudad de los 15 minutos no esperada: no la proyectó un urbanista, la so
 
 ## Lefebvre en la feria
 
-Lefebvre insistía en algo que hoy suena obvio y casi nadie aplica: el espacio no es un escenario donde pasan las cosas. El espacio se produce. Se produce en la práctica cotidiana —el recorrido de siempre, con las bolsas de siempre—, en las representaciones —el plano municipal que clasifica, regula y autoriza—, y en lo vivido, que es el espacio de quienes arman y desarman la feria antes de que amanezca.
+Lefebvre insistía en algo que hoy suena obvio y casi nadie aplica: el espacio no es un escenario donde pasan las cosas. El espacio se produce. Se produce en la práctica cotidiana -el recorrido de siempre, con las bolsas de siempre-, en las representaciones -el plano municipal que clasifica, regula y autoriza-, y en lo vivido, que es el espacio de quienes arman y desarman la feria antes de que amanezca.
 
 La feria es vida cotidiana en el sentido estricto que le interesaba a su crítica: ritmo y repetición. No está todos los días. Llega un martes o un viernes, ocupa la calle, y se va. Es un pulso urbano que el mapa plano no ve; a aprender una ciudad por sus pulsos, Lefebvre le llamaba ritmanálisis. Quien vive el barrio sabe la feria como sabe el sonido del camión los martes: sin consultar ningún plano.
 
@@ -35,7 +35,7 @@ Y su derecho a la ciudad no era el derecho a un centro bonito. Era una reivindic
 
 La geografía crítica hace una pregunta incómoda con cualquier mapa de acceso: ¿acceso para quién?
 
-Quince minutos caminando no son los mismos quince minutos para todos. No lo son con dos bolsas y un niño de la mano. No lo son con una rodilla operada. No lo son al anochecer, en una calle mal iluminada, para quien camina con miedo —y en esta ciudad, como en casi todas, la compra diaria recae sobre todo en mujeres, que cargan además con el resto del trabajo doméstico. El tiempo caminando es tiempo socialmente repartido, y se reparte mal.
+Quince minutos caminando no son los mismos quince minutos para todos. No lo son con dos bolsas y un niño de la mano. No lo son con una rodilla operada. No lo son al anochecer, en una calle mal iluminada, para quien camina con miedo -y en esta ciudad, como en casi todas, la compra diaria recae sobre todo en mujeres, que cargan además con el resto del trabajo doméstico. El tiempo caminando es tiempo socialmente repartido, y se reparte mal.
 
 Hay una segunda pregunta: ¿acceso a qué? El mapa rodea las ferias que están en el registro. Las que no tienen permiso, las itinerantes, las que negocian su lugar cada semana con el municipio o con el mercado inmobiliario, no aparecen: quedan fuera de la tabla de datos igual que quedan fuera de la formalidad. La justicia espacial, como la llamó Edward Soja siguiendo la veta de David Harvey, no es un adorno moral del urbanismo: es que la injusticia tiene geografía, y la geografía se puede dibujar.
 
@@ -47,15 +47,15 @@ Este mapa nació donde nacen muchos hoy: datos públicos de ODEPA, herramientas 
 
 Conviene nombrar lo que eso es y lo que no es. Michael Goodchild le puso el debate teórico a esta ola con su idea de información geográfica voluntaria: las fronteras entre quien produce y quien usa el mapa se desdibujaron, y eso democratiza una capacidad que antes era de especialistas. Hacer un mapa de la feria ya no exige un catastro: exige una pregunta.
 
-Pero la democratización de la herramienta no es democratización de la visibilidad. La neogeografía produce un diluvio de mapas, no un diluvio de conocimiento. Quien no genera datos —la feriante que no llena planillas, el barrio que no se geocodifica— sigue en la sombra del dato. Mi isócrona habla de caminantes modelados. No sabe nada del precio de la lechuga en febrero, ni del acuerdo por el que la feriante de la esquina sostiene ese trecho de calle desde hace veinte años.
+Pero la democratización de la herramienta no es democratización de la visibilidad. La neogeografía produce un diluvio de mapas, no un diluvio de conocimiento. Quien no genera datos -la feriante que no llena planillas, el barrio que no se geocodifica- sigue en la sombra del dato. Mi isócrona habla de caminantes modelados. No sabe nada del precio de la lechuga en febrero, ni del acuerdo por el que la feriante de la esquina sostiene ese trecho de calle desde hace veinte años.
 
 Soy parte de esa tradición contradictoria: uso las herramientas de la neogeografía para hacer un mapa que la neogeografía, por sí sola, no sabría leer.
 
 ## Lo que el mapa no sabe
 
-Conviene decirlo, aunque reste épica. Los tramos son un modelo: asumen un paso parejo y un camino posible. No miden las bolsas, la lluvia, la pendiente ni las esperas en los cruces. No miden el cuidado —quién lleva los niños, quién cocina, quién compra—, que es la variable que más pesa y la que menos se mapea.
+Conviene decirlo, aunque reste épica. Los tramos son un modelo: asumen un paso parejo y un camino posible. No miden las bolsas, la lluvia, la pendiente ni las esperas en los cruces. No miden el cuidado -quién lleva los niños, quién cocina, quién compra-, que es la variable que más pesa y la que menos se mapea.
 
-Un mapa de acceso no es un censo de acceso. Es espacio concebido —la ciudad que se piensa y se calcula—, y la feria es además espacio vivido: el regateo, la temporada, el puesto que se hereda, la clienta de siempre. Entre ambos hay una distancia que ningún sistema de información geográfica ha cerrado todavía. Todo buen mapa es también la lista honesta de lo que dejó fuera.
+Un mapa de acceso no es un censo de acceso. Es espacio concebido -la ciudad que se piensa y se calcula-, y la feria es además espacio vivido: el regateo, la temporada, el puesto que se hereda, la clienta de siempre. Entre ambos hay una distancia que ningún sistema de información geográfica ha cerrado todavía. Todo buen mapa es también la lista honesta de lo que dejó fuera.
 
 ## Publicación
 
