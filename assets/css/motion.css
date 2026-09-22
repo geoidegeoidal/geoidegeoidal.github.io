@@ -1735,3 +1735,105 @@ h1, h2 { text-wrap: balance; }
 
 .site-footer .footer-links{align-items:center;flex-wrap:wrap;gap:8px 20px}
 .site-footer #secret-trigger{font-size:10px;padding:4px;min-height:44px}
+
+.atlas-hero {
+  background: #171b29;
+  background-image: radial-gradient(ellipse at 90% 32%, #51315c 0, transparent 55%),
+    radial-gradient(ellipse at 52% 100%, #163e40 0, transparent 55%);
+}
+.atlas-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, #06766f 0 42%, #783d9b 42% 72%, #e88d42 72% 87%, #d6de59 87%);
+  pointer-events: none;
+}
+.atlas-hero .atlas-stage::before,
+.atlas-hero .atlas-stage::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.atlas-hero .atlas-stage::before {
+  inset: 7%;
+  background: conic-gradient(from 25deg, #e88d42 0 22%, transparent 22% 30%, #a27fb5 30% 61%, transparent 61% 72%, #60b3a2 72% 94%, transparent 94%);
+  mask-image: radial-gradient(circle, transparent 69%, #000 69.3% 70.2%, transparent 70.5%);
+  animation: ink-orbit 100s linear infinite;
+  animation-play-state: paused;
+}
+.atlas-hero .atlas-stage::after {
+  inset: 10% 7% 6% 9%;
+  border: 1px solid #e88d4255;
+}
+html[data-motion="on"] .atlas-hero .atlas-scene.is-in-view .atlas-stage::before {
+  animation-play-state: running;
+}
+@keyframes ink-orbit {
+  to { transform: rotate(360deg); }
+}
+.reading-progress {
+  background: linear-gradient(90deg, #06766f, #783d9b 55%, #e88d42);
+}
+.expertise-rail {
+  background: #f0d5bb;
+}
+#bio {
+  background: #f0d5bb;
+}
+#proyectos {
+  background: #e4ddec;
+}
+#tech {
+  background: #d1e2d6;
+}
+#experiencia {
+  background: #f3f0e7;
+}
+#conmapas {
+  background: #232436;
+}
+.about-portrait {
+  background: #d6de59;
+  box-shadow: 10px 10px 0 #783d9b;
+}
+.selected-project,
+.catalog-project {
+  border-top-color: #783d9b;
+  border-top-width: 2px;
+}
+.technology-area:nth-child(even) header {
+  border-bottom-color: #783d9b;
+}
+.page-heading {
+  border-image: linear-gradient(90deg, #06766f 0 42%, #783d9b 42% 72%, #e88d42 72%) 1;
+}
+.contact {
+  background: #075d58;
+  border-top: 6px solid #e88d42;
+}
+html[data-motion="on"] .reveal {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+html[data-motion="on"] .reveal:focus-within {
+  transition: none;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  html[data-motion="on"] .button,
+  html[data-motion="on"] .about-portrait {
+    transition: translate .3s var(--ease-out), box-shadow .3s var(--ease-out), background .2s, color .2s;
+  }
+  html[data-motion="on"] .button:hover {
+    translate: 0 -3px;
+    box-shadow: 4px 4px 0 #121b2040;
+  }
+  html[data-motion="on"] .about-portrait.is-visible:hover {
+    translate: 0 -4px;
+    box-shadow: 14px 14px 0 #783d9b;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .atlas-hero .atlas-stage::before { animation: none; }
+  html[data-motion="on"] .reveal { transition: none; }
+}

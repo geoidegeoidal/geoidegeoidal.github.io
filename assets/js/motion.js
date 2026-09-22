@@ -48,7 +48,7 @@
   });
 
   const candidates = document.querySelectorAll(
-    ".section-heading, .about>div, .map-story-heading, .terrain-scene, .project-card, .experience-heading, .timeline li, .skill-group, .contact>div, .contact form, .map-card, .code-card, .post-card, .note-panel",
+    ".section-heading, .about>div, .map-story-heading, .terrain-scene, .project-card, .selected-project, .technology-area, .experience-heading, .timeline li, .skill-group, .contact>div, .contact form, .map-card, .code-card, .post-card, .note-panel",
   );
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
@@ -244,9 +244,10 @@
         center,
         radius * 1.15,
       );
-      gradient.addColorStop(0, "#285c61");
-      gradient.addColorStop(0.55, "#14373d");
-      gradient.addColorStop(1, "#121b20");
+      gradient.addColorStop(0, "#326f72");
+      gradient.addColorStop(0.45, "#22444f");
+      gradient.addColorStop(0.78, "#3d2851");
+      gradient.addColorStop(1, "#171b29");
       ctx.beginPath();
       ctx.arc(center, center, radius, 0, Math.PI * 2);
       ctx.fillStyle = gradient;
@@ -416,6 +417,7 @@
       new IntersectionObserver(
         (entries) => {
           visible = entries[0].isIntersecting;
+          scene.classList.toggle("is-in-view", visible);
           schedule();
         },
         { threshold: 0 },

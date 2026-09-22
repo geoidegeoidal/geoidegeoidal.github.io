@@ -1,8 +1,18 @@
 # Handoff
 
+## 2026-09-22 - Dirección artística de color y movimiento
+
+**Objetivo:** dar al sitio un carácter más artístico mediante color y animaciones.
+**Hecho:** globo turquesa/violeta, aro de tintas CSS con giro de 100 s, portada cromática, franja de tintas, fondos arena/lila/salvia, retrato con sombra violeta y contacto verde profundo. Entradas de proyectos/herramientas y microinteracciones de botones integradas con pausa global; foco de teclado inmediato. Nuevo test art_direction_check y reporte de las 30 leyes en tests/UX_ART_REVIEW.md. README y AGENTS actualizados.
+**Decidido:** reutilizar CSS, Canvas y observador existentes; conservar texto, orden, DM Sans y mapas originales. Cursos mantiene fondo plano sin ondas. Aro decorativo estático sin JS/reduced-motion y pausado fuera de vista o pestaña oculta.
+**Validación:** Jekyll/check_site (8 páginas), SEO, sintaxis JS, browser_check (0 errores/respuestas fallidas/axe), motion_check, responsive_reading_check, map_selector_check y art_direction_check pasan. Capturas revisadas a 390/1440; prueba de reflow 200%. Primer intento de suites simultáneas tuvo fallos transitorios de carga local; las suites completas en serie pasaron. Se corrigió la espera de transición al enfocar por teclado.
+**Bloqueantes / pendientes:** publicación autorizada; pendiente verificar despliegue. No se midieron Core Web Vitals ni se probó Safari/dispositivo táctil físico.
+**Próxima sesión:** conservar esta dirección artística aprobada.
+**Commits relevantes:** implementación en el commit de esta entrada.
+
 ## 2026-09-22 — Dominio propio julloa.space
 
-**Objetivo:** hostear el portafolio en el dominio comprado en Porkbun sobre GitHub Pages. **Hecho:** `CNAME` con `julloa.space`; `_config.yml` `url` → `https://julloa.space` (canonical/OG/sitemap/JSON-LD/RSS migrados); README del repo y README del perfil de GitHub apuntan al dominio nuevo. Demos de otros repos (`geoidegeoidal.github.io/luz-rm/` etc.) sin cambios: son project pages y conservan su URL. **Validación:** build Jekyll, `check_site.py`, `seo_check.cjs`; dominio configurado en Pages vía API. **Bloqueantes / pendientes:** registros DNS en Porkbun a cargo del propietario (ALIAS apex → geoidegeoidal.github.io, CNAME www → geoidegeoidal.github.io); luego «Enforce HTTPS» cuando GitHub valide el dominio; Search Console con el dominio nuevo (pendiente previo). **Commits relevantes:** el de esta entrada.
+**Objetivo:** hostear el portafolio en el dominio comprado en Porkbun sobre GitHub Pages. **Hecho:** `CNAME` con `julloa.space`; `_config.yml` `url` → `https://julloa.space` (canonical/OG/sitemap/JSON-LD/RSS migrados); README del repo y README del perfil de GitHub apuntan al dominio nuevo. Demos de otros repos (`geoidegeoidal.github.io/luz-rm/` etc.) sin cambios: son project pages y conservan su URL. DNS configurado por el propietario en Porkbun (ALIAS apex + CNAME www → geoidegeoidal.github.io) y verificado: apex resuelve a los 4 A de Pages, www en CNAME. `http://julloa.space` sirve el portafolio (server GitHub.com). **Validación:** build Jekyll, `check_site.py`, `seo_check.cjs`; dominio configurado en Pages vía API. **Bloqueantes / pendientes:** certificado HTTPS de Let's Encrypt en provisión («The certificate does not exist yet» al forzar HTTPS; automático, sin acción del propietario) — al estar disponible, activar «Enforce HTTPS» vía API o en Settings → Pages. Search Console con el dominio nuevo (pendiente previo). **Commits relevantes:** 3f933c7.
 
 ## 2026-09-22 — Métricas del Bootcamp actualizadas
 

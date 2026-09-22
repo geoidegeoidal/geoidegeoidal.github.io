@@ -63,6 +63,7 @@ npm run test:motion
 | --- | --- |
 | `browser_check.cjs` (`npm test`) | Errores JavaScript, respuestas fallidas y axe A/AA en seis rutas × cuatro anchos |
 | `motion_check.cjs` (`npm run test:motion`) | Globo, pausa, persistencia, arrastre, geolocalización, movimiento reducido y fallbacks sin JS/datos |
+| `art_direction_check.cjs` | Aro cromático, pausa fuera de pantalla y en segundo plano, foco inmediato, movimiento reducido, sin JS, zoom 200% y cuatro anchos |
 | `arcade_logic.cjs` | Transición, victoria, daño, derrota y pausa del arcade de tres etapas |
 | `map_selector_check.cjs` | Selector de cinco mapas, selección ante fallo y reintento |
 | `research_layout_check.cjs` | Contención de la nota de investigación en seis anchos |
@@ -109,6 +110,10 @@ Paleta ConMapas (interpretación de la obra, no una marca oficial extraída):
 | Naranja — destaque puntual | `#E88D42` |
 
 Las cartografías originales conservan sus colores: el sitio no las recolorea.
+
+La dirección artística combina un globo turquesa/violeta, un aro cromático de giro lento, fondos arena/lila/salvia y detalles de impresión desplazada en el retrato. Las entradas de proyectos y herramientas reutilizan el control global de movimiento; el foco de teclado muestra el contenido inmediatamente. Cursos conserva su superficie amarilla plana. La revisión de las 30 Laws of UX está en [tests/UX_ART_REVIEW.md](tests/UX_ART_REVIEW.md).
+
+Desde la raíz, con el sitio servido en el puerto 4176: `node tests/art_direction_check.cjs`. Admite `TEST_SITE_URL`, `BROWSER_CHANNEL` (Edge por defecto) y `VISUAL_OUTPUT` para guardar capturas en un directorio existente.
 
 ## Movimiento cartográfico
 
