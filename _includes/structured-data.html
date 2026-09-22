@@ -34,7 +34,7 @@
       "isPartOf": {"@id": {{ '/#website' | absolute_url | jsonify }}},
       "author": {"@id": {{ '/#jorge-ulloa' | absolute_url | jsonify }}}
       {% if page.url == '/' %},"mainEntity": {"@id": {{ '/#jorge-ulloa' | absolute_url | jsonify }}}{% endif %}
-      {% if page.layout == 'post' %},"headline": {{ page.title | jsonify }},"datePublished": {{ page.date | date_to_xmlschema | jsonify }}{% endif %}
+      {% if page.layout == 'post' %},"headline": {{ page.title | jsonify }},"datePublished": {{ page.date | date_to_xmlschema | jsonify }},"dateModified": {{ page.date | date_to_xmlschema | jsonify }},"image": {{ page.image | default: '/assets/images/conmapas.png' | absolute_url | jsonify }},"publisher": {"@id": {{ '/#jorge-ulloa' | absolute_url | jsonify }}}{% endif %}
     }
   ]
 }

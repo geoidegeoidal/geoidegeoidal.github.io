@@ -20,5 +20,6 @@ exclude:
   - tests
   - vendor
   - work
+  - readme-assets
   - assets/images/imagen_jorge.png
   - assets/images/conmapas-social/infidelidad-santiago.jpg
