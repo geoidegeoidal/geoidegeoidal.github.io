@@ -6,9 +6,10 @@
 **Hecho:** globo turquesa/violeta, aro de tintas CSS con giro de 100 s, portada cromática, franja de tintas, fondos arena/lila/salvia, retrato con sombra violeta y contacto verde profundo. Entradas de proyectos/herramientas y microinteracciones de botones integradas con pausa global; foco de teclado inmediato. Nuevo test art_direction_check y reporte de las 30 leyes en tests/UX_ART_REVIEW.md. README y AGENTS actualizados.
 **Decidido:** reutilizar CSS, Canvas y observador existentes; conservar texto, orden, DM Sans y mapas originales. Cursos mantiene fondo plano sin ondas. Aro decorativo estático sin JS/reduced-motion y pausado fuera de vista o pestaña oculta.
 **Validación:** Jekyll/check_site (8 páginas), SEO, sintaxis JS, browser_check (0 errores/respuestas fallidas/axe), motion_check, responsive_reading_check, map_selector_check y art_direction_check pasan. Capturas revisadas a 390/1440; prueba de reflow 200%. Primer intento de suites simultáneas tuvo fallos transitorios de carga local; las suites completas en serie pasaron. Se corrigió la espera de transición al enfocar por teclado.
-**Bloqueantes / pendientes:** publicación autorizada; pendiente verificar despliegue. No se midieron Core Web Vitals ni se probó Safari/dispositivo táctil físico.
+**Publicación:** push de d7f9bfa confirmado; GitHub Pages run 35794290581 completado con éxito. art_direction_check pasó contra http://julloa.space (movimiento, pausa, foco, reduced-motion, sin JS, zoom y cuatro anchos).
+**Bloqueantes / pendientes:** HTTPS aún sin certificado válido para julloa.space (curl: SEC_E_WRONG_PRINCIPAL; Pages informa https_certificate=null, https_enforced=false). No se midieron Core Web Vitals ni se probó Safari/dispositivo táctil físico.
 **Próxima sesión:** conservar esta dirección artística aprobada.
-**Commits relevantes:** implementación en el commit de esta entrada.
+**Commits relevantes:** d7f9bfa (implementación y pruebas); cierre documental posterior.
 
 ## 2026-09-22 — Dominio propio julloa.space
 

@@ -59,4 +59,6 @@ Sin nuevos hallazgos abiertos en este alcance; las pruebas no constituyen una au
 - `node tests/map_selector_check.cjs`: passed.
 - Manual: inspección visual de capturas reales a 390/1440 de portada, retrato y contenido. Teclado/Escape/retorno de foco y estados de formulario ejercitados por la suite, no con lector de pantalla humano.
 
-Residual gaps: Safari/Firefox, lector de pantalla, tacto físico, zoom nativo del navegador (la prueba usa CSS zoom), Core Web Vitals y evaluación con usuarios no ejecutados. Vista previa local; no desplegado.
+Producción: commit d7f9bfa desplegado por Pages (run 35794290581, success). art_direction_check.cjs también pasó con TEST_SITE_URL=http://julloa.space.
+
+Residual gaps: Safari/Firefox, lector de pantalla, tacto físico, zoom nativo del navegador (la prueba usa CSS zoom), Core Web Vitals y evaluación con usuarios no ejecutados. HTTPS pendiente de certificado válido, comprobación de producción hecha por HTTP.
