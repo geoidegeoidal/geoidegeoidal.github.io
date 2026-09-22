@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const root = process.argv[2] || '../work/jekyll-site';
+const root = process.argv[2] || path.join(__dirname, '..', '_site');
 for (const file of ['index.html', 'code.html', 'maps.html', 'blog.html', 'python/gis/2025/01/02/mi-primer-analisis.html']) {
   const html = fs.readFileSync(path.join(root, file), 'utf8');
   const match = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);

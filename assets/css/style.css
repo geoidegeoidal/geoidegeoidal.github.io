@@ -1203,3 +1203,21 @@ body:has(dialog[open]) {
     animation: none !important;
   }
 }
+@media (max-width: 720px) {
+  .brand,
+  .scroll-cue,
+  .technology-area li > a,
+  .technology-source a,
+  .contact-email,
+  .social-links a,
+  .footer-links a,
+  .project-index a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    min-width: 44px;
+  }
+  main summary {
+    min-height: 44px;
+  }
+}
