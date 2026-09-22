@@ -4,16 +4,16 @@
 
 [![pages-build-deployment](https://github.com/geoidegeoidal/geoidegeoidal.github.io/actions/workflows/dynamic/pages/pages-build-deployment/badge.svg)](https://github.com/geoidegeoidal/geoidegeoidal.github.io/actions/workflows/dynamic/pages/pages-build-deployment)
 
-**Sitio en vivo → [geoidegeoidal.github.io](https://geoidegeoidal.github.io/)**
+**Sitio en vivo → [julloa.space](https://julloa.space/)**
 
 ![Portada del sitio: titular «Geografía para leer el mundo» junto al globo interactivo con Chile destacado](readme-assets/portada.webp)
 
 | Ruta | Contenido |
 | --- | --- |
-| [`/`](https://geoidegeoidal.github.io/) | Perfil, proyectos, cursos, ConMapas, trayectoria, herramientas y contacto |
-| [`/maps.html`](https://geoidegeoidal.github.io/maps.html) | Archivo ConMapas: cartografía editorial de autor |
-| [`/code.html`](https://geoidegeoidal.github.io/code.html) | Catálogo de código: aplicaciones, plugins y experimentos |
-| [`/blog.html`](https://geoidegeoidal.github.io/blog.html) | Bitácora con artículos técnicos |
+| [`/`](https://julloa.space/) | Perfil, proyectos, cursos, ConMapas, trayectoria, herramientas y contacto |
+| [`/maps.html`](https://julloa.space/maps.html) | Archivo ConMapas: cartografía editorial de autor |
+| [`/code.html`](https://julloa.space/code.html) | Catálogo de código: aplicaciones, plugins y experimentos |
+| [`/blog.html`](https://julloa.space/blog.html) | Bitácora con artículos técnicos |
 
 ![Archivo ConMapas: titular «Otra forma de leer el territorio» y piezas de la serie](readme-assets/mapas.webp)
 
@@ -127,7 +127,7 @@ La portada incluye un globo ortográfico Canvas con costas reales de Natural Ear
 
 ## Contacto
 
-- Sitio: [geoidegeoidal.github.io/#contacto](https://geoidegeoidal.github.io/#contacto)
+- Sitio: [julloa.space/#contacto](https://julloa.space/#contacto)
 - LinkedIn: [jorge-ulloa-roa](https://www.linkedin.com/in/jorge-ulloa-roa/)
 - GitHub: [geoidegeoidal](https://github.com/geoidegeoidal)
 

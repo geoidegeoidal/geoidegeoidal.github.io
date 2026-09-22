@@ -1,5 +1,13 @@
 # Handoff
 
+## 2026-09-22 — Dominio propio julloa.space
+
+**Objetivo:** hostear el portafolio en el dominio comprado en Porkbun sobre GitHub Pages. **Hecho:** `CNAME` con `julloa.space`; `_config.yml` `url` → `https://julloa.space` (canonical/OG/sitemap/JSON-LD/RSS migrados); README del repo y README del perfil de GitHub apuntan al dominio nuevo. Demos de otros repos (`geoidegeoidal.github.io/luz-rm/` etc.) sin cambios: son project pages y conservan su URL. **Validación:** build Jekyll, `check_site.py`, `seo_check.cjs`; dominio configurado en Pages vía API. **Bloqueantes / pendientes:** registros DNS en Porkbun a cargo del propietario (ALIAS apex → geoidegeoidal.github.io, CNAME www → geoidegeoidal.github.io); luego «Enforce HTTPS» cuando GitHub valide el dominio; Search Console con el dominio nuevo (pendiente previo). **Commits relevantes:** el de esta entrada.
+
+## 2026-09-22 — Métricas del Bootcamp actualizadas
+
+**Objetivo:** corregir las métricas de Cursos, que decían 3 cohortes y +80 personas. **Hecho:** según el propietario (fuente de verdad): +100 personas que han cursado y 5 cohortes con la quinta en curso, en `index.html` y `propuesta.html`; se conservan 10+ países y 4,9/5 (evidencia publicada del 2026-09-08, sin novedad reportada); fechas y precios siguen fuera del portafolio. AGENTS actualizado. **Validación:** build Jekyll, `check_site.py`, `seo_check.cjs` y `responsive_reading_check.cjs`. **Publicación:** pendiente de autorización. **Commits relevantes:** el de esta entrada.
+
 ## 2026-09-22 — Puntuación del post: guión simple
 
 **Objetivo:** reemplazar los guiones largos (—) del artículo por guión simple, por la asociación percibida con texto generado por IA. **Hecho:** 6 líneas del post de la feria ajustadas, sin cambios de contenido. **Validación:** build Jekyll, `check_site.py` y `seo_check.cjs` en verde; grep confirma cero guiones largos en `_posts/`. **Publicación:** commit de esta entrada. **Commits relevantes:** el de esta entrada.
