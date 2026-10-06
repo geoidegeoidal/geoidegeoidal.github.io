@@ -1,0 +1,4 @@
+# Motion and audio thesis
+The focal moment is arriving into an inhabited coastal village: music begins only on the clearly named entry gesture, a visitor walks a real path, and nearby guides greet Jorge. Continuity: outside sea softens indoors, a short cue marks entry/conversation, existing camera remains stable. Feedback: visible sound state, mute/volume and silent entry. Budget: reuse one RAF clock, five static guides plus two walkers, cached terrain/art, bounded procedural particles; one reusable AudioContext with bounded scheduler and disconnection. Pause/hidden/dialog stop world motion; reduced motion keeps environment and visitors stationary.
+# Geometry
+Use existing sprite walk frames and BFS. Dynamic pedestrians are optional blockers for shared move/path functions. Walkers stop near Jorge; click routes account for current blockers and replan if a walker blocks them. No unbounded AI system.
