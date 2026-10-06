@@ -6,7 +6,7 @@
   const player = { x: 430, y: 790, direction: 0, step: 1 };
   const dialog = $('#conversation'), content = $('#dialog-content'), status = $('#world-status');
   let ready = false, started = false, paused = false, scene = 'outside', place = 'puerto', project = '';
-  let last = 0, frame = 0, route = [], afterWalk = null, moving = false, walkingTime = 0, nearby = null, returnFocus = null;
+  let last = 0, frame = 0, route = [], afterWalk = null, moving = false, walkingTime = 0, ambientTime = 0, nearby = null, returnFocus = null;
   let view = { x: 0, y: 0, scale: 1, w: 800, h: 600 }, outsidePosition = { x: 430, y: 790 };
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const messages = {
@@ -159,7 +159,7 @@
   function groundTarget() {if(nearby&&started&&!dialog.open&&!paused){ctx.strokeStyle='#fff2cf';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(nearby.x,nearby.y+3,22,8,0,0,Math.PI*2);ctx.stroke();}}
   function drawOutside() {
     ctx.drawImage(terrain,0,0);
-    if(started&&!reduced.matches){const phase=paused?walkingTime:last/1000;ctx.fillStyle='#d1eee4';for(let y=60;y<W.height;y+=83){const x=42+(y%71)+Math.floor(Math.sin(phase*.6+y)*12);ctx.fillRect(x,y,20,2);ctx.fillRect(x+6,y+3,10,2);}}
+    if(started&&!reduced.matches){const phase=ambientTime;ctx.fillStyle='#d1eee4';for(let y=60;y<W.height;y+=83){const x=42+(y%71)+Math.floor(Math.sin(phase*.6+y)*12);ctx.fillRect(x,y,20,2);ctx.fillRect(x+6,y+3,10,2);}}
     groundTarget();
     const entities=[...W.trees.map(t=>({...t,type:'tree'})),...W.buildings.map(b=>({...b,type:'building'})),...W.npcs.map(n=>({...n,type:'npc'})),{...player,type:'player'}].sort((a,b)=>a.y-b.y);
     entities.forEach(e=>{if(e.x+e.w<view.x||e.x-(e.w||80)>view.x+view.w/view.scale||e.y<view.y||e.y-(e.h||90)>view.y+view.h/view.scale)return;
@@ -196,7 +196,7 @@
   }
   function tick(time=0) {
     if(frame){cancelAnimationFrame(frame);frame=0;}if(!ready||!started||paused||document.hidden||dialog.open){draw();return;}
-    const dt=last?Math.min((time-last)/1000,.05):0;last=time;let dx=0,dy=0;
+    const dt=last?Math.min((time-last)/1000,.05):0;last=time;ambientTime+=dt;let dx=0,dy=0;
     keys.forEach(k=>{const d=directions[k];if(d){dx+=d[0];dy+=d[1];}});
     if(!dx&&!dy&&route.length){const next=route[0],distance=Math.hypot(next.x-player.x,next.y-player.y);if(distance<3){route.shift();}else{dx=next.x-player.x;dy=next.y-player.y;}}
     moving=W.move(player,dx,dy,Math.min(dt,route.length?Math.hypot(dx,dy)/155:dt),scene);

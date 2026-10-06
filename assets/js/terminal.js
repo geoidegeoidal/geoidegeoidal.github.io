@@ -29,7 +29,7 @@
     if(file.intro){text(parent,'Jorge Ulloa Roa · Geógrafo, analista espacial y formador.');text(parent,'Este directorio reúne mi trabajo. Empieza en perfil.md, entra a proyectos/ o visita formacion/. Cada archivo conserva las fuentes y límites del proyecto.');}
     else if(file.contact){text(parent,'¿Tienes datos por explorar, un mapa por construir o un equipo por formar?');parent.append($('#terminal-contact').cloneNode(true));parent.lastChild.removeAttribute('id');}
     else clone(parent,file.template);
-    if(file.project){currentProject=file.project;currentPlace=placeOf(file.project);}else if(path.startsWith('/formacion'))currentPlace='escuela';else if(path.startsWith('/cartografia'))currentPlace='archivo';else if(path.startsWith('/ambiente'))currentPlace='observatorio';
+    currentProject=file.project||'';currentPlace=file.project?placeOf(file.project):path.startsWith('/formacion')?'escuela':path.startsWith('/cartografia')?'archivo':path.startsWith('/ambiente')?'observatorio':'puerto';
     return 0;
   }
   function list(parent,path,long){
@@ -93,7 +93,7 @@
     const value=input.value,parts=value.trimStart().split(/\s+/);if(parts.length===1)return commands.filter(c=>c.startsWith(normalize(parts[0])));
     if(['abrir','open'].includes(parts[0]))return projectIds.filter(id=>id.startsWith(normalize(parts.slice(1).join(' ')))).map(id=>parts[0]+' '+id);
     if(parts[0]==='ir')return ['puerto','archivo','observatorio','taller','escuela'].filter(id=>id.startsWith(parts[1])).map(id=>'ir '+id);
-    const prefix=parts.slice(0,-1).join(' ')+' ',word=parts.at(-1),resolved=T.resolvePath(word,cwd),dir=word.endsWith('/')?resolved:resolved.slice(0,resolved.lastIndexOf('/'))||'/';
+    const prefix=parts.slice(0,-1).join(' ')+' ',word=parts.at(-1),resolved=T.resolvePath(word,cwd),dir=!word?cwd:word.endsWith('/')?resolved:resolved.slice(0,resolved.lastIndexOf('/'))||'/';
     const typedBase=word.includes('/')?word.slice(0,word.lastIndexOf('/')+1):'';const leaf=word.endsWith('/')?'':word.split('/').pop();
     return T.children(files,dir).filter(p=>p.split('/').pop().startsWith(leaf)&&(!(parts[0]==='cd')||files[p].directory)).map(p=>prefix+typedBase+p.split('/').pop()+(files[p].directory?'/':''));
   }
