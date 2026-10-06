@@ -127,8 +127,8 @@ El océano oscuro sostiene texto de papel cálido; cobre y salvia distinguen sel
 
 ## Typography
 
-**Display Font:** DM Sans local, con sans-serif de reserva.  
-**Body Font:** DM Sans local, con sans-serif de reserva.  
+**Display Font:** DM Sans local, con sans-serif de reserva.
+**Body Font:** DM Sans local, con sans-serif de reserva.
 **Label/Mono Font:** Consolas, con monospace de reserva, solo para comandos, coordenadas y numeración.
 
 La isla aporta el lenguaje pixel; la lectura no imita una fuente de videojuego. Se conserva la voz tipográfica del portafolio.
