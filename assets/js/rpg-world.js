@@ -71,6 +71,7 @@
   function updateDiscovery() { $('#discovery').textContent = `${visited.size} de 5 lugares visitados`; }
   function enter(id) {
     if (!ready) { announce('El mapa aún no está disponible. Puedes leer todo el contenido en el cuaderno.'); return; }
+    returnFocus = canvas;
     started = true; paused = false; $('#welcome').hidden = true; $('#paused').hidden = true; $('#pause').hidden = false; $('#pause').textContent = 'Pausar'; $('#interact').hidden = false; $('.touch-pad').hidden = false;
     if (scene === 'outside') outsidePosition = { x: player.x, y: player.y };
     scene = id; place = id; project = ''; visited.add(id); player.x = 320; player.y = 378; player.direction = 2; stopInput();
@@ -136,11 +137,25 @@
     // A small quay gives the coast an inhabited edge; it does not change collision geometry.
     g.fillStyle='#796242';g.fillRect(100,870,180,66);for(let x=104;x<280;x+=12){g.fillStyle='#c39c67';g.fillRect(x,874,9,58);}
   }
-  function sprite(img,col,row,cols,rows,x,y,w,h) { if(!img)return;const sw=img.width/cols,sh=img.height/rows;ctx.drawImage(img,col*sw,row*sh,sw,sh,Math.round(x-w/2),Math.round(y-h),w,h); }
+  function sprite(img,col,row,cols,rows,x,y,w,h) {
+    if(!img)return;const sw=img.width/cols,sh=img.height/rows;
+    if(img===assets.props&&col===2&&row===1){const dw=w*289/sw,dh=h*376/sh;ctx.drawImage(img,954,455,289,376,Math.round(x-dw/2),Math.round(y-dh),dw,dh);return;}
+    ctx.drawImage(img,col*sw,row*sh,sw,sh,Math.round(x-w/2),Math.round(y-h),w,h);
+  }
   function label(text,x,y,color='#fff2cf') {ctx.font='14px Pixelify, sans-serif';const width=ctx.measureText(text).width+18;ctx.fillStyle=color;ctx.fillRect(Math.round(x-width/2),y-18,width,25);ctx.fillStyle='#26382f';ctx.textAlign='center';ctx.fillText(text,x,y);}
-  function actor(p,isPlayer=false) { ctx.fillStyle='#40563c40';ctx.beginPath();ctx.ellipse(p.x,p.y-4,isPlayer?17:13,5,0,0,Math.PI*2);ctx.fill();if(isPlayer)sprite(assets.jorge,player.step,player.direction,4,4,p.x,p.y,62,66);else sprite(assets.actors,p.sprite,3,4,4,p.x,p.y,53,61); }
+  // Measured opaque bounds: generated sheets have unequal transparent gutters, not exact tiles.
+  const npcRects=[[76,937,180,264],[391,930,185,272],[710,933,154,268],[1009,940,162,261]];
+  const jorgeRects=[[79,30,201,288],[377,30,199,285],[671,30,201,289],[974,30,202,285],[80,332,193,291],[381,332,192,287],[682,332,187,291],[981,332,189,287],[71,636,201,278],[383,636,193,272],[673,636,199,278],[981,636,195,272],[81,924,190,290],[382,924,189,286],[680,924,190,291],[984,924,187,286]];
+  function actor(p,isPlayer=false) {
+    const img=isPlayer?assets.jorge:assets.actors;if(!img)return;
+    ctx.fillStyle='#40563c40';ctx.beginPath();ctx.ellipse(p.x,p.y-3,isPlayer?17:13,5,0,0,Math.PI*2);ctx.fill();
+    const [sx,sy,sw,sh]=isPlayer?jorgeRects[player.direction*4+player.step]:npcRects[p.sprite],scale=isPlayer?.22:.205;
+    ctx.drawImage(img,sx,sy,sw,sh,Math.round(p.x-sw*scale/2),Math.round(p.y-sh*scale),sw*scale,sh*scale);
+  }
+  function groundTarget() {if(nearby&&started&&!dialog.open&&!paused){ctx.strokeStyle='#fff2cf';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(nearby.x,nearby.y+3,22,8,0,0,Math.PI*2);ctx.stroke();}}
   function drawOutside() {
     ctx.drawImage(terrain,0,0);
+    groundTarget();
     const entities=[...W.trees.map(t=>({...t,type:'tree'})),...W.buildings.map(b=>({...b,type:'building'})),...W.npcs.map(n=>({...n,type:'npc'})),{...player,type:'player'}].sort((a,b)=>a.y-b.y);
     entities.forEach(e=>{if(e.x+e.w<view.x||e.x-(e.w||80)>view.x+view.w/view.scale||e.y<view.y||e.y-(e.h||90)>view.y+view.h/view.scale)return;
       if(e.type==='tree')sprite(assets.props,e.sprite,0,4,2,e.x,e.y,e.w,e.h);
@@ -156,10 +171,12 @@
     for(let y=130;y<438;y+=25){ctx.fillStyle='#cda877';ctx.fillRect(48,y,544,2);for(let x=50+(y%2)*40;x<590;x+=100)ctx.fillRect(x,y,2,25);}
     ctx.fillStyle='#f7dfac';ctx.fillRect(48,102,544,22);ctx.fillStyle='#647f78';ctx.fillRect(70,52,90,45);ctx.fillRect(475,52,90,45);ctx.fillStyle='#b3d9d5';ctx.fillRect(76,58,78,32);ctx.fillRect(481,58,78,32);
     ctx.fillStyle='#b8674c';ctx.fillRect(251,264,138,145);ctx.fillStyle='#e4b476';ctx.fillRect(257,270,126,133);ctx.fillStyle='#b8674c';ctx.fillRect(266,279,108,115);
+    ctx.fillStyle='#4d604f';ctx.fillRect(288,418,64,28);
+    groundTarget();
     sprite(assets.props,2,1,4,2,115,228,115,135);sprite(assets.props,scene==='observatorio'?3:1,1,4,2,320,236,145,125);
     const npc={...W.npcs.find(n=>n.place===scene),x:510,y:260}; actor(npc);label(npc.name,510,195);
-    label(scene==='escuela'?'Programas y formación':scene==='puerto'?'Hitos del recorrido':'Mesa de proyectos',320,170);
-    ctx.fillStyle='#4d604f';ctx.fillRect(288,418,64,28);label('Salida',320,469);
+    label(scene==='escuela'?'Programas y formación':scene==='puerto'?'Hitos del recorrido':'Mesa de proyectos',320,104);
+    label('Salida',320,469);
     actor(player,true);
   }
   function draw() {
@@ -170,7 +187,6 @@
     ctx.scale(view.scale,view.scale);ctx.translate(-Math.round(view.x),-Math.round(view.y));ctx.imageSmoothingEnabled=false;
     if(scene==='outside')drawOutside();else drawInside();
     if(route.length){const end=route[route.length-1];ctx.strokeStyle='#375e4c';ctx.lineWidth=2;ctx.strokeRect(end.x-6,end.y-4,12,8);}
-    if(nearby&&started&&!dialog.open&&!paused){ctx.strokeStyle='#fff2cf';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(nearby.x,nearby.y+3,22,8,0,0,Math.PI*2);ctx.stroke();}
     // Expose observable play state on the canvas for regression checks and accessible tooling.
     canvas.dataset.x=player.x.toFixed(1);canvas.dataset.y=player.y.toFixed(1);canvas.dataset.scene=scene;canvas.dataset.direction=player.direction;canvas.dataset.paused=String(paused);canvas.dataset.route=route.length;
   }
