@@ -18,7 +18,7 @@
   });
   const visitors = [
     {id:'sol',name:'Sol',x:530,y:710,points:[[650,710],[770,710],[770,570],[650,570]],waypoint:0,wait:.4},
-    {id:'bruno',name:'Bruno',x:1060,y:710,points:[[1150,710],[1250,710],[1250,850],[1080,850]],waypoint:0,wait:1.5}
+    {id:'bruno',name:'Bruno',x:1060,y:790,points:[[1100,790],[1260,790],[1260,880],[1080,880]],waypoint:0,wait:1.5}
   ].map(v=>({...v,visitor:true,route:[],direction:0,step:1,clock:0,walking:false}));
   const blockers=[...W.npcs,...visitors];
   let lastEnvironment=0,footBeat=0,repathAt=0;
@@ -211,8 +211,13 @@
     if(img===assets.props&&col===2&&row===1){const dw=w*289/sw,dh=h*376/sh;paint.drawImage(img,954,455,289,376,Math.round(x-dw/2),Math.round(y-dh),dw,dh);return;}
     paint.drawImage(img,col*sw,row*sh,sw,sh,Math.round(x-w/2),Math.round(y-h),w,h);
   }
+  const canvasLabels=[];
   function label(text,x,y,friendly=false) {
-    ctx.save();ctx.translate(x,y);ctx.scale(1/view.scale,1/view.scale);ctx.font='14px Pixelify, sans-serif';const width=ctx.measureText(text).width+16;ctx.fillStyle=friendly?'#fff2cf':'#244a3c';ctx.fillRect(-width/2,-17,width,24);if(friendly)ctx.fillRect(-3,7,6,4);ctx.fillStyle=friendly?'#244a3c':'#fff2cf';ctx.textAlign='center';ctx.fillText(text,0,0);ctx.restore();
+    ctx.save();ctx.translate(x,y);ctx.scale(1/view.scale,1/view.scale);ctx.font='14px Pixelify, sans-serif';
+    const lines=[''];for(const word of text.split(' ')){const i=lines.length-1,next=lines[i]?lines[i]+' '+word:word;if(friendly&&view.h<360&&lines[i]&&ctx.measureText(next).width>68)lines.push(word);else lines[i]=next;}
+    const width=Math.max(...lines.map(line=>ctx.measureText(line).width))+16,height=24+(lines.length-1)*14;
+    ctx.fillStyle=friendly?'#fff2cf':'#244a3c';ctx.fillRect(-width/2,7-height,width,height);if(friendly)ctx.fillRect(-3,7,6,4);ctx.fillStyle=friendly?'#244a3c':'#fff2cf';ctx.textAlign='center';lines.forEach((line,i)=>ctx.fillText(line,0,(i-lines.length+1)*14));ctx.restore();
+    const left=(x-Math.round(view.x))*view.scale-width/2,top=(y-Math.round(view.y))*view.scale+7-height;canvasLabels.push({left:left-4,top:top-4,right:left+width+4,bottom:top+height+(friendly?8:4)});
   }
   // Measured opaque bounds: generated sheets have unequal transparent gutters, not exact tiles.
   const npcRects=[[76,937,180,264],[391,930,185,272],[710,933,154,268],[1009,940,162,261]];
@@ -282,7 +287,7 @@
     });
   }
   function positionLabels() {
-    const game=canvas.getBoundingClientRect(),occupied=[];
+    const game=canvas.getBoundingClientRect(),occupied=[...canvasLabels];
     ['.location','.camera-controls','#overview','#route-banner','.game-bottom','.touch-pad'].forEach(selector=>{
       const el=$(selector);if(el.getClientRects().length){const r=el.getBoundingClientRect();occupied.push({left:r.left-game.left-8,right:r.right-game.left+8,top:r.top-game.top-8,bottom:r.bottom-game.top+8});}
     });
@@ -290,7 +295,7 @@
     landmarkButtons.forEach(({b,control,width,height})=>{
       const x=(b.x-Math.round(view.x))*view.scale,feet=(b.y-Math.round(view.y))*view.scale,roof=feet-b.h*.78*view.scale,left=x-width/2,top=roof-height;
       const visible=x+b.w*.42*view.scale>0&&x-b.w*.42*view.scale<view.w&&feet>0&&roof<view.h;
-      const candidates=[[left,top],[left,Math.max(10,top)],[left,feet+10],[x+b.w*.45*view.scale+8,roof],[x-b.w*.45*view.scale-width-8,roof]];
+      const candidates=[[left,top],[left,top-12],[left,Math.max(10,top)],[left,feet+10],[x+b.w*.45*view.scale+8,roof],[x-b.w*.45*view.scale-width-8,roof]];
       const rect=visible&&candidates.map(([left,top])=>({left,top,right:left+width,bottom:top+height})).find(r=>r.left>=10&&r.right<=view.w-10&&r.top>=10&&r.bottom<=view.h-10&&!occupied.some(o=>r.left<o.right&&r.right>o.left&&r.top<o.bottom&&r.bottom>o.top));
       control.hidden=!ready||!started||paused||dialog.open||scene!=='outside'||!rect;
       if(!control.hidden){control.style.left=Math.round(rect.left)+'px';control.style.top=Math.round(rect.top)+'px';occupied.push(rect);}
@@ -309,6 +314,7 @@
     actor(player,true);
   }
   function draw(dt=0) {
+    canvasLabels.length=0;
     if(!ctx)return;ctx.setTransform(view.dpr||1,0,0,view.dpr||1,0,0);ctx.fillStyle=scene==='outside'?'#92b874':'#304941';ctx.fillRect(0,0,view.w,view.h);
     const vw=view.w/view.scale,vh=view.h/view.scale;
     if(scene==='outside'){Object.assign(view,W.camera(view,player,dt,cameraSnap||reduced.matches));cameraSnap=false;}

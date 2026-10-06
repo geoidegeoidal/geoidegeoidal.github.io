@@ -41,8 +41,9 @@
     const version=++revision;clearInterval(timer);timer=null;status();
     try{
       if(!context||!enabled||!active||document.hidden){if(context?.state==='running')await context.suspend();return;}
-      await context.resume();if(version!==revision)return;
+      await context.resume();
       if(!enabled||!active||document.hidden){await context.suspend();return;}
+      if(version!==revision)return;
       next=context.currentTime+.04;schedule();timer=setInterval(schedule,80);failed=false;status();
     }catch{if(version===revision){enabled=false;failed=true;status();}}
   }
