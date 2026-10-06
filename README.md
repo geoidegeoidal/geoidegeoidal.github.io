@@ -137,3 +137,10 @@ La portada incluye un globo ortográfico Canvas con costas reales de Natural Ear
 - GitHub: [geoidegeoidal](https://github.com/geoidegeoidal)
 
 Cartografía base del globo: Natural Earth. Trabajo editorial de mapas: [ConMapas](https://www.instagram.com/conmapas/).
+
+
+### Explorar por mapa o terminal
+
+[Atlas de expedición](https://julloa.space/explorar.html) y [terminal cartográfica](https://julloa.space/terminal.html) comparten destinos y proyectos. El atlas permite viajes entre cinco lugares y acceso directo; la consola admite ayuda, proyectos, abrir azimut, trayectoria, habilidades, formacion y contacto. La ilustración es un territorio imaginario y conserva el prompt de generación en su metadata. Los proyectos y sus límites siguen siendo los del catálogo real.
+
+Prueba adicional: `node tests/expedition_check.cjs`. Establecer `TEST_SITE_URL=http://127.0.0.1:4000` para unificar los puertos de las suites. Especificación en `openspec/changes/atlas-terminal/`; contexto y diseño en PRODUCT.md y DESIGN.md, excluidos de publicación.

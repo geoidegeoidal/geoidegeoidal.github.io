@@ -1,5 +1,10 @@
 # Handoff
 
+## 2026-10-06 - Atlas de expedición y terminal (implementación)
+
+**Objetivo:** añadir dos vistas artísticas y conectadas al portafolio, con igual prioridad a contratación y formación/comunidad. **Hecho:** rama feat/atlas-terminal; OpenSpec inicializado y especificación validada; mapa original de cinco destinos con avatar, teclado y cuaderno; terminal con comandos, historial, autocompletado, enlaces y recuperación; selección compartida en URL; trayectoria extraída sin cambiar su contenido; entrada en portada. **Decisiones:** Jekyll/JS nativo, ningún servicio/dependencia de producción nuevos; catálogo y límites reutilizados; territorio ficticio claramente identificado. **Verificado:** nueva suite de interacción y axe, noJS, error de imagen, movimiento reducido, foco y zoom; builds raíz/subdirectorio; Impeccable sin hallazgos mecánicos y dos correcciones de revisión independiente resueltas. **Bloqueos:** ninguno. **Siguiente:** terminar regresión y documentación, subir implementación, integrar y verificar GitHub Pages. **Commits:** f226b59 previo (HTTPS), 69f4174 especificación; implementación en el commit de esta entrada. El despliegue se registra en una entrada de cierre cuando esté confirmado.
+
+
 ## 2026-09-22 - HTTPS de julloa.space resuelto
 
 **Objetivo:** diagnosticar y resolver el certificado pendiente.

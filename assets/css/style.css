@@ -1221,3 +1221,16 @@ body:has(dialog[open]) {
     min-height: 44px;
   }
 }
+
+/* Two optional journeys, with the classic portfolio continuing below. */
+.exp-entrypoint { display: flex; flex-wrap: wrap; align-items: center; gap: 48px; background: #0c202a; color: #f3eedc; padding: 32px; margin-block: 32px 64px; }
+.exp-entrypoint-art { display: block; flex: .7 1 240px; min-width: 0; }
+.exp-entrypoint > div { flex: 1 1 280px; min-width: 0; }
+.exp-entrypoint-art img { display: block; width: 100%; height: auto; }
+.exp-entrypoint h2 { color: #f3eedc; font-size: clamp(28px, 3vw, 40px); letter-spacing: -.03em; margin-bottom: 16px; }
+.exp-entrypoint p { color: #b6c9c5; max-width: 52ch; font-size: 16px; }
+.exp-entrypoint-links { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 20px; }
+.exp-entrypoint-links a { display: flex; gap: 20px; align-items: center; justify-content: space-between; min-height: 48px; padding-block: 12px; color: #edbe79; border-bottom: 1px solid #38535b; font-weight: 500; }
+.exp-entrypoint-links a:hover { color: #f3eedc; }
+.exp-entrypoint a:focus-visible { outline: 3px solid #edbe79; outline-offset: 5px; }
+@media(max-width: 650px) { .exp-entrypoint { gap: 24px; padding: 24px; margin-bottom: 40px; } .exp-entrypoint-links { flex-direction: column; gap: 4px; } }
