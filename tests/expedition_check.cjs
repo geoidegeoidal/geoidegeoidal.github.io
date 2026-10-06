@@ -1,90 +1,28 @@
-const assert = require('node:assert/strict');
-const fs = require('node:fs');
-const path = require('node:path');
-const { chromium } = require('playwright');
-const { default: AxeBuilder } = require('@axe-core/playwright');
-const base = (process.env.TEST_SITE_URL || 'http://127.0.0.1:4000').replace(/\/$/, '');
-const capture = process.env.EXPEDITION_CAPTURE;
-(async () => {
-  const browser = await chromium.launch({ headless: true, channel: process.env.BROWSER_CHANNEL || undefined });
-  try {
-    const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
-    const page = await context.newPage();
-    const errors = [];
-    page.on('pageerror', e => errors.push(e.message));
-    page.on('response', r => { if (r.url().startsWith(base) && r.status() >= 400) errors.push(`${r.status()} ${r.url()}`); });
-    await page.goto(base + '/terminal.html?lugar=taller&proyecto=azimut');
-    await page.locator('#console-form:not([hidden])').waitFor();
-    assert.match(await page.locator('#place-detail').innerText(), /Azimut/);
-    const command = async text => {
-      await page.locator('#console-input').fill(text);
-      await page.locator('#console-input').press('Enter');
-    };
-    await command('PROYECTOS ambiente');
-    assert.match(await page.locator('.exp-entry').last().innerText(), /HuellaRETC/);
-    await command('abrir autoatlas-pro');
-    assert.match(await page.locator('.exp-entry').last().innerText(), /experimental/);
-    await command('ir taller');
-    await page.locator('#place-detail [data-project="azimut"]').focus();
-    await page.keyboard.press('Enter');
-    assert.equal(await page.locator('.exp-back').evaluate(e => e === document.activeElement), true, 'terminal notebook keeps keyboard focus');
-    await command('<img src=x onerror=alert(1)>');
-    assert.equal(await page.locator('#console-output img').count(), 0);
-    assert.match(await page.locator('.exp-entry').last().innerText(), /no está disponible/);
-    await command('abrir no-existe');
-    assert.match(await page.locator('.exp-entry').last().innerText(), /No encuentro/);
-    await command('trayectoria');
-    assert.match(await page.locator('.exp-entry').last().innerText(), /SERVEL/);
-    await command('habilidades');
-    assert.match(await page.locator('.exp-entry').last().innerText(), /PostGIS/);
-    await command('formación');
-    assert.match(await page.locator('.exp-entry').last().innerText(), /Bootcamp/);
-    await command('contacto');
-    assert((await page.locator('.exp-entry').last().locator('a').getAttribute('href')).endsWith('/#contacto'));
-    await page.locator('#console-input').press('ArrowUp');
-    assert.equal(await page.locator('#console-input').inputValue(), 'contacto');
-    await page.locator('#console-input').press('Escape');
-    await page.locator('#console-input').fill('abrir azi');
-    await page.locator('#console-input').press('Tab');
-    assert.equal(await page.locator('#console-input').inputValue(), 'abrir azimut');
-    await command('limpiar');
-    assert.equal(await page.locator('.exp-entry').count(), 0);
-    assert.match(await page.locator('#console-output').innerText(), /Consola despejada/);
-    for (const width of [320, 390, 768, 1440]) {
-      await page.setViewportSize({ width, height: width < 500 ? 844 : 1000 });
-      for (const route of ['terminal']) {
-        await page.goto(`${base}/${route}.html`);
-        await page.locator('#place-detail h2').waitFor();
-        await page.emulateMedia({ reducedMotion: 'reduce' });
-        assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${route}: overflow ${width}`);
-        assert.equal(await page.locator('h1').count(), 1);
-        const controls = await page.locator('.expedition button, .exp-switch a').evaluateAll(elements => elements.filter(e => e.getClientRects().length && e.getBoundingClientRect().height < 43.9).map(e => e.textContent));
-        assert.deepEqual(controls, [], `${route}: small targets ${width}`);
-        if ([390, 1440].includes(width)) {
-          const audit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
-          assert.deepEqual(audit.violations.map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) })), [], `${route}: accessibility ${width}`);
-          if (capture) {
-            fs.mkdirSync(capture, { recursive: true });
-            await page.screenshot({ path: path.join(capture, `${route}-${width}.png`), fullPage: true });
-          }
-        }
-      }
-    }
-    await page.setViewportSize({ width: 1280, height: 900 });
-    await page.goto(base + '/terminal.html');
-    await page.evaluate(() => { document.body.style.zoom = '2'; });
-    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), '200% zoom overflow');
-    await page.evaluate(() => { document.body.style.zoom = ''; });
-    const noJS = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
-    const fallback = await noJS.newPage();
-    for (const route of ['terminal']) {
-      await fallback.goto(`${base}/${route}.html`);
-      await fallback.locator('.exp-index summary').click();
-      assert.equal(await fallback.locator('.exp-index-grid a:visible').count(), 6);
-      assert(await fallback.locator('.exp-switch a').last().isVisible());
-    }
-    await noJS.close();
-    assert.deepEqual(errors, []);
-    console.log('PASS: terminal commands, safe input, history, keyboard, responsive, axe, 200% zoom and no-JS.');
-  } finally { await browser.close(); }
-})().catch(error => { console.error(error); process.exitCode = 1; });
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const {chromium}=require('playwright'),{default:AxeBuilder}=require('@axe-core/playwright');
+const T=require('../assets/js/terminal-model.cjs'.replace('.cjs','.js'));
+assert.equal(T.resolvePath('../../../../etc','/proyectos'),'/etc');assert.equal(T.resolvePath('~/proyectos/../perfil.md'),'/perfil.md');assert.deepEqual(T.tokens('cat "perfil.md"'),['cat','perfil.md']);assert.throws(()=>T.tokens('cat "perfil'));
+const base=(process.env.TEST_SITE_URL||'http://127.0.0.1:4000').replace(/\/$/,''),captures=path.join(__dirname,'../.impeccable/review');fs.mkdirSync(captures,{recursive:true});
+(async()=>{const browser=await chromium.launch();try{
+ const context=await browser.newContext({viewport:{width:1440,height:950}}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(base+'/terminal.html');await page.locator('#console-form:not([hidden])').waitFor();await page.waitForTimeout(700);await page.screenshot({path:path.join(captures,'terminal-desktop.png')});
+ const input=page.locator('#console-input'),out=page.locator('#console-output'),last=()=>page.locator('.terminal-result').last();
+ async function cmd(value){await input.fill(value);await input.press('Enter');}
+ await cmd('ls');assert.match(await last().innerText(),/proyectos\//);await cmd('cd proyectos');assert.equal(await page.locator('#prompt-path').innerText(),'~/proyectos');await cmd('pwd');assert.equal(await last().innerText(),'/home/jorge/proyectos');
+ await input.fill('cat azi');await input.press('Tab');assert.equal(await input.inputValue(),'cat azimut.md');await input.press('Enter');assert.match(await last().innerText(),/servicios de respaldo reciben/);assert.match(page.url(),/proyecto=azimut/);
+ await page.waitForTimeout(250);await page.screenshot({path:path.join(captures,'terminal-project.png')});
+ await cmd('formacion');assert(!new URL(page.url()).searchParams.has('proyecto'),'clear stale project');assert.equal(new URL(page.url()).searchParams.get('lugar'),'escuela');await cmd('perfil');assert.equal(new URL(page.url()).searchParams.get('lugar'),'puerto');await input.fill('cat ');await input.press('Tab');assert.match(await page.locator('#command-hint').innerText(),/cat azimut.md/);await input.focus();await cmd('cd ../formacion');await cmd('cat bootcamp.md');assert.match(await last().innerText(),/Bootcamp/);await cmd('cd ~');await cmd('cat "perfil.md"');assert.match(await last().innerText(),/Jorge Ulloa/);
+ await cmd('cd ../../../../../');assert.equal(await page.locator('#prompt-path').innerText(),'~');await cmd('cat /missing');assert.match(await last().innerText(),/no existe/);assert.equal(await page.locator('#exit-code').innerText(),'exit 1');
+ await cmd('cat proyectos');assert.match(await last().innerText(),/es una carpeta/);await cmd('cat "perfil');assert.match(await last().innerText(),/cerrar una comilla/);await cmd('<img src=x onerror=alert(1)>');assert.equal(await out.locator('img').count(),0);assert.equal(await page.locator('#exit-code').innerText(),'exit 127');
+ await input.fill('abrir azi');await input.press('Tab');assert.equal(await input.inputValue(),'abrir azimut');await input.press('Enter');await input.press('ArrowUp');assert.equal(await input.inputValue(),'abrir azimut');await input.press('ArrowDown');assert.equal(await input.inputValue(),'');
+ await input.fill('pendiente');await input.press('Control+c');assert.equal(await input.inputValue(),'');assert.equal(await page.locator('#exit-code').innerText(),'exit 130');await input.press('Control+l');assert.equal(await page.locator('.terminal-entry').count(),0);
+ await cmd('tree');assert.match(await last().innerText(),/formacion\//);await cmd('help cd');assert.match(await last().innerText(),/cd proyectos/);await cmd('history');assert.match(await last().innerText(),/cat bootcamp.md/);
+ await cmd('abrir azimut');await page.locator('#terminal-map').click();assert.match(page.url(),/proyecto=azimut/);await page.locator('#conversation[open]').waitFor();assert.match(await page.locator('#dialog-content').innerText(),/servicios de respaldo/);
+ await page.goto(base+'/terminal.html?lugar=constructor');await page.locator('#console-form:not([hidden])').waitFor();await cmd('ir constructor');assert.equal(await page.locator('#exit-code').innerText(),'exit 1');
+ for(const width of [320,390,768,1440]){await page.setViewportSize({width,height:950});await cmd('help');await page.waitForTimeout(260);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'overflow '+width);const a=await new AxeBuilder({page}).analyze();assert.deepEqual(a.violations.map(v=>v.id),[],'axe '+width);}
+ await page.setViewportSize({width:390,height:844});await page.goto(base+'/terminal.html');await page.waitForTimeout(700);assert(await page.locator('#command-suggestions').evaluate(e=>e.getBoundingClientRect().bottom<=innerHeight),'mobile suggestions in viewport');await page.screenshot({path:path.join(captures,'terminal-mobile.png')});await cmd('cd proyectos');await cmd('cat azimut.md');await page.waitForTimeout(260);await page.screenshot({path:path.join(captures,'terminal-mobile-project.png')});
+ await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>document.documentElement.dataset.terminalMotion==='off');assert.equal(await page.locator('html').getAttribute('data-terminal-motion'),'off');assert.equal(await page.locator('.terminal-entry').last().evaluate(e=>getComputedStyle(e).animationName),'none');
+ const nojs=await browser.newPage({javaScriptEnabled:false});await nojs.goto(base+'/terminal.html');await nojs.locator('.terminal-index summary').click();assert.equal(await nojs.locator('.terminal-index a:visible').count(),6);
+ await page.goto(base+'/');assert.equal((await page.locator('h1').innerText()).replace(/\s+/g,' '),'Geografía para leer el mundo.');assert(await page.locator('.hero').evaluate(e=>e.compareDocumentPosition(document.querySelector('.exp-entrypoint'))&Node.DOCUMENT_POSITION_FOLLOWING));assert.match(await page.locator('.exp-entrypoint').innerText(),/Si tú tampoco/);
+ assert.deepEqual(errors,[]);console.log('PASS terminal filesystem, quoting, completion, history, cancellation, errors/XSS, guidance, handoff, responsive, reduced, noJS, axe and classic-first');
+}finally{await browser.close();}})().catch(e=>{console.error(e);process.exit(1);});

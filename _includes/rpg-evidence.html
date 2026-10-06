@@ -1,0 +1,26 @@
+{% for place in site.data.expedition %}
+<template id="rpg-place-{{ place.id }}">
+  <div class="fieldbook-spread">
+    <aside class="fieldbook-illustration"><div class="room-vignette room-{{ place.id }}" aria-hidden="true"></div><p>{{ place.title }}</p><span>{{ place.short }}</span></aside>
+    <div class="fieldbook-copy"><p class="fieldbook-lead">{{ place.description }}</p><p>{{ place.detail }}</p>
+      {% if place.id == 'puerto' %}<h3>La bitácora del viaje</h3><p>Geografía, información pública y herramientas que otras personas pueden usar. Recorre los hitos de mi trayectoria desde este puerto.</p><button data-reading="exp-trajectory" data-title="Bitácora del viaje">Abrir la bitácora</button>{% endif %}
+      {% if place.id == 'archivo' %}<figure class="real-map"><img src="{{ '/assets/images/conmapas.webp' | relative_url }}" alt="Cartografía de ConMapas, obra de Jorge Ulloa" loading="lazy"><figcaption>Una pieza del archivo de ConMapas. Abre la colección para verla completa.</figcaption></figure>{% endif %}
+      {% if place.id == 'observatorio' %}<h3>Un paisaje, muchas evidencias</h3><p>Información ambiental, análisis espacial y teledetección. Cada resultado conserva su fuente y su alcance.</p><a class="evidence-link" href="https://doi.org/10.4995/raet.2017.7931">Leer la investigación publicada</a>{% endif %}
+      {% if place.id == 'escuela' %}<h3>Del primer visor a una idea publicada</h3><ol class="learning-path"><li>Especificar una idea territorial</li><li>Construir un visor con MapLibre o Leaflet</li><li>Analizar con Turf.js y publicar</li></ol><button data-reading="exp-skills" data-title="Herramientas del oficio">Ver las herramientas del oficio</button>{% endif %}
+      {% if place.projects.size > 0 %}<h3>{% if place.id == 'taller' %}Sobre la mesa de trabajo{% else %}Obras para explorar{% endif %}</h3><div class="rpg-projects">{% for id in place.projects %}{% assign project = site.data.projects | where: 'id', id | first %}<button data-project="{{ project.id }}"><span class="project-object" aria-hidden="true"></span><span><strong>{{ project.name }}</strong><small>{{ project.category }}</small></span><span aria-hidden="true">Abrir</span></button>{% endfor %}</div>{% endif %}
+      <a class="evidence-link" href="{% if place.link contains 'https://' %}{{ place.link }}{% else %}{{ place.link | relative_url }}{% endif %}">{{ place.action }}</a>
+    </div>
+  </div>
+</template>
+{% endfor %}
+{% for project in site.data.projects %}
+<template id="rpg-project-{{ project.id }}" data-name="{{ project.name | escape }}">
+  <article class="rpg-project-sheet">
+    <div class="project-seal" aria-hidden="true"></div>
+    <p class="project-purpose">{{ project.summary }}</p>
+    {% if project.image %}<figure class="project-image"><img src="{{ project.image | relative_url }}" alt="{{ project.alt | escape }}" loading="lazy"><figcaption>Captura del proyecto. Consulta la aplicación para explorar su estado actual.</figcaption></figure>{% endif %}
+    <dl class="project-record"><div><dt>Cómo está construido</dt><dd>{{ project.detail }}</dd></div><div><dt>Herramientas del oficio</dt><dd>{{ project.stack }}</dd></div><div><dt>Estado y límites</dt><dd>{{ project.status }}. {{ project.note }}</dd></div></dl>
+    <div class="project-exits">{% if project.demo %}<a href="{{ project.demo }}">Explorar el proyecto</a>{% endif %}{% if project.repo %}<a href="{{ project.repo }}">Revisar su código</a>{% endif %}</div>
+  </article>
+</template>
+{% endfor %}

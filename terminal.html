@@ -1,7 +1,32 @@
 ---
-layout: default
-title: Terminal cartográfica · Jorge Ulloa
-description: Explora proyectos, trayectoria y cartografías desde una terminal interactiva con comandos y accesos directos.
-experience: terminal
+layout: terminal
+title: Terminal · Explora mi trabajo desde la línea de comandos
+description: Una terminal local para conocer a Jorge Ulloa. Navega proyectos, cartografía, trayectoria y formación con comandos y pistas a cada paso.
 ---
-{% include expedition.html %}
+<a class="skip-link" href="#console-input">Ir a la línea de comandos</a>
+<header class="terminal-header"><a href="{{ '/' | relative_url }}" class="classic-link">← Portafolio clásico</a><h1>Jorge Ulloa / Terminal</h1><a href="{{ '/explorar.html' | relative_url }}" id="terminal-map">Explorar el mundo RPG</a></header>
+<main id="contenido" class="terminal-workbench">
+  <section class="shell" aria-label="Terminal del portafolio">
+    <div class="shell-titlebar"><div class="shell-session"><span class="session-indicator" aria-hidden="true"></span><span id="session-path">visitante@jorge: ~</span></div><button id="terminal-motion" type="button" aria-pressed="false">Pausar animación</button></div>
+    <div id="console-output" class="shell-output" role="log" aria-label="Historial y resultados" aria-live="polite" aria-relevant="additions" tabindex="0">
+      <section class="terminal-intro">
+        <pre class="terminal-wordmark" aria-hidden="true">      _
+     (_)_   _   Jorge Ulloa
+     | | | | |  geografía · código · territorio
+    _/ | |_| |
+   |__/ \__,_|</pre>
+        <p class="boot-line"><span>✓</span> Portafolio montado en <code>/home/jorge</code></p>
+        <p class="boot-line"><span>✓</span> Proyectos, trayectoria y formación disponibles</p>
+        <p class="terminal-welcome">Hola, soy Jorge. Puedes conocer mi trabajo recorriendo estos archivos.</p>
+        <p>Escribe <button type="button" data-command="ls" class="inline-command">ls</button> para mirar alrededor o <button type="button" data-command="help" class="inline-command">help</button> si es tu primera terminal.</p>
+        <p class="terminal-disclosure">Sesión local de lectura. No se ejecutan programas ni se accede a tu equipo.</p>
+      </section>
+    </div>
+    <form id="console-form" class="shell-command" hidden><label for="console-input"><span class="prompt-user">visitante@jorge</span><span class="prompt-path" id="prompt-path">~</span><span aria-hidden="true" class="prompt-arrow">$</span><span class="sr">Escribe un comando</span></label><div class="command-edit"><input id="console-input" name="command" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="240" aria-describedby="command-hint" placeholder="ls"><span id="command-ghost" aria-hidden="true"></span></div><button type="submit" class="execute" aria-label="Ejecutar comando">Enter</button></form>
+    <div class="shell-status"><span><span class="status-symbol" aria-hidden="true"></span>lectura local</span><span id="exit-code" aria-label="Resultado del último comando">listo</span><span>UTF-8</span><span class="status-shortcuts">Tab completa · ↑↓ historial · Ctrl+L limpia</span></div>
+  </section>
+  <aside class="command-guide" aria-label="Guía de comandos"><div><h2 id="guide-title">Empieza por aquí</h2><p id="command-hint">Puedes escribir un comando o pulsar una sugerencia. Son el mismo recorrido.</p></div><div id="command-suggestions" class="command-suggestions"><button data-command="ls">ls <span>Ver archivos</span></button><button data-command="cat perfil.md">cat perfil.md <span>Conocerme</span></button><button data-command="cd proyectos">cd proyectos <span>Explorar proyectos</span></button></div></aside>
+  <details class="terminal-index"><summary>Prefiero navegar sin comandos</summary><nav aria-label="Enlaces directos al portafolio"><a href="{{ '/' | relative_url }}#bio">Perfil</a><a href="{{ '/code.html' | relative_url }}">Proyectos</a><a href="{{ '/' | relative_url }}#experiencia">Trayectoria</a><a href="{{ '/' | relative_url }}#cursos">Formación</a><a href="{{ '/maps.html' | relative_url }}">Cartografía</a><a href="{{ '/' | relative_url }}#contacto" id="terminal-contact">Contacto</a></nav></details>
+  <noscript><p>La terminal necesita JavaScript. Los enlaces directos de arriba están disponibles para conocer mi trabajo.</p></noscript>
+</main>
+{% include expedition-templates.html %}

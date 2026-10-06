@@ -41,7 +41,7 @@
     trees.push({x:Math.round(x),y:Math.round(y),sprite:y<260?1:random()<.15?3:0,w:70+Math.round(random()*28),h:85+Math.round(random()*30)});
   }
   function walkable(x,y,scene='outside') {
-    if (scene !== 'outside') return x>50&&x<590&&y>120&&y<438 && !(y<240&&x>270&&x<370) && !(x>75&&x<155&&y<225) && Math.hypot(x-510,y-260)>19;
+    if (scene !== 'outside') return x>75&&x<565&&y>225&&y<438 && !(y<240&&x>270&&x<370) && Math.hypot(x-510,y-260)>19;
     if (x<coastX(y)+26 || x>1485 || y<90 || y>1040) return false;
     if (Math.abs(x-riverX(y))<45 && !onBridge(y)) return false;
     if (buildings.some(b=>Math.abs(x-b.x)<b.w*.38+9 && y>b.y-b.h*.5 && y<b.y+5)) return false;

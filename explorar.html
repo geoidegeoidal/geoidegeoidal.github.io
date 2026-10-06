@@ -8,12 +8,13 @@ experience: mapa
 <header class="game-header">
   <a class="home" href="{{ '/' | relative_url }}" aria-label="Volver al portafolio clásico de Jorge Ulloa">JU<span aria-hidden="true">.</span></a>
   <h1>El mundo de Jorge</h1>
-  <nav aria-label="Opciones del recorrido"><button id="journal" hidden>Cuaderno</button><button id="pause" hidden>Pausar</button><a id="terminal-link" href="{{ '/terminal.html' | relative_url }}">Terminal</a></nav>
+  <nav aria-label="Opciones del recorrido"><button id="journal" hidden>Cuaderno</button><button id="pause" hidden>Pausar</button><details class="sound-control"><summary>Sonido</summary><div><button id="music" type="button" aria-pressed="false">Música: no</button><label for="music-volume">Volumen de la música</label><input id="music-volume" type="range" min="0" max="100" value="35"><p>Una melodía para recorrer el pueblo.</p></div></details><a id="terminal-link" href="{{ '/terminal.html' | relative_url }}">Terminal</a></nav>
 </header>
 <main id="contenido">
   <section class="game" aria-label="Pueblo explorable" data-assets="{{ '/assets/images/' | relative_url }}">
     <canvas id="world" tabindex="0" aria-label="Camina como Jorge con flechas o WASD. Pulsa E para interactuar. También puedes usar el cuaderno para leer el portafolio." aria-describedby="controls-help">El mapa necesita un navegador con Canvas. Todo el portafolio está disponible en el índice de abajo.</canvas>
     <div class="location" aria-hidden="true"><span class="location-dot"></span><span id="location-name">Puerto de partida</span></div>
+    <div class="minimap" aria-hidden="true"><canvas id="world-minimap" width="160" height="112"></canvas><p>Estás aquí</p></div>
     <div class="welcome" id="welcome"><div class="welcome-portrait" aria-hidden="true"></div><h2>Un mundo hecho de ideas.</h2><p>Soy Jorge. Aquí mis mapas tienen una casa, el código tiene un taller y siempre hay alguien con quien conversar.</p><p id="loading" role="status">Preparando el pueblo…</p><button id="start" disabled hidden>Entrar al pueblo</button><a href="#world-index">Prefiero leer el portafolio</a></div>
     <div class="paused" id="paused" hidden><p>Un respiro.</p><button id="resume">Seguir explorando</button></div>
     <div class="game-bottom"><div class="companion"><span class="mini-portrait" aria-hidden="true"></span><span><strong>Jorge</strong><small id="discovery">Tu viaje empieza aquí</small></span></div><button id="interact" hidden disabled>Acércate para conversar</button></div>
@@ -26,3 +27,4 @@ experience: mapa
 </main>
 <dialog id="conversation" aria-labelledby="conversation-title"><div class="dialog-top"><h2 id="conversation-title"></h2><button id="close-dialog" aria-label="Cerrar y volver al mapa">Cerrar</button></div><div id="dialog-content"></div></dialog>
 {% include expedition-templates.html %}
+{% include rpg-evidence.html %}
