@@ -21,6 +21,11 @@ description: Jorge Ulloa Roa. Geógrafo, analista espacial y formador en desarro
   </figure>
   <div class="hero-bottom"><span>ANÁLISIS / DESARROLLO / DOCENCIA / CARTOGRAFÍA</span><a href="#bio" class="scroll-cue">Conocer mi trabajo <span aria-hidden="true">↓</span></a><span>JORGE ULLOA / CONMAPAS</span></div>
 </section>
+<section class="exp-entrypoint" aria-labelledby="explore-title">
+  <a class="exp-entrypoint-art" href="{{ '/explorar.html' | relative_url }}" aria-label="Explorar mi trayectoria en un mapa de fantasía"><img src="{{ '/assets/images/expedition-world.png' | relative_url }}" alt="Isla de fantasía en pixel art con observatorio, puerto, archivo, taller y escuela" width="1536" height="1024" loading="lazy"></a>
+  <div><h2 id="explore-title">Elige tu forma de explorar.</h2><p>El mismo trabajo, dos caminos nuevos. Recorre un mundo de cartografía o entra por la terminal.</p><div class="exp-entrypoint-links"><a href="{{ '/explorar.html' | relative_url }}">Recorrer el mapa <span aria-hidden="true">↗</span></a><a href="{{ '/terminal.html' | relative_url }}">Abrir la terminal <span aria-hidden="true">›_</span></a></div></div>
+</section>
+
 <nav class="expertise-rail" aria-label="Secciones de esta página"><div><a href="#bio">Perfil</a><a href="#proyectos">Proyectos</a><a href="#cursos">Cursos</a><a href="#conmapas">ConMapas</a><a href="#experiencia">Trayectoria</a><a href="#tech">Herramientas</a><a href="#contacto">Contacto</a></div></nav>
 <section class="section about" id="bio" aria-labelledby="bio-title">
   <div class="about-portrait"><img src="{{ '/assets/images/imagen_jorge.webp' | relative_url }}" alt="Retrato de Jorge Ulloa Roa" width="480" height="480" loading="lazy"></div>
@@ -77,15 +82,7 @@ description: Jorge Ulloa Roa. Geógrafo, analista espacial y formador en desarro
 </section>
 <section class="section experience" id="experiencia" aria-labelledby="experience-title">
   <div class="experience-heading"><h2 id="experience-title">Trayectoria profesional</h2><p>Los equipos y organizaciones donde he aplicado este trabajo, desde el análisis espacial hasta la gestión de información pública.</p><a class="text-link" href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank" rel="noopener noreferrer">Ver perfil en LinkedIn ↗</a></div>
-  <ol class="timeline">
-    <li><div class="job-meta"><span>AGO 2026 — PRESENTE</span><span class="badge">Consultoría</span></div><h3>Ministerio de las Culturas, las Artes y el Patrimonio</h3><p class="job-role">Especialista en geoinformación · Consultor SIG y datos territoriales</p><p>Liderazgo técnico en datos espaciales para educación y formación en artes y cultura. Consolidación de registros de ACCIONA, Cecrea y PNDAE en una base geoespacial validada, documentada e integrada a visualizadores y repositorios institucionales.</p></li>
-    <li><div class="job-meta"><span>ENE 2024 — PRESENTE</span><span class="badge">Actual</span></div><h3>Ministerio del Medio Ambiente</h3><p class="job-role">Profesional · Departamento de Información Ambiental</p><p>Indicadores ambientales, procesos ETL y dashboards en Python y SQL. Fortalecimiento del SINIA, IDE-MMA y gestión del RETC.</p></li>
-    <li><div class="job-meta">JUN 2022 — DIC 2023</div><h3>SERVEL</h3><p class="job-role">Analista Senior SIG</p><p>Formé parte del equipo que desarrolló el primer padrón electoral georreferenciado. El trabajo de acercamiento redujo un 50% la distancia lineal a los locales y dejó a la mitad de los electores a menos de 2 km. Mi contribución incluyó consultas PostgreSQL/PostGIS, validación de datos y asignación espacial de circunscripciones.</p></li>
-    <li><div class="job-meta">JUL 2021 — JUN 2022</div><h3>NATCAP</h3><p class="job-role">Geógrafo · Ordenamiento territorial</p><p>Evaluación de capital natural y análisis espacial para zonificación ambiental y planificación territorial.</p></li>
-    <li><div class="job-meta">ENE 2021 — JUN 2022</div><h3>CSW</h3><p class="job-role">Analista SIG · Evaluación ambiental</p><p>Gestión de bases de datos espaciales e informes técnicos para proyectos del Sistema de Evaluación de Impacto Ambiental.</p></li>
-    <li><div class="job-meta">FEB 2018 — MAY 2020</div><h3>EYE3</h3><p class="job-role">Analista de Datos Espaciales</p><p>Soluciones geoespaciales para minería (BHP y Codelco), formación del equipo de análisis espacial y automatización de reportes territoriales 24/7.</p></li>
-    <li class="research-note"><p class="eyebrow">Formación e investigación</p><h3>Del satélite a la evidencia.</h3><p>Geógrafo por la Universidad Alberto Hurtado (2013–2017). Coautor con M. A. Peña de una investigación sobre la recuperación de vegetación tras el incendio de Torres del Paine, publicada en <cite>Revista de Teledetección</cite> en 2017.</p><a class="text-link" href="https://doi.org/10.4995/raet.2017.7931" target="_blank" rel="noopener noreferrer">Leer la publicación científica ↗</a></li>
-  </ol>
+  {% include trajectory.html %}
 </section>
 <section class="section" id="tech" aria-labelledby="tech-title">
   <div class="section-heading"><div><h2 id="tech-title">Herramientas de trabajo</h2></div><p>Qué manejo, para qué lo uso<br>y dónde puedes verlo aplicado.</p></div>

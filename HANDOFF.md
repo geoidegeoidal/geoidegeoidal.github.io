@@ -1,5 +1,20 @@
 # Handoff
 
+## 2026-10-06 - Atlas de expedición y terminal (implementación)
+
+**Objetivo:** añadir dos vistas artísticas y conectadas al portafolio, con igual prioridad a contratación y formación/comunidad. **Hecho:** rama feat/atlas-terminal; OpenSpec inicializado y especificación validada; mapa original de cinco destinos con avatar, teclado y cuaderno; terminal con comandos, historial, autocompletado, enlaces y recuperación; selección compartida en URL; trayectoria extraída sin cambiar su contenido; entrada en portada. **Decisiones:** Jekyll/JS nativo, ningún servicio/dependencia de producción nuevos; catálogo y límites reutilizados; territorio ficticio claramente identificado. **Verificado:** nueva suite de interacción y axe, noJS, error de imagen, movimiento reducido, foco y zoom; builds raíz/subdirectorio; Impeccable sin hallazgos mecánicos y dos correcciones de revisión independiente resueltas. **Bloqueos:** ninguno. **Siguiente:** terminar regresión y documentación, subir implementación, integrar y verificar GitHub Pages. **Commits:** f226b59 previo (HTTPS), 69f4174 especificación; implementación en el commit de esta entrada. El despliegue se registra en una entrada de cierre cuando esté confirmado.
+
+
+## 2026-09-22 - HTTPS de julloa.space resuelto
+
+**Objetivo:** diagnosticar y resolver el certificado pendiente.
+**Hecho:** Pages health confirmó apex/www válidos y aptos para HTTPS, sin error CAA; DNS público A/AAAA/CNAME correcto. Aplicado una sola vez el procedimiento oficial de GitHub: retirar y volver a guardar el dominio. El certificado pasó a approved para julloa.space y www.julloa.space, con vencimiento 2026-12-21. Activado https_enforced=true.
+**Validación:** curl con validación TLS normal: https://julloa.space devuelve 200; http://julloa.space y https://www.julloa.space devuelven 301 a https://julloa.space/. Los cambios de CNAME creados por GitHub se integraron localmente con pull --ff-only.
+**Decidido:** la espera por sí sola no resolvió la emisión; reiniciar provisión destrabó el certificado. No atribuirlo a un fallo de DNS ni prometer seguimiento automático en segundo plano.
+**Bloqueantes / pendientes:** ninguno para HTTPS. Search Console sigue pendiente por decisión del propietario. Último despliegue confirmado exitoso; Pages informa built, certificado approved y https_enforced=true. Cierre documental en commit local solicitado por el propietario, sin push solicitado.
+**Próxima sesión:** registrar julloa.space en Search Console cuando el propietario lo solicite.
+**Commits relevantes:** 0cf573b (Delete CNAME) y d8f5f48 (Create CNAME), generados por Pages y confirmados en remoto. Esta entrada documental queda local.
+
 ## 2026-09-22 - Dirección artística de color y movimiento
 
 **Objetivo:** dar al sitio un carácter más artístico mediante color y animaciones.
