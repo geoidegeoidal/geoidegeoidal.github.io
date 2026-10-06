@@ -1,7 +1,28 @@
 ---
-layout: default
-title: Atlas de expedición · Explora mi trayectoria
-description: Recorre un territorio de fantasía para descubrir los proyectos, cartografías y formación de Jorge Ulloa Roa.
+layout: game
+title: El mundo de Jorge · Portafolio jugable
+description: Camina con Jorge por un pueblo en pixel art. Conversa con sus habitantes, entra a los edificios y descubre cartografía, código y formación.
 experience: mapa
 ---
-{% include expedition.html %}
+<a class="skip" href="#world-index">Ir al índice accesible del portafolio</a>
+<header class="game-header">
+  <a class="home" href="{{ '/' | relative_url }}" aria-label="Volver al portafolio clásico de Jorge Ulloa">JU<span aria-hidden="true">.</span></a>
+  <h1>El mundo de Jorge</h1>
+  <nav aria-label="Opciones del recorrido"><button id="journal" hidden>Cuaderno</button><button id="pause" hidden>Pausar</button><a id="terminal-link" href="{{ '/terminal.html' | relative_url }}">Terminal</a></nav>
+</header>
+<main id="contenido">
+  <section class="game" aria-label="Pueblo explorable" data-assets="{{ '/assets/images/' | relative_url }}">
+    <canvas id="world" tabindex="0" aria-label="Camina como Jorge con flechas o WASD. Pulsa E para interactuar. También puedes usar el cuaderno para leer el portafolio." aria-describedby="controls-help">El mapa necesita un navegador con Canvas. Todo el portafolio está disponible en el índice de abajo.</canvas>
+    <div class="location" aria-hidden="true"><span class="location-dot"></span><span id="location-name">Puerto de partida</span></div>
+    <div class="welcome" id="welcome"><div class="welcome-portrait" aria-hidden="true"></div><h2>Un mundo hecho de ideas.</h2><p>Soy Jorge. Aquí mis mapas tienen una casa, el código tiene un taller y siempre hay alguien con quien conversar.</p><p id="loading" role="status">Preparando el pueblo…</p><button id="start" disabled hidden>Entrar al pueblo</button><a href="#world-index">Prefiero leer el portafolio</a></div>
+    <div class="paused" id="paused" hidden><p>Un respiro.</p><button id="resume">Seguir explorando</button></div>
+    <div class="game-bottom"><div class="companion"><span class="mini-portrait" aria-hidden="true"></span><span><strong>Jorge</strong><small id="discovery">Tu viaje empieza aquí</small></span></div><button id="interact" hidden disabled>Acércate para conversar</button></div>
+    <div class="touch-pad" aria-label="Controles para caminar" hidden><button data-move="up" aria-label="Caminar hacia arriba"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 15 7-7 7 7"/></svg></button><button data-move="left" aria-label="Caminar a la izquierda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button><button data-move="down" aria-label="Caminar hacia abajo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></button><button data-move="right" aria-label="Caminar a la derecha"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button></div>
+  </section>
+  <div class="game-footer"><p id="controls-help"><span class="keyboard-help">WASD / flechas · E para interactuar · </span>Pulsa el suelo para caminar</p><button id="help" hidden>Cómo jugar</button><span>Pueblo imaginario, trabajo real.</span></div>
+  <p id="world-status" class="sr" role="status"></p>
+  <details id="world-index"><summary>Índice accesible · Todo el portafolio, sin jugar</summary><div class="index-content">{% for place in site.data.expedition %}<section><h2>{{ place.name }}</h2><p>{{ place.description }}</p><p>{{ place.detail }}</p><a href="{% if place.link contains 'https://' %}{{ place.link }}{% else %}{{ place.link | relative_url }}{% endif %}">{{ place.action }}</a></section>{% endfor %}<a href="{{ '/code.html' | relative_url }}">Catálogo completo de proyectos</a><a href="{{ '/' | relative_url }}#tech">Herramientas y tecnologías</a><a href="{{ '/' | relative_url }}#contacto">Conversemos</a></div></details>
+  <noscript><p class="no-script">JavaScript está desactivado. Abre el índice para consultar el trabajo de Jorge.</p></noscript>
+</main>
+<dialog id="conversation" aria-labelledby="conversation-title"><div class="dialog-top"><h2 id="conversation-title"></h2><button id="close-dialog" aria-label="Cerrar y volver al mapa">Cerrar</button></div><div id="dialog-content"></div></dialog>
+{% include expedition-templates.html %}

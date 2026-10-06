@@ -11,3 +11,5 @@ Gemfile.lock
 
 .impeccable/*
 !.impeccable/design.json
+
+_site_base/

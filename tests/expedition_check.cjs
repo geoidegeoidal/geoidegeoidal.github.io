@@ -13,17 +13,8 @@ const capture = process.env.EXPEDITION_CAPTURE;
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
     page.on('response', r => { if (r.url().startsWith(base) && r.status() >= 400) errors.push(`${r.status()} ${r.url()}`); });
-    await page.goto(base + '/explorar.html');
-    await page.locator('.exp-pin:not([hidden])').first().waitFor();
-    assert.equal(await page.locator('.exp-pin').count(), 5);
-    assert(await page.locator('.exp-landscape').evaluate(i => i.complete && i.naturalWidth > 0));
-    await page.locator('.exp-pin[data-place="taller"]').click();
-    await page.locator('#place-detail [data-project="azimut"]').click();
-    assert.match(await page.locator('#place-detail').innerText(), /servicios de respaldo reciben/);
-    assert.equal(await page.locator('.exp-back').evaluate(e => e === document.activeElement), true);
-    await page.locator('.exp-switch [data-view="terminal"]').click();
+    await page.goto(base + '/terminal.html?lugar=taller&proyecto=azimut');
     await page.locator('#console-form:not([hidden])').waitFor();
-    assert.match(page.url(), /proyecto=azimut/);
     assert.match(await page.locator('#place-detail').innerText(), /Azimut/);
     const command = async text => {
       await page.locator('#console-input').fill(text);
@@ -59,26 +50,9 @@ const capture = process.env.EXPEDITION_CAPTURE;
     await command('limpiar');
     assert.equal(await page.locator('.exp-entry').count(), 0);
     assert.match(await page.locator('#console-output').innerText(), /Consola despejada/);
-    await page.goto(base + '/explorar.html?lugar=%3Cbad%3E&proyecto=unknown');
-    assert.match(await page.locator('#place-detail').innerText(), /Todo viaje/);
-    await page.locator('.exp-map').focus();
-    await page.keyboard.press('ArrowRight');
-    assert.notEqual(new URL(page.url()).searchParams.get('lugar'), 'puerto');
-    await page.locator('.exp-pin[data-place="escuela"]').click();
-    await page.locator('.exp-pin[data-place="archivo"]').click();
-    await page.goBack();
-    assert.match(await page.locator('#place-detail').innerText(), /conocimiento se comparte/);
-    await page.emulateMedia({ reducedMotion: 'reduce' });
-    await page.locator('.exp-pin[data-place="taller"]').click();
-    assert.equal(await page.locator('.exp-traveler').evaluate(e => e.getAnimations().filter(a => a.playState === 'running').length), 0);
-    await page.emulateMedia({ reducedMotion: 'no-preference' });
-    await page.locator('.motion-toggle').click();
-    await page.locator('.exp-pin[data-place="escuela"]').click();
-    assert.equal(await page.locator('.exp-traveler').evaluate(e => e.getAnimations().filter(a => a.playState === 'running').length), 0);
-
     for (const width of [320, 390, 768, 1440]) {
       await page.setViewportSize({ width, height: width < 500 ? 844 : 1000 });
-      for (const route of ['explorar', 'terminal']) {
+      for (const route of ['terminal']) {
         await page.goto(`${base}/${route}.html`);
         await page.locator('#place-detail h2').waitFor();
         await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -97,24 +71,20 @@ const capture = process.env.EXPEDITION_CAPTURE;
       }
     }
     await page.setViewportSize({ width: 1280, height: 900 });
-    await page.goto(base + '/explorar.html');
+    await page.goto(base + '/terminal.html');
     await page.evaluate(() => { document.body.style.zoom = '2'; });
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), '200% zoom overflow');
     await page.evaluate(() => { document.body.style.zoom = ''; });
     const noJS = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
     const fallback = await noJS.newPage();
-    for (const route of ['explorar', 'terminal']) {
+    for (const route of ['terminal']) {
       await fallback.goto(`${base}/${route}.html`);
       await fallback.locator('.exp-index summary').click();
       assert.equal(await fallback.locator('.exp-index-grid a:visible').count(), 6);
       assert(await fallback.locator('.exp-switch a').last().isVisible());
     }
     await noJS.close();
-    await context.route('**/expedition-world.png', route => route.abort());
-    await page.goto(base + '/explorar.html');
-    await page.locator('.exp-pin[data-place="escuela"]').click();
-    assert.match(await page.locator('#place-detail').innerText(), /conocimiento se comparte/);
     assert.deepEqual(errors, []);
-    console.log('PASS: map travel, shared state, console commands, safe input, history, keyboard, reduced motion, pause, responsive, axe, 200% zoom, no-JS and failed-image fallback.');
+    console.log('PASS: terminal commands, safe input, history, keyboard, responsive, axe, 200% zoom and no-JS.');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });
