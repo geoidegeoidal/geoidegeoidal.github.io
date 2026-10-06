@@ -87,7 +87,17 @@
     for(let k=end;k!==queue[0];k=from[k])result.push(center(k%cols,Math.floor(k/cols)));
     return result.reverse();
   }
-  const api={width,height,cell,buildings,paths,npcs,trees,riverX,coastX,onBridge,onPath,walkable,move,findPath};
+  function camera(view, player, dt, snap = false) {
+    const vw = view.w / view.scale, vh = view.h / view.scale;
+    const bound = (value, size, extent) => size >= extent ? (extent - size) / 2 : Math.max(0, Math.min(extent - size, value));
+    const axis = (position, current, size, extent) => {
+      const delta = Math.min(0, position - current - size * .38) + Math.max(0, position - current - size * .62);
+      const target = bound(snap ? position - size / 2 : current + delta, size, extent);
+      return snap ? target : current + (target - current) * (1 - Math.exp(-10 * dt));
+    };
+    return { x: axis(player.x, view.x, vw, width), y: axis(player.y, view.y, vh, height) };
+  }
+  const api={width,height,cell,buildings,paths,npcs,trees,riverX,coastX,onBridge,onPath,walkable,move,findPath,camera};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
   else scope.PortfolioWorld=api;
 })(typeof window==='undefined'?globalThis:window);
