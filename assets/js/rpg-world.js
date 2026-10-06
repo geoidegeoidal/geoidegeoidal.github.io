@@ -233,11 +233,14 @@
     ['.location','.camera-controls','#overview','#route-banner','.game-bottom','.touch-pad'].forEach(selector=>{
       const el=$(selector);if(el.getClientRects().length){const r=el.getBoundingClientRect();occupied.push({left:r.left-game.left-8,right:r.right-game.left+8,top:r.top-game.top-8,bottom:r.bottom-game.top+8});}
     });
+    [player,...W.npcs].forEach(p=>{const x=(p.x-Math.round(view.x))*view.scale,y=(p.y-Math.round(view.y))*view.scale;occupied.push({left:x-24*view.scale,right:x+24*view.scale,top:y-66*view.scale,bottom:y+6*view.scale});});
     landmarkButtons.forEach(({b,control,width,height})=>{
-      const x=(b.x-Math.round(view.x))*view.scale,y=(b.y-b.h*.78-Math.round(view.y))*view.scale-height;
-      const rect={left:x-width/2,right:x+width/2,top:y,bottom:y+height};
-      const hide=!ready||!started||paused||dialog.open||scene!=='outside'||rect.left<10||rect.right>view.w-10||rect.top<10||rect.bottom>view.h-10||occupied.some(r=>rect.left<r.right&&rect.right>r.left&&rect.top<r.bottom&&rect.bottom>r.top);
-      control.hidden=hide;if(!hide){control.style.left=Math.round(rect.left)+'px';control.style.top=Math.round(y)+'px';occupied.push(rect);}
+      const x=(b.x-Math.round(view.x))*view.scale,feet=(b.y-Math.round(view.y))*view.scale,roof=feet-b.h*.78*view.scale,left=x-width/2,top=roof-height;
+      const visible=x+b.w*.42*view.scale>0&&x-b.w*.42*view.scale<view.w&&feet>0&&roof<view.h;
+      const candidates=[[left,top],[left,Math.max(10,top)],[left,feet+10],[x+b.w*.45*view.scale+8,roof],[x-b.w*.45*view.scale-width-8,roof]];
+      const rect=visible&&candidates.map(([left,top])=>({left,top,right:left+width,bottom:top+height})).find(r=>r.left>=10&&r.right<=view.w-10&&r.top>=10&&r.bottom<=view.h-10&&!occupied.some(o=>r.left<o.right&&r.right>o.left&&r.top<o.bottom&&r.bottom>o.top));
+      control.hidden=!ready||!started||paused||dialog.open||scene!=='outside'||!rect;
+      if(!control.hidden){control.style.left=Math.round(rect.left)+'px';control.style.top=Math.round(rect.top)+'px';occupied.push(rect);}
     });
   }
   function drawInside() {
@@ -261,6 +264,10 @@
     if(scene==='outside'){ctx.fillStyle='#6bb8c9';ctx.fillRect(view.x,view.y,Math.max(0,-view.x),vh);drawOutside();}else if(ready)drawInside();
     const mini=$('#world-minimap'),map=mini.getContext('2d'),ratio=mini.width/W.width;map.imageSmoothingEnabled=false;map.drawImage(ready?overview:terrain,0,0,mini.width,mini.height);
     if(scene==='outside'){map.strokeStyle='#fff2cf';map.lineWidth=1.5;map.strokeRect(Math.max(0,view.x)*ratio,Math.max(0,view.y)*ratio,Math.min(vw,W.width)*ratio,Math.min(vh,W.height)*ratio);}
+    if(scene==='outside'&&route.length){
+      map.beginPath();map.moveTo(player.x*ratio,player.y*ratio);route.forEach(p=>map.lineTo(p.x*ratio,p.y*ratio));map.strokeStyle='#244a3c';map.lineWidth=6;map.stroke();map.strokeStyle='#fff2cf';map.lineWidth=3;map.stroke();
+      const end=route[route.length-1];map.fillStyle='#b8432e';map.strokeStyle='#fff2cf';map.lineWidth=2;map.beginPath();map.arc(end.x*ratio,end.y*ratio,7,0,Math.PI*2);map.fill();map.stroke();
+    }
     const point=scene==='outside'?player:W.buildings.find(b=>b.id===scene);map.fillStyle='#203e3a';map.fillRect(point.x*ratio-4,point.y*ratio-4,8,8);map.fillStyle='#fff9d6';map.fillRect(point.x*ratio-2,point.y*ratio-2,4,4);
     positionLabels();
     // Observable play state supports regression checks without exposing mutable game internals.
