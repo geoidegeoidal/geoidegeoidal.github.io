@@ -2,8 +2,8 @@
 
 - Cámara exterior abierta: escala base .95 escritorio, .75 móvil y .65 para área de juego de altura <360; zoom relativo .65–1.35. La geometría y posición del personaje nunca cambian al hacer zoom. Usar el mismo origen de cámara redondeado al dibujar y convertir clics.
 - rpg-model.camera mantiene zona tranquila 38–62%, seguimiento exponencial y límites centrados si el viewport supera el mundo. Cambios de escena/resize y reduced-motion ajustan sin interpolación.
-- Nombres de edificios son botones DOM a escala de pantalla, cortos con rol debajo; omitirlos si colisionan con controles o salen del área. Plano accesible conserva los cinco destinos. Dimensiones de rótulos se miden solo al redimensionar/cargar fuentes, no en cada frame.
-- El plano usa el mismo render ilustrado, cacheado una vez. Seleccionar destino usa findPath existente, camina y entra; cancelar o dirección manual limpia ruta. No borrar una ruta recién iniciada en el evento asíncrono close del diálogo: abrir diálogo ya detiene entradas previas.
+- Nombres de edificios son botones DOM a escala de pantalla, cortos con rol debajo; probar posiciones alternativas evitando controles/actores y omitir solo si ninguna cabe. Plano accesible conserva los cinco destinos. Dimensiones de rótulos se miden solo al redimensionar/cargar fuentes, no en cada frame.
+- El plano usa el mismo render ilustrado, cacheado una vez. Seleccionar destino usa findPath existente, camina y entra; cancelar o dirección manual limpia ruta. Dibujar ruta y destino también en minimapa para conservar orientación fuera de encuadre. No borrar una ruta recién iniciada en el evento asíncrono close del diálogo: abrir diálogo ya detiene entradas previas.
 - tests/rpg_navigation_check.cjs comprueba cámara, límites/transformaciones de zoom, rutas entre edificios, cancelación manual/táctil, etiquetas y accesibilidad del plano. En pruebas esperar próximo cuadro para datasets del Canvas; no confundir estado renderizado con evento síncrono.
 
 ## 2026-10-06 · Experiencias con contenido y consola de archivos
