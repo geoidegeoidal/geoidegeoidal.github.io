@@ -42,3 +42,5 @@ Evidence: real browser movement and dialogue; all five building entrances and ex
 Limits: no physical-device/Safari or screen-reader listening session, no Core Web Vitals benchmark. The game uses a finite village and curated dialogue, not generative NPC conversation. Art loading is about 6MB before caching. Original personal photographs are not copied into the new game assets.
 
 Final review: independent Impeccable reviewer disposition `ship`, scoped to scored fixes (sprite isolation, exhibit label, actor grounding, exit indicator). All four resolved. New token documentation kept separate from terminal/classic. Root/baseurl checker, terminal, browser, motion, art direction and responsive reading passed.
+
+Production: Pages run 37539630455 success; merge 866ec1e. Corrected Jorge PNG hash matches local, live school interior and Bootcamp content/terminal checked without JavaScript errors.

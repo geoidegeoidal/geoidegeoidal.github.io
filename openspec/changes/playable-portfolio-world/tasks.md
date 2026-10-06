@@ -9,5 +9,5 @@
 ## Verify and publish
 - [x] Run model and browser checks plus existing-site regression.
 - [x] Inspect actual desktop/mobile gameplay and independent finish review.
-- [ ] Commit, push, deploy and verify production.
+- [x] Commit, push, deploy and verify production.
 - [x] Record durable decisions and handoff.
