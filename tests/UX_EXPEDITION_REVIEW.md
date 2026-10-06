@@ -53,6 +53,7 @@ Status `applied` means a design constraint was used, not an empirical claim abou
 - `node tests/expedition_check.cjs`: passed, including axe on both routes at 390/1440, state, commands, unsafe text, history, keyboard, focus, pause, reduced-motion, 200% zoom and fallback checks.
 - Jekyll root and `/portfolio` builds plus `tests/check_site.py`: passed, 10 pages, assets and internal links.
 - Impeccable detector on new routes/CSS/JS: no findings. Run once.
+- Existing browser, motion, art direction, responsive reading, map selector, research layout, archived proposal, SEO and arcade checks: passed.
 - Visual: all four desktop/mobile captures inspected. Independent Impeccable reviewer requested two fixes and then scored both resolved (`ship`, verdict limited to those fixes).
 
 Residual gaps: no screen-reader listening session, physical touch-device or Safari verification; no measured Core Web Vitals or user-study claims. Generated map PNG is 3.37 MB and only loaded on new views or lazily in homepage entry. Keyboard exploration follows five destinations, not unrestricted movement. Console supports curated commands, not a general shell or AI chat.

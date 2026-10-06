@@ -11,5 +11,5 @@
 ## 3. Verification and delivery
 - [x] 3.1 Build root and baseurl variants; run regression and new interaction checks.
 - [x] 3.2 Inspect desktop/mobile, run Impeccable and complete independent finish review.
-- [ ] 3.3 Update durable decisions and handoff; commit and push branch.
+- [x] 3.3 Update durable decisions and handoff; commit and push branch.
 - [ ] 3.4 Integrate into main, deploy and verify public routes.

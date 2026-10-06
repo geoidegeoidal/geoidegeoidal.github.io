@@ -9,4 +9,5 @@ Gemfile.lock
 
 .agents/
 
-.impeccable/
+.impeccable/*
+!.impeccable/design.json
