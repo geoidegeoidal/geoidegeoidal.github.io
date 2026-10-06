@@ -17,3 +17,7 @@ assert(!W.walkable(60,350,'taller'),'wall furnishings block walking');
 assert(!W.walkable(320,180,'taller'),'interior table collision');
 assert(W.findPath({x:320,y:378},{x:320,y:255},'taller').length,'interior exhibits reachable');
 console.log('PASS RPG movement, river, bridges, all five doors, NPCs and interiors');
+const pedestrians=[...W.npcs,{x:530,y:710}];
+assert(!W.walkable(530,710,'outside',pedestrians),'moving pedestrian is solid');
+const bypass=W.findPath({x:490,y:710},{x:570,y:710},'outside',pedestrians);
+assert(bypass.length&&bypass.every(p=>Math.hypot(p.x-530,p.y-710)>=19),'route avoids current pedestrian');

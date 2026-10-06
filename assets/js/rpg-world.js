@@ -16,6 +16,14 @@
     const name = document.createElement('strong'), role = document.createElement('small'); name.textContent = placeNames[b.id][0]; role.textContent = placeNames[b.id][1]; control.append(name, role);
     control.addEventListener('click', () => travel(b.id)); $('#world-labels').append(control); return { b, control };
   });
+  const visitors = [
+    {id:'sol',name:'Sol',x:530,y:710,points:[[650,710],[770,710],[770,570],[650,570]],waypoint:0,wait:.4},
+    {id:'bruno',name:'Bruno',x:1060,y:710,points:[[1150,710],[1250,710],[1250,850],[1080,850]],waypoint:0,wait:1.5}
+  ].map(v=>({...v,visitor:true,route:[],direction:0,step:1,clock:0,walking:false}));
+  const blockers=[...W.npcs,...visitors];
+  let lastEnvironment=0,footBeat=0,repathAt=0;
+  function cue(kind){document.dispatchEvent(new CustomEvent('rpg:cue',{detail:{kind,bridge:scene==='outside'&&W.onBridge(player.y)&&Math.abs(player.x-W.riverX(player.y))<75}}));}
+  function environment(){document.dispatchEvent(new CustomEvent('rpg:environment',{detail:{scene,coast:Math.max(0,1-player.x/950)}}));}
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const messages = {
     puerto: '¡Llegaste, Jorge! Este puerto guarda tu recorrido: geografía, análisis espacial y herramientas para entender el territorio. Entra al faro para recorrer los hitos. Al otro lado del puente está el taller; al sur, la escuela.',
@@ -73,10 +81,10 @@
     $('#pause').textContent = 'Pausar';
     started = true; paused = false; $('#welcome').hidden = true; $('#paused').hidden = true;
     $('#pause').hidden = false; $('#pause').textContent = 'Pausar'; $('#interact').hidden = false; $('.touch-pad').hidden = false;
-    audioState(); canvas.focus(); last = 0;
+    audioState(); environment(); canvas.focus(); last = 0;
   }
   function walkTo(goal, target = null, name = 'el punto marcado') {
-    clearRoute(); route = W.findPath(player, goal, scene);
+    clearRoute(); route = W.findPath(player, goal, scene, blockers);
     if (!route.length) { if(target&&Math.hypot(target.x-player.x,target.y-player.y)<68)target.action();else announce('No hay un camino hasta ahí. Prueba sobre el sendero o usa el cuaderno.'); return; }
     afterWalk = target; routeName = name; $('#route-name').textContent = 'Hacia ' + name; $('#route-banner').hidden = false;
     announce('Caminando hacia ' + name + '. Usa las flechas o Cancelar para tomar el control.');
@@ -102,7 +110,14 @@
     const p = scene === 'outside' ? player : W.buildings.find(b => b.id === scene); paint.fillStyle = '#ffefb0'; paint.fillRect(p.x/2-5,p.y/2-5,10,10); paint.strokeStyle = '#244a3c'; paint.strokeRect(p.x/2-5,p.y/2-5,10,10);
     paragraph('El punto claro eres tú. También puedes seguir a pie o consultar el cuaderno.', 'atlas-note');
   }
+  function talkVisitor(visitor) {
+    cue('talk');show(visitor.name,'talk');paragraph('Visitante del pueblo','npc-role');
+    paragraph(visitor.id==='sol'?'¡Buenas, Jorge! Venía del archivo. Me quedé mirando esos mapas que cuentan historias. ¿Seguimos recorriendo?':'Crucé el puente para pasar por el taller. Después quiero conocer la escuela. Hay mucho por descubrir en este pueblo.','npc-line');
+    button('Ver el plano del pueblo',atlas);button('Seguir caminando',close);
+    paragraph('Personaje ficticio del pueblo. Los proyectos y la trayectoria son reales.','guide-note');
+  }
   function talk(npc) {
+    cue('talk');
     place = npc.place; project = ''; syncURL(); show(npc.name, 'talk');
     const portrait = document.createElement('div'); portrait.className = 'dialog-portrait'; portrait.style.backgroundPositionX = `${npc.sprite / 3 * 100}%`; portrait.setAttribute('aria-hidden', 'true'); content.append(portrait);
     paragraph(npc.role, 'npc-role'); paragraph(messages[npc.place], 'npc-line');
@@ -118,12 +133,12 @@
     returnFocus = canvas;
     startGame();
     if (scene === 'outside') outsidePosition = { x: player.x, y: player.y };
-    audioState(); scene = id; place = id; project = ''; visited.add(id); player.x = 320; player.y = 378; player.direction = 2; stopInput();
+    scene = id; environment(); cue('door'); place = id; project = ''; visited.add(id); player.x = 320; player.y = 378; player.direction = 2; stopInput();
     $('#location-name').textContent = W.buildings.find(b => b.id === id).name; updateDiscovery(); syncURL(); announce('Entraste a ' + $('#location-name').textContent + '. Acércate a la mesa para explorar.'); canvas.focus(); resize(); last = 0; tick();
   }
-  function leave() { scene = 'outside'; Object.assign(player, outsidePosition); player.direction = 0; stopInput(); announce('De vuelta en el pueblo.'); resize(); }
+  function leave() { scene = 'outside';environment();cue('door'); Object.assign(player, outsidePosition); player.direction = 0; stopInput(); announce('De vuelta en el pueblo.'); resize(); }
   function interactions() {
-    if (scene === 'outside') return [...W.npcs.map(n => ({ ...n, kind: 'npc', label: 'Hablar con ' + n.name, action: () => talk(n) })), ...W.buildings.map(b => ({ x: b.x, y: b.y + 30, kind: 'door', label: 'Entrar: ' + b.name, action: () => enter(b.id) }))];
+    if (scene === 'outside') return [...visitors.map(n=>({...n,kind:'visitor',label:'Hablar con '+n.name,action:()=>talkVisitor(n)})),...W.npcs.map(n => ({ ...n, kind: 'npc', label: 'Hablar con ' + n.name, action: () => talk(n) })), ...W.buildings.map(b => ({ x: b.x, y: b.y + 30, kind: 'door', label: 'Entrar: ' + b.name, action: () => enter(b.id) }))];
     return [
       { x: 320, y: 255, kind: 'exhibit', label: 'Explorar ' + W.buildings.find(b => b.id === scene).name, action: () => showPlace(scene) },
       { x: 115, y: 235, kind: 'exhibit', label: scene === 'puerto' ? 'Leer la trayectoria' : scene === 'escuela' ? 'Ver herramientas' : 'Leer los proyectos', action: () => scene === 'puerto' ? showExtra('exp-trajectory', 'Trayectoria profesional') : scene === 'escuela' ? showExtra('exp-skills', 'Herramientas de trabajo') : showPlace(scene) },
@@ -159,11 +174,11 @@
   canvas.addEventListener('pointerdown', e => {
     if (!started || paused || dialog.open) return; canvas.focus();
     const rect=canvas.getBoundingClientRect(), goal={x:(e.clientX-rect.left)/view.scale+Math.round(view.x),y:(e.clientY-rect.top)/view.scale+Math.round(view.y)};
-    const target=interactions().find(i=>Math.hypot(goal.x-i.x,goal.y-i.y)<42 || (i.kind==='npc'&&Math.abs(goal.x-i.x)<24&&goal.y<i.y&&goal.y>i.y-60));
+    const target=interactions().find(i=>Math.hypot(goal.x-i.x,goal.y-i.y)<42 || ((i.kind==='npc'||i.kind==='visitor')&&Math.abs(goal.x-i.x)<24&&goal.y<i.y&&goal.y>i.y-60));
     const building=scene==='outside'&&W.buildings.find(b=>Math.abs(goal.x-b.x)<b.w*.42&&goal.y>b.y-b.h*.9&&goal.y<b.y+32);
     if (target) {
       if (Math.hypot(player.x-target.x,player.y-target.y)<65) { target.action(); return; }
-      walkTo({x:target.x,y:target.y+35},target,target.label);
+      walkTo({x:target.x,y:target.y+40},target,target.label.replace(/^(Hablar con |Entrar: |Explorar )/,''));
     } else if (building) travel(building.id);
     else walkTo(goal);
   });
@@ -196,8 +211,8 @@
     if(img===assets.props&&col===2&&row===1){const dw=w*289/sw,dh=h*376/sh;paint.drawImage(img,954,455,289,376,Math.round(x-dw/2),Math.round(y-dh),dw,dh);return;}
     paint.drawImage(img,col*sw,row*sh,sw,sh,Math.round(x-w/2),Math.round(y-h),w,h);
   }
-  function label(text,x,y) {
-    ctx.save();ctx.translate(x,y);ctx.scale(1/view.scale,1/view.scale);ctx.font='14px Pixelify, sans-serif';const width=ctx.measureText(text).width+16;ctx.fillStyle='#244a3c';ctx.fillRect(-width/2,-17,width,24);ctx.fillStyle='#fff2cf';ctx.textAlign='center';ctx.fillText(text,0,0);ctx.restore();
+  function label(text,x,y,friendly=false) {
+    ctx.save();ctx.translate(x,y);ctx.scale(1/view.scale,1/view.scale);ctx.font='14px Pixelify, sans-serif';const width=ctx.measureText(text).width+16;ctx.fillStyle=friendly?'#fff2cf':'#244a3c';ctx.fillRect(-width/2,-17,width,24);if(friendly)ctx.fillRect(-3,7,6,4);ctx.fillStyle=friendly?'#244a3c':'#fff2cf';ctx.textAlign='center';ctx.fillText(text,0,0);ctx.restore();
   }
   // Measured opaque bounds: generated sheets have unequal transparent gutters, not exact tiles.
   const npcRects=[[76,937,180,264],[391,930,185,272],[710,933,154,268],[1009,940,162,261]];
@@ -207,6 +222,43 @@
     paint.fillStyle='#40563c40';paint.beginPath();paint.ellipse(p.x,p.y-3,isPlayer?17:13,5,0,0,Math.PI*2);paint.fill();
     const [sx,sy,sw,sh]=isPlayer?jorgeRects[player.direction*4+player.step]:npcRects[p.sprite],scale=isPlayer?.22:.205;
     paint.drawImage(img,sx,sy,sw,sh,Math.round(p.x-sw*scale/2),Math.round(p.y-sh*scale),sw*scale,sh*scale);
+  }
+  // The explorer rows were already in the actor sheet; crops exclude adjacent-row pixels.
+  const visitorRects=[[81,70,156,228],[395,70,155,226],[705,70,154,228],[1017,72,155,224],[92,364,146,231],[402,366,145,229],[718,364,143,231],[1025,367,145,228],[84,659,153,233],[395,665,153,223],[707,659,153,235],[1017,665,153,223]];
+  function visitorActor(p){
+    if(!assets.actors)return;
+    const row=p.direction===2?2:p.direction===0?0:1,[sx,sy,sw,sh]=visitorRects[row*4+p.step],scale=.23;
+    ctx.fillStyle='#40563c40';ctx.beginPath();ctx.ellipse(p.x,p.y-3,13,5,0,0,Math.PI*2);ctx.fill();ctx.save();ctx.translate(Math.round(p.x),Math.round(p.y));if(p.direction===3)ctx.scale(-1,1);ctx.drawImage(assets.actors,sx,sy,sw,sh,-sw*scale/2,-sh*scale,sw*scale,sh*scale);ctx.restore();
+  }
+  function updateVisitors(dt){
+    for(const v of visitors){
+      v.walking=false;v.step=1;
+      if(scene!=='outside'||reduced.matches||Math.hypot(v.x-player.x,v.y-player.y)<100||afterWalk?.id===v.id)continue;
+      if(v.wait>0){v.wait-=dt;continue;}
+      const other=[...W.npcs,...visitors.filter(n=>n!==v),player];
+      if(!v.route.length){const [x,y]=v.points[v.waypoint];v.waypoint=(v.waypoint+1)%v.points.length;v.route=W.findPath(v,{x,y},'outside',other);if(!v.route.length){v.wait=2;continue;}}
+      const next=v.route[0],dx=next.x-v.x,dy=next.y-v.y,distance=Math.hypot(dx,dy);
+      if(distance<2){v.route.shift();if(!v.route.length)v.wait=2.5;continue;}
+      v.walking=W.move(v,dx,dy,Math.min(dt*.36,distance/155),'outside',other);
+      if(!v.walking){v.route=[];v.wait=1;continue;}
+      v.direction=Math.abs(dx)>Math.abs(dy)?(dx>0?1:3):(dy>0?0:2);v.clock+=dt;v.step=Math.floor(v.clock*7)%4;
+    }
+  }
+  function coastalLife(){
+    const t=ambientTime;ctx.save();
+    // Moving foam follows the same shoreline and river geometry as collisions.
+    for(let y=80;y<W.height;y+=28){const x=W.coastX(y)-8+Math.sin(t*.8+y*.017)*6;ctx.fillStyle='#d5eee0';ctx.globalAlpha=.45+Math.sin(t*.8+y*.017)*.2;ctx.fillRect(Math.round(x),y,3,16);}
+    ctx.globalAlpha=.65;ctx.fillStyle='#b2e0d5';for(let i=0;i<32;i++){const y=90+(i*31+t*17)%920;if(!W.onBridge(y)){const x=W.riverX(y)-24+(i%4)*15;ctx.fillRect(Math.round(x),Math.round(y),2,8);}}
+    ctx.globalAlpha=1;
+    // Quiet puffs emerge from the workshop chimney, not from a generic screen overlay.
+    const workshop=W.buildings.find(b=>b.id==='taller');for(let i=0;i<4;i++){const age=(t*.24+i*.25)%1,x=workshop.x-73+Math.sin(age*4)*10+age*16,y=workshop.y-155-age*52;ctx.globalAlpha=(1-age)*.38;ctx.fillStyle='#eef0d9';ctx.fillRect(Math.round(x),Math.round(y),8+age*11,6+age*8);ctx.fillRect(Math.round(x-3),Math.round(y+3),13+age*9,4);}
+    ctx.globalAlpha=.55;ctx.fillStyle='#f4c7c9';for(let i=0;i<14;i++){const x=280+(i*97+t*9)%1010,y=330+(i*53+t*5)%620;ctx.fillRect(Math.round(x),Math.round(y),3,2);}
+    ctx.restore();
+  }
+  function greeting(n){
+    if(!started||paused||dialog.open||reduced.matches||Math.hypot(n.x-player.x,n.y-player.y)>115||Math.floor(ambientTime)%14>4)return;
+    const greetings={puerto:'¡Buenas, Jorge!',archivo:'Pasa, hay mapas.',observatorio:'¡Mira el horizonte!',taller:'El taller está abierto.',escuela:'Hoy compartimos ideas.'};
+    label(greetings[n.place]||'¡Buen paseo!',n.x,n.y-70,true);return true;
   }
   function groundTarget() {if(nearby&&started&&!dialog.open&&!paused){ctx.strokeStyle='#fff2cf';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(nearby.x,nearby.y+3,22,8,0,0,Math.PI*2);ctx.stroke();}}
   function drawRoute() {
@@ -218,13 +270,14 @@
     paint.drawImage(terrain,0,0);
     if(!whole){
       if(started&&!reduced.matches){const phase=ambientTime;paint.fillStyle='#d1eee4';for(let y=60;y<W.height;y+=83){const x=42+(y%71)+Math.floor(Math.sin(phase*.6+y)*12);paint.fillRect(x,y,20,2);paint.fillRect(x+6,y+3,10,2);}}
-      drawRoute();groundTarget();
+      if(started&&!reduced.matches)coastalLife();drawRoute();groundTarget();
     }
-    const entities=[...W.trees.map(t=>({...t,type:'tree'})),...W.buildings.map(b=>({...b,type:'building'})),...W.npcs.map(n=>({...n,type:'npc'})),...(!whole?[{...player,type:'player'}]:[])].sort((a,b)=>a.y-b.y);
+    const entities=[...W.trees.map(t=>({...t,type:'tree'})),...W.buildings.map(b=>({...b,type:'building'})),...W.npcs.map(n=>({...n,type:'npc'})),...(!whole?[...visitors.map(v=>({...v,type:'visitor'})),{...player,type:'player'}]:[])].sort((a,b)=>a.y-b.y);
     entities.forEach(e=>{if(!whole&&(e.x+(e.w||80)<view.x||e.x-(e.w||80)>view.x+view.w/view.scale||e.y<view.y||e.y-(e.h||90)>view.y+view.h/view.scale))return;
-      if(e.type==='tree')sprite(assets.props,e.sprite,0,4,2,e.x,e.y,e.w,e.h,paint);
+      if(e.type==='tree'){paint.save();paint.translate(e.x,e.y);if(!whole&&started&&!reduced.matches)paint.transform(1,0,Math.sin(ambientTime*.7+e.x*.01)*.025,1,0,0);sprite(assets.props,e.sprite,0,4,2,0,0,e.w,e.h,paint);paint.restore();}
       if(e.type==='building')sprite(assets.buildings,e.sprite%3,Math.floor(e.sprite/3),3,2,e.x,e.y,e.w,e.h,paint);
-      if(e.type==='npc'){actor(e,false,paint);if(!whole&&started&&Math.hypot(e.x-player.x,e.y-player.y)<145)label(e.name,e.x,e.y-68);}
+      if(e.type==='npc'){actor(e,false,paint);if(!whole&&started&&Math.hypot(e.x-player.x,e.y-player.y)<145&&!greeting(e))label(e.name,e.x,e.y-68);}
+      if(e.type==='visitor'){visitorActor(e);if(Math.hypot(e.x-player.x,e.y-player.y)<145)label(e.name,e.x,e.y-62);}
       if(e.type==='player')actor(player,true,paint);
     });
   }
@@ -233,7 +286,7 @@
     ['.location','.camera-controls','#overview','#route-banner','.game-bottom','.touch-pad'].forEach(selector=>{
       const el=$(selector);if(el.getClientRects().length){const r=el.getBoundingClientRect();occupied.push({left:r.left-game.left-8,right:r.right-game.left+8,top:r.top-game.top-8,bottom:r.bottom-game.top+8});}
     });
-    [player,...W.npcs].forEach(p=>{const x=(p.x-Math.round(view.x))*view.scale,y=(p.y-Math.round(view.y))*view.scale;occupied.push({left:x-24*view.scale,right:x+24*view.scale,top:y-66*view.scale,bottom:y+6*view.scale});});
+    [player,...blockers].forEach(p=>{const x=(p.x-Math.round(view.x))*view.scale,y=(p.y-Math.round(view.y))*view.scale;occupied.push({left:x-24*view.scale,right:x+24*view.scale,top:y-66*view.scale,bottom:y+6*view.scale});});
     landmarkButtons.forEach(({b,control,width,height})=>{
       const x=(b.x-Math.round(view.x))*view.scale,feet=(b.y-Math.round(view.y))*view.scale,roof=feet-b.h*.78*view.scale,left=x-width/2,top=roof-height;
       const visible=x+b.w*.42*view.scale>0&&x-b.w*.42*view.scale<view.w&&feet>0&&roof<view.h;
@@ -271,26 +324,28 @@
     const point=scene==='outside'?player:W.buildings.find(b=>b.id===scene);map.fillStyle='#203e3a';map.fillRect(point.x*ratio-4,point.y*ratio-4,8,8);map.fillStyle='#fff9d6';map.fillRect(point.x*ratio-2,point.y*ratio-2,4,4);
     positionLabels();
     // Observable play state supports regression checks without exposing mutable game internals.
-    canvas.dataset.x=player.x.toFixed(1);canvas.dataset.y=player.y.toFixed(1);canvas.dataset.scene=scene;canvas.dataset.direction=player.direction;canvas.dataset.paused=String(paused);canvas.dataset.route=route.length;canvas.dataset.scale=view.scale.toFixed(3);canvas.dataset.cameraX=Math.round(view.x);canvas.dataset.cameraY=Math.round(view.y);
+    canvas.dataset.x=player.x.toFixed(1);canvas.dataset.y=player.y.toFixed(1);canvas.dataset.scene=scene;canvas.dataset.direction=player.direction;canvas.dataset.paused=String(paused);canvas.dataset.route=route.length;canvas.dataset.scale=view.scale.toFixed(3);canvas.dataset.cameraX=Math.round(view.x);canvas.dataset.cameraY=Math.round(view.y);canvas.dataset.residents=visitors.map(v=>v.x.toFixed(1)+','+v.y.toFixed(1)).join(';');
   }
   function tick(time=0) {
     if(frame){cancelAnimationFrame(frame);frame=0;}if(!ready||!started||paused||document.hidden||dialog.open){draw();return;}
-    const dt=last?Math.min((time-last)/1000,.05):0;last=time;ambientTime+=dt;let dx=0,dy=0;
+    const dt=last?Math.min((time-last)/1000,.05):0;last=time;ambientTime+=dt;updateVisitors(dt);if(ambientTime-lastEnvironment>.5){environment();lastEnvironment=ambientTime;}let dx=0,dy=0;
     keys.forEach(k=>{const d=directions[k];if(d){dx+=d[0];dy+=d[1];}});
     if(!dx&&!dy&&route.length){const next=route[0],distance=Math.hypot(next.x-player.x,next.y-player.y);if(distance<3){route.shift();}else{dx=next.x-player.x;dy=next.y-player.y;}}
-    moving=W.move(player,dx,dy,Math.min(dt,route.length?Math.hypot(dx,dy)/155:dt),scene);
+    moving=W.move(player,dx,dy,Math.min(dt,route.length?Math.hypot(dx,dy)/155:dt),scene,blockers);
+    if(route.length&&!moving&&(dx||dy)&&ambientTime>repathAt){repathAt=ambientTime+1;const goal=route[route.length-1],replacement=W.findPath(player,goal,scene,blockers);if(replacement.length)route=replacement;else{clearRoute();announce('El camino está ocupado. Puedes elegir otro punto o continuar a pie.');}}
     if(dx||dy)player.direction=Math.abs(dx)>Math.abs(dy)?(dx>0?1:3):(dy>0?0:2);
-    if(moving){walkingTime+=dt;player.step=reduced.matches?1:Math.floor(walkingTime*9)%4;}else player.step=1;
+    if(moving){walkingTime+=dt;if(Math.floor(walkingTime*3)!==footBeat){footBeat=Math.floor(walkingTime*3);cue('step');}player.step=reduced.matches?1:Math.floor(walkingTime*9)%4;}else player.step=1;
     if(!route.length&&routeName){const action=afterWalk;clearRoute();if(action&&Math.hypot(action.x-player.x,action.y-player.y)<68)action.action();}
     updateNearby();draw(dt);if(!dialog.open&&!paused)frame=requestAnimationFrame(tick);
   }
-  $('#start').addEventListener('click',()=>{startGame();announce('Estás en el puerto. Pulsa un lugar o abre el plano para elegir destino.');tick();});
+  function begin(withSound){startGame();document.dispatchEvent(new CustomEvent('rpg:sound-choice',{detail:{enabled:withSound}}));announce('Bienvenido al pueblo. Pulsa un lugar o abre el plano para elegir destino.');tick();}
+  $('#start').addEventListener('click',()=>begin(true));$('#start-silent').addEventListener('click',()=>begin(false));
   if(!ctx||!W){$('#loading').textContent='No se pudo abrir el mapa. Usa el índice para consultar el portafolio.';return;}
   makeTerrain();resize();$('#journal').hidden=false;$('#help').hidden=false;
   document.fonts.ready.then(resize);
   const params=new URLSearchParams(location.search);if(W.buildings.some(b=>b.id===params.get('lugar'))){place=params.get('lugar');const b=W.buildings.find(b=>b.id===place);player.x=b.x;player.y=b.y+60;outsidePosition={x:player.x,y:player.y};}
   Promise.all(['buildings','actors','props','jorge','rooms'].map(name=>new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>{assets[name]=img;resolve();};img.onerror=()=>reject(new Error(name));img.src=$('.game').dataset.assets+'rpg-'+name+'.png';}))).then(()=>{
-    ready=true;const paint=overview.getContext('2d');paint.imageSmoothingEnabled=false;drawOutside(paint,true);cameraSnap=true;$('#overview').disabled=false;$('#loading').textContent='Camina libremente o elige un destino en el plano.';$('#start').hidden=false;$('#start').disabled=false;draw();
+    ready=true;const paint=overview.getContext('2d');paint.imageSmoothingEnabled=false;drawOutside(paint,true);cameraSnap=true;$('#overview').disabled=false;$('#loading').textContent='Camina libremente o elige un destino en el plano.';$('#start').hidden=false;$('#start').disabled=false;$('#start-silent').hidden=false;$('#start-silent').disabled=false;draw();
     if(params.get('proyecto')&&document.getElementById('project-'+params.get('proyecto')))showProject(params.get('proyecto'));
-  }).catch(()=>{$('#loading').textContent='Una ilustración no pudo cargar. Recarga la página o abre el cuaderno para explorar el contenido.';$('#start').hidden=true;});
+  }).catch(()=>{$('#loading').textContent='Una ilustración no pudo cargar. Recarga la página o abre el cuaderno para explorar el contenido.';$('#start').hidden=true;$('#start-silent').hidden=true;});
 })();

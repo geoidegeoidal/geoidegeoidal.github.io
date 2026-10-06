@@ -1,5 +1,5 @@
 - [x] Read context and define sound/life refinement.
-- [ ] Implement explicit audio entry, score/ambience and living-world behaviors.
-- [ ] Validate audible output, pause/mute, roaming/collisions, navigation, reduced motion and responsive controls.
+- [x] Implement explicit audio entry, score/ambience and living-world behaviors.
+- [x] Validate audible output, pause/mute, roaming/collisions, navigation, reduced motion and responsive controls.
 - [ ] Complete independent visual review and design documentation.
 - [ ] Commit, push, deploy, verify live and update handoff.

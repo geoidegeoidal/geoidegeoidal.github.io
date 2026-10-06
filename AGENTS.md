@@ -1,3 +1,11 @@
+## 2026-10-06 · Música descubrible y pueblo habitado
+
+- Entrada RPG: página inicial silenciosa, elección explícita Entrar con música / Entrar sin sonido. La primera crea/reanuda audio por ese gesto; la segunda no lo crea. Botón de música visible fuera del detalle Volumen. Esta decisión sustituye la entrada siempre muda con música oculta del refinamiento anterior.
+- Audio original Costa de las ideas, armonía/eco/mar/efectos con un AudioContext y scheduler acotado. rpg:playstate controla pausa; rpg:environment modifica mezcla sin reiniciar scheduler; rpg:cue responde a pasos/puerta/conversación. Tests miden señal de salida y silencio a volumen cero, no solo state=running.
+- Sol y Bruno reutilizan primeras tres filas de rpg-actors.png con recortes opacos medidos, espalda sin sangrado de fila inferior. No dibujar visitante antes de cargar assets. Guías mantienen identidad/posición; paseantes son ficticios, paran cerca de Jorge, conversan y respetan la misma geometría.
+- walkable/move/findPath aceptan blockers opcionales, por defecto NPC originales. Juego pasa NPC+paseantes; rutas automáticas se recalculan si aparece un bloqueo. No mover coordenadas estáticas de W.npcs para animar.
+- Mar/río/viento/pétalos/chimenea usan el único reloj del juego; mundo se congela en pausa, diálogo y pestaña oculta. Reduced motion detiene vida ambiental/paseantes, conserva caminar, conversar y leer. No añadir un segundo RAF o timers por partícula.
+
 ## 2026-10-06 · Cámara y orientación del RPG
 
 - Cámara exterior abierta: escala base .95 escritorio, .75 móvil y .65 para área de juego de altura <360; zoom relativo .65–1.35. La geometría y posición del personaje nunca cambian al hacer zoom. Usar el mismo origen de cámara redondeado al dibujar y convertir clics.
