@@ -5,6 +5,7 @@
 - RPG conserva Jorge de cuerpo más gordito. rpg-rooms.png es atlas de interiores 3×2; límites de paredes/muebles en rpg-model.js deben coincidir. Cuaderno rpg-evidence.html comparte datos reales, conversaciones van abajo; no quitar fuentes/estados/límites.
 - Música original rpg-audio.js: AudioContext solo tras gesto, apagada al entrar, un contexto reutilizado, volumen, silencio, suspensión pausa/hidden. Contador de revisión descarta reanudaciones asíncronas antiguas.
 - Consola estática antigua (_includes/expedition.html, expedition.css/js) retirada por quedar sin referencias. Se conservan expedition-templates.html y _data/expedition.json como datos/fuentes compartidas.
+- Verificación de recursos publicados: Git puede convertir LF a CRLF en Windows al cambiar de rama. Normalizar solo saltos de línea al comparar hashes de texto con Pages; los PNG se comparan byte a byte.
 - Pruebas: expedition_check.cjs para consola, rpg_logic/rpg_check para juego, rpg_audio_check para audio. Esperar evento de media query en pruebas de reduced-motion; no assert inmediato tras emulateMedia.
 
 ## 2026-10-06 · Mundo jugable y personaje del propietario

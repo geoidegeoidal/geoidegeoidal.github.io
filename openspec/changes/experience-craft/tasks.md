@@ -6,5 +6,5 @@
 ## Validation and delivery
 - [x] Verify behavior, accessibility, responsive layouts and regressions.
 - [x] Complete independent Impeccable review and design documentation.
-- [ ] Commit, push, deploy and verify production.
+- [x] Commit, push, deploy and verify production.
 - [x] Record handoff and durable decisions.
