@@ -31,3 +31,6 @@ Perfil y trayectoria en index; catálogo en `_data/projects.json`; competencias 
 
 ## Accessibility & Inclusion
 Teclado, foco visible, controles táctiles de 44px, contraste AA, lectura sin JavaScript, movimiento reducido, pausa y reflow a 320px/200%.
+
+## Revised map brief · 2026-10-06
+The owner rejected the static five-pin map and dark/copper sidebar. The map must be a bright, fully playable retro RPG village with walking, NPCs, enterable buildings and real portfolio evidence. Jorge is the playable character, based on supplied photos with explicitly fuller proportions. Clients and education retain equal presence. Terminal and classic surfaces preserve their separate designs.

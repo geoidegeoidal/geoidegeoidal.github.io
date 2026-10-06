@@ -1,3 +1,5 @@
+> Historical review of the first implementation. The owner rejected the map after deployment; its replacement is documented and tested in UX_RPG_REVIEW.md. The assertions below describe the superseded map, not the current RPG.
+
 # Laws of UX review
 
 Scope: explorar.html, terminal.html, shared notebook, homepage entry; 320/390/768/1440px, keyboard, mouse, touch-size controls, 200% CSS zoom, reduced motion and no-JS.

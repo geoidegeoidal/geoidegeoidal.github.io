@@ -1,3 +1,12 @@
+## 2026-10-06 · Mundo jugable y personaje del propietario
+
+- La primera versión del mapa (PR #1) fue rechazada por ser un selector estático y repetir estética oscura/cobre/sidebar. La dirección de explorar.html es ahora un pueblo costero luminoso y jugable: Canvas, cámara, movimiento continuo, colisiones, NPC y cinco interiores. Esta decisión sustituye las instrucciones de mapa finito y estética océano/cobre; la terminal conserva su diseño.
+- Personaje principal: Jorge a partir de sus referencias, pelo a hombros, lentes, barba corta, chaqueta verde y cuerpo más gordito por corrección explícita. Usar assets/images/rpg-jorge.png; no volver a la variante delgada ni publicar las fotos privadas de referencia como recursos del juego.
+- Layout game independiente: no cargar site.js/motion.js porque requieren la estructura del layout clásico. Canvas usa rpg-model.js como única geometría para colisiones/rutas/pruebas. Diálogos e índice permanecen DOM accesible, sin bloquear evidencia detrás del juego.
+- Sprites generados no son una cuadrícula exacta: usar límites opacos medidos para actores y recorte específico de estantería, no asumir gutters iguales. Anclar pies a la posición lógica; dibujar indicadores de suelo antes de actores. Los PNG conservan alpha y metadatos de procedencia.
+- Plantillas factuales compartidas en _includes/expedition-templates.html. NPC son guías ficticios, no colaboradores reales. Cuaderno visita/lee cualquier lugar; no inventar logros ni quitar límites de proyectos.
+- Validar tests/rpg_logic.cjs y tests/rpg_check.cjs para mapa; expedition_check.cjs ahora conserva regresión de terminal. Capturas en .impeccable/review ignoradas, no regenerar assets versionados dentro de tests.
+
 # Instrucciones del proyecto
 
 - Experiencias aprobadas 2026-10-06: mapa RPG/pixel en explorar.html y terminal local en terminal.html. Clientes/equipos y comunidad/alumnos tienen el mismo protagonismo (respuesta explícita). Mantener portada clásica y entrada a ambas experiencias; proyectos provienen de _data/projects.json, destinos de _data/expedition.json y trayectoria de _includes/trajectory.html compartida con portada.

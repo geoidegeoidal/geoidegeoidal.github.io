@@ -1,7 +1,14 @@
 ---
-name: Atlas de expedición
-description: Sistema adicional de mapa y terminal del portafolio de Jorge Ulloa; no sustituye la portada clásica.
+name: Pueblo costero y terminal
+description: Tres mundos separados; RPG costero luminoso, terminal océano/cobre y portada editorial conservada.
 colors:
+  rpg-ink: "#26382f"
+  rpg-paper: "#fff2cf"
+  rpg-orange: "#b8432e"
+  rpg-green: "#285b48"
+  rpg-line: "#9d8155"
+  rpg-focus: "#9d2f27"
+  rpg-hover: "#f5d68e"
   exp-ocean: "#0c202a"
   exp-surface: "#142d35"
   exp-console: "#0a1a22"
@@ -12,6 +19,34 @@ colors:
   exp-sage: "#a7d2bf"
   exp-line: "#38535b"
 typography:
+  rpg-display:
+    fontFamily: "Pixelify, sans-serif"
+    fontSize: "clamp(21px, 2.5vw, 32px)"
+    fontWeight: 500
+    lineHeight: 1
+  rpg-headline:
+    fontFamily: "Pixelify, sans-serif"
+    fontSize: "32px"
+    fontWeight: 500
+    lineHeight: 1.1
+  rpg-title:
+    fontFamily: "DM Sans, sans-serif"
+    fontSize: "22px"
+    fontWeight: 700
+    lineHeight: 1.25
+  rpg-body:
+    fontFamily: "DM Sans, sans-serif"
+    fontSize: "16px"
+    fontWeight: 400
+    lineHeight: 1.65
+  rpg-control:
+    fontFamily: "Pixelify, sans-serif"
+    fontSize: "18px"
+    fontWeight: 500
+  rpg-location:
+    fontFamily: "Pixelify, sans-serif"
+    fontSize: "21px"
+    fontWeight: 500
   display:
     fontFamily: "'DM Sans', sans-serif"
     fontSize: "clamp(30px, 3.3vw, 48px)"
@@ -81,118 +116,142 @@ components:
     backgroundColor: "transparent"
     textColor: "{colors.exp-sage}"
     padding: "8px 0"
-  destination-selected:
-    backgroundColor: "{colors.exp-raised}"
-    textColor: "{colors.exp-ink}"
-    padding: "10px"
+  rpg-button:
+    backgroundColor: "{colors.rpg-paper}"
+    textColor: "{colors.rpg-ink}"
+    rounded: "{rounded.square}"
+    padding: "10px 16px"
+  rpg-button-hover:
+    backgroundColor: "{colors.rpg-hover}"
+  rpg-start:
+    backgroundColor: "{colors.rpg-green}"
+    textColor: "{colors.rpg-paper}"
+    rounded: "{rounded.square}"
+    padding: "10px 16px"
+  rpg-dialog:
+    backgroundColor: "{colors.rpg-paper}"
+    textColor: "{colors.rpg-ink}"
+    rounded: "{rounded.square}"
+    padding: "0"
+  rpg-location:
+    backgroundColor: "{colors.rpg-paper}"
+    textColor: "{colors.rpg-ink}"
+    typography: "{typography.rpg-location}"
+    padding: "10px 16px"
 ---
 
-# Design System: Atlas de expedición
+# Design System: Pueblo costero y terminal
 
 ## Overview
 
-**Creative North Star: "Atlas de expedición"**
+**Creative North Star: "Pueblo costero, trabajo real"**
 
-Un territorio imaginario de fantasía pixelada organiza evidencia real: puerto, archivo, observatorio, taller y escuela. El mar oscuro une la ilustración, el cuaderno de campo y la terminal; la lectura usa tipografía contemporánea y controles HTML legibles. Clientes y equipos, comunidad geográfica y futuros alumnos tienen el mismo protagonismo.
+La exploración de Jorge habita un pueblo costero luminoso: mar azul, pasto salvia, caminos de arena, edificios de estuco y tejas rojas. El cuerpo, los objetos y los lugares tienen presencia pixelada; la evidencia profesional se lee con calma en papel crema. Jorge conserva pelo a hombros, lentes, barba corta, chaqueta verde y el cuerpo más gordito solicitado por el propietario.
 
-Este documento actualiza la dirección aprobada con el código terminado de `explorar.html`, `terminal.html`, `_includes/expedition.html`, `assets/css/expedition.css` y `assets/js/expedition.js`. Es una ampliación aprobada, construida desde código; la ilustración es un recurso original, no una composición de interfaz previamente aprobada. Los tokens de esta cabecera pertenecen exclusivamente a la expedición. La portada clásica conserva el atlas editorial, el logo JU, DM Sans, los mapas originales, sus superficies arena/lila/salvia y el movimiento aprobado en AGENTS.md. La franja de entrada conecta ambos sistemas sin sustituir la portada.
+Este sistema documenta tres ámbitos separados. Los tokens `rpg-*` describen `explorar.html`, su layout independiente y `rpg-world.css`/`rpg-world.js`; sus cinco variables de interfaz corresponden a `--ink`, `--paper`, `--orange`, `--green` y `--line`. Los tokens `exp-*` y las jerarquías sin prefijo conservan la terminal de `expedition.css`. La portada clásica mantiene el atlas editorial, logo JU, DM Sans, cartografías originales y superficies arena/lila/salvia. El pueblo reemplaza únicamente el mapa estático rechazado; no redefine el resto del portafolio.
 
 **Key Characteristics:**
-- Isla pixelada original y cinco destinos reales como controles HTML.
-- Cuaderno contextual abierto, con evidencia disponible sin completar un juego.
-- Terminal local con comandos acotados y sugerencias accionables.
-- Selección compartida entre vistas mediante URL.
-- Superficies planas, selección cobre y lectura accesible.
+- Pueblo luminoso con personajes, edificios e interiores pixelados.
+- Pixelify local para identidad del juego y DM Sans local para lectura.
+- Controles crema discretos y evidencia accesible sin progresión obligatoria.
+- Terminal de océano, cobre y comandos locales; portada editorial independiente.
+- Profundidad ilustrada con pies y señales anclados al suelo.
 
 ## Colors
 
-El océano oscuro sostiene texto de papel cálido; cobre y salvia distinguen selección y comandos.
+La interfaz del juego usa papel cálido, tinta vegetal y acentos de arcilla; la terminal conserva su contraste nocturno.
 
 ### Primary
-- **Cobre de ruta** (`exp-copper`): vista activa, destino seleccionado, enlaces de evidencia, cursor y foco. La ruta dibujada usa un matiz ilustrativo propio; no es otro token de controles.
+- **Verde de acción** (`rpg-green`): comenzar, enlaces y selección de texto en el juego.
+- **Cobre de consola** (`exp-copper`): acciones, vista seleccionada y foco de la terminal.
 
 ### Secondary
-- **Salvia de consola** (`exp-sage`): sugerencias, comandos, tecnologías y señal de sesión local.
+- **Arcilla** (`rpg-orange`): marcador de lugar y hover de enlaces.
+- **Rojo de foco** (`rpg-focus`): contorno de teclado en la interfaz luminosa.
+- **Salvia de consola** (`exp-sage`): comandos sugeridos y tecnologías de la terminal.
 
 ### Neutral
-- **Océano** (`exp-ocean`): fondo del documento y tinta de controles seleccionados.
-- **Cuaderno** (`exp-surface`): cuaderno lateral y fondo de reserva del mapa.
-- **Consola profunda** (`exp-console`): superficie de resultados de la terminal.
-- **Superficie elevada** (`exp-raised`): hover y selección del índice de destinos.
-- **Papel iluminado** (`exp-ink`): títulos y texto principal.
-- **Tinta secundaria** (`exp-muted`): explicaciones, metadatos y controles en reposo.
-- **Línea de costa** (`exp-line`): bordes y divisores discretos.
+- **Papel de viaje** (`rpg-paper`): cabecera, rótulos, controles y diálogos.
+- **Tinta vegetal** (`rpg-ink`): texto principal y marcos del juego.
+- **Línea de arena** (`rpg-line`): divisores y borde inferior de los indicadores.
+- **Papel al sol** (`rpg-hover`): hover de los botones comunes.
+- **Océano, cuaderno y consola profunda** (`exp-ocean`, `exp-surface`, `exp-console`): fondos exclusivos de terminal.
+- **Superficie elevada, papel iluminado, tinta secundaria y línea de costa** (`exp-raised`, `exp-ink`, `exp-muted`, `exp-line`): estados y jerarquía de lectura de terminal.
 
-**The Selected Route Rule.** El cobre comunica una ruta elegida, una acción o el foco; los metadatos secundarios permanecen en tinta secundaria.
+Los colores del terreno y los interiores pertenecen a la ilustración Canvas. No son sustitutos de los colores de lectura ni una nueva paleta global.
+
+**The Separate Worlds Rule.** Aplicar cada paleta solo en su ruta; un cambio en el pueblo no recolorea terminal ni portada clásica.
 
 ## Typography
 
-**Display Font:** DM Sans local, con sans-serif de reserva.
+**Display Font:** Pixelify local, con sans-serif de reserva, para el juego; DM Sans local para terminal y portada.
 **Body Font:** DM Sans local, con sans-serif de reserva.
-**Label/Mono Font:** Consolas, con monospace de reserva, solo para comandos, coordenadas y numeración.
-
-La isla aporta el lenguaje pixel; la lectura no imita una fuente de videojuego. Se conserva la voz tipográfica del portafolio.
+**Label/Mono Font:** Pixelify en lugares y personajes del pueblo; Consolas con monospace de reserva para comandos de terminal.
 
 ### Hierarchy
-- **Display:** título de página; pasa a 34px bajo 800px y a 30px bajo 500px.
-- **Headline:** nombre del destino en el cuaderno.
-- **Title:** nombre del proyecto abierto. La bienvenida de consola usa 26px, con 23px bajo 500px.
-- **Body:** descripción del destino y proyecto; la introducción de página y bienvenida usan 15px. La bienvenida limita sus párrafos a 56ch.
-- **Command:** campo, eco e historial de comandos. El campo sube a 16px bajo 500px; sugerencias a 13px.
-- **Label:** metadatos y ayudas compactas, sin convertirlos en titulares.
+- **RPG display:** título de cabecera, con variante móvil de 24px.
+- **RPG headline:** encabezado del diálogo; 27px bajo 650px. La bienvenida usa 35px/1.05 y 30px en móvil.
+- **RPG title / body:** encabezados de evidencia y lectura del diálogo. El cuerpo hereda el tamaño normal del navegador (16px); no lo pixelar.
+- **RPG control / location:** botones de cabecera y ubicación actual. En móvil pasan a 16px y 18px respectivamente.
+- **Terminal display / headline / title / body:** título de página, destino en cuaderno, proyecto y descripción, conservados de la experiencia anterior.
+- **Terminal command / label:** entrada y eco de comandos, y metadatos. El campo llega a 16px bajo 500px.
 
-**The Shared Voice Rule.** DM Sans conserva la identidad; monospace identifica contenido operativo, no títulos de presentación.
+**The Readable Evidence Rule.** Pixelify identifica el mundo; los párrafos, los límites y la trayectoria se leen en DM Sans.
 
 ## Layout
 
-El área principal llega a 1536px, con 32px de margen lateral; bajo 800px conserva 16px. La composición de escritorio tiene una columna flexible y cuaderno de 320px, separados por 28px. Bajo 1100px el cuaderno pasa a 280px y el espacio a 20px. Bajo 800px se apilan con 24px de separación. El selector ocupa toda la fila en móvil.
+El juego ocupa el ancho disponible bajo una barra compacta. En escritorio la cabecera tiene altura mínima de 76px y padding de 10px 28px; el escenario mide `calc(100svh - 154px)` con mínimo de 390px. A 650px o menos, la cabecera se envuelve, pasa a 98px mínimos y el escenario a `calc(100svh - 190px)` con mínimo de 440px. El pie y el índice quedan en el flujo del documento, permitiendo scroll en pantallas cortas.
 
-El mapa mantiene proporción 3:2 y muestra la ilustración íntegra. Los cinco controles se sitúan por coordenadas porcentuales; su índice textual permanece debajo. Las etiquetas del mapa se ocultan entre 801 y 1100px y bajo 500px; la numeración y los nombres accesibles permanecen. El índice desplegable pasa de tres columnas a dos bajo 800px y a una bajo 500px.
+La cámara sigue al personaje; el mundo no tiene que verse completo a la vez. Ubicación arriba, compañero e interacción abajo. El pad aparece para puntero grueso, con botones de 48px y separación de 4px. La bienvenida desaparece al comenzar. El cuaderno se abre a demanda en el mismo diálogo que conversaciones y evidencia, sin una columna de lectura permanente.
 
-El cuaderno usa 24px interiores, 20px entre 801 y 1100px y bajo 500px. La consola tiene resultados desplazables: 420px de altura, 300px bajo 500px y 600px desde 1700px. Los espacios observados combinan un ritmo de 4px con separaciones concretas de composición; no se prescribe una escala ficticia para todos los elementos.
+El diálogo alcanza 710px de ancho, conserva 16px por lado y máximo de 85svh de alto. Sus interiores usan 20–26px y 16px en móvil. El índice sin juego llega a 900px. La terminal conserva área de 1536px, columna contextual de 320px, variante de 280px bajo 1100px y apilado bajo 800px. Su salida mide 420px de alto, 300px bajo 500px y 600px desde 1700px.
 
 ## Elevation & Depth
 
-La jerarquía procede de superficies y líneas, sin sombras de tarjetas. El viajero ilustrado lleva una pequeña sombra de contacto (`drop-shadow(1px 3px 1px #061922)`); pertenece al dibujo y no se extiende a los controles. El cuaderno es una superficie tonal, no una ventana modal flotante.
+La profundidad del pueblo nace de la ilustración, del orden de dibujo y de sombras de contacto suaves. Cada actor apoya sus pies en su posición lógica. Los anillos de interacción se dibujan antes que personajes y muebles, incluidas las salidas interiores. Los rótulos de evidencia se separan del mobiliario para conservar lectura.
 
-**The Tonal Depth Rule.** Separar consola, cuaderno y controles por tono y líneas; no importar la sombra del viajero a los contenedores.
+La bienvenida y el diálogo emplean sombras difusas: `6px 12px 30px #26382f40` y `8px 12px 40px #1b322b45`. El fondo del diálogo oscurece el mundo con `#183d3c99`. Los controles no llevan sombras duras desplazadas. La terminal sigue siendo plana, separada por tonos y líneas.
+
+**The Grounded World Rule.** Las señales de suelo permanecen bajo actores y objetos; ninguna etiqueta tapa la evidencia que nombra.
 
 ## Shapes
 
-Formas rectangulares y esquinas rectas. Los divisores y marcos son de 1px; el foco es un contorno cobre de 2px separado 5px. Los pines tienen un pequeño tallo vertical y el viajero conserva bordes pixelados. La geometría ilustrada no exige pixelar el texto ni reducir controles.
+La interfaz usa rectángulos de esquina recta, bordes de 2px en botones y 3px en cabecera y diálogo. El foco del juego usa contorno rojo de 3px separado 4px; dentro del Canvas se dibuja hacia dentro. El pixelado pertenece al arte y la tipografía de juego, no a recortar el tamaño táctil. La terminal conserva divisores de 1px y foco cobre de 2px separado 5px.
 
 ## Components
 
 ### Buttons
-Controles directos y planos. Ejecutar usa cobre sobre océano y cambia a papel iluminado en hover. Sugerencias y Volver son acciones textuales subrayadas. Los controles interactivos tienen al menos 44px de alto; los destinos y filas de proyectos usan 48px. Los pines conservan 44×44px como mínimo. Foco visible compartido en todos los controles.
+Botones crema con tinta vegetal y hover de papel al sol, mínimo de 44px de alto. Comenzar usa verde con papel y hover verde más profundo. Las filas del cuaderno y proyectos alinean texto a la izquierda y permiten envolver en móvil. Deshabilitado reduce opacidad a 0.65. Terminal conserva Ejecutar cobre y sugerencias textuales salvia.
 
 ### Inputs / Fields
-Campo transparente dentro de una fila de consola, sin radio ni borde propio; texto monospace, cursor cobre y placeholder de tinta secundaria. El formulario permanece oculto sin JavaScript. Escape limpia el campo; flechas recorren historial; Tab completa únicamente una coincidencia inequívoca y conserva la salida por teclado.
+El juego no introduce formularios. La terminal conserva el campo transparente, monospace, cursor cobre, placeholder secundario y acciones de historial/autocompletado acotadas.
 
 ### Navigation
-Mapa, Terminal y Clásica forman un selector enmarcado. La vista activa usa cobre e indica página actual. Los enlaces Mapa/Terminal conservan destino y proyecto válidos en la URL; Atrás/Adelante restaura la selección. La navegación global y el contacto permanecen disponibles.
+La cabecera del juego reúne JU, título, Cuaderno, Pausar y Terminal. JU vuelve al sitio clásico; el enlace Terminal lleva selección válida de lugar/proyecto. La terminal conserva su selector Mapa/Terminal/Clásica. No aplicar el selector oscuro a la barra del juego.
 
-### Map and notebook
-Ilustración original completa, cinco pines HTML y un índice equivalente. El mapa enfocado acepta flechas/WASD; la selección actualiza el cuaderno y su contador. Abrir un proyecto reemplaza el contenido e incluye Volver; el foco se conserva al reemplazar un botón del cuaderno. Los resultados muestran contexto, estado, límites y enlaces reales, con filas abiertas en vez de una cuadrícula de tarjetas.
+### Dialogue and notebook
+Un diálogo HTML nativo contiene conversaciones, proyectos y cuaderno. Mantiene cierre visible, Escape y retorno de foco. Su título Pixelify y cuerpo DM Sans establecen la separación entre ficción y evidencia. Los NPC se declaran ficticios. El cuaderno permite leer cualquier destino o visitarlo directamente; el índice HTML ofrece acceso sin JavaScript.
 
-El viajero realiza un trayecto finito de 1100ms con `ease-in-out`, usando un cruce común para cinco destinos. Se cancela con pausa global, pestaña oculta o movimiento reducido; no es una simulación de caminos. Sin imagen, los controles y el cuaderno siguen disponibles. Sin JavaScript, el índice con enlaces directos ofrece el contenido de acceso.
+### Playable world
+Arte original de edificios, objetos y actores con alpha y procedencia conservados. Jorge usa `rpg-jorge.png`; el recorte de actores utiliza límites opacos medidos, no celdas supuestas. Caminata con teclado, destino al pulsar el suelo y pad táctil; cámara cercana, colisiones, cinco interiores y rótulos ligados al lugar. La pausa detiene el juego; perder foco u ocultar la pestaña lo pausa. Movimiento reducido fija el fotograma de caminata, conservando el desplazamiento solicitado por la persona. Los diálogos detienen la entrada y el bucle de juego.
 
 ### Terminal
-Consola real de comandos locales acotados, sin shell ni IA remota. Resultados semánticos con anuncios corteses y enlaces accionables; sugerencias evitan un inicio vacío. La sesión conserva hasta 50 comandos en memoria y limita la salida a 30 bloques; no persiste entradas. El eco del visitante usa texto, no HTML ejecutable. Mensajes desconocidos ofrecen ayuda.
+Comandos locales reales y acotados, resultados semánticos y sugerencias accionables. Conserva su cuaderno contextual plano y sus límites de salida. Comparte los templates factuales con el juego; la presentación sigue perteneciendo a su mundo visual propio.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** limitar estos tokens a la expedición y conservar el sistema clásico.
-- **Do** mostrar cartografía e ilustración completas, sin cubrir evidencia con decoración.
-- **Do** mantener índice, contacto, foco visible, controles táctiles y rutas de lectura sin juego obligatorio.
-- **Do** conservar destino y proyecto válidos al cambiar entre mapa y terminal.
-- **Do** respetar pausa global, movimiento reducido y estado de la pestaña.
+- **Do** limitar tokens y fuentes de juego a explorar.html y conservar terminal y portada.
+- **Do** mantener las proporciones aprobadas de Jorge y los pies apoyados en el suelo.
+- **Do** mantener cuaderno, índice, contacto y evidencia accesibles sin completar el juego.
+- **Do** conservar foco visible, pausa, movimiento reducido y controles táctiles.
+- **Do** preservar originales cartográficos, alpha y procedencia del arte generado.
 
 ### Don't:
-- **Don't** convertir el cuaderno en una sucesión de modales ni ocultar evidencia tras logros.
-- **Don't** presentar el territorio imaginario como cartografía geográfica real.
-- **Don't** convertir la consola en una simulación decorativa o ejecutar entradas del visitante.
-- **Don't** extender esta paleta oscura ni sus patrones a la portada clásica por inferencia.
+- **Don't** devolver el pueblo a un selector estático oscuro con sidebar permanente.
+- **Don't** extender Pixelify a párrafos ni la paleta RPG a la terminal o portada.
+- **Don't** presentar el pueblo o sus guías ficticios como geografía o colaboradores reales.
+- **Don't** cubrir evidencia con rótulos, poner anillos sobre sprites o suponer gutters iguales.
+- **Don't** bloquear el portafolio detrás de logros ni ejecutar entradas de terminal.
 
-No canonizado: los indicadores de enlace existentes con glifos de flecha se conservan en el artefacto, pero no se promueven a un sistema de iconos; son deuda de oficio fuera de este cierre documental. Las variantes históricas y tokens heredados del CSS clásico no se normalizan aquí.
+No canonizado: los glifos de flecha heredados en enlaces de terminal no se convierten en un sistema de iconos. Los tokens históricos del CSS clásico quedan fuera de esta actualización; el mapa estático y su viaje finito ya no definen la ruta explorar.html.

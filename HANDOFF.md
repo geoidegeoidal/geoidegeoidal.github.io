@@ -1,3 +1,7 @@
+## 2026-10-06 · Sustituir mapa rechazado por RPG caminable
+
+**Objetivo:** mundo realmente jugable con NPC, interiores y portafolio integrado; protagonista basado en Jorge, corregido a mayor volumen corporal según su indicación. **Hecho:** rama feat/playable-portfolio-world, OpenSpec, Canvas con cámara y colisiones, rutas clic/teclado/táctil, cinco edificios e interiores, diálogos y cuaderno accesible, personaje animado en cuatro direcciones, nueva paleta y Pixelify local. Terminal conserva comandos y comparte los templates reales. **Decisiones:** pueblo costero luminoso; sin motor nuevo ni backend; guías ficticios claramente identificados; todas las evidencias accesibles sin jugar; fotos originales fuera del despliegue. **Verificación:** modelo de rutas/colisiones, recorrido real de los cinco interiores, contenido/terminal, móvil/reduced/noJS/fallo de imagen, axe y regresiones de portada; Jekyll/checker raíz y baseurl. **Revisión:** Impeccable solicitó aislamiento de sprites, rótulo de mesa y pies/sombras; resueltos, más una regresión del indicador de salida también resuelta. Disposición final ship limitada a las correcciones puntuadas. Documentación de la nueva superficie finalizada. **Bloqueos:** ninguno. **Siguiente:** push, merge y confirmar Pages. **Commits:** 2c5c580 especificación; f945adb juego; 117777a correcciones de sprites e indicadores. PR #1 / 1d66380 tuvo deploy exitoso 37535263416, pero el usuario rechazó su mapa; este trabajo lo sustituye.
+
 # Handoff
 
 ## 2026-10-06 - Atlas de expedición y terminal (implementación)
