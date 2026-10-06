@@ -6,3 +6,7 @@ _site/
 vendor/
 tests/node_modules/
 Gemfile.lock
+
+.agents/
+
+.impeccable/

@@ -23,3 +23,9 @@ exclude:
   - readme-assets
   - assets/images/imagen_jorge.png
   - assets/images/conmapas-social/infidelidad-santiago.jpg
+
+  - openspec
+
+  - PRODUCT.md
+
+  - DESIGN.md
