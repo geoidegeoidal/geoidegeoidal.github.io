@@ -1,0 +1,14 @@
+{% for place in site.data.expedition %}
+<template id="place-{{ place.id }}" data-x="{{ place.x }}" data-y="{{ place.y }}" data-number="{{ place.number }}">
+  <div class="exp-place-copy"><h2 class="exp-place-name">{{ place.name }}</h2><p class="exp-place-story">{{ place.title }}</p><p>{{ place.description }}</p><p>{{ place.detail }}</p><a class="exp-evidence" href="{% if place.link contains 'https://' %}{{ place.link }}{% else %}{{ place.link | relative_url }}{% endif %}">{{ place.action }} ↗</a>
+  {% if place.id == 'puerto' %}<details class="exp-milestones"><summary>Recorrer los hitos aquí</summary>{% include trajectory.html %}</details>{% endif %}
+  {% if place.id == 'observatorio' %}<a class="exp-evidence" href="https://doi.org/10.4995/raet.2017.7931">Leer investigación en teledetección ↗</a>{% endif %}
+  {% if place.projects.size > 0 %}<h3>Explora los proyectos</h3><div class="exp-project-list">{% for id in place.projects %}{% assign project = site.data.projects | where: 'id', id | first %}<button type="button" data-project="{{ project.id }}">{{ project.name }}<span aria-hidden="true">↗</span></button>{% endfor %}</div>{% endif %}
+  </div>
+</template>
+{% endfor %}
+{% for project in site.data.projects %}
+<template id="project-{{ project.id }}" data-name="{{ project.name | escape }}"><article class="exp-project"><h3>{{ project.name }}</h3><p class="exp-project-category">{{ project.category }}</p><p>{{ project.summary }}</p><p>{{ project.detail }}</p><p class="exp-stack">{{ project.stack }}</p><p class="exp-project-note">{{ project.status }}. {{ project.note }}</p><div class="exp-project-links">{% if project.demo %}<a href="{{ project.demo }}">Abrir proyecto ↗</a>{% endif %}{% if project.repo %}<a href="{{ project.repo }}">Ver código ↗</a>{% endif %}</div></article></template>
+{% endfor %}
+<template id="exp-trajectory"><div class="exp-trajectory"><h3>Trayectoria profesional</h3>{% include trajectory.html %}</div></template>
+<template id="exp-skills"><div class="exp-skills"><h3>Herramientas de trabajo</h3>{% for group in site.data.technologies %}<h4>{{ group.name }}</h4><ul>{% for tool in group.tools %}<li><strong>{{ tool.name }}</strong> · {{ tool.level }}<br>{{ tool.use }}</li>{% endfor %}</ul>{% endfor %}<p>Los niveles son declarados, no una certificación.</p></div></template>

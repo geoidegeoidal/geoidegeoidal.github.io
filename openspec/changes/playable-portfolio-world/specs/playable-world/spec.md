@@ -38,3 +38,10 @@ The experience SHALL present a bright pixel-art game world with minimal controls
 #### Scenario: Assets unavailable
 - **WHEN** a game asset fails or scripting is unavailable
 - **THEN** a readable fallback provides the portfolio links and a retry when applicable.
+
+### Requirement: Owner likeness
+The player SHALL resemble the owner using the supplied photographs: shoulder-length dark hair, glasses, short beard, green jacket and fuller body proportions explicitly requested by the owner.
+
+#### Scenario: Directional movement
+- **WHEN** Jorge walks in any cardinal direction
+- **THEN** the same body proportions and outfit SHALL remain consistent across the four walking frames

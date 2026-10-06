@@ -8,7 +8,7 @@
     {% if page.experience == 'mapa' %}
     <section class="exp-map-section" aria-label="Mapa de expedición">
       <div class="exp-map" tabindex="0" role="group" aria-label="Territorio explorable" aria-describedby="map-help">
-        <img class="exp-landscape" src="{{ '/assets/images/expedition-world.png' | relative_url }}" width="1536" height="1024" alt="Isla imaginaria en pixel art: puerto en la costa, archivo entre bosques, observatorio en la cordillera, taller junto al río y escuela al sur." fetchpriority="high">
+        <img class="exp-landscape" src="{{ '/assets/images/rpg-preview.png' | relative_url }}" width="1440" height="796" alt="Isla imaginaria en pixel art: puerto en la costa, archivo entre bosques, observatorio en la cordillera, taller junto al río y escuela al sur." fetchpriority="high">
         <svg class="exp-route" viewBox="0 0 100 66.667" preserveAspectRatio="none" aria-hidden="true"><path d="M23 35.3 L36 35 L42 32 L44 18.7 M44 18.7 L52 20 L62 16 L70 11.3 M42 32 L52 34 L62 38 L70 35.3 M42 32 L43 40 L48 47.3"/></svg>
         <span class="exp-compass" aria-hidden="true"><svg viewBox="0 0 40 52"><path d="M20 12 28 38 20 32 12 38Z"/><path d="M20 12v20"/><text x="20" y="9" text-anchor="middle">N</text></svg></span>
         {% for place in site.data.expedition %}<button class="exp-pin" type="button" style="--x:{{ place.x }}%;--y:{{ place.y }}%" data-place="{{ place.id }}" aria-label="Explorar {{ place.name }}: {{ place.short }}" hidden><span class="exp-pin-number">{{ place.number }}</span><span class="exp-pin-label">{{ place.name }}</span></button>{% endfor %}
@@ -34,24 +34,11 @@
     {% endif %}
     <aside class="exp-notebook" aria-label="Cuaderno de campo">
       <div class="exp-notebook-heading"><span>Cuaderno de campo</span><span id="place-counter">01 / 05</span></div>
-      {% if page.experience == 'terminal' %}<a class="exp-mini-map" href="{{ '/explorar.html' | relative_url }}" data-view="mapa" aria-label="Continuar la exploración en el mapa"><img src="{{ '/assets/images/expedition-world.png' | relative_url }}" alt="Vista general de los cinco destinos del atlas" width="1536" height="1024"><span>Continuar en el mapa</span></a>{% endif %}
+      {% if page.experience == 'terminal' %}<a class="exp-mini-map" href="{{ '/explorar.html' | relative_url }}" data-view="mapa" aria-label="Continuar la exploración en el mapa"><img src="{{ '/assets/images/rpg-preview.png' | relative_url }}" alt="Vista del pueblo jugable de Jorge" width="1440" height="796"><span>Continuar en el mapa</span></a>{% endif %}
       <div id="place-detail"></div>
       <a class="exp-contact" href="{{ '/' | relative_url }}#contacto">¿Construimos algo juntos? <span aria-hidden="true">↗</span></a>
     </aside>
   </div>
   <details class="exp-index"><summary>Índice del territorio y enlaces directos</summary><div class="exp-index-grid">{% for place in site.data.expedition %}<section><h2>{{ place.name }}</h2><p>{{ place.description }}</p><a href="{% if place.link contains 'https://' %}{{ place.link }}{% else %}{{ place.link | relative_url }}{% endif %}">{{ place.action }} →</a></section>{% endfor %}<section><h2>Herramientas y proyectos</h2><p>Consulta el catálogo completo, con fuentes, código y estado de desarrollo.</p><a href="{{ '/code.html' | relative_url }}">Ver proyectos →</a></section></div></details>
 </div>
-{% for place in site.data.expedition %}
-<template id="place-{{ place.id }}" data-x="{{ place.x }}" data-y="{{ place.y }}" data-number="{{ place.number }}">
-  <div class="exp-place-copy"><h2 class="exp-place-name">{{ place.name }}</h2><p class="exp-place-story">{{ place.title }}</p><p>{{ place.description }}</p><p>{{ place.detail }}</p><a class="exp-evidence" href="{% if place.link contains 'https://' %}{{ place.link }}{% else %}{{ place.link | relative_url }}{% endif %}">{{ place.action }} ↗</a>
-  {% if place.id == 'puerto' %}<details class="exp-milestones"><summary>Recorrer los hitos aquí</summary>{% include trajectory.html %}</details>{% endif %}
-  {% if place.id == 'observatorio' %}<a class="exp-evidence" href="https://doi.org/10.4995/raet.2017.7931">Leer investigación en teledetección ↗</a>{% endif %}
-  {% if place.projects.size > 0 %}<h3>Explora los proyectos</h3><div class="exp-project-list">{% for id in place.projects %}{% assign project = site.data.projects | where: 'id', id | first %}<button type="button" data-project="{{ project.id }}">{{ project.name }}<span aria-hidden="true">↗</span></button>{% endfor %}</div>{% endif %}
-  </div>
-</template>
-{% endfor %}
-{% for project in site.data.projects %}
-<template id="project-{{ project.id }}" data-name="{{ project.name | escape }}"><article class="exp-project"><h3>{{ project.name }}</h3><p class="exp-project-category">{{ project.category }}</p><p>{{ project.summary }}</p><p>{{ project.detail }}</p><p class="exp-stack">{{ project.stack }}</p><p class="exp-project-note">{{ project.status }}. {{ project.note }}</p><div class="exp-project-links">{% if project.demo %}<a href="{{ project.demo }}">Abrir proyecto ↗</a>{% endif %}{% if project.repo %}<a href="{{ project.repo }}">Ver código ↗</a>{% endif %}</div></article></template>
-{% endfor %}
-<template id="exp-trajectory"><div class="exp-trajectory"><h3>Trayectoria profesional</h3>{% include trajectory.html %}</div></template>
-<template id="exp-skills"><div class="exp-skills"><h3>Herramientas de trabajo</h3>{% for group in site.data.technologies %}<h4>{{ group.name }}</h4><ul>{% for tool in group.tools %}<li><strong>{{ tool.name }}</strong> · {{ tool.level }}<br>{{ tool.use }}</li>{% endfor %}</ul>{% endfor %}<p>Los niveles son declarados, no una certificación.</p></div></template>
+{% include expedition-templates.html %}
