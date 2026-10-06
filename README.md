@@ -139,13 +139,7 @@ La portada incluye un globo ortográfico Canvas con costas reales de Natural Ear
 Cartografía base del globo: Natural Earth. Trabajo editorial de mapas: [ConMapas](https://www.instagram.com/conmapas/).
 
 
-### Explorar por mapa o terminal (versión inicial, sustituida)
-
-[Atlas de expedición](https://julloa.space/explorar.html) y [terminal cartográfica](https://julloa.space/terminal.html) comparten destinos y proyectos. El atlas permite viajes entre cinco lugares y acceso directo; la consola admite ayuda, proyectos, abrir azimut, trayectoria, habilidades, formacion y contacto. La ilustración es un territorio imaginario y conserva el prompt de generación en su metadata. Los proyectos y sus límites siguen siendo los del catálogo real.
-
-Prueba adicional: `node tests/expedition_check.cjs`. Establecer `TEST_SITE_URL=http://127.0.0.1:4000` para unificar los puertos de las suites. Especificación en `openspec/changes/atlas-terminal/`; contexto y diseño en PRODUCT.md y DESIGN.md, excluidos de publicación.
-
-### Mundo jugable
+### Experiencias alternativas
 
 `explorar.html` ofrece un pueblo costero con movimiento libre, NPC, cinco interiores y un personaje basado en Jorge. Flechas/WASD, E para interactuar o controles táctiles. El cuaderno y el índice dan acceso directo al portafolio. `terminal.html` ofrece un sistema de archivos local de lectura: ls, cd, cat, pwd, tree, help; historial, rutas relativas, autocompletado y ejemplos contextuales. Tipografía JetBrains Mono local (OFL).
 

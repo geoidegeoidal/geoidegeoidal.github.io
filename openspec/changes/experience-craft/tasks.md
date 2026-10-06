@@ -5,6 +5,6 @@
 - [x] Replace console with guided local terminal and virtual filesystem.
 ## Validation and delivery
 - [x] Verify behavior, accessibility, responsive layouts and regressions.
-- [ ] Complete independent Impeccable review and design documentation.
+- [x] Complete independent Impeccable review and design documentation.
 - [ ] Commit, push, deploy and verify production.
-- [ ] Record handoff and durable decisions.
+- [x] Record handoff and durable decisions.

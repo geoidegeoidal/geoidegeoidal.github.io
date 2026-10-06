@@ -43,3 +43,5 @@ Terminal: selective attention/common region/flow place selectable output and pro
 Sound: opt-in and reversible; volume and mute, suspension on pause/hidden, graceful unsupported state tested. New room collision bounds keep feet off wall furniture.
 
 No critical/high finding remains in the exercised flows. Residual gaps: no physical-device or Safari testing, no screen-reader listening session or Core Web Vitals benchmark; aesthetic memorability is not user-tested. Art is several MB on first load. Reviewer disposition and deployment recorded in HANDOFF when complete.
+
+Final independent review: disposition ship, scoped to the two scored fixes (mobile command coaching in first viewport and animated ocean respecting pause/reduced). Code review accepted stale-selection reset and cwd completion fixes with regression assertions. Zoom 200% checked on both alternatives without page overflow; commands and notebook remain reachable.

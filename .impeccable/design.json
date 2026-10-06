@@ -1,135 +1,9 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-06T22:16:08.060430+00:00",
+  "generatedAt": "2026-10-06T22:54:24.899886+00:00",
   "title": "Design System: Pueblo costero y terminal",
   "extensions": {
     "colorMeta": {
-      "exp-ocean": {
-        "role": "neutral",
-        "displayName": "Océano",
-        "tonalRamp": [
-          "oklch(15.00% 0.0323 232.23)",
-          "oklch(26.43% 0.0323 232.23)",
-          "oklch(37.86% 0.0323 232.23)",
-          "oklch(49.29% 0.0323 232.23)",
-          "oklch(60.71% 0.0323 232.23)",
-          "oklch(72.14% 0.0323 232.23)",
-          "oklch(83.57% 0.0323 232.23)",
-          "oklch(95.00% 0.0323 232.23)"
-        ]
-      },
-      "exp-surface": {
-        "role": "neutral",
-        "displayName": "Cuaderno",
-        "tonalRamp": [
-          "oklch(15.00% 0.0342 221.03)",
-          "oklch(26.43% 0.0342 221.03)",
-          "oklch(37.86% 0.0342 221.03)",
-          "oklch(49.29% 0.0342 221.03)",
-          "oklch(60.71% 0.0342 221.03)",
-          "oklch(72.14% 0.0342 221.03)",
-          "oklch(83.57% 0.0342 221.03)",
-          "oklch(95.00% 0.0342 221.03)"
-        ]
-      },
-      "exp-console": {
-        "role": "neutral",
-        "displayName": "Consola profunda",
-        "tonalRamp": [
-          "oklch(15.00% 0.0269 231.79)",
-          "oklch(26.43% 0.0269 231.79)",
-          "oklch(37.86% 0.0269 231.79)",
-          "oklch(49.29% 0.0269 231.79)",
-          "oklch(60.71% 0.0269 231.79)",
-          "oklch(72.14% 0.0269 231.79)",
-          "oklch(83.57% 0.0269 231.79)",
-          "oklch(95.00% 0.0269 231.79)"
-        ]
-      },
-      "exp-raised": {
-        "role": "neutral",
-        "displayName": "Superficie elevada",
-        "tonalRamp": [
-          "oklch(15.00% 0.0384 217.10)",
-          "oklch(26.43% 0.0384 217.10)",
-          "oklch(37.86% 0.0384 217.10)",
-          "oklch(49.29% 0.0384 217.10)",
-          "oklch(60.71% 0.0384 217.10)",
-          "oklch(72.14% 0.0384 217.10)",
-          "oklch(83.57% 0.0384 217.10)",
-          "oklch(95.00% 0.0384 217.10)"
-        ]
-      },
-      "exp-ink": {
-        "role": "neutral",
-        "displayName": "Papel iluminado",
-        "tonalRamp": [
-          "oklch(15.00% 0.0244 94.07)",
-          "oklch(26.43% 0.0244 94.07)",
-          "oklch(37.86% 0.0244 94.07)",
-          "oklch(49.29% 0.0244 94.07)",
-          "oklch(60.71% 0.0244 94.07)",
-          "oklch(72.14% 0.0244 94.07)",
-          "oklch(83.57% 0.0244 94.07)",
-          "oklch(95.00% 0.0244 94.07)"
-        ]
-      },
-      "exp-muted": {
-        "role": "neutral",
-        "displayName": "Tinta secundaria",
-        "tonalRamp": [
-          "oklch(15.00% 0.0214 181.74)",
-          "oklch(26.43% 0.0214 181.74)",
-          "oklch(37.86% 0.0214 181.74)",
-          "oklch(49.29% 0.0214 181.74)",
-          "oklch(60.71% 0.0214 181.74)",
-          "oklch(72.14% 0.0214 181.74)",
-          "oklch(83.57% 0.0214 181.74)",
-          "oklch(95.00% 0.0214 181.74)"
-        ]
-      },
-      "exp-copper": {
-        "role": "primary",
-        "displayName": "Cobre de ruta",
-        "tonalRamp": [
-          "oklch(15.00% 0.1022 76.17)",
-          "oklch(26.43% 0.1022 76.17)",
-          "oklch(37.86% 0.1022 76.17)",
-          "oklch(49.29% 0.1022 76.17)",
-          "oklch(60.71% 0.1022 76.17)",
-          "oklch(72.14% 0.1022 76.17)",
-          "oklch(83.57% 0.1022 76.17)",
-          "oklch(95.00% 0.1022 76.17)"
-        ]
-      },
-      "exp-sage": {
-        "role": "secondary",
-        "displayName": "Salvia de consola",
-        "tonalRamp": [
-          "oklch(15.00% 0.0525 166.36)",
-          "oklch(26.43% 0.0525 166.36)",
-          "oklch(37.86% 0.0525 166.36)",
-          "oklch(49.29% 0.0525 166.36)",
-          "oklch(60.71% 0.0525 166.36)",
-          "oklch(72.14% 0.0525 166.36)",
-          "oklch(83.57% 0.0525 166.36)",
-          "oklch(95.00% 0.0525 166.36)"
-        ]
-      },
-      "exp-line": {
-        "role": "neutral",
-        "displayName": "Línea de costa",
-        "tonalRamp": [
-          "oklch(15.00% 0.0350 218.23)",
-          "oklch(26.43% 0.0350 218.23)",
-          "oklch(37.86% 0.0350 218.23)",
-          "oklch(49.29% 0.0350 218.23)",
-          "oklch(60.71% 0.0350 218.23)",
-          "oklch(72.14% 0.0350 218.23)",
-          "oklch(83.57% 0.0350 218.23)",
-          "oklch(95.00% 0.0350 218.23)"
-        ]
-      },
       "rpg-ink": {
         "role": "neutral",
         "displayName": "Tinta vegetal",
@@ -227,56 +101,272 @@
           "oklch(83.57% 0.0968 87.13)",
           "oklch(95.00% 0.0968 87.13)"
         ]
+      },
+      "book-paper": {
+        "role": "neutral",
+        "displayName": "Papel de cuaderno",
+        "tonalRamp": [
+          "oklch(15.00% 0.0579 92.15)",
+          "oklch(26.43% 0.0579 92.15)",
+          "oklch(37.86% 0.0579 92.15)",
+          "oklch(49.29% 0.0579 92.15)",
+          "oklch(60.71% 0.0579 92.15)",
+          "oklch(72.14% 0.0579 92.15)",
+          "oklch(83.57% 0.0579 92.15)",
+          "oklch(95.00% 0.0579 92.15)"
+        ]
+      },
+      "book-ink": {
+        "role": "neutral",
+        "displayName": "Book ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.0282 162.68)",
+          "oklch(26.43% 0.0282 162.68)",
+          "oklch(37.86% 0.0282 162.68)",
+          "oklch(49.29% 0.0282 162.68)",
+          "oklch(60.71% 0.0282 162.68)",
+          "oklch(72.14% 0.0282 162.68)",
+          "oklch(83.57% 0.0282 162.68)",
+          "oklch(95.00% 0.0282 162.68)"
+        ]
+      },
+      "book-edge": {
+        "role": "neutral",
+        "displayName": "Madera",
+        "tonalRamp": [
+          "oklch(15.00% 0.0570 60.70)",
+          "oklch(26.43% 0.0570 60.70)",
+          "oklch(37.86% 0.0570 60.70)",
+          "oklch(49.29% 0.0570 60.70)",
+          "oklch(60.71% 0.0570 60.70)",
+          "oklch(72.14% 0.0570 60.70)",
+          "oklch(83.57% 0.0570 60.70)",
+          "oklch(95.00% 0.0570 60.70)"
+        ]
+      },
+      "book-inset": {
+        "role": "neutral",
+        "displayName": "Book inset",
+        "tonalRamp": [
+          "oklch(15.00% 0.0509 88.57)",
+          "oklch(26.43% 0.0509 88.57)",
+          "oklch(37.86% 0.0509 88.57)",
+          "oklch(49.29% 0.0509 88.57)",
+          "oklch(60.71% 0.0509 88.57)",
+          "oklch(72.14% 0.0509 88.57)",
+          "oklch(83.57% 0.0509 88.57)",
+          "oklch(95.00% 0.0509 88.57)"
+        ]
+      },
+      "book-header": {
+        "role": "neutral",
+        "displayName": "Book header",
+        "tonalRamp": [
+          "oklch(15.00% 0.0567 88.17)",
+          "oklch(26.43% 0.0567 88.17)",
+          "oklch(37.86% 0.0567 88.17)",
+          "oklch(49.29% 0.0567 88.17)",
+          "oklch(60.71% 0.0567 88.17)",
+          "oklch(72.14% 0.0567 88.17)",
+          "oklch(83.57% 0.0567 88.17)",
+          "oklch(95.00% 0.0567 88.17)"
+        ]
+      },
+      "book-button": {
+        "role": "neutral",
+        "displayName": "Book button",
+        "tonalRamp": [
+          "oklch(15.00% 0.0411 90.25)",
+          "oklch(26.43% 0.0411 90.25)",
+          "oklch(37.86% 0.0411 90.25)",
+          "oklch(49.29% 0.0411 90.25)",
+          "oklch(60.71% 0.0411 90.25)",
+          "oklch(72.14% 0.0411 90.25)",
+          "oklch(83.57% 0.0411 90.25)",
+          "oklch(95.00% 0.0411 90.25)"
+        ]
+      },
+      "book-divider": {
+        "role": "neutral",
+        "displayName": "Book divider",
+        "tonalRamp": [
+          "oklch(15.00% 0.0715 80.09)",
+          "oklch(26.43% 0.0715 80.09)",
+          "oklch(37.86% 0.0715 80.09)",
+          "oklch(49.29% 0.0715 80.09)",
+          "oklch(60.71% 0.0715 80.09)",
+          "oklch(72.14% 0.0715 80.09)",
+          "oklch(83.57% 0.0715 80.09)",
+          "oklch(95.00% 0.0715 80.09)"
+        ]
+      },
+      "terminal-bg": {
+        "role": "neutral",
+        "displayName": "Grafito de consola",
+        "tonalRamp": [
+          "oklch(15.00% 0.0060 236.85)",
+          "oklch(26.43% 0.0060 236.85)",
+          "oklch(37.86% 0.0060 236.85)",
+          "oklch(49.29% 0.0060 236.85)",
+          "oklch(60.71% 0.0060 236.85)",
+          "oklch(72.14% 0.0060 236.85)",
+          "oklch(83.57% 0.0060 236.85)",
+          "oklch(95.00% 0.0060 236.85)"
+        ]
+      },
+      "terminal-text": {
+        "role": "neutral",
+        "displayName": "Terminal text",
+        "tonalRamp": [
+          "oklch(15.00% 0.0151 94.21)",
+          "oklch(26.43% 0.0151 94.21)",
+          "oklch(37.86% 0.0151 94.21)",
+          "oklch(49.29% 0.0151 94.21)",
+          "oklch(60.71% 0.0151 94.21)",
+          "oklch(72.14% 0.0151 94.21)",
+          "oklch(83.57% 0.0151 94.21)",
+          "oklch(95.00% 0.0151 94.21)"
+        ]
+      },
+      "terminal-muted": {
+        "role": "neutral",
+        "displayName": "Terminal muted",
+        "tonalRamp": [
+          "oklch(15.00% 0.0104 181.31)",
+          "oklch(26.43% 0.0104 181.31)",
+          "oklch(37.86% 0.0104 181.31)",
+          "oklch(49.29% 0.0104 181.31)",
+          "oklch(60.71% 0.0104 181.31)",
+          "oklch(72.14% 0.0104 181.31)",
+          "oklch(83.57% 0.0104 181.31)",
+          "oklch(95.00% 0.0104 181.31)"
+        ]
+      },
+      "terminal-green": {
+        "role": "primary",
+        "displayName": "Menta de consola",
+        "tonalRamp": [
+          "oklch(15.00% 0.0677 156.03)",
+          "oklch(26.43% 0.0677 156.03)",
+          "oklch(37.86% 0.0677 156.03)",
+          "oklch(49.29% 0.0677 156.03)",
+          "oklch(60.71% 0.0677 156.03)",
+          "oklch(72.14% 0.0677 156.03)",
+          "oklch(83.57% 0.0677 156.03)",
+          "oklch(95.00% 0.0677 156.03)"
+        ]
+      },
+      "terminal-blue": {
+        "role": "secondary",
+        "displayName": "Azul de rutas",
+        "tonalRamp": [
+          "oklch(15.00% 0.0704 247.41)",
+          "oklch(26.43% 0.0704 247.41)",
+          "oklch(37.86% 0.0704 247.41)",
+          "oklch(49.29% 0.0704 247.41)",
+          "oklch(60.71% 0.0704 247.41)",
+          "oklch(72.14% 0.0704 247.41)",
+          "oklch(83.57% 0.0704 247.41)",
+          "oklch(95.00% 0.0704 247.41)"
+        ]
+      },
+      "terminal-amber": {
+        "role": "secondary",
+        "displayName": "Ámbar operativo",
+        "tonalRamp": [
+          "oklch(15.00% 0.0868 77.05)",
+          "oklch(26.43% 0.0868 77.05)",
+          "oklch(37.86% 0.0868 77.05)",
+          "oklch(49.29% 0.0868 77.05)",
+          "oklch(60.71% 0.0868 77.05)",
+          "oklch(72.14% 0.0868 77.05)",
+          "oklch(83.57% 0.0868 77.05)",
+          "oklch(95.00% 0.0868 77.05)"
+        ]
+      },
+      "terminal-line": {
+        "role": "neutral",
+        "displayName": "Terminal line",
+        "tonalRamp": [
+          "oklch(15.00% 0.0156 221.72)",
+          "oklch(26.43% 0.0156 221.72)",
+          "oklch(37.86% 0.0156 221.72)",
+          "oklch(49.29% 0.0156 221.72)",
+          "oklch(60.71% 0.0156 221.72)",
+          "oklch(72.14% 0.0156 221.72)",
+          "oklch(83.57% 0.0156 221.72)",
+          "oklch(95.00% 0.0156 221.72)"
+        ]
+      },
+      "terminal-titlebar": {
+        "role": "neutral",
+        "displayName": "Terminal titlebar",
+        "tonalRamp": [
+          "oklch(15.00% 0.0100 229.23)",
+          "oklch(26.43% 0.0100 229.23)",
+          "oklch(37.86% 0.0100 229.23)",
+          "oklch(49.29% 0.0100 229.23)",
+          "oklch(60.71% 0.0100 229.23)",
+          "oklch(72.14% 0.0100 229.23)",
+          "oklch(83.57% 0.0100 229.23)",
+          "oklch(95.00% 0.0100 229.23)"
+        ]
+      },
+      "terminal-status": {
+        "role": "neutral",
+        "displayName": "Terminal status",
+        "tonalRamp": [
+          "oklch(15.00% 0.0264 159.84)",
+          "oklch(26.43% 0.0264 159.84)",
+          "oklch(37.86% 0.0264 159.84)",
+          "oklch(49.29% 0.0264 159.84)",
+          "oklch(60.71% 0.0264 159.84)",
+          "oklch(72.14% 0.0264 159.84)",
+          "oklch(83.57% 0.0264 159.84)",
+          "oklch(95.00% 0.0264 159.84)"
+        ]
       }
     },
     "typographyMeta": {
-      "display": {
-        "displayName": "Título de página",
-        "purpose": "Cabecera de terminal."
-      },
-      "headline": {
-        "displayName": "Destino",
-        "purpose": "Nombre del lugar en el cuaderno."
-      },
-      "title": {
-        "displayName": "Proyecto",
-        "purpose": "Nombre del proyecto abierto."
-      },
-      "body": {
-        "displayName": "Lectura",
-        "purpose": "Contexto y evidencia."
-      },
-      "command": {
-        "displayName": "Operación",
-        "purpose": "Campo y eco de comandos."
-      },
-      "label": {
-        "displayName": "Metadatos",
-        "purpose": "Ayudas y detalles compactos."
-      },
       "rpg-display": {
-        "displayName": "rpg-display",
-        "purpose": "Título de la cabecera del juego."
+        "displayName": "Rpg display",
+        "purpose": "Cabecera del pueblo."
       },
       "rpg-headline": {
-        "displayName": "rpg-headline",
-        "purpose": "Título de diálogo."
+        "displayName": "Rpg headline",
+        "purpose": "Título amplio del cuaderno."
       },
       "rpg-title": {
-        "displayName": "rpg-title",
-        "purpose": "Encabezado de evidencia."
+        "displayName": "Rpg title",
+        "purpose": "Encabezados dentro de la evidencia."
       },
       "rpg-body": {
-        "displayName": "rpg-body",
-        "purpose": "Lectura de diálogo y evidencia."
+        "displayName": "Rpg body",
+        "purpose": "Párrafos y fuentes del RPG."
       },
       "rpg-control": {
-        "displayName": "rpg-control",
-        "purpose": "Botones de cabecera."
+        "displayName": "Rpg control",
+        "purpose": "Acciones del cuaderno."
       },
       "rpg-location": {
-        "displayName": "rpg-location",
-        "purpose": "Lugar actual."
+        "displayName": "Rpg location",
+        "purpose": "Placa de lugar actual."
+      },
+      "terminal-body": {
+        "displayName": "Terminal body",
+        "purpose": "Prompt, campo y salida general."
+      },
+      "terminal-result": {
+        "displayName": "Terminal result",
+        "purpose": "Párrafos de resultados."
+      },
+      "terminal-title": {
+        "displayName": "Terminal title",
+        "purpose": "Encabezados de evidencia de consola."
+      },
+      "terminal-label": {
+        "displayName": "Terminal label",
+        "purpose": "Metadatos y controles de consola."
       }
     },
     "shadows": [
@@ -286,94 +376,107 @@
         "purpose": "Bienvenida del juego."
       },
       {
-        "name": "rpg-dialog",
-        "value": "8px 12px 40px #1b322b45",
-        "purpose": "Diálogo nativo y cuaderno del juego."
+        "name": "rpg-fieldbook",
+        "value": "8px 16px 50px #1c2e2859",
+        "purpose": "Cuaderno y conversación nativa."
+      },
+      {
+        "name": "terminal-window",
+        "value": "0 16px 50px #0003",
+        "purpose": "Ventana única de consola."
       }
     ],
     "motion": [
       {
         "name": "rpg-walk",
         "value": "9 sprite frames per second",
-        "purpose": "Solo durante desplazamiento solicitado; fotograma fijo con movimiento reducido. Pausa por diálogo, foco o pestaña."
+        "purpose": "Solo desplazamiento solicitado; fotograma fijo con movimiento reducido."
       },
       {
-        "name": "control-state",
-        "value": "background-color 0.18s, color 0.18s, border-color 0.18s",
-        "purpose": "Transición de terminal; el layout del juego no carga estos estilos compartidos."
+        "name": "rpg-ocean",
+        "value": "ambientTime += dt; sin(ambientTime * 0.6 + y) * 12",
+        "purpose": "Fase acumulada, congelada con pausa, diálogo o pestaña oculta; ondas omitidas con movimiento reducido."
+      },
+      {
+        "name": "rpg-dialog",
+        "value": ".22s steps(6,end), translateY(5px)",
+        "purpose": "Entrada breve de lectura; desactivada con movimiento reducido."
+      },
+      {
+        "name": "terminal-result",
+        "value": ".22s ease-out, translateY(4px)",
+        "purpose": "Entrada de resultado; pausa local y movimiento reducido la desactivan."
+      },
+      {
+        "name": "terminal-boot",
+        "value": ".35s / .65s steps(5,end)",
+        "purpose": "Arranque breve de escritorio; oculto en móvil y desactivado con pausa/reduced-motion."
+      },
+      {
+        "name": "rpg-audio",
+        "value": "88 BPM, 16 bars, native Web Audio",
+        "purpose": "Apagada al entrar; gesto crea un contexto reutilizado. Volumen 0–100, inicial 35. Suspende en pausa/hidden/pagehide; un diálogo por sí solo mantiene la música activada."
       }
     ],
     "breakpoints": [
       {
-        "name": "compact",
-        "value": "500px"
-      },
-      {
-        "name": "stack",
+        "name": "terminal-mobile",
         "value": "800px"
       },
       {
-        "name": "narrow-workspace",
-        "value": "1100px"
+        "name": "rpg-toolbar-wrap",
+        "value": "850px"
       },
       {
-        "name": "wide-console",
-        "value": "1700px"
-      },
-      {
-        "name": "rpg-mobile",
+        "name": "rpg-base-mobile",
         "value": "650px"
+      },
+      {
+        "name": "rpg-fieldbook-mobile",
+        "value": "600px"
       }
     ]
   },
   "components": [
     {
-      "name": "Ejecutar",
+      "name": "Ejecutar comando",
       "kind": "button",
       "refersTo": "execute",
-      "description": "Terminal: Acción de la fila de comandos.",
-      "html": "<button class=\"ds-execute\">Ejecutar</button>",
-      "css": ".ds-execute{min-height:44px;padding:8px 14px;background:#edbe79;border:0;border-radius:0;color:#0c202a;font:500 14px \"DM Sans\",sans-serif;cursor:pointer}.ds-execute:hover{background:#f3eedc}.ds-execute:focus-visible{outline:2px solid #edbe79;outline-offset:5px}"
+      "description": "Acción discreta junto al prompt; Enter envía la misma entrada.",
+      "html": "<button class=\"ds-execute\">Enter</button>",
+      "css": ".ds-execute{min-height:44px;padding:8px 14px;background:none;border:1px solid var(--terminal-line,#414c50);border-radius:0;color:var(--terminal-muted,#acb5b3);font:12px/1.65 \"JetBrains Mono\",monospace;cursor:pointer}.ds-execute:hover{color:var(--terminal-text,#e5e2d7);border-color:var(--terminal-muted,#acb5b3)}.ds-execute:focus-visible{outline:2px solid var(--terminal-amber,#ecc58b);outline-offset:4px}"
     },
     {
-      "name": "Comando",
+      "name": "Prompt de archivos",
       "kind": "input",
       "refersTo": "command-input",
-      "description": "Terminal: Campo de consola con cursor cobre.",
-      "html": "<div class=\"ds-field\"><label for=\"ds-command\">Comando</label><input id=\"ds-command\" placeholder=\"Escribe ayuda para empezar\"></div>",
-      "css": ".ds-field{background:#0a1a22;color:#edbe79;padding:12px 20px;font:14px Consolas,monospace}.ds-field input{min-height:44px;max-width:100%;padding:12px 4px;border:0;border-radius:0;background:transparent;color:#f3eedc;caret-color:#edbe79;font:14px Consolas,monospace}.ds-field input::placeholder{color:#b6c9c5;opacity:1}.ds-field input:focus-visible{outline:2px solid #edbe79;outline-offset:5px}"
-    },
-    {
-      "name": "Forma de explorar",
-      "kind": "nav",
-      "refersTo": "view-link",
-      "description": "Terminal: Tres entradas; cobre identifica la vista actual.",
-      "html": "<nav class=\"ds-switch\" aria-label=\"Forma de explorar\"><a href=\"#mapa\">Mapa</a><a href=\"#terminal\" aria-current=\"page\">Terminal</a><a href=\"#clasica\">Clásica</a></nav>",
-      "css": ".ds-switch{display:flex;flex-wrap:wrap;background:#0c202a;border:1px solid #38535b;padding:4px}.ds-switch a{display:flex;align-items:center;min-height:44px;padding:10px 18px;color:#b6c9c5;text-decoration:none;font:14px \"DM Sans\",sans-serif}.ds-switch a[aria-current]{background:#edbe79;color:#0c202a}.ds-switch a:hover:not([aria-current]){background:#1d3b43;color:#f3eedc}.ds-switch a:focus-visible{outline:2px solid #edbe79;outline-offset:5px}"
-    },
-    {
-      "name": "Cuaderno de campo",
-      "kind": "card",
-      "refersTo": "notebook",
-      "description": "Terminal: Panel contextual plano con encabezado separado por línea.",
-      "html": "<aside class=\"ds-notebook\"><div class=\"ds-notebook-heading\"><span>Cuaderno de campo</span><span>01 / 05</span></div><h2>El puerto</h2><p>Un lugar para empezar a explorar.</p></aside>",
-      "css": ".ds-notebook{padding:24px;background:#142d35;color:#f3eedc;font:14px/1.7 \"DM Sans\",sans-serif}.ds-notebook-heading{display:flex;justify-content:space-between;gap:12px;padding-bottom:20px;margin-bottom:24px;border-bottom:1px solid #38535b;font-size:12px;color:#b6c9c5}.ds-notebook-heading span:last-child{color:#edbe79;font-family:Consolas,monospace}.ds-notebook h2{margin:0 0 24px;font:500 29px/1.13 \"DM Sans\",sans-serif;letter-spacing:-.03em}.ds-notebook p{color:#b6c9c5}"
+      "description": "Usuario menta, ruta azul y entrada real seleccionable.",
+      "html": "<div class=\"ds-prompt\"><label for=\"ds-command\"><span>visitante@jorge</span> <b>~</b> $</label><input id=\"ds-command\" placeholder=\"ls\" aria-label=\"Escribe un comando\"></div>",
+      "css": ".ds-prompt{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:16px 30px 20px;background:var(--terminal-bg,#171a1c);color:var(--terminal-amber,#ecc58b);font:14px/1.65 \"JetBrains Mono\",monospace}.ds-prompt span{color:var(--terminal-green,#a7d8b8)}.ds-prompt b{color:var(--terminal-blue,#9fc8ef);font-weight:400}.ds-prompt input{background:transparent;border:0;border-radius:0;min-height:44px;padding:10px 0;max-width:100%;color:var(--terminal-text,#e5e2d7);caret-color:var(--terminal-green,#a7d8b8);font:inherit}.ds-prompt input::placeholder{color:#93a3a0}.ds-prompt input:focus-visible{outline:2px solid var(--terminal-amber,#ecc58b);outline-offset:3px}"
     },
     {
       "name": "Comando sugerido",
       "kind": "button",
       "refersTo": "command-suggestion",
-      "description": "Terminal: Acción textual de la terminal.",
-      "html": "<div class=\"ds-command-wrap\"><button class=\"ds-suggestion\">formacion</button></div>",
-      "css": ".ds-command-wrap{background:#0a1a22;padding:4px 24px}.ds-suggestion{min-height:44px;padding:8px 0;border:0;background:none;color:#a7d2bf;font:13px Consolas,monospace;cursor:pointer;text-decoration:underline;text-underline-offset:5px}.ds-suggestion:hover{color:#edbe79}.ds-suggestion:focus-visible{outline:2px solid #edbe79;outline-offset:5px}"
+      "description": "Comando acompañado de propósito; en móvil conserva explicación y 52px mínimos.",
+      "html": "<div class=\"ds-guide\"><button>cd proyectos<span>Explorar proyectos</span></button></div>",
+      "css": ".ds-guide{background:var(--terminal-bg,#171a1c);padding:16px}.ds-guide button{background:none;border:0;border-bottom:1px solid var(--terminal-line,#414c50);min-height:48px;padding:4px 0 10px;text-align:left;color:var(--terminal-green,#a7d8b8);font:14px/1.65 \"JetBrains Mono\",monospace;cursor:pointer}.ds-guide span{display:block;font-size:10px;color:var(--terminal-muted,#acb5b3);margin-top:4px}.ds-guide button:hover{border-color:var(--terminal-green,#a7d8b8)}.ds-guide button:focus-visible{outline:2px solid var(--terminal-amber,#ecc58b);outline-offset:4px}"
     },
     {
-      "name": "Cuaderno RPG",
+      "name": "Ventana de consola",
+      "kind": "card",
+      "refersTo": "terminal-window",
+      "description": "Una sesión con salida DOM; sin controles de ventana ficticios.",
+      "html": "<section class=\"ds-shell\"><header>visitante@jorge: ~</header><p>Hola, soy Jorge. Puedes conocer mi trabajo recorriendo estos archivos.</p></section>",
+      "css": ".ds-shell{background:var(--terminal-bg,#171a1c);color:var(--terminal-text,#e5e2d7);border:1px solid var(--terminal-line,#414c50);box-shadow:0 16px 50px #0003;font:14px/1.65 \"JetBrains Mono\",monospace}.ds-shell header{min-height:48px;display:flex;align-items:center;padding:0 20px;background:#292f32;border-bottom:1px solid var(--terminal-line,#414c50);font-size:12px}.ds-shell p{padding:26px 30px;margin:0}"
+    },
+    {
+      "name": "Botón RPG",
       "kind": "button",
       "refersTo": "rpg-button",
-      "description": "Juego: control nativo con foco visible.",
-      "html": "<button class=\"ds-rpg-button\">Cuaderno</button>",
-      "css": ".ds-rpg-button{min-height:44px;padding:10px 16px;border:2px solid var(--ink,#26382f);border-radius:0;background:var(--paper,#fff2cf);color:var(--ink,#26382f);font:500 18px Pixelify,sans-serif;cursor:pointer;}.ds-rpg-button:hover{background:#f5d68e}.ds-rpg-button:focus-visible{outline:3px solid #9d2f27;outline-offset:4px}.ds-rpg-button:disabled{opacity:.65;cursor:default}"
+      "description": "Botón general nativo; las variantes de cabecera y cuaderno aplican Pixelify y sus tamaños propios.",
+      "html": "<button class=\"ds-rpg-button\">Seguir explorando</button>",
+      "css": ".ds-rpg-button{min-height:44px;padding:10px 16px;border:2px solid var(--ink,#26382f);border-radius:0;background:var(--paper,#fff2cf);color:var(--ink,#26382f);font:16px \"DM Sans\",sans-serif;cursor:pointer;}.ds-rpg-button:hover{background:#f5d68e}.ds-rpg-button:focus-visible{outline:3px solid #9d2f27;outline-offset:4px}.ds-rpg-button:disabled{opacity:.65;cursor:default}"
     },
     {
       "name": "Comenzar RPG",
@@ -384,41 +487,48 @@
       "css": ".ds-rpg-start{min-height:44px;padding:10px 16px;border:2px solid var(--ink,#26382f);border-radius:0;background:var(--paper,#fff2cf);color:var(--ink,#26382f);font:500 18px Pixelify,sans-serif;cursor:pointer;background:var(--green,#285b48);color:var(--paper,#fff2cf);font-size:22px;}.ds-rpg-start:hover{background:#1c4737}.ds-rpg-start:focus-visible{outline:3px solid #9d2f27;outline-offset:4px}.ds-rpg-start:disabled{opacity:.65;cursor:default}"
     },
     {
-      "name": "Ubicación RPG",
-      "kind": "custom",
-      "refersTo": "rpg-location",
-      "description": "Juego: indicador de lugar, sin interacción.",
-      "html": "<div class=\"ds-rpg-location\"><span aria-hidden=\"true\"></span>Puerto de partida</div>",
-      "css": ".ds-rpg-location{display:inline-flex;align-items:center;gap:10px;background:var(--paper,#fff2cf);color:var(--ink,#26382f);padding:10px 16px;border-bottom:3px solid var(--line,#9d8155);font:500 21px Pixelify,sans-serif}.ds-rpg-location span{width:8px;height:8px;background:var(--orange,#b8432e)}"
+      "name": "Lugares del cuaderno",
+      "kind": "nav",
+      "refersTo": "book-tab",
+      "description": "Pestañas de lectura; la página seleccionada no cambia la sala física.",
+      "html": "<nav class=\"ds-tabs\" aria-label=\"Lugares del cuaderno\"><button aria-current=\"true\">Puerto</button><button>Archivo</button></nav>",
+      "css": ".ds-tabs{display:flex;flex-wrap:wrap;gap:8px;padding:16px 16px 18px;background:var(--book-paper,#f5e7bc);border-bottom:1px solid #b69a6b}.ds-tabs button{min-height:44px;padding:8px 12px;border:2px solid var(--book-edge,#705137);background:#f8edcf;color:var(--book-ink,#293b32);font:16px Pixelify,sans-serif;cursor:pointer}.ds-tabs button[aria-current=true]{background:#315b47;color:#fff2cf}.ds-tabs button:hover:not([aria-current=true]){background:#e5cd94}.ds-tabs button:focus-visible{outline:3px solid #9d2f27;outline-offset:4px}"
     },
     {
-      "name": "Diálogo RPG",
+      "name": "Cuaderno RPG",
       "kind": "card",
       "refersTo": "rpg-dialog",
-      "description": "Juego: vista previa de la superficie del diálogo nativo; cuerpo de lectura DM Sans.",
-      "html": "<section class=\"ds-rpg-dialog\" aria-labelledby=\"ds-rpg-dialog-title\"><header><h2 id=\"ds-rpg-dialog-title\">Cuaderno de viaje</h2><button>Cerrar</button></header><p>El trabajo de Jorge, a tu ritmo. Puedes leerlo aquí o visitar cada edificio.</p></section>",
-      "css": ".ds-rpg-dialog{max-width:710px;border:3px solid var(--ink,#26382f);background:var(--paper,#fff2cf);color:var(--ink,#26382f);box-shadow:8px 12px 40px #1b322b45;font:16px/1.65 \"DM Sans\",sans-serif}.ds-rpg-dialog header{display:flex;align-items:start;justify-content:space-between;gap:16px;padding:20px 24px;border-bottom:2px solid var(--line,#9d8155)}.ds-rpg-dialog h2{margin:4px 0 0;font:500 32px/1.1 Pixelify,sans-serif}.ds-rpg-dialog p{padding:20px 24px 26px;margin:0}.ds-rpg-dialog button{min-height:44px;padding:7px 12px;border:2px solid var(--ink,#26382f);background:var(--paper,#fff2cf);color:var(--ink,#26382f);font:16px \"DM Sans\",sans-serif;cursor:pointer}.ds-rpg-dialog button:hover{background:#f5d68e}.ds-rpg-dialog button:focus-visible{outline:3px solid #9d2f27;outline-offset:4px}"
+      "description": "Superficie del diálogo nativo; Pixelify en título y DM Sans en evidencia.",
+      "html": "<section class=\"ds-book\"><header><h2>Cuaderno de viaje</h2><button>Cerrar</button></header><p>El trabajo de Jorge, a tu ritmo. Puedes leerlo aquí o visitar cada edificio.</p></section>",
+      "css": ".ds-book{max-width:960px;border:4px solid var(--book-edge,#705137);outline:2px solid #f9eac5;outline-offset:-9px;background:var(--book-paper,#f5e7bc);color:var(--book-ink,#293b32);box-shadow:8px 16px 50px #1c2e2859;font:16px/1.65 \"DM Sans\",sans-serif}.ds-book header{display:flex;align-items:start;justify-content:space-between;gap:16px;padding:22px 28px 16px;border-bottom:2px solid #b69a6b}.ds-book h2{margin:4px 0 0;font:500 34px/1.1 Pixelify,sans-serif}.ds-book p{padding:22px 28px 30px;margin:0}.ds-book button{min-height:44px;padding:7px 12px;border:2px solid var(--book-edge,#705137);background:#ead8a7;color:var(--book-ink,#293b32);font:17px Pixelify,sans-serif;cursor:pointer}.ds-book button:hover{background:#ddc389}.ds-book button:focus-visible{outline:3px solid #9d2f27;outline-offset:4px}"
+    },
+    {
+      "name": "Sonido del pueblo",
+      "kind": "custom",
+      "description": "Control nativo de volumen; la música requiere activación explícita.",
+      "html": "<div class=\"ds-sound\"><button aria-pressed=\"false\">Música: no</button><label for=\"ds-volume\">Volumen de la música</label><input id=\"ds-volume\" type=\"range\" min=\"0\" max=\"100\" value=\"35\"></div>",
+      "css": ".ds-sound{max-width:240px;padding:16px;background:var(--paper,#fff2cf);color:var(--ink,#26382f);border:3px solid var(--book-edge,#705137);font:16px \"DM Sans\",sans-serif}.ds-sound button{font:16px Pixelify,sans-serif;min-height:44px;padding:8px 12px;border:2px solid var(--ink,#26382f);background:var(--paper,#fff2cf);color:var(--ink,#26382f);cursor:pointer}.ds-sound button:hover{background:#f5d68e}.ds-sound label{font-size:12px;display:block;margin:12px 0 4px}.ds-sound input{width:100%;accent-color:var(--green,#285b48)}.ds-sound :focus-visible{outline:3px solid #9d2f27;outline-offset:4px}"
     }
   ],
   "narrative": {
     "northStar": "Pueblo costero, trabajo real",
-    "overview": "La exploración de Jorge habita un pueblo costero luminoso: mar azul, pasto salvia, caminos de arena, edificios de estuco y tejas rojas. El cuerpo, los objetos y los lugares tienen presencia pixelada; la evidencia profesional se lee con calma en papel crema. Jorge conserva pelo a hombros, lentes, barba corta, chaqueta verde y el cuerpo más gordito solicitado por el propietario.\n\nEste sistema documenta tres ámbitos separados. Los tokens `rpg-*` describen `explorar.html`, su layout independiente y `rpg-world.css`/`rpg-world.js`; sus cinco variables de interfaz corresponden a `--ink`, `--paper`, `--orange`, `--green` y `--line`. Los tokens `exp-*` y las jerarquías sin prefijo conservan la terminal de `expedition.css`. La portada clásica mantiene el atlas editorial, logo JU, DM Sans, cartografías originales y superficies arena/lila/salvia. El pueblo reemplaza únicamente el mapa estático rechazado; no redefine el resto del portafolio.",
+    "overview": "La exploración de Jorge habita un pueblo costero luminoso: mar azul, pasto salvia, caminos de arena, edificios de estuco y tejas rojas. El cuerpo, los objetos y los lugares tienen presencia pixelada; la evidencia profesional se lee con calma en un cuaderno de papel cálido. Jorge conserva pelo a hombros, lentes, barba corta, chaqueta verde y el cuerpo más gordito solicitado por el propietario.\n\nHay tres ámbitos deliberadamente separados. La portada clásica sigue siendo la entrada predeterminada y conserva atlas editorial, logo JU, DM Sans, cartografías originales y superficies arena/lila/salvia. El RPG utiliza `rpg-world.css` y después `rpg-craft.css`; la consola usa exclusivamente `terminal.css`, JetBrains Mono y grafito. Esta actualización autorizada sustituye la terminal histórica de océano/cobre: `expedition.css` y su cuaderno lateral ya no definen ninguna superficie activa. Los templates factuales compartidos no imponen su antigua presentación.",
     "keyCharacteristics": [
-      "Pueblo luminoso con personajes, edificios e interiores pixelados.",
-      "Pixelify local para identidad del juego y DM Sans local para lectura.",
-      "Controles crema discretos y evidencia accesible sin progresión obligatoria.",
-      "Terminal de océano, cobre y comandos locales; portada editorial independiente.",
-      "Profundidad ilustrada con pies y señales anclados al suelo."
+      "Pueblo luminoso con personajes, cinco interiores ilustrados y minimapa.",
+      "Pixelify local para identidad del juego y DM Sans local para evidencia.",
+      "Cuaderno de campo amplio y conversaciones compactas junto al escenario.",
+      "Consola de archivos en grafito, tipografía monoespaciada y pistas contextuales.",
+      "Portada clásica predeterminada y acceso al contenido sin progresión obligatoria."
     ],
     "rules": [
       {
         "name": "The Separate Worlds Rule",
-        "body": "Aplicar cada paleta solo en su ruta; un cambio en el pueblo no recolorea terminal ni portada clásica.",
+        "body": "Aplicar cada paleta solo en su ruta; la consola en grafito y el cuaderno cálido no recolorean la portada clásica.",
         "section": "colors"
       },
       {
         "name": "The Readable Evidence Rule",
-        "body": "Pixelify identifica el mundo; los párrafos, los límites y la trayectoria se leen en DM Sans.",
+        "body": "Pixelify identifica el pueblo y las acciones del cuaderno; los párrafos, fuentes, estados y límites del RPG se leen en DM Sans.",
         "section": "typography"
       },
       {
@@ -428,18 +538,20 @@
       }
     ],
     "dos": [
-      "Do limitar tokens y fuentes de juego a explorar.html y conservar terminal y portada.",
+      "Do conservar portada clásica predeterminada y paletas propias para RPG y terminal.",
       "Do mantener las proporciones aprobadas de Jorge y los pies apoyados en el suelo.",
-      "Do mantener cuaderno, índice, contacto y evidencia accesibles sin completar el juego.",
+      "Do separar escena física, lugar leído y visita; mantener todo el contenido accesible desde cuaderno e índice.",
       "Do conservar foco visible, pausa, movimiento reducido y controles táctiles.",
-      "Do preservar originales cartográficos, alpha y procedencia del arte generado."
+      "Do mantener fuentes locales con licencia y cartografías originales con autoría y límites.",
+      "Do acompañar cada ruta de consola con comandos ejecutables y ejemplos comprensibles."
     ],
     "donts": [
       "Don't devolver el pueblo a un selector estático oscuro con sidebar permanente.",
-      "Don't extender Pixelify a párrafos ni la paleta RPG a la terminal o portada.",
+      "Don't reintroducir océano/cobre ni el cuaderno lateral como sistema de la terminal activa.",
+      "Don't extender Pixelify a párrafos ni aplicar JetBrains Mono a la portada clásica.",
       "Don't presentar el pueblo o sus guías ficticios como geografía o colaboradores reales.",
       "Don't cubrir evidencia con rótulos, poner anillos sobre sprites o suponer gutters iguales.",
-      "Don't bloquear el portafolio detrás de logros ni ejecutar entradas de terminal."
+      "Don't bloquear el portafolio detrás de logros, iniciar audio automáticamente ni ejecutar entradas de terminal."
     ]
   }
 }
