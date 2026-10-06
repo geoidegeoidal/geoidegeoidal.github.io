@@ -139,7 +139,7 @@ La portada incluye un globo ortográfico Canvas con costas reales de Natural Ear
 Cartografía base del globo: Natural Earth. Trabajo editorial de mapas: [ConMapas](https://www.instagram.com/conmapas/).
 
 
-### Explorar por mapa o terminal
+### Explorar por mapa o terminal (versión inicial, sustituida)
 
 [Atlas de expedición](https://julloa.space/explorar.html) y [terminal cartográfica](https://julloa.space/terminal.html) comparten destinos y proyectos. El atlas permite viajes entre cinco lugares y acceso directo; la consola admite ayuda, proyectos, abrir azimut, trayectoria, habilidades, formacion y contacto. La ilustración es un territorio imaginario y conserva el prompt de generación en su metadata. Los proyectos y sus límites siguen siendo los del catálogo real.
 
@@ -147,6 +147,8 @@ Prueba adicional: `node tests/expedition_check.cjs`. Establecer `TEST_SITE_URL=h
 
 ### Mundo jugable
 
-`explorar.html` ofrece un pueblo costero con movimiento libre, NPC, cinco interiores y un personaje basado en Jorge. Flechas/WASD, E para interactuar o controles táctiles. El cuaderno y el índice dan acceso directo al portafolio. `terminal.html` conserva la consola local.
+`explorar.html` ofrece un pueblo costero con movimiento libre, NPC, cinco interiores y un personaje basado en Jorge. Flechas/WASD, E para interactuar o controles táctiles. El cuaderno y el índice dan acceso directo al portafolio. `terminal.html` ofrece un sistema de archivos local de lectura: ls, cd, cat, pwd, tree, help; historial, rutas relativas, autocompletado y ejemplos contextuales. Tipografía JetBrains Mono local (OFL).
 
-Pruebas: `node tests/rpg_logic.cjs`, `node tests/rpg_check.cjs`, `node tests/expedition_check.cjs`. Fijar `TEST_SITE_URL` al servidor de prueba.
+El portafolio clásico siempre permanece en la raíz. El mapa tiene salas ilustradas, cuaderno con evidencias y música original generada con Web Audio: apagada de inicio, activación voluntaria, volumen y suspensión al pausar/ocultar. Ninguna fotografía privada de referencia forma parte del juego.
+
+Pruebas: `node tests/rpg_logic.cjs`, `node tests/rpg_check.cjs`, `node tests/rpg_audio_check.cjs`, `node tests/expedition_check.cjs`. Fijar `TEST_SITE_URL` al servidor de prueba.

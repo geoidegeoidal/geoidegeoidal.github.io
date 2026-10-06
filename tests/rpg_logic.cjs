@@ -12,6 +12,8 @@ for(const b of W.buildings){
   assert(!W.walkable(b.x,b.y-30),'building has solid walls');
 }
 for(const n of W.npcs)assert(W.findPath(start,{x:n.x,y:n.y+35}).length,'NPC reachable '+n.name);
+assert(!W.walkable(200,180,'taller'),'illustrated wall and counter block walking');
+assert(!W.walkable(60,350,'taller'),'wall furnishings block walking');
 assert(!W.walkable(320,180,'taller'),'interior table collision');
 assert(W.findPath({x:320,y:378},{x:320,y:255},'taller').length,'interior exhibits reachable');
 console.log('PASS RPG movement, river, bridges, all five doors, NPCs and interiors');
