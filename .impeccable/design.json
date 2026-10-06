@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-06T22:54:24.899886+00:00",
+  "generatedAt": "2026-10-06T23:28:31.097365+00:00",
   "title": "Design System: Pueblo costero y terminal",
   "extensions": {
     "colorMeta": {
@@ -325,6 +325,34 @@
           "oklch(83.57% 0.0264 159.84)",
           "oklch(95.00% 0.0264 159.84)"
         ]
+      },
+      "rpg-wayfinding": {
+        "role": "primary",
+        "displayName": "Verde de orientación",
+        "tonalRamp": [
+          "oklch(15.00% 0.0503 167.59)",
+          "oklch(26.43% 0.0503 167.59)",
+          "oklch(37.86% 0.0503 167.59)",
+          "oklch(49.29% 0.0503 167.59)",
+          "oklch(60.71% 0.0503 167.59)",
+          "oklch(72.14% 0.0503 167.59)",
+          "oklch(83.57% 0.0503 167.59)",
+          "oklch(95.00% 0.0503 167.59)"
+        ]
+      },
+      "rpg-landmark-muted": {
+        "role": "neutral",
+        "displayName": "Salvia de función",
+        "tonalRamp": [
+          "oklch(15.00% 0.0392 118.20)",
+          "oklch(26.43% 0.0392 118.20)",
+          "oklch(37.86% 0.0392 118.20)",
+          "oklch(49.29% 0.0392 118.20)",
+          "oklch(60.71% 0.0392 118.20)",
+          "oklch(72.14% 0.0392 118.20)",
+          "oklch(83.57% 0.0392 118.20)",
+          "oklch(95.00% 0.0392 118.20)"
+        ]
       }
     },
     "typographyMeta": {
@@ -367,6 +395,14 @@
       "terminal-label": {
         "displayName": "Terminal label",
         "purpose": "Metadatos y controles de consola."
+      },
+      "rpg-landmark": {
+        "displayName": "Destino visible",
+        "purpose": "Nombre corto a tamaño fijo de pantalla."
+      },
+      "rpg-landmark-role": {
+        "displayName": "Función del destino",
+        "purpose": "Rol legible bajo el nombre del edificio."
       }
     },
     "shadows": [
@@ -384,6 +420,11 @@
         "name": "terminal-window",
         "value": "0 16px 50px #0003",
         "purpose": "Ventana única de consola."
+      },
+      {
+        "name": "rpg-landmark",
+        "value": "0 3px 8px #244a3c26",
+        "purpose": "Separación ambiental del rótulo DOM; el contraste depende de verde y papel."
       }
     ],
     "motion": [
@@ -416,6 +457,11 @@
         "name": "rpg-audio",
         "value": "88 BPM, 16 bars, native Web Audio",
         "purpose": "Apagada al entrar; gesto crea un contexto reutilizado. Volumen 0–100, inicial 35. Suspende en pausa/hidden/pagehide; un diálogo por sí solo mantiene la música activada."
+      },
+      {
+        "name": "rpg-camera-follow",
+        "value": "dead zone .38–.62; 1 - exp(-10 * dt)",
+        "purpose": "Seguimiento exterior; resize, cambios de escena y movimiento reducido ajustan sin interpolación. Base .95, .75 con ancho del área <650px, .65 con altura <360px (prioridad); zoom relativo .65–1.35 en pasos .15 limitados. No mueve al actor ni cambia colisiones."
       }
     ],
     "breakpoints": [
@@ -434,6 +480,14 @@
       {
         "name": "rpg-fieldbook-mobile",
         "value": "600px"
+      },
+      {
+        "name": "rpg-camera-short-area",
+        "value": "game area height <360px"
+      },
+      {
+        "name": "rpg-landscape-compact",
+        "value": "(max-height:600px) and (min-width:651px)"
       }
     ]
   },
@@ -508,13 +562,21 @@
       "description": "Control nativo de volumen; la música requiere activación explícita.",
       "html": "<div class=\"ds-sound\"><button aria-pressed=\"false\">Música: no</button><label for=\"ds-volume\">Volumen de la música</label><input id=\"ds-volume\" type=\"range\" min=\"0\" max=\"100\" value=\"35\"></div>",
       "css": ".ds-sound{max-width:240px;padding:16px;background:var(--paper,#fff2cf);color:var(--ink,#26382f);border:3px solid var(--book-edge,#705137);font:16px \"DM Sans\",sans-serif}.ds-sound button{font:16px Pixelify,sans-serif;min-height:44px;padding:8px 12px;border:2px solid var(--ink,#26382f);background:var(--paper,#fff2cf);color:var(--ink,#26382f);cursor:pointer}.ds-sound button:hover{background:#f5d68e}.ds-sound label{font-size:12px;display:block;margin:12px 0 4px}.ds-sound input{width:100%;accent-color:var(--green,#285b48)}.ds-sound :focus-visible{outline:3px solid #9d2f27;outline-offset:4px}"
+    },
+    {
+      "name": "Destino del pueblo",
+      "kind": "button",
+      "refersTo": "rpg-landmark",
+      "description": "Nombre y función a tamaño fijo; cambia de posición o se omite para evitar actores y controles. El plano conserva los cinco destinos.",
+      "html": "<button class=\"ds-landmark\" aria-label=\"Caminar a Archivo ConMapas\"><strong>Archivo</strong><small>ConMapas</small></button>",
+      "css": ".ds-landmark{min-height:44px;padding:6px 11px;background:#244a3c;color:var(--paper,#fff2cf);border:1px solid var(--paper,#fff2cf);border-radius:0;box-shadow:0 3px 8px #244a3c26;text-align:center;line-height:1.1;white-space:nowrap;cursor:pointer}.ds-landmark strong{display:block;font:500 17px/1.1 Pixelify,sans-serif}.ds-landmark small{display:block;font:11px/1.4 \"DM Sans\",sans-serif;color:#e2e9cc;margin-top:2px}.ds-landmark:hover{background:#17382d}.ds-landmark:focus-visible{outline:3px solid var(--paper,#fff2cf);outline-offset:3px}"
     }
   ],
   "narrative": {
     "northStar": "Pueblo costero, trabajo real",
-    "overview": "La exploración de Jorge habita un pueblo costero luminoso: mar azul, pasto salvia, caminos de arena, edificios de estuco y tejas rojas. El cuerpo, los objetos y los lugares tienen presencia pixelada; la evidencia profesional se lee con calma en un cuaderno de papel cálido. Jorge conserva pelo a hombros, lentes, barba corta, chaqueta verde y el cuerpo más gordito solicitado por el propietario.\n\nHay tres ámbitos deliberadamente separados. La portada clásica sigue siendo la entrada predeterminada y conserva atlas editorial, logo JU, DM Sans, cartografías originales y superficies arena/lila/salvia. El RPG utiliza `rpg-world.css` y después `rpg-craft.css`; la consola usa exclusivamente `terminal.css`, JetBrains Mono y grafito. Esta actualización autorizada sustituye la terminal histórica de océano/cobre: `expedition.css` y su cuaderno lateral ya no definen ninguna superficie activa. Los templates factuales compartidos no imponen su antigua presentación.",
+    "overview": "La exploración de Jorge habita un pueblo costero luminoso: mar azul, pasto salvia, caminos de arena, edificios de estuco y tejas rojas. El cuerpo, los objetos y los lugares tienen presencia pixelada; la evidencia profesional se lee con calma en un cuaderno de papel cálido. Jorge conserva pelo a hombros, lentes, barba corta, chaqueta verde y el cuerpo más gordito solicitado por el propietario.\n\nHay tres ámbitos deliberadamente separados. La portada clásica sigue siendo la entrada predeterminada y conserva atlas editorial, logo JU, DM Sans, cartografías originales y superficies arena/lila/salvia. El RPG utiliza `rpg-world.css` y después `rpg-craft.css`; la consola usa exclusivamente `terminal.css`, JetBrains Mono y grafito. Esta actualización autorizada sustituye la terminal histórica de océano/cobre: `expedition.css` y su cuaderno lateral ya no definen ninguna superficie activa. Los templates factuales compartidos no imponen su antigua presentación.\n\nEl refinamiento de cámara y orientación se documenta desde el código del mundo existente; no representa una nueva dirección ni una composición visual aprobada. El contrato de esta superficie permanece en `.impeccable/surfaces/explorar-html.md`.",
     "keyCharacteristics": [
-      "Pueblo luminoso con personajes, cinco interiores ilustrados y minimapa.",
+      "Pueblo luminoso con personajes, cinco interiores ilustrados, cámara abierta regulable y plano ilustrado.",
       "Pixelify local para identidad del juego y DM Sans local para evidencia.",
       "Cuaderno de campo amplio y conversaciones compactas junto al escenario.",
       "Consola de archivos en grafito, tipografía monoespaciada y pistas contextuales.",
@@ -532,6 +594,11 @@
         "section": "typography"
       },
       {
+        "name": "The Screen-Space Wayfinding Rule",
+        "body": "La cámara puede alejar el pueblo, pero los nombres conservan su tamaño de lectura y espacio libre alrededor de actores y controles.",
+        "section": "typography"
+      },
+      {
         "name": "The Grounded World Rule",
         "body": "Las señales de suelo permanecen bajo actores y objetos; ninguna etiqueta tapa la evidencia que nombra.",
         "section": "elevation"
@@ -542,6 +609,7 @@
       "Do mantener las proporciones aprobadas de Jorge y los pies apoyados en el suelo.",
       "Do separar escena física, lugar leído y visita; mantener todo el contenido accesible desde cuaderno e índice.",
       "Do conservar foco visible, pausa, movimiento reducido y controles táctiles.",
+      "Do mantener rótulos a tamaño de pantalla, plano completo y rutas caminadas con cancelación visible.",
       "Do mantener fuentes locales con licencia y cartografías originales con autoría y límites.",
       "Do acompañar cada ruta de consola con comandos ejecutables y ejemplos comprensibles."
     ],
@@ -551,7 +619,8 @@
       "Don't extender Pixelify a párrafos ni aplicar JetBrains Mono a la portada clásica.",
       "Don't presentar el pueblo o sus guías ficticios como geografía o colaboradores reales.",
       "Don't cubrir evidencia con rótulos, poner anillos sobre sprites o suponer gutters iguales.",
-      "Don't bloquear el portafolio detrás de logros, iniciar audio automáticamente ni ejecutar entradas de terminal."
+      "Don't bloquear el portafolio detrás de logros, iniciar audio automáticamente ni ejecutar entradas de terminal.",
+      "Don't escalar el texto de destinos con el mundo ni teletransportar al elegir un destino desde el plano."
     ]
   }
 }
