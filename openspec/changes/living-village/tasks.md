@@ -2,4 +2,4 @@
 - [x] Implement explicit audio entry, score/ambience and living-world behaviors.
 - [x] Validate audible output, pause/mute, roaming/collisions, navigation, reduced motion and responsive controls.
 - [x] Complete independent visual review and design documentation.
-- [ ] Commit, push, deploy, verify live and update handoff.
+- [x] Commit, push, deploy, verify live and update handoff.
