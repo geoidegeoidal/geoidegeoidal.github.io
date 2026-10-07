@@ -52,3 +52,11 @@ No unresolved findings in this refinement. Independent Impeccable review require
 - Final captures: desktop/mobile, landscape, atlas and active routes; independent scored corrections resolved 2/2.
 
 Residual gaps: no physical mobile-device testing, screen-reader session or human usability study. Browser automation verifies focus/semantics and emulates touch; it does not establish subjective ease or guarantee smoothness on every GPU.
+
+## Living-village refinement · 2026-10-06
+
+Same 30-law matrix reviewed for the additional sound/motion scope. Resolved finding: hidden sound required multiple undisclosed actions (Cognitive Load, Active User Paradox, Working Memory). Welcome now offers explicit sound/silence and a persistent state/toggle. Native volume control and silent default page preserve user choice (Jakob, Cognitive Bias). Two visitors, contextual greetings, quiet coastal motion and audio interaction feedback strengthen Flow/Mental Model; pause, hidden and reduced-motion paths remain intentional. No new dependencies (Occam), no fabricated progress or achievements. Header fitted at 320/390 and horizontal; the optional motion carries the established RPG world.
+
+Evidence: rpg_audio_check now measures actual waveform RMS>0.001, peak below clipping and zero-volume silence; checks both entry choices, pause/hidden, failure, real resident movement, visitor dialogue and reduced-motion freeze. rpg_logic checks dynamic blockers; rpg_navigation_check and rpg_check pass routes/interiors/input/axe. 200% and 10-page checker pass. Acoustic output is verified by graph signal, not a subjective listening study or a promise about the visitor's device speakers. Physical-device, screen-reader and user-study gaps remain as above.
+
+Review closure: Impeccable ship limited to scored greeting/landmark collision and resulting mobile-label regression, both resolved. Code review accepted both fixes: Bruno spawn on walkable ground and silence winning after delayed resume. tests/rpg_audio_race.cjs passes mute/pause/hidden races; independent 180-second simulation kept both visitors moving on walkable ground. Screenshot evidence alone is not acoustic evidence.

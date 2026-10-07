@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-06T23:28:31.097365+00:00",
+  "generatedAt": "2026-10-07T00:01:52.586132+00:00",
   "title": "Design System: Pueblo costero y terminal",
   "extensions": {
     "colorMeta": {
@@ -434,9 +434,9 @@
         "purpose": "Solo desplazamiento solicitado; fotograma fijo con movimiento reducido."
       },
       {
-        "name": "rpg-ocean",
-        "value": "ambientTime += dt; sin(ambientTime * 0.6 + y) * 12",
-        "purpose": "Fase acumulada, congelada con pausa, diálogo o pestaña oculta; ondas omitidas con movimiento reducido."
+        "name": "rpg-coastal-life",
+        "value": "one requestAnimationFrame; ambientTime += dt",
+        "purpose": "Espuma, corriente, copas, pétalos y chimenea comparten reloj. Pausa, diálogo y hidden congelan la fase; reduced-motion omite ambiente y saludos."
       },
       {
         "name": "rpg-dialog",
@@ -456,12 +456,17 @@
       {
         "name": "rpg-audio",
         "value": "88 BPM, 16 bars, native Web Audio",
-        "purpose": "Apagada al entrar; gesto crea un contexto reutilizado. Volumen 0–100, inicial 35. Suspende en pausa/hidden/pagehide; un diálogo por sí solo mantiene la música activada."
+        "purpose": "Página inicial silenciosa; entrada explícita con música o sin sonido. Un contexto reutilizado; armonía, eco, mar, pasos, puertas y conversación. Botón siempre visible y volumen 0–100, inicial 35. Pausa/hidden/pagehide suspenden; el diálogo mantiene música. Estado deseado se aplica tras resume antes de descartar revisiones. RMS, clipping y silencio a cero verificados."
       },
       {
         "name": "rpg-camera-follow",
         "value": "dead zone .38–.62; 1 - exp(-10 * dt)",
         "purpose": "Seguimiento exterior; resize, cambios de escena y movimiento reducido ajustan sin interpolación. Base .95, .75 con ancho del área <650px, .65 con altura <360px (prioridad); zoom relativo .65–1.35 en pasos .15 limitados. No mueve al actor ni cambia colisiones."
+      },
+      {
+        "name": "rpg-visitors",
+        "value": "7 sprite frames per second; move dt × .36",
+        "purpose": "Sol y Bruno reutilizan tres filas del atlas. BFS y colisiones compartidas; paran a menos de 100 unidades de Jorge. Pausa/diálogo/hidden/reduced-motion detienen el paseo."
       }
     ],
     "breakpoints": [
@@ -488,6 +493,10 @@
       {
         "name": "rpg-landscape-compact",
         "value": "(max-height:600px) and (min-width:651px)"
+      },
+      {
+        "name": "rpg-narrow-toolbar",
+        "value": "370px"
       }
     ]
   },
@@ -533,12 +542,12 @@
       "css": ".ds-rpg-button{min-height:44px;padding:10px 16px;border:2px solid var(--ink,#26382f);border-radius:0;background:var(--paper,#fff2cf);color:var(--ink,#26382f);font:16px \"DM Sans\",sans-serif;cursor:pointer;}.ds-rpg-button:hover{background:#f5d68e}.ds-rpg-button:focus-visible{outline:3px solid #9d2f27;outline-offset:4px}.ds-rpg-button:disabled{opacity:.65;cursor:default}"
     },
     {
-      "name": "Comenzar RPG",
-      "kind": "button",
+      "name": "Entrar al pueblo",
+      "kind": "custom",
       "refersTo": "rpg-start",
-      "description": "Juego: control nativo con foco visible.",
-      "html": "<button class=\"ds-rpg-start\">Comenzar a explorar</button>",
-      "css": ".ds-rpg-start{min-height:44px;padding:10px 16px;border:2px solid var(--ink,#26382f);border-radius:0;background:var(--paper,#fff2cf);color:var(--ink,#26382f);font:500 18px Pixelify,sans-serif;cursor:pointer;background:var(--green,#285b48);color:var(--paper,#fff2cf);font-size:22px;}.ds-rpg-start:hover{background:#1c4737}.ds-rpg-start:focus-visible{outline:3px solid #9d2f27;outline-offset:4px}.ds-rpg-start:disabled{opacity:.65;cursor:default}"
+      "description": "Elección explícita entre música y silencio; página silenciosa antes del gesto.",
+      "html": "<div class=\"ds-entry\"><button class=\"ds-rpg-start\">Entrar con música</button><button class=\"ds-rpg-silent\">Entrar sin sonido</button></div>",
+      "css": ".ds-entry{display:grid;gap:8px}.ds-entry button{min-height:44px;width:100%;padding:10px 16px;border-radius:0;cursor:pointer}.ds-rpg-start{border:2px solid var(--ink,#26382f);background:var(--green,#285b48);color:var(--paper,#fff2cf);font:21px Pixelify,sans-serif}.ds-rpg-start:hover{background:#1c4737}.ds-rpg-silent{background:transparent;color:var(--green,#285b48);border:1px solid var(--book-edge,#705137);font:14px \"DM Sans\",sans-serif}.ds-rpg-silent:hover{background:#e5cd94}.ds-entry button:focus-visible{outline:3px solid #9d2f27;outline-offset:4px}.ds-entry button:disabled{opacity:.65;cursor:default}"
     },
     {
       "name": "Lugares del cuaderno",
@@ -559,24 +568,25 @@
     {
       "name": "Sonido del pueblo",
       "kind": "custom",
-      "description": "Control nativo de volumen; la música requiere activación explícita.",
-      "html": "<div class=\"ds-sound\"><button aria-pressed=\"false\">Música: no</button><label for=\"ds-volume\">Volumen de la música</label><input id=\"ds-volume\" type=\"range\" min=\"0\" max=\"100\" value=\"35\"></div>",
-      "css": ".ds-sound{max-width:240px;padding:16px;background:var(--paper,#fff2cf);color:var(--ink,#26382f);border:3px solid var(--book-edge,#705137);font:16px \"DM Sans\",sans-serif}.ds-sound button{font:16px Pixelify,sans-serif;min-height:44px;padding:8px 12px;border:2px solid var(--ink,#26382f);background:var(--paper,#fff2cf);color:var(--ink,#26382f);cursor:pointer}.ds-sound button:hover{background:#f5d68e}.ds-sound label{font-size:12px;display:block;margin:12px 0 4px}.ds-sound input{width:100%;accent-color:var(--green,#285b48)}.ds-sound :focus-visible{outline:3px solid #9d2f27;outline-offset:4px}"
+      "description": "Botón de música siempre visible; volumen nativo desplegable y estado aria-pressed.",
+      "html": "<div class=\"ds-sound\"><button aria-pressed=\"true\">Música: sí</button><details><summary>Volumen</summary><div><label for=\"ds-volume\">Música y ambiente</label><input id=\"ds-volume\" type=\"range\" min=\"0\" max=\"100\" value=\"35\"><p>Costa de las ideas · tema original. Música, mar y pasos a tu ritmo.</p></div></details></div>",
+      "css": ".ds-sound{display:flex;align-items:start;gap:8px;color:var(--ink,#26382f);font:16px \"DM Sans\",sans-serif}.ds-sound button{min-height:44px;min-width:142px;padding:8px 12px;border:2px solid #285b48;background:var(--paper,#fff2cf);color:var(--ink,#26382f);font:16px Pixelify,sans-serif;cursor:pointer}.ds-sound button:hover{background:#f5d68e}.ds-sound button[aria-pressed=true]{background:#285b48;color:#fff2cf}.ds-sound button[aria-pressed=true]:hover{background:#1c4737}.ds-sound summary{min-height:44px;padding:14px 7px;font:12px \"DM Sans\",sans-serif;cursor:pointer}.ds-sound details>div{min-width:210px;padding:16px;background:var(--paper,#fff2cf);border:3px solid var(--book-edge,#705137)}.ds-sound label{display:block;margin:12px 0 4px;font-size:12px}.ds-sound input{width:100%;accent-color:var(--green,#285b48)}.ds-sound p{font-size:12px;line-height:1.5;margin-bottom:0}.ds-sound :focus-visible{outline:3px solid #9d2f27;outline-offset:4px}"
     },
     {
       "name": "Destino del pueblo",
       "kind": "button",
       "refersTo": "rpg-landmark",
-      "description": "Nombre y función a tamaño fijo; cambia de posición o se omite para evitar actores y controles. El plano conserva los cinco destinos.",
+      "description": "Nombre y función a tamaño fijo; reserva actores, controles y cajas Canvas reales. Prueba también 12px más arriba antes de omitirlo; el plano conserva los cinco destinos.",
       "html": "<button class=\"ds-landmark\" aria-label=\"Caminar a Archivo ConMapas\"><strong>Archivo</strong><small>ConMapas</small></button>",
       "css": ".ds-landmark{min-height:44px;padding:6px 11px;background:#244a3c;color:var(--paper,#fff2cf);border:1px solid var(--paper,#fff2cf);border-radius:0;box-shadow:0 3px 8px #244a3c26;text-align:center;line-height:1.1;white-space:nowrap;cursor:pointer}.ds-landmark strong{display:block;font:500 17px/1.1 Pixelify,sans-serif}.ds-landmark small{display:block;font:11px/1.4 \"DM Sans\",sans-serif;color:#e2e9cc;margin-top:2px}.ds-landmark:hover{background:#17382d}.ds-landmark:focus-visible{outline:3px solid var(--paper,#fff2cf);outline-offset:3px}"
     }
   ],
   "narrative": {
     "northStar": "Pueblo costero, trabajo real",
-    "overview": "La exploración de Jorge habita un pueblo costero luminoso: mar azul, pasto salvia, caminos de arena, edificios de estuco y tejas rojas. El cuerpo, los objetos y los lugares tienen presencia pixelada; la evidencia profesional se lee con calma en un cuaderno de papel cálido. Jorge conserva pelo a hombros, lentes, barba corta, chaqueta verde y el cuerpo más gordito solicitado por el propietario.\n\nHay tres ámbitos deliberadamente separados. La portada clásica sigue siendo la entrada predeterminada y conserva atlas editorial, logo JU, DM Sans, cartografías originales y superficies arena/lila/salvia. El RPG utiliza `rpg-world.css` y después `rpg-craft.css`; la consola usa exclusivamente `terminal.css`, JetBrains Mono y grafito. Esta actualización autorizada sustituye la terminal histórica de océano/cobre: `expedition.css` y su cuaderno lateral ya no definen ninguna superficie activa. Los templates factuales compartidos no imponen su antigua presentación.\n\nEl refinamiento de cámara y orientación se documenta desde el código del mundo existente; no representa una nueva dirección ni una composición visual aprobada. El contrato de esta superficie permanece en `.impeccable/surfaces/explorar-html.md`.",
+    "overview": "La exploración de Jorge habita un pueblo costero luminoso: mar azul, pasto salvia, caminos de arena, edificios de estuco y tejas rojas. El cuerpo, los objetos y los lugares tienen presencia pixelada; la evidencia profesional se lee con calma en un cuaderno de papel cálido. Jorge conserva pelo a hombros, lentes, barba corta, chaqueta verde y el cuerpo más gordito solicitado por el propietario.\n\nHay tres ámbitos deliberadamente separados. La portada clásica sigue siendo la entrada predeterminada y conserva atlas editorial, logo JU, DM Sans, cartografías originales y superficies arena/lila/salvia. El RPG utiliza `rpg-world.css` y después `rpg-craft.css`; la consola usa exclusivamente `terminal.css`, JetBrains Mono y grafito. Esta actualización autorizada sustituye la terminal histórica de océano/cobre: `expedition.css` y su cuaderno lateral ya no definen ninguna superficie activa. Los templates factuales compartidos no imponen su antigua presentación.\n\nLos refinamientos de cámara, orientación, música y vida del pueblo se documentan desde el código del mundo existente; conservan la dirección costera y no implican una composición visual aprobada. El contrato de esta superficie permanece en `.impeccable/surfaces/explorar-html.md`.",
     "keyCharacteristics": [
-      "Pueblo luminoso con personajes, cinco interiores ilustrados, cámara abierta regulable y plano ilustrado.",
+      "Pueblo luminoso con guías, paseantes, cinco interiores ilustrados, cámara abierta regulable y plano ilustrado.",
+      "Música original elegida al entrar, control visible y ambiente ligado al reloj del juego.",
       "Pixelify local para identidad del juego y DM Sans local para evidencia.",
       "Cuaderno de campo amplio y conversaciones compactas junto al escenario.",
       "Consola de archivos en grafito, tipografía monoespaciada y pistas contextuales.",
@@ -609,6 +619,8 @@
       "Do mantener las proporciones aprobadas de Jorge y los pies apoyados en el suelo.",
       "Do separar escena física, lugar leído y visita; mantener todo el contenido accesible desde cuaderno e índice.",
       "Do conservar foco visible, pausa, movimiento reducido y controles táctiles.",
+      "Do ofrecer entrada con música o sin sonido y mantener el control de música visible.",
+      "Do reservar las cajas reales de nombres y saludos antes de colocar rótulos de destinos.",
       "Do mantener rótulos a tamaño de pantalla, plano completo y rutas caminadas con cancelación visible.",
       "Do mantener fuentes locales con licencia y cartografías originales con autoría y límites.",
       "Do acompañar cada ruta de consola con comandos ejecutables y ejemplos comprensibles."

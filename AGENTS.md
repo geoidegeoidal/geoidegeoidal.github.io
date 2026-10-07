@@ -1,3 +1,11 @@
+## 2026-10-06 · Música descubrible y pueblo habitado
+
+- Entrada RPG: página inicial silenciosa, elección explícita Entrar con música / Entrar sin sonido. La primera crea/reanuda audio por ese gesto; la segunda no lo crea. Botón de música visible fuera del detalle Volumen. Esta decisión sustituye la entrada siempre muda con música oculta del refinamiento anterior.
+- Audio original Costa de las ideas, armonía/eco/mar/efectos con un AudioContext y scheduler acotado. rpg:playstate controla pausa; rpg:environment modifica mezcla sin reiniciar scheduler; rpg:cue responde a pasos/puerta/conversación. Tests miden señal de salida y silencio a volumen cero, no solo state=running.
+- Sol y Bruno reutilizan primeras tres filas de rpg-actors.png con recortes opacos medidos, espalda sin sangrado de fila inferior. No dibujar visitante antes de cargar assets. Guías mantienen identidad/posición; paseantes son ficticios, paran cerca de Jorge, conversan y respetan la misma geometría.
+- walkable/move/findPath aceptan blockers opcionales, por defecto NPC originales. Juego pasa NPC+paseantes; rutas automáticas se recalculan si aparece un bloqueo. No mover coordenadas estáticas de W.npcs para animar.
+- Mar/río/viento/pétalos/chimenea usan el único reloj del juego; mundo se congela en pausa, diálogo y pestaña oculta. Reduced motion detiene vida ambiental/paseantes, conserva caminar, conversar y leer. No añadir un segundo RAF o timers por partícula.
+
 ## 2026-10-06 · Cámara y orientación del RPG
 
 - Cámara exterior abierta: escala base .95 escritorio, .75 móvil y .65 para área de juego de altura <360; zoom relativo .65–1.35. La geometría y posición del personaje nunca cambian al hacer zoom. Usar el mismo origen de cámara redondeado al dibujar y convertir clics.
@@ -130,3 +138,5 @@
 - Dominio propio `julloa.space` (comprado en Porkbun, 2026-09-22) apuntando al portafolio en GitHub Pages mediante CNAME. `_config.yml` `url` es la fuente de canonical/OG/sitemap/JSON-LD: mantenerla en `https://julloa.space`. Las demos de otros repos (`geoidegeoidal.github.io/luz-rm/`, `/azimut/`, `/retc-map/`, `/ferias-chile/`, `/humedales_version3/`, `/storytelling-11s/`, `/spatial-ia-web/`) son project pages y conservan su URL github.io; no migrarlas. `geoidegeoidal.github.io` sigue sirviendo el sitio como respaldo con canonical hacia el dominio.
 
 - Oferta formativa verificada en https://geoidegeoidal.github.io/spatial-ia-web/: Bootcamp Desarrollo Web Territorial con IA, desarrollo asistido por IA, MapLibre/Leaflet, Turf.js y GitHub Pages. Evidencia del propietario al 2026-09-22: +100 personas que han cursado, 5 cohortes (la quinta en curso); se mantienen 10+ países y 4,9/5 de la evidencia publicada del 2026-09-08 hasta nueva actualización. Mantener fechas y precios fuera del portafolio general porque cambian por cohorte.
+
+- Pitfalls resueltos de vida RPG: validar cada spawn/waypoint con walkable; una prueba agregada de visitantes puede ocultar uno inmóvil. Tras await AudioContext.resume, aplicar primero el estado deseado de silencio/pausa/hidden y luego revision; una reanudación vieja puede activar el mar aunque el scheduler esté cancelado. tests/rpg_audio_race.cjs cubre las tres carreras. Reservar cajas Canvas reales en positionLabels y ofrecer separación alternativa antes de ocultar destinos.
