@@ -157,10 +157,11 @@ La exploración de Jorge habita un pueblo costero luminoso: mar azul, pasto salv
 
 Hay tres ámbitos deliberadamente separados. La portada clásica sigue siendo la entrada predeterminada y conserva atlas editorial, logo JU, DM Sans, cartografías originales y superficies arena/lila/salvia. El RPG utiliza `rpg-world.css` y después `rpg-craft.css`; la consola usa exclusivamente `terminal.css`, JetBrains Mono y grafito. Esta actualización autorizada sustituye la terminal histórica de océano/cobre: `expedition.css` y su cuaderno lateral ya no definen ninguna superficie activa. Los templates factuales compartidos no imponen su antigua presentación.
 
-El refinamiento de cámara y orientación se documenta desde el código del mundo existente; no representa una nueva dirección ni una composición visual aprobada. El contrato de esta superficie permanece en `.impeccable/surfaces/explorar-html.md`.
+Los refinamientos de cámara, orientación, música y vida del pueblo se documentan desde el código del mundo existente; conservan la dirección costera y no implican una composición visual aprobada. El contrato de esta superficie permanece en `.impeccable/surfaces/explorar-html.md`.
 
 **Key Characteristics:**
-- Pueblo luminoso con personajes, cinco interiores ilustrados, cámara abierta regulable y plano ilustrado.
+- Pueblo luminoso con guías, paseantes, cinco interiores ilustrados, cámara abierta regulable y plano ilustrado.
+- Música original elegida al entrar, control visible y ambiente ligado al reloj del juego.
 - Pixelify local para identidad del juego y DM Sans local para evidencia.
 - Cuaderno de campo amplio y conversaciones compactas junto al escenario.
 - Consola de archivos en grafito, tipografía monoespaciada y pistas contextuales.
@@ -199,8 +200,8 @@ Los colores del terreno, las habitaciones y los sprites pertenecen a la ilustrac
 **Label/Mono Font:** JetBrains Mono expresa rutas, instrucciones y resultados reales de la consola local.
 
 ### Hierarchy
-- **RPG display:** cabecera de 28px, 25px bajo 850px y 23px bajo 600px. No heredar el antiguo clamp después de cargar la capa de cuaderno.
-- **RPG headline:** cuaderno a 34px/1.1, 27px bajo 600px; conversación a 28px. La bienvenida usa 34px/1.05.
+- **RPG display:** cabecera de 28px, 25px bajo 850px, 21px bajo 650px y 19px bajo 370px. No heredar el antiguo clamp después de cargar la capa de cuaderno.
+- **RPG headline:** cuaderno a 34px/1.1, 27px bajo 600px; conversación a 28px. La bienvenida usa 31px/1.05, 28px bajo 650px y 25px en horizontal de altura máxima de 600px y ancho desde 651px.
 - **RPG title / control:** títulos del cuerpo a 24px/1.2; acciones de lectura a 19px. Las pestañas usan 16px y 15px en móvil; cabecera y conversación tienen sus propias variantes compactas.
 - **RPG orientación:** nombres de destinos DOM a 17px/1.1 en Pixelify y rol a 11px/1.4 en DM Sans; ambos mantienen tamaño de pantalla al alejar la cámara. La placa contextual de ubicación baja a 14px/1.2 y a 12px bajo 650px; nombres de NPC contextuales a 14px en Pixelify.
 - **RPG body:** 16px/1.65 para evidencia; introducción de lugar a 18px, propósito del proyecto a 21px/1.6 y 18px en móvil. Las definiciones se limitan a 68ch. Categorías y notas permanecen en DM Sans.
@@ -244,28 +245,32 @@ Predominan esquinas rectas. Los controles generales del juego tienen borde de 2p
 ## Components
 
 ### Buttons
-Controles nativos, mínimos de 44px en las acciones principales. Comenzar usa verde con papel y hover verde profundo. El cuaderno usa botones de papel claro con borde madera, Pixelify y alineación izquierda en las listas. Las pestañas conservan el atributo de página actual y selección verde. La consola envía con Enter o un botón de borde discreto; las sugerencias son acciones textuales con una explicación debajo, no tarjetas decorativas.
+Controles nativos, mínimos de 44px en las acciones principales. Entrar con música usa verde con papel y hover verde profundo; Entrar sin sonido usa fondo transparente, texto verde y borde madera. Las dos acciones ocupan una columna con separación de 8px, 6px bajo 650px; en horizontal corto comparten una fila. El botón de música usa aria-pressed y distingue activación, silencio, pausa y reintento. El cuaderno usa botones de papel claro con borde madera, Pixelify y alineación izquierda en las listas. Las pestañas conservan el atributo de página actual y selección verde. La consola envía con Enter o un botón de borde discreto; las sugerencias son acciones textuales con una explicación debajo, no tarjetas decorativas.
 
 ### Inputs / Fields
-La consola tiene campo transparente, cursor menta, placeholder y sugerencia tenue. El prompt separa usuario menta, ruta azul y signo ámbar. El historial es DOM seleccionable con región viva; la entrada nunca se interpreta como HTML ni como código ejecutable. El juego añade únicamente el control nativo de volumen dentro de Sonido.
+La consola tiene campo transparente, cursor menta, placeholder y sugerencia tenue. El prompt separa usuario menta, ruta azul y signo ámbar. El historial es DOM seleccionable con región viva; la entrada nunca se interpreta como HTML ni como código ejecutable. El juego añade el control nativo de volumen dentro del detalle Volumen; el botón de música permanece visible fuera del detalle.
 
 ### Navigation
-JU vuelve a la portada clásica; Terminal y RPG conservan lugar/proyecto válidos al cambiar de vista. La barra del juego reúne Cuaderno, Pausar, Sonido y Terminal. La terminal mantiene retorno clásico visible y acceso al RPG. Sus índices nativos permiten abrir perfil, catálogo, formación y contacto sin ejecutar comandos ni completar el juego.
+JU vuelve a la portada clásica; Terminal y RPG conservan lugar/proyecto válidos al cambiar de vista. La barra del juego reúne Cuaderno, Pausar, el botón de música, Volumen y Terminal. Bajo 650px, Volumen ocupa la esquina superior derecha de la cabecera y las demás acciones quedan en una fila; el título reserva 48px a su derecha. La terminal mantiene retorno clásico visible y acceso al RPG. Sus índices nativos permiten abrir perfil, catálogo, formación y contacto sin ejecutar comandos ni completar el juego.
 
 ### Dialogue and fieldbook
 Un `dialog` nativo distingue conversación compacta inferior y lectura amplia centrada. Mantiene cierre visible, Escape y retorno de foco; cuando un control de origen ya no existe, el foco vuelve a Canvas. Las viñetas reutilizan el atlas de seis celdas (3×2) `rpg-rooms.png`; cinco corresponden a los destinos. Los NPC son guías ficticios. Las fichas muestran propósito, construcción, herramientas, estado y límites, con enlaces reales y originales sin filtros. Visitar un edificio mueve a Jorge; leer otro lugar desde el cuaderno conserva la escena física. Una visita iniciada desde la bienvenida retira esa bienvenida y deja los controles de juego activos.
 
 ### Camera, landmarks and overview
-Los rótulos DOM son botones de destino con nombre corto y función: Puerto/Trayectoria, Archivo/ConMapas, Observatorio/Ambiente, Taller/Proyectos y Escuela/Formación. Sus dimensiones se miden al redimensionar o completar las fuentes, no en cada cuadro. Se prueban posiciones encima, bajo el edificio y a sus lados; si ninguna cabe sin tocar controles, otros rótulos, Jorge o NPC, el rótulo se omite. También se ocultan durante bienvenida, pausa, diálogo e interiores. El plano conserva siempre la lista completa accesible. Los nombres de NPC exteriores aparecen solo al acercarse a menos de 145 unidades del mundo.
+Los rótulos DOM son botones de destino con nombre corto y función: Puerto/Trayectoria, Archivo/ConMapas, Observatorio/Ambiente, Taller/Proyectos y Escuela/Formación. Sus dimensiones se miden al redimensionar o completar las fuentes, no en cada cuadro. Se prueban posiciones encima, 12px más arriba, bajo el edificio y a sus lados; si ninguna cabe sin tocar controles, otros rótulos, Jorge, guías, paseantes o cajas reales de texto Canvas, el rótulo se omite. Los saludos se envuelven por palabras a 68px de texto cuando el área de juego mide menos de 360px de alto; las cajas medidas se reservan antes de colocar los botones DOM. La alternativa 12px más arriba conserva destinos legibles también en móvil. También se ocultan durante bienvenida, pausa, diálogo e interiores. El plano conserva siempre la lista completa accesible. Los nombres de NPC exteriores aparecen solo al acercarse a menos de 145 unidades del mundo.
 
 El botón del minimapa y M abren un diálogo nativo con el mismo pueblo ilustrado, preparado una vez y reutilizado, cinco destinos numerados y la posición actual. Elegir destino cierra el plano, calcula el camino existente, camina y entra al edificio; no teletransporta desde el plano. Desde un interior regresa al exterior antes de iniciar el recorrido. La ruta punteada y la marca final se dibujan bajo los actores; el minimapa conserva encuadre, línea de ruta de papel sobre verde, destino en arcilla y posición de Jorge. La banda «Hacia…» nombra el destino y permite cancelar; una dirección manual de teclado o pad cancela también. Abrir un diálogo detiene la ruta previa; su cierre no borra una ruta recién iniciada. El cuaderno conserva su acceso directo de lectura y visita.
 
 ### Playable world and sound
 Arte original con alpha y procedencia conservados, cinco interiores ilustrados, caminos pavimentados y cámara exterior abierta regulable. Jorge usa `rpg-jorge.png`; los actores se recortan con límites opacos medidos, no gutters supuestos. Teclado, destino al pulsar el suelo y pad táctil usan la misma geometría de colisiones.
 
-El océano deriva de un reloj acumulado del juego: su fase queda congelada al pausar, leer un diálogo u ocultar la pestaña; ninguna lectura del reloj de pared lo hace saltar al redibujar. Movimiento reducido elimina las ondas y fija el fotograma de caminata, conservando el desplazamiento solicitado. La entrada de diálogo dura 220ms en seis pasos y se desactiva con movimiento reducido.
+Sol y Bruno son paseantes ficticios conversables. Reutilizan las primeras tres filas de `rpg-actors.png`, con recortes opacos medidos y lateral reflejado; no se dibujan antes de cargar el atlas. Caminan entre puntos mediante la misma búsqueda BFS y colisiones del mundo, se detienen a menos de 100 unidades de Jorge y esperan si el paso está ocupado. Las rutas de Jorge incluyen a los paseantes como obstáculos. Los guías mantienen su identidad y posición; saludan brevemente a menos de 115 unidades.
 
-La música original se sintetiza con Web Audio, sin descargar audio. Empieza apagada; el botón Música crea un único AudioContext tras un gesto. Sonido reúne activación/silencio y volumen nativo de 0–100, inicialmente 35. Pausar el juego, ocultar la pestaña o salir de la página suspende el sonido; las reanudaciones antiguas se descartan mediante revisión. El cuaderno detiene movimiento y océano, pero no silencia por sí solo la música activada: la lectura y el estado de pausa explícita son distintos.
+Espuma costera, corriente del río, brisa en copas, pétalos y humo de la chimenea del taller comparten el reloj acumulado y el único ciclo de dibujo existente. Ambiente y paseantes se congelan con pausa, diálogo y pestaña oculta. Movimiento reducido elimina la animación ambiental, los saludos y el paseo autónomo, y fija el fotograma de caminata de Jorge, conservando desplazamiento solicitado, conversación y lectura. La entrada de diálogo dura 220ms en seis pasos y se desactiva con movimiento reducido.
+
+La página inicial es silenciosa. Entrar con música crea o reanuda el único AudioContext mediante ese gesto; Entrar sin sonido no crea audio. El botón de música siempre visible permite cambiar la elección y Volumen ofrece rango nativo de 0–100, inicialmente 35.
+
+«Costa de las ideas» es un tema original de 16 compases a 88 BPM, sintetizado con Web Audio: melodía, bajo, armonía y eco, una capa de mar y señales discretas de pasos, puertas y conversación. El mar se atenúa según la distancia a la costa y desaparece en interiores; la música interior baja su mezcla sin reiniciar el programador. Pausar, ocultar la pestaña o salir de la página suspende el sonido. Tras una reanudación asíncrona se aplica primero el estado vigente de silencio/pausa/visibilidad y después se descartan revisiones antiguas. El cuaderno detiene el mundo, pero conserva la música activada. La prueba de audio mide señal RMS de salida, ausencia de clipping y silencio a volumen cero; no infiere audibilidad solo del estado del contexto.
 
 ### Terminal grammar
 La interfaz corresponde a un sistema de archivos virtual de solo lectura: `ls` lista, `cd` cambia carpeta, `cat` lee y `pwd`/`tree` orientan. Las rutas admiten `~`, `/home/jorge`, rutas absolutas/relativas, `.` y `..`; las comillas agrupan argumentos. `help` ofrece un recorrido inicial y las sugerencias cambian con la carpeta. Perfil, trayectoria, formación y abrir proyecto mantienen sus alias locales; ningún comando accede al equipo ni ejecuta un shell.
@@ -279,6 +284,8 @@ Tab completa una coincidencia; con varias, muestra opciones y permite continuar 
 - **Do** mantener las proporciones aprobadas de Jorge y los pies apoyados en el suelo.
 - **Do** separar escena física, lugar leído y visita; mantener todo el contenido accesible desde cuaderno e índice.
 - **Do** conservar foco visible, pausa, movimiento reducido y controles táctiles.
+- **Do** ofrecer entrada con música o sin sonido y mantener el control de música visible.
+- **Do** reservar las cajas reales de nombres y saludos antes de colocar rótulos de destinos.
 - **Do** mantener rótulos a tamaño de pantalla, plano completo y rutas caminadas con cancelación visible.
 - **Do** mantener fuentes locales con licencia y cartografías originales con autoría y límites.
 - **Do** acompañar cada ruta de consola con comandos ejecutables y ejemplos comprensibles.
@@ -292,6 +299,6 @@ Tab completa una coincidencia; con varias, muestra opciones y permite continuar 
 - **Don't** bloquear el portafolio detrás de logros, iniciar audio automáticamente ni ejecutar entradas de terminal.
 - **Don't** escalar el texto de destinos con el mundo ni teletransportar al elegir un destino desde el plano.
 
-La revisión independiente completa encontró dos ajustes que se corrigieron; el veredicto posterior fue `ship` limitado a esos dos ajustes puntuados, sin regresiones detectadas. No equivale a aprobación estética universal ni a una composición aprobada.
+La revisión anterior de navegación cerró con `ship` limitado a sus dos ajustes puntuados. La revisión fresca de vida y sonido pidió un ajuste; tras corregirlo, la revisión de regresión pidió una corrección adicional de rótulos. El veredicto final fue `ship`, limitado al hallazgo y la regresión puntuados. La revisión de código aceptó las dos correcciones de spawn de Bruno y silencio tras resume asíncrono, y simuló tres minutos de paseantes. Estos cierres no equivalen a una aprobación estética universal ni a una composición aprobada.
 
 No canonizado: los glifos decorativos heredados de retorno y arranque no definen un sistema de iconos. Las advertencias de paleta ajenas a estas dos superficies no se convierten en reglas nuevas ni se reparan sin alcance. Los tokens históricos de expedición se retiran de esta documentación activa; el CSS clásico permanece fuera de esta actualización. JetBrains Mono sí queda registrado por ser una elección expresa y aplicada, no para silenciar un detector.
