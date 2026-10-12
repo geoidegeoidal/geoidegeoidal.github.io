@@ -1,3 +1,10 @@
+## 2026-10-11 · Personalidad y movimiento de consola
+
+- La petición vigente permite una firma ASCII JU al entrar (560ms), nunca simulación de red/procesos/carga ni espera de escritura. Sustituye la prohibición genérica anterior de arranque decorativo; todos los textos y comandos están disponibles de inmediato.
+- Feedback de 240ms solo en eco del comando más reciente, contenido siempre opaco y seleccionable. Sin timers, loops ni dependencias. Pausa/reduced conservan estado estático; la firma no se reproduce al reactivar. Pestaña oculta pausa CSS.
+- Respuestas usan rutas/conteos reales y cada eco conserva su salida. readFile/list comunican resumen mediante dataset del resultado; errores no alteran cwd y ofrecen recuperación. No introducir texto de entrada como HTML.
+- tests/terminal_personality_check.cjs congela animación y verifica resultado síncrono, conteos, rutas, salidas, repetición y pausa/reduced. Capturas esperan fin del gesto decorativo para no confundir firma todavía en dibujo con un hueco definitivo.
+
 ## 2026-10-11 · Consola guiada refinada
 
 - Conservar grafito/JetBrains Mono y DOM seleccionable; prompt nativo de 16px, fichas a 72ch y ruta visible. Pistas con propósito antes del comando, basadas en lastRead o cwd, ocultables sin ocultar ayuda/autocompletado. No volver a texto fantasma superpuesto ni arranque simulado.
