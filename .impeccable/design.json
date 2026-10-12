@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-12T00:29:39.407Z",
+  "generatedAt": "2026-10-12T00:46:47.527Z",
   "title": "Design System: Portafolio clásico y terminal",
   "extensions": {
     "colorMeta": {
@@ -149,23 +149,12 @@
         "purpose": "Metadatos y controles de consola."
       }
     },
-    "shadows": [
-      {
-        "name": "terminal-window",
-        "value": "0 16px 50px #0003",
-        "purpose": "Ventana única de consola."
-      }
-    ],
+    "shadows": [],
     "motion": [
       {
         "name": "terminal-result",
-        "value": ".22s ease-out, translateY(4px)",
-        "purpose": "Entrada de resultado; pausa local y movimiento reducido la desactivan."
-      },
-      {
-        "name": "terminal-boot",
-        "value": ".35s / .65s steps(5,end)",
-        "purpose": "Arranque breve de escritorio; oculto en móvil y desactivado con pausa/reduced-motion."
+        "value": ".16s ease-out, opacity .65 to 1",
+        "purpose": "Respuesta breve sin espera ni desplazamiento; desactivada con pausa/reduced-motion."
       }
     ],
     "breakpoints": [
@@ -188,17 +177,17 @@
       "name": "Prompt de archivos",
       "kind": "input",
       "refersTo": "command-input",
-      "description": "Usuario menta, ruta azul y entrada real seleccionable.",
-      "html": "<div class=\"ds-prompt\"><label for=\"ds-command\"><span>visitante@jorge</span> <b>~</b> $</label><input id=\"ds-command\" placeholder=\"ls\" aria-label=\"Escribe un comando\"></div>",
-      "css": ".ds-prompt{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:16px 30px 20px;background:var(--terminal-bg,#171a1c);color:var(--terminal-amber,#ecc58b);font:14px/1.65 \"JetBrains Mono\",monospace}.ds-prompt span{color:var(--terminal-green,#a7d8b8)}.ds-prompt b{color:var(--terminal-blue,#9fc8ef);font-weight:400}.ds-prompt input{background:transparent;border:0;border-radius:0;min-height:44px;padding:10px 0;max-width:100%;color:var(--terminal-text,#e5e2d7);caret-color:var(--terminal-green,#a7d8b8);font:inherit}.ds-prompt input::placeholder{color:#93a3a0}.ds-prompt input:focus-visible{outline:2px solid var(--terminal-amber,#ecc58b);outline-offset:3px}"
+      "description": "Entrada nativa de 16px, sin superposición de texto; ayuda de Tab junto al prompt.",
+      "html": "<div class=\"ds-prompt\"><label for=\"ds-command\"><span>visitante@jorge</span> <b>~</b> $</label><input id=\"ds-command\" placeholder=\"Escribe un comando…\" aria-label=\"Escribe un comando\"></div>",
+      "css": ".ds-prompt{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:12px 28px;background:var(--terminal-bg,#171a1c);color:var(--terminal-amber,#ecc58b);font:14px/1.65 \"JetBrains Mono\",monospace}.ds-prompt span{color:var(--terminal-green,#a7d8b8)}.ds-prompt b{color:var(--terminal-blue,#9fc8ef);font-weight:400}.ds-prompt input{background:transparent;border:0;border-radius:0;min-height:44px;padding:10px 0;max-width:100%;color:var(--terminal-text,#e5e2d7);caret-color:var(--terminal-green,#a7d8b8);font:16px/1.65 \"JetBrains Mono\",monospace}.ds-prompt input::placeholder{color:#93a3a0}.ds-prompt input:focus-visible{outline:2px solid var(--terminal-amber,#ecc58b);outline-offset:3px}"
     },
     {
       "name": "Comando sugerido",
       "kind": "button",
       "refersTo": "command-suggestion",
-      "description": "Comando acompañado de propósito; en móvil conserva explicación y 52px mínimos.",
-      "html": "<div class=\"ds-guide\"><button>cd proyectos<span>Explorar proyectos</span></button></div>",
-      "css": ".ds-guide{background:var(--terminal-bg,#171a1c);padding:16px}.ds-guide button{background:none;border:0;border-bottom:1px solid var(--terminal-line,#414c50);min-height:48px;padding:4px 0 10px;text-align:left;color:var(--terminal-green,#a7d8b8);font:14px/1.65 \"JetBrains Mono\",monospace;cursor:pointer}.ds-guide span{display:block;font-size:10px;color:var(--terminal-muted,#acb5b3);margin-top:4px}.ds-guide button:hover{border-color:var(--terminal-green,#a7d8b8)}.ds-guide button:focus-visible{outline:2px solid var(--terminal-amber,#ecc58b);outline-offset:4px}"
+      "description": "Propósito primero, comando exacto debajo. Pistas contextuales ocultables, con 62px mínimos y 68px en móvil.",
+      "html": "<div class=\"ds-guide\"><button>Ver proyectos<code>cd /proyectos</code></button></div>",
+      "css": ".ds-guide{background:var(--terminal-bg,#171a1c);padding:16px}.ds-guide button{background:none;border:0;border-bottom:1px solid var(--terminal-line,#414c50);min-height:62px;padding:4px 0 10px;text-align:left;color:var(--terminal-green,#a7d8b8);font:14px/1.65 \"JetBrains Mono\",monospace;cursor:pointer}.ds-guide code{display:block;font:11px/1.6 \"JetBrains Mono\",monospace;color:var(--terminal-muted,#acb5b3);margin-top:4px}.ds-guide button:hover{border-color:var(--terminal-green,#a7d8b8)}.ds-guide button:focus-visible{outline:2px solid var(--terminal-amber,#ecc58b);outline-offset:4px}"
     },
     {
       "name": "Ventana de consola",
@@ -206,16 +195,17 @@
       "refersTo": "terminal-window",
       "description": "Una sesión con salida DOM; sin controles de ventana ficticios.",
       "html": "<section class=\"ds-shell\"><header>visitante@jorge: ~</header><p>Hola, soy Jorge. Puedes conocer mi trabajo recorriendo estos archivos.</p></section>",
-      "css": ".ds-shell{background:var(--terminal-bg,#171a1c);color:var(--terminal-text,#e5e2d7);border:1px solid var(--terminal-line,#414c50);box-shadow:0 16px 50px #0003;font:14px/1.65 \"JetBrains Mono\",monospace}.ds-shell header{min-height:48px;display:flex;align-items:center;padding:0 20px;background:#292f32;border-bottom:1px solid var(--terminal-line,#414c50);font-size:12px}.ds-shell p{padding:26px 30px;margin:0}"
+      "css": ".ds-shell{background:var(--terminal-bg,#171a1c);color:var(--terminal-text,#e5e2d7);border:1px solid var(--terminal-line,#414c50);font:14px/1.65 \"JetBrains Mono\",monospace}.ds-shell header{min-height:48px;display:flex;align-items:center;padding:0 20px;background:#292f32;border-bottom:1px solid var(--terminal-line,#414c50);font-size:12px}.ds-shell p{padding:26px 30px;margin:0}"
     }
   ],
   "narrative": {
     "northStar": "Trabajo real, lectura directa",
     "overview": "El portafolio clásico es la entrada principal; conserva logo JU, DM Sans, cartografías y composición editorial. La única alternativa es una terminal de lectura en grafito con JetBrains Mono. El RPG fue retirado por decisión expresa del propietario el 2026-10-11; sus materiales históricos no definen la interfaz vigente.",
     "keyCharacteristics": [
-      "Portafolio clásico como inicio.",
-      "Terminal local con archivos, comandos y ayuda contextual.",
-      "Única invitación alternativa después del hero."
+      "Portafolio clásico como inicio, consola como única alternativa.",
+      "Sesión compacta, archivos legibles y prompt nativo.",
+      "Pistas por contenido, propósito humano y comando ejecutable.",
+      "Tab seleccionable, cd -, atajos y errores recuperables."
     ],
     "rules": [
       {
