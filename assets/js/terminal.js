@@ -43,7 +43,7 @@
   function placeOf(id){return [...document.querySelectorAll('template[id^="place-"]')].find(t=>[...t.content.querySelectorAll('[data-project]')].some(b=>b.dataset.project===id))?.id.slice(6)||'taller';}
   function clone(parent,id){const template=document.getElementById(id);if(template)parent.append(template.content.cloneNode(true));}
   function failure(parent,message){
-    text(parent,message,'command-error');text(parent,'Puedes seguir desde aquí:','terminal-next');
+    text(parent,message,'command-error');text(parent,'Sigues en '+shortPath()+'. Puedes continuar desde aquí:','terminal-next');
     const actions=document.createElement('div');actions.className='recovery-actions';
     commandButton(actions,'Ver archivos','ls');commandButton(actions,'Ver ejemplos','help');parent.append(actions);return 1;
   }
@@ -54,13 +54,15 @@
     else if(file.contact){text(parent,'¿Tienes datos por explorar, un mapa por construir o un equipo por formar?');parent.append($('#terminal-contact').cloneNode(true));parent.lastChild.removeAttribute('id');}
     else clone(parent,file.template);
     currentProject=file.project||'';currentPlace=file.project?placeOf(file.project):path.startsWith('/formacion')?'escuela':path.startsWith('/cartografia')?'archivo':path.startsWith('/ambiente')?'observatorio':'puerto';
-    return 0;
+    parent.dataset.summary='Leído: ~'+path;return 0;
   }
   function list(parent,path,long){
     if(!files[path])return failure(parent,'ls: no existe '+path);
     lastRead='';
     const paths=files[path].directory?T.children(files,path):[path],list=document.createElement('div');list.className='file-list'+(long?' is-long':'');
-    paths.forEach(p=>{const file=files[p],name=p.split('/').pop()+(file.directory?'/':'');const b=commandButton(list,name,(file.directory?'cd ':'cat ')+p,long?(file.directory?'directorio':file.project?document.getElementById(file.template).dataset.name:'archivo de lectura'):undefined);if(file.directory)b.className='directory';});parent.append(list);return 0;
+    paths.forEach(p=>{const file=files[p],name=p.split('/').pop()+(file.directory?'/':'');const b=commandButton(list,name,(file.directory?'cd ':'cat ')+p,long?(file.directory?'directorio':file.project?document.getElementById(file.template).dataset.name:'archivo de lectura'):undefined);if(file.directory)b.className='directory';});parent.append(list);
+    parent.dataset.summary=(path==='/'?'~':'~'+path)+' · '+paths.length+(paths.length===1?' entrada':' entradas');
+    text(parent,'# '+paths.length+(paths.length===1?' entrada':' entradas')+' · Pulsa un nombre para abrirlo.','terminal-next');return 0;
   }
   function help(parent,subject){
     if(subject&&!Object.hasOwn(descriptions,subject))return failure(parent,'help: no hay ayuda para '+subject+'. Usa help sin argumentos.');
@@ -76,7 +78,7 @@
     input.value='';closeCompletion();if(record){history.push(raw);if(history.length>100)history.shift();}historyIndex=history.length;draft='';
     let args;try{args=T.tokens(raw);}catch(e){args=['__error',e.message];}
     let verb=normalize(args.shift()||''),code=0;
-    if(['clear','limpiar'].includes(verb)){output.replaceChildren();text(output,'Consola despejada. ls para mirar alrededor; help para orientarte.','terminal-next');status(0,'Pantalla despejada');if(focus)input.focus({preventScroll:true});return;}
+    if(['clear','limpiar'].includes(verb)){output.replaceChildren();text(output,'Pantalla limpia. Sigues en '+shortPath()+'. Tu historial continúa con ↑; ls para mirar alrededor.','terminal-next');status(0,'Un nuevo espacio, la misma sesión');if(focus)input.focus({preventScroll:true});return;}
     const entry=document.createElement('section');entry.className='terminal-entry';const echo=text(entry,'','terminal-entry-command');
     for(const [c,v]of [['echo-user','visitante@jorge'],['echo-path',shortPath()],['',' $ '+raw]]){const span=document.createElement('span');span.className=c;span.textContent=v;echo.append(span);}
     const result=document.createElement('div');result.className='terminal-result';entry.append(result);
@@ -111,7 +113,11 @@
     }
     else if(verb==='terminal')text(result,'Ya estás en la terminal. Prueba ls o help.');
     else {code=127;failure(result,verb+': comando no encontrado.');}
-    while(output.children.length>=40)output.firstElementChild.remove();output.append(entry);sync();status(code,code?'Revisa el mensaje de arriba':'Comando completado');
+    const receipt=document.createElement('span');receipt.className='entry-exit';receipt.textContent='['+code+']';receipt.title=code?'No ejecutado · código '+code:'Comando completado · código 0';receipt.setAttribute('aria-label',receipt.title);echo.append(receipt);entry.dataset.error=String(code!==0);
+    output.querySelector('.is-latest')?.classList.remove('is-latest');entry.classList.add('is-latest');
+    while(output.children.length>=40)output.firstElementChild.remove();output.append(entry);sync();
+    const messages={help:'A tu ritmo · los ejemplos se pueden pulsar',ayuda:'A tu ritmo · los ejemplos se pueden pulsar',man:'A tu ritmo · los ejemplos se pueden pulsar',pwd:'Estás en '+shortPath(),tree:'El directorio completo, de un vistazo',history:history.length+' comandos en esta sesión',proyectos:'Elige un proyecto para ver cómo está hecho'};
+    status(code,code?'Sin cambios · prueba una de las opciones de arriba':result.dataset.summary||(Object.hasOwn(messages,verb)?messages[verb]:'Listo · el prompt es tuyo'));
     output.scrollTop+=entry.getBoundingClientRect().top-output.getBoundingClientRect().top-24;if(focus)input.focus({preventScroll:true});
   }
   function matches(){
@@ -154,7 +160,9 @@
     if(pending){input.value=pending;draft=pending;closeCompletion();}
   });
   $('#guide-toggle').addEventListener('click',()=>{const guide=$('#command-guide');guide.hidden=!guide.hidden;$('#guide-toggle').setAttribute('aria-expanded',String(!guide.hidden));$('#guide-toggle').textContent=guide.hidden?'Mostrar pistas':'Ocultar pistas';});
-  function motion(){document.documentElement.dataset.terminalMotion=motionOff?'off':'on';$('#terminal-motion').textContent=motionOff?'Activar animación':'Pausar animación';$('#terminal-motion').setAttribute('aria-pressed',String(motionOff));}
+  const intro=$('.terminal-intro');intro?.addEventListener('animationend',()=>intro.classList.remove('is-opening'),{once:true});
+  function motion(){if(motionOff)intro?.classList.remove('is-opening');document.documentElement.dataset.terminalMotion=motionOff?'off':'on';$('#terminal-motion').textContent=motionOff?'Activar animación':'Pausar animación';$('#terminal-motion').setAttribute('aria-pressed',String(motionOff));}
+  document.addEventListener('visibilitychange',()=>{document.documentElement.dataset.terminalHidden=String(document.hidden);});
   $('#terminal-motion').addEventListener('click',()=>{motionOff=!motionOff;motion();});matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{motionOff=e.matches;motion();});motion();
   const params=new URLSearchParams(location.search),initial=params.get('lugar'),dirs={puerto:'/',taller:'/proyectos',archivo:'/cartografia',escuela:'/formacion',observatorio:'/ambiente'};if(Object.hasOwn(dirs,initial)){cwd=dirs[initial];currentPlace=initial;}sync();
   if(projectIds.includes(params.get('proyecto')))run('cat /proyectos/'+params.get('proyecto')+'.md',{record:false,focus:false});
