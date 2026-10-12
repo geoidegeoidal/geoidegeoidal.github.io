@@ -1,4 +1,4 @@
 - [x] Inspect implementation and define motion/UX scope.
 - [x] Refine greeting, response feedback and bounded animation.
 - [x] Verify interaction, motion preferences and responsive presentation.
-- [ ] Document, commit, publish and verify deployment.
+- [x] Document, commit, publish and verify deployment.
