@@ -1,4 +1,4 @@
 - [x] Inspect project facts, templates and command callers.
-- [ ] Implement readable listings and project briefs.
-- [ ] Verify all projects, links, input paths and responsive accessibility.
+- [x] Implement readable listings and project briefs.
+- [x] Verify all projects, links, input paths and responsive accessibility.
 - [ ] Document, commit, publish and verify production.

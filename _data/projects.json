@@ -10,7 +10,9 @@
     "demo": "https://geoidegeoidal.github.io/storytelling-11s/",
     "note": "Mapas y relatos de Jorge Ulloa para ConMapas. Proyecto de memoria y difusión histórica; los audios se reproducen mediante servicios externos.",
     "status": "Storymap publicado",
-    "repo": "https://github.com/geoidegeoidal/storytelling-11s"
+    "repo": "https://github.com/geoidegeoidal/storytelling-11s",
+    "problem": "Leer el golpe de Estado en Chile también desde los lugares y la secuencia de los hechos.",
+    "contribution": "Reuní mapas y relatos de ConMapas en once entradas, con navegación por desplazamiento y audio para recorrer esa memoria territorial."
   },
   {
     "id": "luz-rm",
@@ -25,7 +27,9 @@
     "status": "Aplicación web",
     "image": "/assets/images/projects/luz-rm.webp",
     "alt": "Captura de LUZ·RM con el mapa de cortes, capas e indicadores operativos",
-    "repo": "https://github.com/geoidegeoidal/luz-rm"
+    "repo": "https://github.com/geoidegeoidal/luz-rm",
+    "problem": "Entender cómo se distribuyen los cortes de energía y consultar sus datos dentro de un mismo territorio.",
+    "contribution": "Integré GeoJSON públicos y depuración de eventos repetidos con un mapa, indicadores y reportes por comuna o área dibujada."
   },
   {
     "id": "azimut",
@@ -38,7 +42,9 @@
     "demo": "https://geoidegeoidal.github.io/azimut/",
     "note": "Los servicios de respaldo reciben las direcciones consultadas. La interpolación entrega posiciones estimadas.",
     "status": "Aplicación web",
-    "repo": "https://github.com/geoidegeoidal/azimut"
+    "repo": "https://github.com/geoidegeoidal/azimut",
+    "problem": "Pasar de una lista de direcciones chilenas a ubicaciones que se puedan revisar y exportar.",
+    "contribution": "Construí un flujo de carga, normalización e interpolación, con consultas de respaldo y puntajes para revisar la calidad de cada resultado."
   },
   {
     "id": "autoatlas-pro",
@@ -50,7 +56,9 @@
     "stack": "Python · PyQGIS · Qt",
     "note": "Plugin experimental según su metadata. Instalación y código en el repositorio.",
     "status": "Plugin QGIS · experimental",
-    "repo": "https://github.com/geoidegeoidal/autoatlas-pro"
+    "repo": "https://github.com/geoidegeoidal/autoatlas-pro",
+    "problem": "Evitar repetir manualmente la composición de mapas e informes para cada territorio.",
+    "contribution": "Organicé un plugin de QGIS con selección de datos, plantillas, estadísticas y exportación por lotes a PDF o PNG."
   },
   {
     "id": "retc-map",
@@ -63,7 +71,9 @@
     "demo": "https://geoidegeoidal.github.io/retc-map/",
     "note": "Datos históricos 2021–2024; no representa mediciones actuales de contaminación.",
     "status": "Aplicación web",
-    "repo": "https://github.com/geoidegeoidal/retc-map"
+    "repo": "https://github.com/geoidegeoidal/retc-map",
+    "problem": "Comparar residuos industriales no peligrosos entre establecimientos, años y áreas de influencia.",
+    "contribution": "Convertí datos SINADER/RETC 2021–2024 en un explorador con filtros, análisis por radios y reportes para comunicar los resultados."
   },
   {
     "id": "ferias-chile",
@@ -76,7 +86,9 @@
     "demo": "https://geoidegeoidal.github.io/ferias-chile/",
     "note": "El calendario no confirma apertura efectiva en tiempo real.",
     "status": "Aplicación web",
-    "repo": "https://github.com/geoidegeoidal/ferias-chile"
+    "repo": "https://github.com/geoidegeoidal/ferias-chile",
+    "problem": "Encontrar ferias libres según región, comuna y día de funcionamiento declarado.",
+    "contribution": "Transformé archivos de ODEPA en una aplicación cartográfica con búsqueda, filtros y visualizaciones para explorar las ferias."
   },
   {
     "id": "geocallejero",
@@ -88,7 +100,9 @@
     "stack": "Python · PyQGIS · GDAL",
     "note": "Requiere QGIS y datos base. Los resultados deben revisarse según el método de localización.",
     "status": "Plugin QGIS",
-    "repo": "https://github.com/geoidegeoidal/geocallejero"
+    "repo": "https://github.com/geoidegeoidal/geocallejero",
+    "problem": "Localizar direcciones chilenas sin salir del flujo de análisis de QGIS.",
+    "contribution": "Combiné normalización e interpolación con el Maestro de Calles y OSM. El procesamiento por QgsTask genera una capa de resultados."
   },
   {
     "id": "censo_2024",
@@ -100,7 +114,9 @@
     "stack": "Python · GeoPandas · Matplotlib",
     "note": "Requiere la cartografía censal de entrada. Los índices compuestos son construcciones analíticas.",
     "status": "Análisis reproducible",
-    "repo": "https://github.com/geoidegeoidal/censo_2024"
+    "repo": "https://github.com/geoidegeoidal/censo_2024",
+    "problem": "Comunicar indicadores de vivienda y desigualdad territorial mediante mapas legibles.",
+    "contribution": "Separé el procesamiento censal y la generación de mapas en un flujo reproducible, con salidas visuales y documentación de los indicadores compuestos."
   },
   {
     "id": "humedales_version3",
@@ -113,7 +129,9 @@
     "demo": "https://geoidegeoidal.github.io/humedales_version3/",
     "note": "La proximidad espacial permite explorar relaciones; por sí sola no demuestra un impacto ambiental.",
     "status": "Visor web",
-    "repo": "https://github.com/geoidegeoidal/humedales_version3"
+    "repo": "https://github.com/geoidegeoidal/humedales_version3",
+    "problem": "Explorar la relación espacial entre humedales urbanos y establecimientos SINADER.",
+    "contribution": "Desarrollé un visor con filtros regionales, buffers, intersecciones y exportación. Las operaciones espaciales se ejecutan en el navegador."
   },
   {
     "id": "gbif-human-obs-dashboard",
@@ -125,6 +143,8 @@
     "stack": "Python · DuckDB · Streamlit · Plotly",
     "note": "Los registros de observación no equivalen a abundancia de especies.",
     "status": "Dashboard · código disponible",
-    "repo": "https://github.com/geoidegeoidal/gbif-human-obs-dashboard"
+    "repo": "https://github.com/geoidegeoidal/gbif-human-obs-dashboard",
+    "problem": "Examinar dónde y cuándo se registra biodiversidad, sin confundir observaciones con abundancia.",
+    "contribution": "Combiné consultas DuckDB y agregados precalculados con vistas por taxonomía, territorio, tiempo y calidad, incluyendo una sección sobre sesgos."
   }
 ]

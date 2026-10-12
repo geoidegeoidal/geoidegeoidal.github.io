@@ -1,3 +1,11 @@
+## 2026-10-11 · Proyectos legibles en consola
+
+- _data/projects.json conserva campos clásicos; problem/contribution son paráfrasis editoriales del contenido existente para la consola, sin métricas ni responsabilidades inventadas. Nuevos proyectos deben incluir ambos y conservar note/status/demo/repo reales.
+- projectButton es la fila común de ls/cd y proyectos/filtros: nombre, archivo y propósito. cat/abrir/enlace directo reutilizan el template con Problema, Mi aporte y Ver el resultado. Tecnología y descripción original en details nativo; límites siempre fuera del desplegable.
+- No demo implica acceso al repositorio, sin simular aplicación web. Enlaces de proyecto en nueva pestaña, rel noopener noreferrer y aviso visible/accesible para preservar sesión.
+- shell-output debe mantener position:relative: los spans .sr absolutos de enlaces en el transcript, sin contenedor posicionado, pueden inflar la altura exterior al acumular fichas. Verificar altura exterior además de overflow horizontal.
+- tests/terminal_projects_check.cjs recorre las diez fichas, filas/filtros, vínculos, nota/técnica, conservación de borrador/sesión, rutas directas, axe/320–1440px y 200%. Axe necesita browser.newContext() explícito.
+
 ## 2026-10-11 · Personalidad y movimiento de consola
 
 - La petición vigente permite una firma ASCII JU al entrar (560ms), nunca simulación de red/procesos/carga ni espera de escritura. Sustituye la prohibición genérica anterior de arranque decorativo; todos los textos y comandos están disponibles de inmediato.

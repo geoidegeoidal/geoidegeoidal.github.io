@@ -11,6 +11,12 @@
   const shortPath=()=>cwd==='/'?'~':'~'+cwd;
   function text(parent,value,className){const p=document.createElement('p');p.textContent=value;if(className)p.className=className;parent.append(p);return p;}
   function commandButton(parent,label,command=label,description){const b=document.createElement('button');b.type='button';b.dataset.command=command;b.textContent=label;if(description){const s=document.createElement('span');s.textContent=description;b.append(s);}parent.append(b);return b;}
+  function projectButton(parent,id){
+    const project=document.getElementById('project-'+id),button=commandButton(parent,'','cat /proyectos/'+id+'.md');button.className='project-file';
+    const name=document.createElement('span');name.className='project-name';name.textContent=project.dataset.name;
+    const file=document.createElement('code');file.className='project-filename';file.textContent=id+'.md';
+    const purpose=document.createElement('span');purpose.className='project-purpose';purpose.textContent=project.dataset.summary;button.append(name,file,purpose);return button;
+  }
   function suggestions(){
     const target=$('#command-suggestions');target.replaceChildren();
     let title='Empieza por aquí',list=[['cat /perfil.md','Conocerme'],['cd /proyectos','Ver proyectos'],['formacion','Formación']];
@@ -60,7 +66,8 @@
     if(!files[path])return failure(parent,'ls: no existe '+path);
     lastRead='';
     const paths=files[path].directory?T.children(files,path):[path],list=document.createElement('div');list.className='file-list'+(long?' is-long':'');
-    paths.forEach(p=>{const file=files[p],name=p.split('/').pop()+(file.directory?'/':'');const b=commandButton(list,name,(file.directory?'cd ':'cat ')+p,long?(file.directory?'directorio':file.project?document.getElementById(file.template).dataset.name:'archivo de lectura'):undefined);if(file.directory)b.className='directory';});parent.append(list);
+    if(paths.every(p=>files[p].project))list.classList.add('project-files');
+    paths.forEach(p=>{const file=files[p];if(file.project){projectButton(list,file.project);return;}const name=p.split('/').pop()+(file.directory?'/':'');const b=commandButton(list,name,(file.directory?'cd ':'cat ')+p,long?(file.directory?'directorio':'archivo de lectura'):undefined);if(file.directory)b.className='directory';});parent.append(list);
     parent.dataset.summary=(path==='/'?'~':'~'+path)+' · '+paths.length+(paths.length===1?' entrada':' entradas');
     text(parent,'# '+paths.length+(paths.length===1?' entrada':' entradas')+' · Pulsa un nombre para abrirlo.','terminal-next');return 0;
   }
@@ -101,7 +108,7 @@
     else if(['formacion','cursos'].includes(verb))code=readFile(result,'/formacion/bootcamp.md');
     else if(verb==='contacto')code=readFile(result,'/contacto.txt');
     else if(verb==='proyectos'){
-      const topic=normalize(args.join(' '));if(topic&&!['ambiente','codigo','--tema ambiente','--tema codigo'].includes(topic))code=failure(result,'Usa proyectos, proyectos ambiente o proyectos codigo.');else{const ids=topic.endsWith('ambiente')?['retc-map']:topic.endsWith('codigo')?['luz-rm','azimut','autoatlas-pro','geocallejero']:projectIds;ids.forEach(id=>commandButton(result,document.getElementById('project-'+id).dataset.name,'cat /proyectos/'+id+'.md'));}
+      const topic=normalize(args.join(' '));if(topic&&!['ambiente','codigo','--tema ambiente','--tema codigo'].includes(topic))code=failure(result,'Usa proyectos, proyectos ambiente o proyectos codigo.');else{const ids=topic.endsWith('ambiente')?['retc-map']:topic.endsWith('codigo')?['luz-rm','azimut','autoatlas-pro','geocallejero']:projectIds;const listing=document.createElement('div');listing.className='file-list project-files';ids.forEach(id=>projectButton(listing,id));text(result,'# '+ids.length+' proyectos · Pulsa un nombre para leer su ficha.','terminal-next');result.append(listing);lastRead='';}
     }
     else if(['abrir','open'].includes(verb)){
       const id=projectIds.find(id=>normalize(id)===normalize(args.join(' '))||normalize(document.getElementById('project-'+id).dataset.name)===normalize(args.join(' ')));
