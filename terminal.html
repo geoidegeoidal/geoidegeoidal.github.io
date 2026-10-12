@@ -7,25 +7,22 @@ description: Una terminal local para conocer a Jorge Ulloa. Navega proyectos, ca
 <header class="terminal-header"><a href="{{ '/' | relative_url }}" class="classic-link">← Portafolio clásico</a><h1>Jorge Ulloa / Terminal</h1></header>
 <main id="contenido" class="terminal-workbench">
   <section class="shell" aria-label="Terminal del portafolio">
-    <div class="shell-titlebar"><div class="shell-session"><span class="session-indicator" aria-hidden="true"></span><span id="session-path">visitante@jorge: ~</span></div><button id="terminal-motion" type="button" aria-pressed="false">Pausar animación</button></div>
+    <div class="shell-titlebar"><div class="shell-session"><span class="session-indicator" aria-hidden="true"></span><span id="session-path">visitante@jorge: ~</span></div><div class="shell-actions"><button type="button" data-command="help">Ayuda</button><button id="guide-toggle" type="button" aria-expanded="true" aria-controls="command-guide">Ocultar pistas</button></div></div>
     <div id="console-output" class="shell-output" role="log" aria-label="Historial y resultados" aria-live="polite" aria-relevant="additions" tabindex="0">
       <section class="terminal-intro">
-        <pre class="terminal-wordmark" aria-hidden="true">      _
-     (_)_   _   Jorge Ulloa
-     | | | | |  geografía · código · territorio
-    _/ | |_| |
-   |__/ \__,_|</pre>
-        <p class="boot-line"><span>✓</span> Portafolio montado en <code>/home/jorge</code></p>
-        <p class="boot-line"><span>✓</span> Proyectos, trayectoria y formación disponibles</p>
-        <p class="terminal-welcome">Hola, soy Jorge. Puedes conocer mi trabajo recorriendo estos archivos.</p>
-        <p>Escribe <button type="button" data-command="ls" class="inline-command">ls</button> para mirar alrededor o <button type="button" data-command="help" class="inline-command">help</button> si es tu primera terminal.</p>
-        <p class="terminal-disclosure">Sesión local de lectura. No se ejecutan programas ni se accede a tu equipo.</p>
+        <p class="intro-path">~/README.md</p>
+        <h2>Hola, soy Jorge.</h2>
+        <p>Geógrafo, analista espacial y formador. Aquí encontrarás mi trabajo, organizado en archivos que puedes abrir y recorrer.</p>
+        <p>Empieza con <code>ls</code> para ver el directorio, o elige una de las pistas de abajo. No necesitas conocer los comandos.</p>
+        <p class="terminal-disclosure">Consola de lectura del portafolio. No ejecuta programas ni accede a tu equipo.</p>
       </section>
     </div>
-    <form id="console-form" class="shell-command" hidden><label for="console-input"><span class="prompt-user">visitante@jorge</span><span class="prompt-path" id="prompt-path">~</span><span aria-hidden="true" class="prompt-arrow">$</span><span class="sr">Escribe un comando</span></label><div class="command-edit"><input id="console-input" name="command" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="240" aria-describedby="command-hint" placeholder="ls"><span id="command-ghost" aria-hidden="true"></span></div><button type="submit" class="execute" aria-label="Ejecutar comando">Enter</button></form>
-    <div class="shell-status"><span><span class="status-symbol" aria-hidden="true"></span>lectura local</span><span id="exit-code" aria-label="Resultado del último comando">listo</span><span>UTF-8</span><span class="status-shortcuts">Tab completa · ↑↓ historial · Ctrl+L limpia</span></div>
+    <form id="console-form" class="shell-command" hidden><label for="console-input"><span class="prompt-user">visitante@jorge</span><span class="prompt-path" id="prompt-path">~</span><span aria-hidden="true" class="prompt-arrow">$</span><span class="sr">Escribe un comando</span></label><div class="command-edit"><input id="console-input" name="command" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="240" aria-describedby="command-hint" placeholder="Escribe un comando…" enterkeyhint="send"></div><button type="submit" class="execute" aria-label="Ejecutar comando" disabled>Enter</button><p id="command-hint" class="command-hint" role="status">Tab completa · ↑↓ historial · help orienta</p></form>
+    <div id="completion-list" class="completion-list" role="group" aria-label="Completar comando" hidden></div>
+    <div class="shell-status"><span><span class="status-symbol" aria-hidden="true"></span>lectura local</span><span id="result-status">Escribe o elige una pista</span><span id="exit-code" aria-label="Resultado del último comando">listo</span></div>
   </section>
-  <aside class="command-guide" aria-label="Guía de comandos"><div><h2 id="guide-title">Empieza por aquí</h2><p id="command-hint">Puedes escribir un comando o pulsar una sugerencia. Son el mismo recorrido.</p></div><div id="command-suggestions" class="command-suggestions"><button data-command="ls">ls <span>Ver archivos</span></button><button data-command="cat perfil.md">cat perfil.md <span>Conocerme</span></button><button data-command="cd proyectos">cd proyectos <span>Explorar proyectos</span></button></div></aside>
+  <aside id="command-guide" class="command-guide" aria-label="Guía de comandos"><div class="guide-heading"><h2 id="guide-title">Empieza por aquí</h2><p>Pulsa una pista; el comando aparece debajo.</p></div><div id="command-suggestions" class="command-suggestions"><button data-command="cat /perfil.md">Conocerme<code>cat /perfil.md</code></button><button data-command="cd /proyectos">Ver proyectos<code>cd /proyectos</code></button><button data-command="formacion">Formación<code>formacion</code></button></div></aside>
+  <div class="terminal-footer"><details><summary>Atajos de teclado</summary><dl><dt>Tab</dt><dd>Completar un comando o una ruta.</dd><dt>↑ / ↓</dt><dd>Recuperar lo que has escrito.</dd><dt>Ctrl + L</dt><dd>Despejar la pantalla.</dd><dt>Ctrl + C</dt><dd>Cancelar la línea; con texto seleccionado, copiar.</dd><dt>Ctrl + A / E</dt><dd>Ir al inicio o al final de la línea.</dd><dt>Ctrl + U / K</dt><dd>Borrar antes o después del cursor.</dd><dt>Escape</dt><dd>Cerrar coincidencias o vaciar la línea.</dd></dl></details><button id="terminal-motion" type="button" aria-pressed="false">Pausar animación</button></div>
   <details class="terminal-index"><summary>Prefiero navegar sin comandos</summary><nav aria-label="Enlaces directos al portafolio"><a href="{{ '/' | relative_url }}#bio">Perfil</a><a href="{{ '/code.html' | relative_url }}">Proyectos</a><a href="{{ '/' | relative_url }}#experiencia">Trayectoria</a><a href="{{ '/' | relative_url }}#cursos">Formación</a><a href="{{ '/maps.html' | relative_url }}">Cartografía</a><a href="{{ '/' | relative_url }}#contacto" id="terminal-contact">Contacto</a></nav></details>
   <noscript><p>La terminal necesita JavaScript. Los enlaces directos de arriba están disponibles para conocer mi trabajo.</p></noscript>
 </main>

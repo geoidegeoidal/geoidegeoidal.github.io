@@ -145,4 +145,4 @@ El portafolio clásico permanece en la raíz. `terminal.html` es la única vista
 
 El RPG fue retirado por decisión del propietario el 2026-10-11. `explorar.html` solo redirige a la consola conservando la consulta; sin JavaScript ofrece enlaces directos. Código, imágenes, fuente y pruebas exclusivos del juego fueron eliminados; su historial sigue en Git. Los datos y templates que utiliza la terminal se conservan.
 
-Prueba: `node tests/expedition_check.cjs`. Fijar `TEST_SITE_URL` al servidor de prueba.
+Pruebas: `node tests/expedition_check.cjs` y `node tests/terminal_polish_check.cjs`. La guía contextual permite explorar sin escribir; Tab muestra coincidencias, `cd -` vuelve a la carpeta anterior y los atajos de edición están documentados en la consola. Fijar `TEST_SITE_URL` al servidor de prueba.

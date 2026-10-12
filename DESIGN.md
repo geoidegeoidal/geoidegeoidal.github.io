@@ -14,7 +14,7 @@ colors:
 typography:
   terminal-body:
     fontFamily: "JetBrains Mono, monospace"
-    fontSize: "14px"
+    fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.65
   terminal-result:
@@ -23,8 +23,8 @@ typography:
     lineHeight: 1.8
   terminal-title:
     fontFamily: "JetBrains Mono, monospace"
-    fontSize: "15px"
-    fontWeight: 600
+    fontSize: "18px"
+    fontWeight: 500
   terminal-label:
     fontFamily: "JetBrains Mono, monospace"
     fontSize: "12px"
@@ -68,17 +68,17 @@ components:
 El portafolio clásico es la entrada principal; conserva logo JU, DM Sans, cartografías y composición editorial. La única alternativa es una terminal de lectura en grafito con JetBrains Mono. El RPG fue retirado por decisión expresa del propietario el 2026-10-11; sus materiales históricos no definen la interfaz vigente.
 
 ## Colors and typography
-La consola conserva fondo #171a1c, texto #e5e2d7, metadatos #acb5b3, menta #a7d8b8 para comandos, azul #9fc8ef para rutas y ámbar #ecc58b para foco. JetBrains Mono local: entrada 14px/1.65, resultados 13px/1.8, títulos 15px/600 y etiquetas 12px. Licencia OFL en assets/fonts/jetbrains-OFL.txt. La portada conserva DM Sans y su sistema previo.
+La consola conserva fondo #171a1c, texto #e5e2d7, metadatos #acb5b3, menta #a7d8b8 para comandos, azul #9fc8ef para rutas y ámbar #ecc58b para foco. JetBrains Mono local: entrada 16px/1.65, resultados 13px/1.85, títulos 18px/500 y etiquetas 12px. Licencia OFL en assets/fonts/jetbrains-OFL.txt. La portada conserva DM Sans y su sistema previo.
 
 ## Layout and navigation
 Tras el hero, la invitación conserva superficie, tipografía y foco existentes, con texto a la izquierda y una única acción Abrir la terminal. Envuelve de forma natural en móvil; no hay ilustración del juego ni opción de mapa. Cabecera de consola: retorno al portafolio y título de sesión.
 
-La terminal conserva banco máximo de 1320px, padding horizontal 36px y salida con scroll clamp(310px,55vh,660px). A 800px o menos usa 16px laterales, salida 32svh con mínimo 230px y tres sugerencias envolventes. El índice nativo permite leer sin comandos. Foco visible, teclado, objetivos táctiles y reduced-motion permanecen vigentes.
+La terminal usa banco máximo de 1180px, padding horizontal 28px y salida con scroll clamp(310px,45svh,540px). A 800px o menos usa 14px laterales, salida 34svh con mínimo 240px (230px bajo 370px). El prompt conserva la entrada nativa de 16px para evitar zoom de foco en móvil. La bienvenida es un README breve; se retiran el wordmark y los mensajes de arranque decorativos. La ventana usa borde simple, sin sombra. El índice nativo permite leer sin comandos. Foco visible, teclado, objetivos táctiles y reduced-motion permanecen vigentes.
 
 ### Terminal grammar
-La interfaz corresponde a un sistema de archivos virtual de solo lectura: `ls` lista, `cd` cambia carpeta, `cat` lee y `pwd`/`tree` orientan. Las rutas admiten `~`, `/home/jorge`, rutas absolutas/relativas, `.` y `..`; las comillas agrupan argumentos. `help` ofrece un recorrido inicial y las sugerencias cambian con la carpeta. Perfil, trayectoria, formación y abrir proyecto mantienen sus alias locales; ningún comando accede al equipo ni ejecuta un shell.
+La interfaz corresponde a un sistema de archivos virtual de solo lectura: `ls` lista, `cd` cambia carpeta, `cat` lee y `pwd`/`tree` orientan. Las rutas admiten `~`, `/home/jorge`, rutas absolutas/relativas, `.` y `..`; las comillas agrupan argumentos. `help` ofrece un recorrido inicial y las sugerencias cambian con el último archivo leído o la carpeta. Muestran primero el propósito y después el comando exacto; Ocultar pistas permite retirarlas sin ocultar el prompt, su ayuda ni las coincidencias. Perfil, trayectoria, formación y abrir proyecto mantienen sus alias locales; ningún comando accede al equipo ni ejecuta un shell.
 
-Tab completa una coincidencia; con varias, muestra opciones y permite continuar el foco. Flechas recuperan el historial de sesión; Ctrl+C cancela una línea sin selección, Ctrl+L limpia y Escape vacía. Errores mantienen ejemplos de recuperación y salida visible. El historial conserva hasta 100 comandos y 40 bloques renderizados. El resultado entra en 220ms con desplazamiento de 4px; la animación de arranque usa 350/650ms. Pausa local y movimiento reducido desactivan estas transiciones.
+Tab completa una coincidencia solo al final de la línea; con varias, muestra botones que rellenan sin ejecutar y permite continuar el foco. No superpone texto fantasma. cd - intercambia la carpeta actual y anterior. Ctrl+A/E mueven el cursor; Ctrl+U/K borran antes/después. Flechas recuperan el historial de sesión; Ctrl+C cancela una línea sin selección, Ctrl+L limpia y Escape cierra primero coincidencias y después vacía. Errores ofrecen Ver archivos y Ver ejemplos. Pulsar pistas/archivos con puntero conserva el borrador y no fuerza foco al input; teclado y envío conservan el prompt. El historial conserva hasta 100 comandos y 40 bloques renderizados. El resultado se revela por opacidad en 160ms, sin desplazamiento ni espera artificial. El scroll alinea el inicio del último resultado con el área de lectura. Las fichas muestran ruta del archivo, título y límites originales, con ancho máximo 72ch. Pausa local y movimiento reducido desactivan estas transiciones.
 
 
 ## Retirement and continuity
@@ -91,4 +91,4 @@ explorar.html es solo una ruta de compatibilidad: redirige a terminal.html conse
 - No reintroducir juego, Pixelify ni recursos retirados sin una nueva petición.
 
 ## Verification scope
-Retirada funcional con comprobaciones de consola, enlaces antiguos, no-JS, sitemap, móvil y teclado. Esta entrega no rediseña la consola ni supone una nueva aprobación estética del conjunto.
+Refinamiento de consola verificado con expedition_check.cjs y terminal_polish_check.cjs: orientación, teclado, foco táctil/borradores, ayuda, recuperación, 320–1440px, 200%, reduced-motion, no-JS y axe. Capturas de escritorio/móvil y lectura de proyecto contrastadas con fuentes. No probado en dispositivo físico ni con lector de pantalla real.

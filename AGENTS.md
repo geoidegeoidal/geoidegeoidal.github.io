@@ -1,3 +1,10 @@
+## 2026-10-11 · Consola guiada refinada
+
+- Conservar grafito/JetBrains Mono y DOM seleccionable; prompt nativo de 16px, fichas a 72ch y ruta visible. Pistas con propósito antes del comando, basadas en lastRead o cwd, ocultables sin ocultar ayuda/autocompletado. No volver a texto fantasma superpuesto ni arranque simulado.
+- Tab solo completa al final de la línea. Varias coincidencias son botones que rellenan sin ejecutar y no atrapan Tab. Escape cierra coincidencias antes de vaciar. cd - y alias ir comparten changeDirectory; no duplicar actualización de carpeta anterior.
+- Acciones con puntero no fuerzan foco al input ni borran un borrador pendiente; teclado y submit sí vuelven al prompt. Usar geometría relativa de rectángulos para alinear scroll del último resultado, no offsetTop con padres diferentes.
+- Añadir checks a tests/terminal_polish_check.cjs para guía, cd -, edición Ctrl+A/E/U/K, recuperación, foco táctil, borradores y zoom; expedition_check.cjs conserva regresión de comandos/noJS/reduced/axe y enlace antiguo.
+
 ## 2026-10-11 · RPG retirado por el propietario
 
 - Decisión vigente: portada clásica en / y consola como única alternativa. Sustituye todas las instrucciones históricas de conservar/desarrollar el RPG. No reintroducirlo sin petición expresa.

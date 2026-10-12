@@ -1,0 +1,4 @@
+- [x] Inspect live flows and define scope.
+- [x] Refine session, guidance, completion, editing and recovery.
+- [x] Verify desktop/mobile, keyboard, content, no-JS and reduced motion.
+- [ ] Document, commit, deploy and verify public site.
