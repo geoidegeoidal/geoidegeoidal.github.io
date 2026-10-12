@@ -1,0 +1,4 @@
+- [x] Inspect references and establish retirement scope.
+- [x] Remove game and simplify entry; preserve old link continuity.
+- [x] Verify build, terminal, redirect, no-JS and responsive invitation.
+- [ ] Commit, push, deploy and verify production; record handoff.

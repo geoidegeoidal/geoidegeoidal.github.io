@@ -4,7 +4,7 @@
   const templates=[...document.querySelectorAll('template[id^="project-"]')],projectIds=templates.map(t=>t.id.slice(8));
   const files={'/':{directory:true},'/README.md':{intro:true},'/perfil.md':{template:'place-puerto'},'/contacto.txt':{contact:true},'/herramientas.md':{template:'exp-skills'},'/proyectos':{directory:true,place:'taller'},'/trayectoria':{directory:true,place:'puerto'},'/trayectoria/recorrido.md':{template:'exp-trajectory'},'/formacion':{directory:true,place:'escuela'},'/formacion/bootcamp.md':{template:'place-escuela'},'/cartografia':{directory:true,place:'archivo'},'/cartografia/conmapas.md':{template:'place-archivo'},'/ambiente':{directory:true,place:'observatorio'},'/ambiente/iema.md':{template:'place-observatorio'}};
   templates.forEach(t=>files['/proyectos/'+t.id.slice(8)+'.md']={template:t.id,project:t.id.slice(8)});
-  const commands=['help','ls','cd','cat','pwd','tree','whoami','clear','history','perfil','proyectos','trayectoria','habilidades','formacion','contacto','mapa','abrir'];
+  const commands=['help','ls','cd','cat','pwd','tree','whoami','clear','history','perfil','proyectos','trayectoria','habilidades','formacion','contacto','abrir'];
   const descriptions={help:'Ver comandos y ejemplos',ls:'Listar archivos de la carpeta',cd:'Cambiar de carpeta',cat:'Leer un archivo',pwd:'Mostrar la ruta actual',tree:'Ver todo el portafolio como árbol',whoami:'Conocer a Jorge',clear:'Despejar la pantalla',history:'Ver comandos de esta sesión'};
   const normalize=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
   let cwd='/',currentPlace='puerto',currentProject='',history=[],historyIndex=0,draft='',motionOff=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -19,7 +19,7 @@
   function sync(){
     $('#prompt-path').textContent=shortPath();$('#session-path').textContent='visitante@jorge: '+shortPath();
     const url=new URL(location.href);url.searchParams.set('lugar',currentPlace);if(currentProject)url.searchParams.set('proyecto',currentProject);else url.searchParams.delete('proyecto');window.history.replaceState(null,'',url);
-    const map=new URL($('#terminal-map').href);map.search=url.search;$('#terminal-map').href=map.href;suggestions();
+    suggestions();
   }
   function placeOf(id){return [...document.querySelectorAll('template[id^="place-"]')].find(t=>[...t.content.querySelectorAll('[data-project]')].some(b=>b.dataset.project===id))?.id.slice(6)||'taller';}
   function clone(parent,id){const template=document.getElementById(id);if(template)parent.append(template.content.cloneNode(true));}
@@ -42,7 +42,7 @@
     text(parent,'No necesitas saber usar una terminal. Prueba este recorrido:');
     ['ls','cd proyectos','cat azimut.md'].forEach(c=>commandButton(parent,c));
     Object.entries(descriptions).forEach(([c,d])=>{const row=document.createElement('div');row.className='help-row';const code=document.createElement('code');code.textContent=c;const span=document.createElement('span');span.textContent=d;row.append(code,span);parent.append(row);});
-    text(parent,'También funcionan: perfil, proyectos, abrir azimut, trayectoria, habilidades, formacion, contacto y mapa.','terminal-next');
+    text(parent,'También funcionan: perfil, proyectos, abrir azimut, trayectoria, habilidades, formacion y contacto.','terminal-next');
     text(parent,'Tab completa una coincidencia. Con varias opciones, las muestra y deja avanzar el foco. ↑↓ recuperan comandos; Ctrl+C cancela la línea; Ctrl+L limpia la pantalla.','terminal-next');return 0;
   }
   function run(raw,{record=true}={}){
@@ -83,7 +83,6 @@
       const dirs={puerto:'/trayectoria',archivo:'/cartografia',observatorio:'/ambiente',taller:'/proyectos',escuela:'/formacion'};
       if(Object.hasOwn(dirs,args[0])){cwd=dirs[args[0]];currentPlace=args[0];currentProject='';list(result,cwd,false);}else code=failure(result,'Destinos: puerto, archivo, observatorio, taller, escuela.');
     }
-    else if(verb==='mapa'){sync();location.assign($('#terminal-map').href);return;}
     else if(verb==='terminal')text(result,'Ya estás en la terminal. Prueba ls o help.');
     else {code=127;failure(result,verb+': comando no encontrado.');}
     while(output.children.length>=40)output.firstElementChild.remove();output.append(entry);sync();$('#exit-code').textContent='exit '+code;

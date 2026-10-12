@@ -1,5 +1,5 @@
 {% for place in site.data.expedition %}
-<template id="place-{{ place.id }}" data-x="{{ place.x }}" data-y="{{ place.y }}" data-number="{{ place.number }}">
+<template id="place-{{ place.id }}">
   <div class="exp-place-copy"><h2 class="exp-place-name">{{ place.name }}</h2><p class="exp-place-story">{{ place.title }}</p><p>{{ place.description }}</p><p>{{ place.detail }}</p><a class="exp-evidence" href="{% if place.link contains 'https://' %}{{ place.link }}{% else %}{{ place.link | relative_url }}{% endif %}">{{ place.action }} ↗</a>
   {% if place.id == 'puerto' %}<details class="exp-milestones"><summary>Recorrer los hitos aquí</summary>{% include trajectory.html %}</details>{% endif %}
   {% if place.id == 'observatorio' %}<a class="exp-evidence" href="https://doi.org/10.4995/raet.2017.7931">Leer investigación en teledetección ↗</a>{% endif %}
