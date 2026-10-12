@@ -1,205 +1,9 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-07T00:01:52.586132+00:00",
-  "title": "Design System: Pueblo costero y terminal",
+  "generatedAt": "2026-10-12T00:29:39.407Z",
+  "title": "Design System: Portafolio clásico y terminal",
   "extensions": {
     "colorMeta": {
-      "rpg-ink": {
-        "role": "neutral",
-        "displayName": "Tinta vegetal",
-        "tonalRamp": [
-          "oklch(15.00% 0.0284 162.56)",
-          "oklch(26.43% 0.0284 162.56)",
-          "oklch(37.86% 0.0284 162.56)",
-          "oklch(49.29% 0.0284 162.56)",
-          "oklch(60.71% 0.0284 162.56)",
-          "oklch(72.14% 0.0284 162.56)",
-          "oklch(83.57% 0.0284 162.56)",
-          "oklch(95.00% 0.0284 162.56)"
-        ]
-      },
-      "rpg-paper": {
-        "role": "neutral",
-        "displayName": "Papel de viaje",
-        "tonalRamp": [
-          "oklch(15.00% 0.0476 90.06)",
-          "oklch(26.43% 0.0476 90.06)",
-          "oklch(37.86% 0.0476 90.06)",
-          "oklch(49.29% 0.0476 90.06)",
-          "oklch(60.71% 0.0476 90.06)",
-          "oklch(72.14% 0.0476 90.06)",
-          "oklch(83.57% 0.0476 90.06)",
-          "oklch(95.00% 0.0476 90.06)"
-        ]
-      },
-      "rpg-orange": {
-        "role": "secondary",
-        "displayName": "Arcilla",
-        "tonalRamp": [
-          "oklch(15.00% 0.1557 32.37)",
-          "oklch(26.43% 0.1557 32.37)",
-          "oklch(37.86% 0.1557 32.37)",
-          "oklch(49.29% 0.1557 32.37)",
-          "oklch(60.71% 0.1557 32.37)",
-          "oklch(72.14% 0.1557 32.37)",
-          "oklch(83.57% 0.1557 32.37)",
-          "oklch(95.00% 0.1557 32.37)"
-        ]
-      },
-      "rpg-green": {
-        "role": "primary",
-        "displayName": "Verde de acción",
-        "tonalRamp": [
-          "oklch(15.00% 0.0640 166.55)",
-          "oklch(26.43% 0.0640 166.55)",
-          "oklch(37.86% 0.0640 166.55)",
-          "oklch(49.29% 0.0640 166.55)",
-          "oklch(60.71% 0.0640 166.55)",
-          "oklch(72.14% 0.0640 166.55)",
-          "oklch(83.57% 0.0640 166.55)",
-          "oklch(95.00% 0.0640 166.55)"
-        ]
-      },
-      "rpg-line": {
-        "role": "neutral",
-        "displayName": "Línea de arena",
-        "tonalRamp": [
-          "oklch(15.00% 0.0695 78.23)",
-          "oklch(26.43% 0.0695 78.23)",
-          "oklch(37.86% 0.0695 78.23)",
-          "oklch(49.29% 0.0695 78.23)",
-          "oklch(60.71% 0.0695 78.23)",
-          "oklch(72.14% 0.0695 78.23)",
-          "oklch(83.57% 0.0695 78.23)",
-          "oklch(95.00% 0.0695 78.23)"
-        ]
-      },
-      "rpg-focus": {
-        "role": "secondary",
-        "displayName": "Rojo de foco",
-        "tonalRamp": [
-          "oklch(15.00% 0.1470 28.21)",
-          "oklch(26.43% 0.1470 28.21)",
-          "oklch(37.86% 0.1470 28.21)",
-          "oklch(49.29% 0.1470 28.21)",
-          "oklch(60.71% 0.1470 28.21)",
-          "oklch(72.14% 0.1470 28.21)",
-          "oklch(83.57% 0.1470 28.21)",
-          "oklch(95.00% 0.1470 28.21)"
-        ]
-      },
-      "rpg-hover": {
-        "role": "neutral",
-        "displayName": "Papel al sol",
-        "tonalRamp": [
-          "oklch(15.00% 0.0968 87.13)",
-          "oklch(26.43% 0.0968 87.13)",
-          "oklch(37.86% 0.0968 87.13)",
-          "oklch(49.29% 0.0968 87.13)",
-          "oklch(60.71% 0.0968 87.13)",
-          "oklch(72.14% 0.0968 87.13)",
-          "oklch(83.57% 0.0968 87.13)",
-          "oklch(95.00% 0.0968 87.13)"
-        ]
-      },
-      "book-paper": {
-        "role": "neutral",
-        "displayName": "Papel de cuaderno",
-        "tonalRamp": [
-          "oklch(15.00% 0.0579 92.15)",
-          "oklch(26.43% 0.0579 92.15)",
-          "oklch(37.86% 0.0579 92.15)",
-          "oklch(49.29% 0.0579 92.15)",
-          "oklch(60.71% 0.0579 92.15)",
-          "oklch(72.14% 0.0579 92.15)",
-          "oklch(83.57% 0.0579 92.15)",
-          "oklch(95.00% 0.0579 92.15)"
-        ]
-      },
-      "book-ink": {
-        "role": "neutral",
-        "displayName": "Book ink",
-        "tonalRamp": [
-          "oklch(15.00% 0.0282 162.68)",
-          "oklch(26.43% 0.0282 162.68)",
-          "oklch(37.86% 0.0282 162.68)",
-          "oklch(49.29% 0.0282 162.68)",
-          "oklch(60.71% 0.0282 162.68)",
-          "oklch(72.14% 0.0282 162.68)",
-          "oklch(83.57% 0.0282 162.68)",
-          "oklch(95.00% 0.0282 162.68)"
-        ]
-      },
-      "book-edge": {
-        "role": "neutral",
-        "displayName": "Madera",
-        "tonalRamp": [
-          "oklch(15.00% 0.0570 60.70)",
-          "oklch(26.43% 0.0570 60.70)",
-          "oklch(37.86% 0.0570 60.70)",
-          "oklch(49.29% 0.0570 60.70)",
-          "oklch(60.71% 0.0570 60.70)",
-          "oklch(72.14% 0.0570 60.70)",
-          "oklch(83.57% 0.0570 60.70)",
-          "oklch(95.00% 0.0570 60.70)"
-        ]
-      },
-      "book-inset": {
-        "role": "neutral",
-        "displayName": "Book inset",
-        "tonalRamp": [
-          "oklch(15.00% 0.0509 88.57)",
-          "oklch(26.43% 0.0509 88.57)",
-          "oklch(37.86% 0.0509 88.57)",
-          "oklch(49.29% 0.0509 88.57)",
-          "oklch(60.71% 0.0509 88.57)",
-          "oklch(72.14% 0.0509 88.57)",
-          "oklch(83.57% 0.0509 88.57)",
-          "oklch(95.00% 0.0509 88.57)"
-        ]
-      },
-      "book-header": {
-        "role": "neutral",
-        "displayName": "Book header",
-        "tonalRamp": [
-          "oklch(15.00% 0.0567 88.17)",
-          "oklch(26.43% 0.0567 88.17)",
-          "oklch(37.86% 0.0567 88.17)",
-          "oklch(49.29% 0.0567 88.17)",
-          "oklch(60.71% 0.0567 88.17)",
-          "oklch(72.14% 0.0567 88.17)",
-          "oklch(83.57% 0.0567 88.17)",
-          "oklch(95.00% 0.0567 88.17)"
-        ]
-      },
-      "book-button": {
-        "role": "neutral",
-        "displayName": "Book button",
-        "tonalRamp": [
-          "oklch(15.00% 0.0411 90.25)",
-          "oklch(26.43% 0.0411 90.25)",
-          "oklch(37.86% 0.0411 90.25)",
-          "oklch(49.29% 0.0411 90.25)",
-          "oklch(60.71% 0.0411 90.25)",
-          "oklch(72.14% 0.0411 90.25)",
-          "oklch(83.57% 0.0411 90.25)",
-          "oklch(95.00% 0.0411 90.25)"
-        ]
-      },
-      "book-divider": {
-        "role": "neutral",
-        "displayName": "Book divider",
-        "tonalRamp": [
-          "oklch(15.00% 0.0715 80.09)",
-          "oklch(26.43% 0.0715 80.09)",
-          "oklch(37.86% 0.0715 80.09)",
-          "oklch(49.29% 0.0715 80.09)",
-          "oklch(60.71% 0.0715 80.09)",
-          "oklch(72.14% 0.0715 80.09)",
-          "oklch(83.57% 0.0715 80.09)",
-          "oklch(95.00% 0.0715 80.09)"
-        ]
-      },
       "terminal-bg": {
         "role": "neutral",
         "displayName": "Grafito de consola",
@@ -325,61 +129,9 @@
           "oklch(83.57% 0.0264 159.84)",
           "oklch(95.00% 0.0264 159.84)"
         ]
-      },
-      "rpg-wayfinding": {
-        "role": "primary",
-        "displayName": "Verde de orientación",
-        "tonalRamp": [
-          "oklch(15.00% 0.0503 167.59)",
-          "oklch(26.43% 0.0503 167.59)",
-          "oklch(37.86% 0.0503 167.59)",
-          "oklch(49.29% 0.0503 167.59)",
-          "oklch(60.71% 0.0503 167.59)",
-          "oklch(72.14% 0.0503 167.59)",
-          "oklch(83.57% 0.0503 167.59)",
-          "oklch(95.00% 0.0503 167.59)"
-        ]
-      },
-      "rpg-landmark-muted": {
-        "role": "neutral",
-        "displayName": "Salvia de función",
-        "tonalRamp": [
-          "oklch(15.00% 0.0392 118.20)",
-          "oklch(26.43% 0.0392 118.20)",
-          "oklch(37.86% 0.0392 118.20)",
-          "oklch(49.29% 0.0392 118.20)",
-          "oklch(60.71% 0.0392 118.20)",
-          "oklch(72.14% 0.0392 118.20)",
-          "oklch(83.57% 0.0392 118.20)",
-          "oklch(95.00% 0.0392 118.20)"
-        ]
       }
     },
     "typographyMeta": {
-      "rpg-display": {
-        "displayName": "Rpg display",
-        "purpose": "Cabecera del pueblo."
-      },
-      "rpg-headline": {
-        "displayName": "Rpg headline",
-        "purpose": "Título amplio del cuaderno."
-      },
-      "rpg-title": {
-        "displayName": "Rpg title",
-        "purpose": "Encabezados dentro de la evidencia."
-      },
-      "rpg-body": {
-        "displayName": "Rpg body",
-        "purpose": "Párrafos y fuentes del RPG."
-      },
-      "rpg-control": {
-        "displayName": "Rpg control",
-        "purpose": "Acciones del cuaderno."
-      },
-      "rpg-location": {
-        "displayName": "Rpg location",
-        "purpose": "Placa de lugar actual."
-      },
       "terminal-body": {
         "displayName": "Terminal body",
         "purpose": "Prompt, campo y salida general."
@@ -395,54 +147,16 @@
       "terminal-label": {
         "displayName": "Terminal label",
         "purpose": "Metadatos y controles de consola."
-      },
-      "rpg-landmark": {
-        "displayName": "Destino visible",
-        "purpose": "Nombre corto a tamaño fijo de pantalla."
-      },
-      "rpg-landmark-role": {
-        "displayName": "Función del destino",
-        "purpose": "Rol legible bajo el nombre del edificio."
       }
     },
     "shadows": [
       {
-        "name": "rpg-welcome",
-        "value": "6px 12px 30px #26382f40",
-        "purpose": "Bienvenida del juego."
-      },
-      {
-        "name": "rpg-fieldbook",
-        "value": "8px 16px 50px #1c2e2859",
-        "purpose": "Cuaderno y conversación nativa."
-      },
-      {
         "name": "terminal-window",
         "value": "0 16px 50px #0003",
         "purpose": "Ventana única de consola."
-      },
-      {
-        "name": "rpg-landmark",
-        "value": "0 3px 8px #244a3c26",
-        "purpose": "Separación ambiental del rótulo DOM; el contraste depende de verde y papel."
       }
     ],
     "motion": [
-      {
-        "name": "rpg-walk",
-        "value": "9 sprite frames per second",
-        "purpose": "Solo desplazamiento solicitado; fotograma fijo con movimiento reducido."
-      },
-      {
-        "name": "rpg-coastal-life",
-        "value": "one requestAnimationFrame; ambientTime += dt",
-        "purpose": "Espuma, corriente, copas, pétalos y chimenea comparten reloj. Pausa, diálogo y hidden congelan la fase; reduced-motion omite ambiente y saludos."
-      },
-      {
-        "name": "rpg-dialog",
-        "value": ".22s steps(6,end), translateY(5px)",
-        "purpose": "Entrada breve de lectura; desactivada con movimiento reducido."
-      },
       {
         "name": "terminal-result",
         "value": ".22s ease-out, translateY(4px)",
@@ -452,51 +166,12 @@
         "name": "terminal-boot",
         "value": ".35s / .65s steps(5,end)",
         "purpose": "Arranque breve de escritorio; oculto en móvil y desactivado con pausa/reduced-motion."
-      },
-      {
-        "name": "rpg-audio",
-        "value": "88 BPM, 16 bars, native Web Audio",
-        "purpose": "Página inicial silenciosa; entrada explícita con música o sin sonido. Un contexto reutilizado; armonía, eco, mar, pasos, puertas y conversación. Botón siempre visible y volumen 0–100, inicial 35. Pausa/hidden/pagehide suspenden; el diálogo mantiene música. Estado deseado se aplica tras resume antes de descartar revisiones. RMS, clipping y silencio a cero verificados."
-      },
-      {
-        "name": "rpg-camera-follow",
-        "value": "dead zone .38–.62; 1 - exp(-10 * dt)",
-        "purpose": "Seguimiento exterior; resize, cambios de escena y movimiento reducido ajustan sin interpolación. Base .95, .75 con ancho del área <650px, .65 con altura <360px (prioridad); zoom relativo .65–1.35 en pasos .15 limitados. No mueve al actor ni cambia colisiones."
-      },
-      {
-        "name": "rpg-visitors",
-        "value": "7 sprite frames per second; move dt × .36",
-        "purpose": "Sol y Bruno reutilizan tres filas del atlas. BFS y colisiones compartidas; paran a menos de 100 unidades de Jorge. Pausa/diálogo/hidden/reduced-motion detienen el paseo."
       }
     ],
     "breakpoints": [
       {
         "name": "terminal-mobile",
         "value": "800px"
-      },
-      {
-        "name": "rpg-toolbar-wrap",
-        "value": "850px"
-      },
-      {
-        "name": "rpg-base-mobile",
-        "value": "650px"
-      },
-      {
-        "name": "rpg-fieldbook-mobile",
-        "value": "600px"
-      },
-      {
-        "name": "rpg-camera-short-area",
-        "value": "game area height <360px"
-      },
-      {
-        "name": "rpg-landscape-compact",
-        "value": "(max-height:600px) and (min-width:651px)"
-      },
-      {
-        "name": "rpg-narrow-toolbar",
-        "value": "370px"
       }
     ]
   },
@@ -532,107 +207,30 @@
       "description": "Una sesión con salida DOM; sin controles de ventana ficticios.",
       "html": "<section class=\"ds-shell\"><header>visitante@jorge: ~</header><p>Hola, soy Jorge. Puedes conocer mi trabajo recorriendo estos archivos.</p></section>",
       "css": ".ds-shell{background:var(--terminal-bg,#171a1c);color:var(--terminal-text,#e5e2d7);border:1px solid var(--terminal-line,#414c50);box-shadow:0 16px 50px #0003;font:14px/1.65 \"JetBrains Mono\",monospace}.ds-shell header{min-height:48px;display:flex;align-items:center;padding:0 20px;background:#292f32;border-bottom:1px solid var(--terminal-line,#414c50);font-size:12px}.ds-shell p{padding:26px 30px;margin:0}"
-    },
-    {
-      "name": "Botón RPG",
-      "kind": "button",
-      "refersTo": "rpg-button",
-      "description": "Botón general nativo; las variantes de cabecera y cuaderno aplican Pixelify y sus tamaños propios.",
-      "html": "<button class=\"ds-rpg-button\">Seguir explorando</button>",
-      "css": ".ds-rpg-button{min-height:44px;padding:10px 16px;border:2px solid var(--ink,#26382f);border-radius:0;background:var(--paper,#fff2cf);color:var(--ink,#26382f);font:16px \"DM Sans\",sans-serif;cursor:pointer;}.ds-rpg-button:hover{background:#f5d68e}.ds-rpg-button:focus-visible{outline:3px solid #9d2f27;outline-offset:4px}.ds-rpg-button:disabled{opacity:.65;cursor:default}"
-    },
-    {
-      "name": "Entrar al pueblo",
-      "kind": "custom",
-      "refersTo": "rpg-start",
-      "description": "Elección explícita entre música y silencio; página silenciosa antes del gesto.",
-      "html": "<div class=\"ds-entry\"><button class=\"ds-rpg-start\">Entrar con música</button><button class=\"ds-rpg-silent\">Entrar sin sonido</button></div>",
-      "css": ".ds-entry{display:grid;gap:8px}.ds-entry button{min-height:44px;width:100%;padding:10px 16px;border-radius:0;cursor:pointer}.ds-rpg-start{border:2px solid var(--ink,#26382f);background:var(--green,#285b48);color:var(--paper,#fff2cf);font:21px Pixelify,sans-serif}.ds-rpg-start:hover{background:#1c4737}.ds-rpg-silent{background:transparent;color:var(--green,#285b48);border:1px solid var(--book-edge,#705137);font:14px \"DM Sans\",sans-serif}.ds-rpg-silent:hover{background:#e5cd94}.ds-entry button:focus-visible{outline:3px solid #9d2f27;outline-offset:4px}.ds-entry button:disabled{opacity:.65;cursor:default}"
-    },
-    {
-      "name": "Lugares del cuaderno",
-      "kind": "nav",
-      "refersTo": "book-tab",
-      "description": "Pestañas de lectura; la página seleccionada no cambia la sala física.",
-      "html": "<nav class=\"ds-tabs\" aria-label=\"Lugares del cuaderno\"><button aria-current=\"true\">Puerto</button><button>Archivo</button></nav>",
-      "css": ".ds-tabs{display:flex;flex-wrap:wrap;gap:8px;padding:16px 16px 18px;background:var(--book-paper,#f5e7bc);border-bottom:1px solid #b69a6b}.ds-tabs button{min-height:44px;padding:8px 12px;border:2px solid var(--book-edge,#705137);background:#f8edcf;color:var(--book-ink,#293b32);font:16px Pixelify,sans-serif;cursor:pointer}.ds-tabs button[aria-current=true]{background:#315b47;color:#fff2cf}.ds-tabs button:hover:not([aria-current=true]){background:#e5cd94}.ds-tabs button:focus-visible{outline:3px solid #9d2f27;outline-offset:4px}"
-    },
-    {
-      "name": "Cuaderno RPG",
-      "kind": "card",
-      "refersTo": "rpg-dialog",
-      "description": "Superficie del diálogo nativo; Pixelify en título y DM Sans en evidencia.",
-      "html": "<section class=\"ds-book\"><header><h2>Cuaderno de viaje</h2><button>Cerrar</button></header><p>El trabajo de Jorge, a tu ritmo. Puedes leerlo aquí o visitar cada edificio.</p></section>",
-      "css": ".ds-book{max-width:960px;border:4px solid var(--book-edge,#705137);outline:2px solid #f9eac5;outline-offset:-9px;background:var(--book-paper,#f5e7bc);color:var(--book-ink,#293b32);box-shadow:8px 16px 50px #1c2e2859;font:16px/1.65 \"DM Sans\",sans-serif}.ds-book header{display:flex;align-items:start;justify-content:space-between;gap:16px;padding:22px 28px 16px;border-bottom:2px solid #b69a6b}.ds-book h2{margin:4px 0 0;font:500 34px/1.1 Pixelify,sans-serif}.ds-book p{padding:22px 28px 30px;margin:0}.ds-book button{min-height:44px;padding:7px 12px;border:2px solid var(--book-edge,#705137);background:#ead8a7;color:var(--book-ink,#293b32);font:17px Pixelify,sans-serif;cursor:pointer}.ds-book button:hover{background:#ddc389}.ds-book button:focus-visible{outline:3px solid #9d2f27;outline-offset:4px}"
-    },
-    {
-      "name": "Sonido del pueblo",
-      "kind": "custom",
-      "description": "Botón de música siempre visible; volumen nativo desplegable y estado aria-pressed.",
-      "html": "<div class=\"ds-sound\"><button aria-pressed=\"true\">Música: sí</button><details><summary>Volumen</summary><div><label for=\"ds-volume\">Música y ambiente</label><input id=\"ds-volume\" type=\"range\" min=\"0\" max=\"100\" value=\"35\"><p>Costa de las ideas · tema original. Música, mar y pasos a tu ritmo.</p></div></details></div>",
-      "css": ".ds-sound{display:flex;align-items:start;gap:8px;color:var(--ink,#26382f);font:16px \"DM Sans\",sans-serif}.ds-sound button{min-height:44px;min-width:142px;padding:8px 12px;border:2px solid #285b48;background:var(--paper,#fff2cf);color:var(--ink,#26382f);font:16px Pixelify,sans-serif;cursor:pointer}.ds-sound button:hover{background:#f5d68e}.ds-sound button[aria-pressed=true]{background:#285b48;color:#fff2cf}.ds-sound button[aria-pressed=true]:hover{background:#1c4737}.ds-sound summary{min-height:44px;padding:14px 7px;font:12px \"DM Sans\",sans-serif;cursor:pointer}.ds-sound details>div{min-width:210px;padding:16px;background:var(--paper,#fff2cf);border:3px solid var(--book-edge,#705137)}.ds-sound label{display:block;margin:12px 0 4px;font-size:12px}.ds-sound input{width:100%;accent-color:var(--green,#285b48)}.ds-sound p{font-size:12px;line-height:1.5;margin-bottom:0}.ds-sound :focus-visible{outline:3px solid #9d2f27;outline-offset:4px}"
-    },
-    {
-      "name": "Destino del pueblo",
-      "kind": "button",
-      "refersTo": "rpg-landmark",
-      "description": "Nombre y función a tamaño fijo; reserva actores, controles y cajas Canvas reales. Prueba también 12px más arriba antes de omitirlo; el plano conserva los cinco destinos.",
-      "html": "<button class=\"ds-landmark\" aria-label=\"Caminar a Archivo ConMapas\"><strong>Archivo</strong><small>ConMapas</small></button>",
-      "css": ".ds-landmark{min-height:44px;padding:6px 11px;background:#244a3c;color:var(--paper,#fff2cf);border:1px solid var(--paper,#fff2cf);border-radius:0;box-shadow:0 3px 8px #244a3c26;text-align:center;line-height:1.1;white-space:nowrap;cursor:pointer}.ds-landmark strong{display:block;font:500 17px/1.1 Pixelify,sans-serif}.ds-landmark small{display:block;font:11px/1.4 \"DM Sans\",sans-serif;color:#e2e9cc;margin-top:2px}.ds-landmark:hover{background:#17382d}.ds-landmark:focus-visible{outline:3px solid var(--paper,#fff2cf);outline-offset:3px}"
     }
   ],
   "narrative": {
-    "northStar": "Pueblo costero, trabajo real",
-    "overview": "La exploración de Jorge habita un pueblo costero luminoso: mar azul, pasto salvia, caminos de arena, edificios de estuco y tejas rojas. El cuerpo, los objetos y los lugares tienen presencia pixelada; la evidencia profesional se lee con calma en un cuaderno de papel cálido. Jorge conserva pelo a hombros, lentes, barba corta, chaqueta verde y el cuerpo más gordito solicitado por el propietario.\n\nHay tres ámbitos deliberadamente separados. La portada clásica sigue siendo la entrada predeterminada y conserva atlas editorial, logo JU, DM Sans, cartografías originales y superficies arena/lila/salvia. El RPG utiliza `rpg-world.css` y después `rpg-craft.css`; la consola usa exclusivamente `terminal.css`, JetBrains Mono y grafito. Esta actualización autorizada sustituye la terminal histórica de océano/cobre: `expedition.css` y su cuaderno lateral ya no definen ninguna superficie activa. Los templates factuales compartidos no imponen su antigua presentación.\n\nLos refinamientos de cámara, orientación, música y vida del pueblo se documentan desde el código del mundo existente; conservan la dirección costera y no implican una composición visual aprobada. El contrato de esta superficie permanece en `.impeccable/surfaces/explorar-html.md`.",
+    "northStar": "Trabajo real, lectura directa",
+    "overview": "El portafolio clásico es la entrada principal; conserva logo JU, DM Sans, cartografías y composición editorial. La única alternativa es una terminal de lectura en grafito con JetBrains Mono. El RPG fue retirado por decisión expresa del propietario el 2026-10-11; sus materiales históricos no definen la interfaz vigente.",
     "keyCharacteristics": [
-      "Pueblo luminoso con guías, paseantes, cinco interiores ilustrados, cámara abierta regulable y plano ilustrado.",
-      "Música original elegida al entrar, control visible y ambiente ligado al reloj del juego.",
-      "Pixelify local para identidad del juego y DM Sans local para evidencia.",
-      "Cuaderno de campo amplio y conversaciones compactas junto al escenario.",
-      "Consola de archivos en grafito, tipografía monoespaciada y pistas contextuales.",
-      "Portada clásica predeterminada y acceso al contenido sin progresión obligatoria."
+      "Portafolio clásico como inicio.",
+      "Terminal local con archivos, comandos y ayuda contextual.",
+      "Única invitación alternativa después del hero."
     ],
     "rules": [
       {
-        "name": "The Separate Worlds Rule",
-        "body": "Aplicar cada paleta solo en su ruta; la consola en grafito y el cuaderno cálido no recolorean la portada clásica.",
+        "name": "Separate surfaces",
+        "body": "La terminal conserva su paleta y tipografía sin recolorear la portada.",
         "section": "colors"
-      },
-      {
-        "name": "The Readable Evidence Rule",
-        "body": "Pixelify identifica el pueblo y las acciones del cuaderno; los párrafos, fuentes, estados y límites del RPG se leen en DM Sans.",
-        "section": "typography"
-      },
-      {
-        "name": "The Screen-Space Wayfinding Rule",
-        "body": "La cámara puede alejar el pueblo, pero los nombres conservan su tamaño de lectura y espacio libre alrededor de actores y controles.",
-        "section": "typography"
-      },
-      {
-        "name": "The Grounded World Rule",
-        "body": "Las señales de suelo permanecen bajo actores y objetos; ninguna etiqueta tapa la evidencia que nombra.",
-        "section": "elevation"
       }
     ],
     "dos": [
-      "Do conservar portada clásica predeterminada y paletas propias para RPG y terminal.",
-      "Do mantener las proporciones aprobadas de Jorge y los pies apoyados en el suelo.",
-      "Do separar escena física, lugar leído y visita; mantener todo el contenido accesible desde cuaderno e índice.",
-      "Do conservar foco visible, pausa, movimiento reducido y controles táctiles.",
-      "Do ofrecer entrada con música o sin sonido y mantener el control de música visible.",
-      "Do reservar las cajas reales de nombres y saludos antes de colocar rótulos de destinos.",
-      "Do mantener rótulos a tamaño de pantalla, plano completo y rutas caminadas con cancelación visible.",
-      "Do mantener fuentes locales con licencia y cartografías originales con autoría y límites.",
-      "Do acompañar cada ruta de consola con comandos ejecutables y ejemplos comprensibles."
+      "Conservar contenido, fuentes y límites.",
+      "Mantener comandos, foco, teclado y enlaces sin JavaScript."
     ],
     "donts": [
-      "Don't devolver el pueblo a un selector estático oscuro con sidebar permanente.",
-      "Don't reintroducir océano/cobre ni el cuaderno lateral como sistema de la terminal activa.",
-      "Don't extender Pixelify a párrafos ni aplicar JetBrains Mono a la portada clásica.",
-      "Don't presentar el pueblo o sus guías ficticios como geografía o colaboradores reales.",
-      "Don't cubrir evidencia con rótulos, poner anillos sobre sprites o suponer gutters iguales.",
-      "Don't bloquear el portafolio detrás de logros, iniciar audio automáticamente ni ejecutar entradas de terminal.",
-      "Don't escalar el texto de destinos con el mundo ni teletransportar al elegir un destino desde el plano."
+      "Reintroducir el RPG retirado.",
+      "Ejecutar entradas como shell o HTML."
     ]
   }
 }

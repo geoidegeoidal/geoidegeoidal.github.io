@@ -1,3 +1,10 @@
+## 2026-10-11 · RPG retirado por el propietario
+
+- Decisión vigente: portada clásica en / y consola como única alternativa. Sustituye todas las instrucciones históricas de conservar/desarrollar el RPG. No reintroducirlo sin petición expresa.
+- explorar.html solo mantiene compatibilidad de enlaces: location.replace a terminal.html con consulta, canonical terminal, noindex y sitemap:false; sin JS enlaces accesibles. No aceptar destinos de redirección desde parámetros.
+- Motor, CSS, sprites, Pixelify y pruebas exclusivas del RPG eliminados. _data/expedition.json y expedition-templates.html siguen siendo fuentes de la consola; conservar sus IDs para enlaces antiguos. mapa se retira de ejecución, ayuda y autocompletado juntos.
+- Validar con tests/expedition_check.cjs y check_site.py; no ejecutar suites RPG retiradas. El historial de especificaciones/revisiones RPG es archivo, no comportamiento vigente.
+
 ## 2026-10-06 · Música descubrible y pueblo habitado
 
 - Entrada RPG: página inicial silenciosa, elección explícita Entrar con música / Entrar sin sonido. La primera crea/reanuda audio por ese gesto; la segunda no lo crea. Botón de música visible fuera del detalle Volumen. Esta decisión sustituye la entrada siempre muda con música oculta del refinamiento anterior.

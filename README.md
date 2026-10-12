@@ -139,10 +139,10 @@ La portada incluye un globo ortográfico Canvas con costas reales de Natural Ear
 Cartografía base del globo: Natural Earth. Trabajo editorial de mapas: [ConMapas](https://www.instagram.com/conmapas/).
 
 
-### Experiencias alternativas
+### Consola alternativa
 
-`explorar.html` ofrece un pueblo costero con movimiento libre, NPC, cinco interiores y un personaje basado en Jorge. Flechas/WASD, E para interactuar o controles táctiles. El cuaderno y el índice dan acceso directo al portafolio. `terminal.html` ofrece un sistema de archivos local de lectura: ls, cd, cat, pwd, tree, help; historial, rutas relativas, autocompletado y ejemplos contextuales. Tipografía JetBrains Mono local (OFL).
+El portafolio clásico permanece en la raíz. `terminal.html` es la única vista alternativa: archivos de lectura con ls, cd, cat, pwd, tree y help; historial, autocompletado y ejemplos contextuales. JetBrains Mono local (OFL).
 
-El portafolio clásico siempre permanece en la raíz. El mapa tiene salas ilustradas, cuaderno con evidencias y música original generada con Web Audio: apagada de inicio, activación voluntaria, volumen y suspensión al pausar/ocultar. Ninguna fotografía privada de referencia forma parte del juego.
+El RPG fue retirado por decisión del propietario el 2026-10-11. `explorar.html` solo redirige a la consola conservando la consulta; sin JavaScript ofrece enlaces directos. Código, imágenes, fuente y pruebas exclusivos del juego fueron eliminados; su historial sigue en Git. Los datos y templates que utiliza la terminal se conservan.
 
-Pruebas: `node tests/rpg_logic.cjs`, `node tests/rpg_check.cjs`, `node tests/rpg_audio_check.cjs`, `node tests/expedition_check.cjs`. Fijar `TEST_SITE_URL` al servidor de prueba.
+Prueba: `node tests/expedition_check.cjs`. Fijar `TEST_SITE_URL` al servidor de prueba.
