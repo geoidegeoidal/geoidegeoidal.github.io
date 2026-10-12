@@ -8,7 +8,26 @@
 </template>
 {% endfor %}
 {% for project in site.data.projects %}
-<template id="project-{{ project.id }}" data-name="{{ project.name | escape }}"><article class="exp-project"><h3>{{ project.name }}</h3><p class="exp-project-category">{{ project.category }}</p><p>{{ project.summary }}</p><p>{{ project.detail }}</p><p class="exp-stack">{{ project.stack }}</p><p class="exp-project-note">{{ project.status }}. {{ project.note }}</p><div class="exp-project-links">{% if project.demo %}<a href="{{ project.demo }}">Abrir proyecto ↗</a>{% endif %}{% if project.repo %}<a href="{{ project.repo }}">Ver código ↗</a>{% endif %}</div></article></template>
+<template id="project-{{ project.id }}" data-name="{{ project.name | escape }}" data-summary="{{ project.summary | escape }}">
+  <article class="exp-project">
+    <h3>{{ project.name }}</h3>
+    <p class="exp-project-category">{{ project.category }} · {{ project.status }}</p>
+    <dl class="project-brief">
+      <div><dt>Problema</dt><dd>{{ project.problem }}</dd></div>
+      <div><dt>Mi aporte</dt><dd>{{ project.contribution }}</dd></div>
+    </dl>
+    <div class="project-access">
+      <h4>Ver el resultado</h4>
+      <div class="exp-project-links">
+        {% if project.demo %}<a class="project-primary" href="{{ project.demo }}" target="_blank" rel="noopener noreferrer">{% if project.id == 'storytelling-11s' %}Abrir relato{% else %}Abrir proyecto{% endif %}<span aria-hidden="true"> ↗</span><span class="sr"> de {{ project.name }} (nueva pestaña)</span></a>{% endif %}
+        {% if project.repo %}<a {% unless project.demo %}class="project-primary"{% endunless %} href="{{ project.repo }}" target="_blank" rel="noopener noreferrer">{% if project.status contains 'Plugin QGIS' %}Instalación y código{% else %}Ver código{% endif %}<span aria-hidden="true"> ↗</span><span class="sr"> de {{ project.name }} (nueva pestaña)</span></a>{% endif %}
+      </div>
+      <p class="project-access-hint">{% if project.demo %}Proyecto y código en nuevas pestañas; tu sesión queda aquí.{% elsif project.status contains 'Plugin QGIS' %}Se usa en QGIS. Abre el repositorio para instalarlo; no tiene demo web.{% else %}Disponible como código en GitHub; no tiene demo web enlazada.{% endif %}</p>
+    </div>
+    <p class="exp-project-note"><strong>Alcance</strong> {{ project.note }}</p>
+    <details class="project-technical"><summary>Ficha técnica y contexto</summary><p class="exp-stack"><strong>Herramientas</strong> {{ project.stack }}</p><p>{{ project.summary }}</p><p>{{ project.detail }}</p></details>
+  </article>
+</template>
 {% endfor %}
 <template id="exp-trajectory"><div class="exp-trajectory"><h3>Trayectoria profesional</h3>{% include trajectory.html %}</div></template>
 <template id="exp-skills"><div class="exp-skills"><h3>Herramientas de trabajo</h3>{% for group in site.data.technologies %}<h4>{{ group.name }}</h4><ul>{% for tool in group.tools %}<li><strong>{{ tool.name }}</strong> · {{ tool.level }}<br>{{ tool.use }}</li>{% endfor %}</ul>{% endfor %}<p>Los niveles son declarados, no una certificación.</p></div></template>
