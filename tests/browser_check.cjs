@@ -29,6 +29,7 @@ const base = (process.env.TEST_SITE_URL || "http://127.0.0.1:4000").replace(
       "/code.html",
       "/blog.html",
       "/python/gis/2025/01/02/mi-primer-analisis.html",
+      "/bitacora/luz-rm-cortes-energia-territorio/",
       "/404.html",
     ];
     for (const width of [320, 390, 768, 1440]) {

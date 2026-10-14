@@ -20,16 +20,17 @@
     "category": "Inteligencia territorial",
     "featured": true,
     "summary": "De los cortes de energía a una lectura territorial: mapa, indicadores y reportes que comparten el mismo ámbito de análisis.",
-    "detail": "Integra GeoJSON públicos, depura eventos repetidos y permite explorar comunas o áreas dibujadas. El reporte conserva el contexto espacial de la consulta.",
-    "stack": "TypeScript · MapLibre · Turf.js · ECharts",
+    "detail": "Integra GeoJSON públicos, depura eventos repetidos y conecta mapa, indicadores y reportes PDF por comuna o área dibujada. La actualización se programa cada cinco minutos con cron-job.org y GitHub Actions, sujeta a la publicación de Enel y al despliegue. Permite preparar un aviso con ubicación y descripción para continuar en el WhatsApp oficial de Enel.",
+    "stack": "TypeScript · Vite · MapLibre GL JS · Turf.js · ECharts · GitHub Actions",
     "demo": "https://geoidegeoidal.github.io/luz-rm/",
-    "note": "Proyecto independiente. Enel es la fuente de datos; no existe afiliación.",
+    "note": "Proyecto independiente, sin afiliación con Enel. Los datos pueden tener retraso. El aviso se revisa localmente y requiere consentimiento para abrir WhatsApp; el envío y la confirmación del registro se completan con Enel.",
+    "article": "/bitacora/luz-rm-cortes-energia-territorio/",
     "status": "Aplicación web",
     "image": "/assets/images/projects/luz-rm.webp",
     "alt": "Captura de LUZ·RM con el mapa de cortes, capas e indicadores operativos",
     "repo": "https://github.com/geoidegeoidal/luz-rm",
     "problem": "Entender cómo se distribuyen los cortes de energía y consultar sus datos dentro de un mismo territorio.",
-    "contribution": "Integré GeoJSON públicos y depuración de eventos repetidos con un mapa, indicadores y reportes por comuna o área dibujada."
+    "contribution": "Integré GeoJSON públicos y depuración de eventos repetidos con análisis espacial y reportes PDF. Incorporé un disparador gratuito cada cinco minutos y un flujo de aviso georreferenciado con revisión y consentimiento antes de continuar en el canal oficial."
   },
   {
     "id": "azimut",

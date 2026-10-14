@@ -1,3 +1,12 @@
+## 2026-10-13 · LUZ·RM actualizado y artículo técnico
+
+**Objetivo:** actualizar el portafolio con las mejoras de LUZ·RM y explicar beneficios, abordaje y tecnologías; preparar dos piezas para LinkedIn.
+**Completado:** ficha común de portada/catálogo/terminal actualizada con PDF, disparador cada cinco minutos y preparación de aviso con consentimiento. Artículo en /bitacora/luz-rm-cortes-energia-territorio/, enlazado desde portada y Código y listado automáticamente en Blog/feed/sitemap. Dos JPG 1080×1350 con capturas reales y texto/alternativas para LinkedIn en el workspace LUZ·RM (output/linkedin).
+**Decisiones:** reutilizar el layout de post y la fuente _data/projects.json. article es un enlace interno opcional con relative_url. Conservar URLs de demos github.io, independencia respecto de Enel, límites del snapshot y diferencia entre programación, publicación de datos y recepción del aviso. No cambiar diseños ni niveles profesionales.
+**Verificación:** Jekyll, check_site (11 páginas), SEO/JSON-LD, browser_check (7 rutas×4 anchos, sin errores ni violaciones axe), terminal_projects_check (diez fichas, 320–1440px y 200%). Inspección de artículo en escritorio/390px y de ambas piezas sin recortes a 1080×1350.
+**Bloqueantes:** ninguno. LinkedIn queda preparado para publicación por el propietario; no se enviaron formularios ni avisos reales.
+**Siguiente:** publicar estos cambios y verificar artículo/ficha en julloa.space. Rama codex/luz-rm-project-story; commit de implementación asociado a esta entrada.
+
 ## 2026-10-11 · Cierre: proyectos de consola publicados
 
 **Objetivo:** que cada proyecto explique problema, aporte y acceso sin perder lenguaje de terminal. **Completado:** PR #9 integrada en 3d4a96c; Pages 38191237061 success. **Verificación pública:** terminal_projects_check y regresiones de consola/personalidad/refinamiento pasan en https://julloa.space; diez fichas, filas comunes, filtros, links/notas/técnica, sesión/borrador, rutas directas, 320–1440px/axe, 200%, noJS y compatibilidad. CSS/JS públicos coinciden con checkout normalizando CRLF/LF. **Decisiones:** catálogo original conservado, briefs aditivos, detalle técnico desplegable, límites visibles y enlaces externos seguros en nueva pestaña. **Bloqueos:** ninguno. **Siguiente:** recoger valoración; no queda implementación pendiente. **Commits:** ebc7e43 spec, 3542456 implementación, 3d4a96c merge. No probado en hardware/lector de pantalla real ni operación interna de apps externas. Este cierre es documental.

@@ -1,3 +1,9 @@
+## 2026-10-13 · Caso LUZ·RM y enlace editorial
+
+- _data/projects.json puede incluir article, ruta interna opcional al caso técnico; portada y Código usan relative_url. La terminal continúa leyendo los campos comunes de ficha, sin duplicar contenido.
+- LUZ·RM tiene artículo en /bitacora/luz-rm-cortes-energia-territorio/. No equiparar disparo cada cinco minutos con datos nuevos garantizados ni abrir WhatsApp con aviso registrado. Borrador local, consentimiento para WhatsApp/Meta y envío/confirmación con Enel; sin afiliación.
+- Los posts pueden tener permalink sin fecha en la URL; SEO debe comprobar BlogPosting también para /bitacora/. Añadir nuevos artículos a la cobertura existente de navegador/SEO, sin cambiar el layout editorial.
+
 ## 2026-10-11 · Proyectos legibles en consola
 
 - _data/projects.json conserva campos clásicos; problem/contribution son paráfrasis editoriales del contenido existente para la consola, sin métricas ni responsabilidades inventadas. Nuevos proyectos deben incluir ambos y conservar note/status/demo/repo reales.
