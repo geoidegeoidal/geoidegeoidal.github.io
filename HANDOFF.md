@@ -5,7 +5,8 @@
 **Decisiones:** reutilizar el layout de post y la fuente _data/projects.json. article es un enlace interno opcional con relative_url. Conservar URLs de demos github.io, independencia respecto de Enel, límites del snapshot y diferencia entre programación, publicación de datos y recepción del aviso. No cambiar diseños ni niveles profesionales.
 **Verificación:** Jekyll, check_site (11 páginas), SEO/JSON-LD, browser_check (7 rutas×4 anchos, sin errores ni violaciones axe), terminal_projects_check (diez fichas, 320–1440px y 200%). Inspección de artículo en escritorio/390px y de ambas piezas sin recortes a 1080×1350.
 **Bloqueantes:** ninguno. LinkedIn queda preparado para publicación por el propietario; no se enviaron formularios ni avisos reales.
-**Siguiente:** publicar estos cambios y verificar artículo/ficha en julloa.space. Rama codex/luz-rm-project-story; commit de implementación asociado a esta entrada.
+**Publicación:** implementación `dafc3f1` en main; Pages `38488765532` completado con éxito. Artículo y ficha de Código verificados en producción; enlace Cómo lo construí abre la ruta correcta. Captura pública en output/linkedin/articulo-publicado.jpg del workspace LUZ·RM.
+**Siguiente:** sin implementación pendiente; entregar piezas/copy al propietario. Rama codex/luz-rm-project-story. No se probó en hardware móvil ni lector de pantalla real.
 
 ## 2026-10-11 · Cierre: proyectos de consola publicados
 
